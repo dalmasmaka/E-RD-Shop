@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZTZ9Dow5p4AkF4PvMAv0Z36eQ8E6QB7CXWF31gZmDxqb7rvWcCceXnPkvm0QAv4ci20vsJSY9BxpA3IQF52LMQ==",
+  "dgSpecHash": "rjnuIevP++kpm4hPn3QJg3fDqLZPo9ZwJBjg+te4A0rozB9HGdkeuxG1mVIK9NuIN3YAnnFv9jlot0W1/idW3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dalma\\Desktop\\UBT\\Semestri 6\\Lëndë Laboratorike 2\\ERD-Shop\\ERD-Shop.csproj",
+  "projectFilePath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dalma\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Dalma\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
