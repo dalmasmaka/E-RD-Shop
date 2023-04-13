@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dalma\\Desktop\\UBT\\Semestri 6\\Lëndë Laboratorike 2\\ERD-Shop\\ERD-Shop.csproj": {}
+    "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dalma\\Desktop\\UBT\\Semestri 6\\Lëndë Laboratorike 2\\ERD-Shop\\ERD-Shop.csproj": {
+    "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dalma\\Desktop\\UBT\\Semestri 6\\Lëndë Laboratorike 2\\ERD-Shop\\ERD-Shop.csproj",
+        "projectUniqueName": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.csproj",
         "projectName": "ERD-Shop",
-        "projectPath": "C:\\Users\\Dalma\\Desktop\\UBT\\Semestri 6\\Lëndë Laboratorike 2\\ERD-Shop\\ERD-Shop.csproj",
+        "projectPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.csproj",
         "packagesPath": "C:\\Users\\Dalma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dalma\\Desktop\\UBT\\Semestri 6\\Lëndë Laboratorike 2\\ERD-Shop\\obj\\",
+        "outputPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dalma\\AppData\\Roaming\\NuGet\\NuGet.Config",
