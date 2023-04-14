@@ -11,9 +11,13 @@ storeName varchar(200),
 storeLocation varchar(250),
 storeOwner varchar(250),
 storeContact varchar(250),
-categoryID int,
 storeImg varchar(500),
-FOREIGN KEY (categoryID) REFERENCES Category(categoryID)
+);
+CREATE TABLE Store_Category(
+storeID int,
+categoryID int,
+FOREIGN KEY (storeID) REFERENCES Store(storeID),
+FOREIGN KEY (categoryID)REFERENCES Category(categoryID)
 );
 CREATE TABLE ProductVariant(
 productVariantID int identity(1,1) primary key,
