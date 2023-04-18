@@ -32,11 +32,8 @@ productID int identity(1,1) primary key,
 productName varchar(250),
 productImg varchar(250),
 productVariantID int,
-FOREIGN KEY (productVariantID) REFERENCES ProductVariant(productVariantID)
+storeID int,
+FOREIGN KEY (productVariantID) REFERENCES ProductVariant(productVariantID),
+FOREIGN KEY(storeID) REFERENCES Store(storeID)
 );
-
-CREATE TABLE DiscountCode(
-discountID int identity(1,1) primary key,
-codeValue varchar(50),
-expiration bit
-);
+drop table Product

@@ -6,8 +6,8 @@ namespace ERD_Shop.Store.Repository
     {
         Task<IEnumerable<CategoryDto>> GetCategories();
         Task<CategoryDto> GetCategoryById(int CategoryId);
-        Task<CategoryDto> CreateUpdateProduct(CategoryDto categoryDto);
-        Task<bool> DeleteProduct(int CategoryId);
+        Task<CategoryDto> CreateUpdateCategory(CategoryDto categoryDto);
+        Task<bool> DeleteCategory(int CategoryId);
 
     }
 }

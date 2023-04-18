@@ -2254,19 +2254,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Enes1\\.nuget\\packages\\": {}
+    "C:\\Users\\Dalma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
+      "projectUniqueName": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
       "projectName": "ERD-Shop.Store",
-      "projectPath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
-      "packagesPath": "C:\\Users\\Enes1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\obj\\",
+      "projectPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
+      "packagesPath": "C:\\Users\\Dalma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Enes1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dalma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2334,7 +2334,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

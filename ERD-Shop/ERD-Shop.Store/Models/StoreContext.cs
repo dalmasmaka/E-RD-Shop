@@ -17,18 +17,18 @@ namespace ERD_Shop.Store.Models
         }
 
         public virtual DbSet<Category> Categories { get; set; } = null!;
-        public virtual DbSet<DiscountCode> DiscountCodes { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductVariant> ProductVariants { get; set; } = null!;
         public virtual DbSet<Store> Stores { get; set; } = null!;
         public virtual DbSet<StoreCategory> StoreCategories { get; set; } = null!;
+        public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DANDA;Initial Catalog=Store;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DANDA;Initial Catalog=Store;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 
@@ -51,23 +51,6 @@ namespace ERD_Shop.Store.Models
                     .HasColumnName("categoryName");
             });
 
-            modelBuilder.Entity<DiscountCode>(entity =>
-            {
-                entity.HasKey(e => e.DiscountId)
-                    .HasName("PK__Discount__D2130A0634B4679D");
-
-                entity.ToTable("DiscountCode");
-
-                entity.Property(e => e.DiscountId).HasColumnName("discountID");
-
-                entity.Property(e => e.CodeValue)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("codeValue");
-
-                entity.Property(e => e.Expiration).HasColumnName("expiration");
-            });
-
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.ToTable("Product");
@@ -86,10 +69,17 @@ namespace ERD_Shop.Store.Models
 
                 entity.Property(e => e.ProductVariantId).HasColumnName("productVariantID");
 
+                entity.Property(e => e.StoreId).HasColumnName("storeID");
+
                 entity.HasOne(d => d.ProductVariant)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.ProductVariantId)
-                    .HasConstraintName("FK__Product__product__2F10007B");
+                    .HasConstraintName("FK__Product__product__30F848ED");
+
+                entity.HasOne(d => d.Store)
+                    .WithMany(p => p.Products)
+                    .HasForeignKey(d => d.StoreId)
+                    .HasConstraintName("FK__Product__storeID__31EC6D26");
             });
 
             modelBuilder.Entity<ProductVariant>(entity =>
@@ -151,6 +141,13 @@ namespace ERD_Shop.Store.Models
                     .HasMaxLength(250)
                     .IsUnicode(false)
                     .HasColumnName("storeOwner");
+
+                entity.Property(e => e.UserId).HasColumnName("User_Id");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Stores)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK__Store__User_Id__29572725");
             });
 
             modelBuilder.Entity<StoreCategory>(entity =>
@@ -166,12 +163,52 @@ namespace ERD_Shop.Store.Models
                 entity.HasOne(d => d.Category)
                     .WithMany()
                     .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK__Store_Cat__categ__38996AB5");
+                    .HasConstraintName("FK__Store_Cat__categ__2C3393D0");
 
                 entity.HasOne(d => d.Store)
                     .WithMany()
                     .HasForeignKey(d => d.StoreId)
-                    .HasConstraintName("FK__Store_Cat__store__37A5467C");
+                    .HasConstraintName("FK__Store_Cat__store__2B3F6F97");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("User");
+
+                entity.HasIndex(e => e.Email, "UQ__User__A9D105344A8AA0D8")
+                    .IsUnique();
+
+                entity.Property(e => e.UserId).HasColumnName("User_Id");
+
+                entity.Property(e => e.Address)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Birthdate).HasColumnType("date");
+
+                entity.Property(e => e.CityId).HasColumnName("City_Id");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("First_Name");
+
+                entity.Property(e => e.LastName)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("Last_Name");
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.RoleId).HasColumnName("Role_Id");
+
+                entity.Property(e => e.ZipCode).HasColumnName("Zip_Code");
             });
 
             OnModelCreatingPartial(modelBuilder);
