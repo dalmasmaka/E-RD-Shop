@@ -9,6 +9,10 @@ namespace ERD_Shop.User.DbContexts
     {
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<IProductVariant> ProductVariants { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -23,6 +27,11 @@ namespace ERD_Shop.User.DbContexts
                 .WithMany()
                 .HasForeignKey(c => c.Country_Id)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<Wishlist>().HasOne(w => w.User)
+                .WithMany()
+                .HasForeignKey(w => w.ApplicationUserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
         private static void SeedRoles(ModelBuilder builder)
         {

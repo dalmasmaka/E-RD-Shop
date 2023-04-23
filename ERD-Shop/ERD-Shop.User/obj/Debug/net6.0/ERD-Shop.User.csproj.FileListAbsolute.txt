@@ -67,3 +67,5 @@ E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.User\obj\Debug\net6.0\ERD-Shop.User.pdb
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.User\obj\Debug\net6.0\ERD-Shop.User.genruntimeconfig.cache
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.User\obj\Debug\net6.0\ref\ERD-Shop.User.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.User\bin\Debug\net6.0\AutoMapper.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.User\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
