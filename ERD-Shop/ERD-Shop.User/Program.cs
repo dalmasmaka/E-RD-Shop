@@ -1,10 +1,25 @@
+using AutoMapper;
+using ERD_Shop.User;
 using ERD_Shop.User.DbContexts;
 using ERD_Shop.User.Models;
+using ERD_Shop.User.Models.DTO;
+using ERD_Shop.User.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Creating Mapper
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//Adding Repositories
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+
+//Adding Response
+builder.Services.AddScoped<ResponseDto>();
 
 //Adding Db Context
 var configuration = builder.Configuration;

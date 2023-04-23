@@ -4,6 +4,7 @@ using ERD_Shop.User.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ERD_Shop.User.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230418211237_wishlist_migration")]
+    partial class wishlist_migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,25 +167,6 @@ namespace ERD_Shop.User.Migrations
                     b.ToTable("ProductVariants");
                 });
 
-            modelBuilder.Entity("ERD_Shop.User.Models.ShoppingCart", b =>
-                {
-                    b.Property<int>("ShoppingCartId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShoppingCartId"), 1L, 1);
-
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ShoppingCartId");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("ShoppingCarts");
-                });
-
             modelBuilder.Entity("ERD_Shop.User.Models.Wishlist", b =>
                 {
                     b.Property<int>("WishlistId")
@@ -201,21 +184,6 @@ namespace ERD_Shop.User.Migrations
                     b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Wishlists");
-                });
-
-            modelBuilder.Entity("IProductVariantShoppingCart", b =>
-                {
-                    b.Property<int>("ProductVariantsProductVariantId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ShoppingCartsShoppingCartId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductVariantsProductVariantId", "ShoppingCartsShoppingCartId");
-
-                    b.HasIndex("ShoppingCartsShoppingCartId");
-
-                    b.ToTable("IProductVariantShoppingCart");
                 });
 
             modelBuilder.Entity("IProductVariantWishlist", b =>
@@ -262,21 +230,21 @@ namespace ERD_Shop.User.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "82367212-6b13-4aec-a152-4b6c9d5da522",
+                            Id = "3663f3f6-2234-4f2e-bc9c-e20b846df91c",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "19edddb3-1d25-4ce5-ac24-363d1367e213",
+                            Id = "f8bb27a6-4f38-476c-82e7-5fa927728b9e",
                             ConcurrencyStamp = "2",
                             Name = "User",
                             NormalizedName = "User"
                         },
                         new
                         {
-                            Id = "281301a6-27d7-47cb-9337-75f5926abfe1",
+                            Id = "bb05c4bd-6ee6-44ab-b437-953353687a2e",
                             ConcurrencyStamp = "3",
                             Name = "Store Keeper",
                             NormalizedName = "Store Keeper"
@@ -410,17 +378,6 @@ namespace ERD_Shop.User.Migrations
                     b.Navigation("City_Country");
                 });
 
-            modelBuilder.Entity("ERD_Shop.User.Models.ShoppingCart", b =>
-                {
-                    b.HasOne("ERD_Shop.User.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("ERD_Shop.User.Models.Wishlist", b =>
                 {
                     b.HasOne("ERD_Shop.User.Models.ApplicationUser", "User")
@@ -430,21 +387,6 @@ namespace ERD_Shop.User.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("IProductVariantShoppingCart", b =>
-                {
-                    b.HasOne("ERD_Shop.User.Models.IProductVariant", null)
-                        .WithMany()
-                        .HasForeignKey("ProductVariantsProductVariantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ERD_Shop.User.Models.ShoppingCart", null)
-                        .WithMany()
-                        .HasForeignKey("ShoppingCartsShoppingCartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("IProductVariantWishlist", b =>
