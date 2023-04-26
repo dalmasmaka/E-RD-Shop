@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ERD_Shop.Store.Models
 {
@@ -9,7 +10,7 @@ namespace ERD_Shop.Store.Models
         {
             Products = new HashSet<Product>();
         }
-
+        [Key]
         public int ProductVariantId { get; set; }
         public string? ProductVariantName { get; set; }
         public string? SkuCode { get; set; }
