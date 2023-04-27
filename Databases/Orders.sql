@@ -9,6 +9,8 @@ shippingAddress varchar(250),
 [User_Id] int foreign key references [User]([User_Id]) on delete set null,
 codeValueID int foreign key references DiscountCode(codeValueID) on delete set null
 )
+insert into Orders values(34.5,'2023-09-09','Abcde',1,1)
+select * from Orders
 create table [User](
 	[User_Id] int primary key identity(1,1),
 	[First_Name] varchar(20),
@@ -54,3 +56,7 @@ usageLimit int not null,
 [User_Id] int foreign key references [User]([User_Id]) on delete set null,
 )
 
+insert into [User] values ('Rreze','Rexhepi','rrez@gmail.com','12345','AliZ',12344,'2002-02-02',2,2);
+insert into DiscountCode values('2023-08-09',4,1);
+select * from [User]
+select *from DiscountCode

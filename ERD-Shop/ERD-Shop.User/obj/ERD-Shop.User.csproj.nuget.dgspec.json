@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj": {}
+    "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj": {}
   },
   "projects": {
-    "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj": {
+    "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
+        "projectUniqueName": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
         "projectName": "ERD-Shop.User",
-        "projectPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\obj\\",
+        "projectPath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
+        "packagesPath": "C:\\Users\\Enes1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Enes1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

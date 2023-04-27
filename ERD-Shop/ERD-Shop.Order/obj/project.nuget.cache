@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LWgUtZlBS6yuHvcuz0VVdM8jkaL90akwJ2TP+xwFZOYajIrGSO0WVbxFHfiWaa2VhG8pLZDpWtA3NokoWESw4A==",
+  "dgSpecHash": "Bl6GD2NIKh6JKzswia4JVMyXIFKwGcmw4Trb52J9EK+MHbW3mZM97TW7Vv3jXmOu0juQ9rb7RXFZ7qtUnV5IEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Enes1\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Enes1\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Enes1\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Enes1\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Enes1\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
