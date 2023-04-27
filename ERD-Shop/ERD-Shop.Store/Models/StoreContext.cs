@@ -19,7 +19,7 @@ namespace ERD_Shop.Store.Models
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductVariant> ProductVariants { get; set; } = null!;
-        public virtual DbSet<Store> Stores { get; set; } = null!;
+        public virtual DbSet<Stores> Stores { get; set; } = null!;
         public virtual DbSet<StoreCategory> StoreCategories { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
@@ -111,10 +111,8 @@ namespace ERD_Shop.Store.Models
                 entity.Property(e => e.StockQuantity).HasColumnName("stockQuantity");
             });
 
-            modelBuilder.Entity<Store>(entity =>
+            modelBuilder.Entity<Stores>(entity =>
             {
-                entity.ToTable("Store");
-
                 entity.Property(e => e.StoreId).HasColumnName("storeID");
 
                 entity.Property(e => e.StoreContact)

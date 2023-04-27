@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ERD_Shop.Store.Models
 {
-    public partial class Store
+    public partial class Stores
     {
-        public Store()
+        public Stores()
         {
             Products = new HashSet<Product>();
         }
-
+        [Key]
         public int StoreId { get; set; }
         public int? UserId { get; set; }
         public string? StoreName { get; set; }
