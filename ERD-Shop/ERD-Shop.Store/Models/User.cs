@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ERD_Shop.Store.Models
 {
@@ -7,9 +8,9 @@ namespace ERD_Shop.Store.Models
     {
         public User()
         {
-            Stores = new HashSet<Store>();
+            Stores = new HashSet<Stores>();
         }
-
+        [Key]
         public int UserId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
@@ -21,6 +22,6 @@ namespace ERD_Shop.Store.Models
         public int? RoleId { get; set; }
         public int? CityId { get; set; }
 
-        public virtual ICollection<Store> Stores { get; set; }
+        public virtual ICollection<Stores> Stores { get; set; }
     }
 }

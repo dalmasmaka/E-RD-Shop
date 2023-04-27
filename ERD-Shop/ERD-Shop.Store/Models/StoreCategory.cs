@@ -9,6 +9,6 @@ namespace ERD_Shop.Store.Models
         public int? CategoryId { get; set; }
 
         public virtual Category? Category { get; set; }
-        public virtual Store? Store { get; set; }
+        public virtual Stores? Store { get; set; }
     }
 }
