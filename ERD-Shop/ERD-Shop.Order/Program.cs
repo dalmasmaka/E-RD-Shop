@@ -1,4 +1,7 @@
+using AutoMapper;
+using ERD_Shop.Order;
 using ERD_Shop.Order.Models;
+using ERD_Shop.Order.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +13,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+builder.Services.AddTransient<IDiscountCodeRepository, DiscountCodeRepository>();
+builder.Services.AddTransient<IRefundRepository, RefundRepository>();
+builder.Services.AddTransient<IProductVariantRepository, ProductVariantRepository>();
+
+
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<OrdersContext>(x=>x.UseSqlServer(connectionString));
+
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 var app = builder.Build();
 
