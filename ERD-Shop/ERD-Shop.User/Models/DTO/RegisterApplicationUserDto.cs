@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ERD_Shop.User.Models
+namespace ERD_Shop.User.Models.DTO
 {
-    public class ApplicationUser : IdentityUser
+    public class RegisterApplicationUserDto
     {
         [Required]
         [RegularExpression("^[A-Z][a-zA-Z]*$", ErrorMessage = "First Name must start with capital letter!")]
@@ -17,11 +15,11 @@ namespace ERD_Shop.User.Models
         [Required]
         public int? City_Id { get; set; }
         [Required]
-        public City? User_City { get; set; }
-        [Required]
         public int Zip_Code { get; set; }
         [Required]
-        [RegularExpression("\"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\"", ErrorMessage = "Email address not valid please try again")]
+        [RegularExpression("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", ErrorMessage = "Email address not valid please try again")]
         public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
     }
 }

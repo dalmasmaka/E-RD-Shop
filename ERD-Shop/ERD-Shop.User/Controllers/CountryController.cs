@@ -10,12 +10,12 @@ namespace ERD_Shop.User.Controllers
     public class CountryController : ControllerBase
     {
         protected ResponseDto _response;
-        protected ICountryRepository _productRepository;
+        protected ICountryRepository _countryRepository;
 
-        public CountryController(ResponseDto response, ICountryRepository productRepository)
+        public CountryController(ResponseDto response, ICountryRepository countryRepository)
         {
             _response = response;
-            _productRepository = productRepository;
+            _countryRepository = countryRepository;
         }
 
         [HttpGet]
@@ -23,7 +23,7 @@ namespace ERD_Shop.User.Controllers
         {
             try
             {
-                IEnumerable<CountryDto> countryDtos = await _productRepository.GetCountries();
+                IEnumerable<CountryDto> countryDtos = await _countryRepository.GetCountries();
                 _response.Result = countryDtos;
             } catch (Exception ex) {
                 _response.IsSuccess = false;
@@ -38,7 +38,7 @@ namespace ERD_Shop.User.Controllers
         {
             try
             {
-                CountryDto countryDto = await _productRepository.GetCountryById(id);
+                CountryDto countryDto = await _countryRepository.GetCountryById(id);
                 _response.Result = countryDto;
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace ERD_Shop.User.Controllers
         {
             try
             {
-                CountryDto country = await _productRepository.CreateUpdateCountry(countryDto);
+                CountryDto country = await _countryRepository.CreateUpdateCountry(countryDto);
                 _response.Result = country;
             }catch(Exception ex)
             {
@@ -69,7 +69,7 @@ namespace ERD_Shop.User.Controllers
         {
             try
             {
-                CountryDto country = await _productRepository.CreateUpdateCountry(countryDto);
+                CountryDto country = await _countryRepository.CreateUpdateCountry(countryDto);
                 _response.Result = country;
             }
             catch (Exception ex)
@@ -86,7 +86,7 @@ namespace ERD_Shop.User.Controllers
         {
             try
             {
-                bool isDeleted = await _productRepository.DeleteCountry(id);
+                bool isDeleted = await _countryRepository.DeleteCountry(id);
                 _response.Result = isDeleted;
             }
             catch (Exception ex)
