@@ -1,9 +1,11 @@
-﻿using ERD_Shop.Store.Models.DTOs;
+﻿using ERD_Shop.Store.Models;
+using ERD_Shop.Store.Models.DTOs;
 using ERD_Shop.Store.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERD_Shop.Store.Controllers
 {
+    [Route("api/categories")]
     public class CategoryAPIController : ControllerBase
     {
         protected ResponseDto _response;
@@ -13,82 +15,46 @@ namespace ERD_Shop.Store.Controllers
             _categoryRepository = categoryRepository;
             this._response = new ResponseDto();
         }
-        [HttpGet]
-        public async Task<object> Get()
-        {
-            try
-            {
-                IEnumerable<CategoryDto> categoryDtos = await _categoryRepository.GetCategories();
-                _response.Result = categoryDtos;
-            }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
 
-            }
-            return _response;
-        }
+
         [HttpGet]
         [Route("{id}")]
-        public async Task<object> Get(int id)
+        public ActionResult<Category> GetCategoryByID(int id)
         {
-            try
+            var category = _categoryRepository.GetCategoryById(id);
+            if (category == null)
             {
-                CategoryDto categoryDto = await _categoryRepository.GetCategoryById(id);
-                _response.Result = categoryDto;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            return category;
         }
         [HttpPost]
-        public async Task<object> Post(CategoryDto categoryDto)
+        public ActionResult<Category>Post (Category category)
         {
-            try
-            {
-                CategoryDto model = await _categoryRepository.CreateUpdateCategory(categoryDto);
-                _response.Result = model;
-            }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _categoryRepository.Create(category);
+            return CreatedAtAction(nameof(GetCategoryByID), new { id = category.CategoryId }, category);
         }
-        [HttpPut]
-        public async Task<object> Put(CategoryDto categoryDto)
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, Category category)
         {
-            try
+            var existingCategory = _categoryRepository.GetCategoryById(id);
+            if(existingCategory == null)
             {
-                CategoryDto model = await _categoryRepository.CreateUpdateCategory(categoryDto);
-                _response.Result = model;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _categoryRepository.Update(id, category);
+            return NoContent();
         }
-        [HttpDelete]
-        public async Task<object> Delete(int id)
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
         {
-            try
+            var category = _categoryRepository.GetCategoryById(id);
+            if (category == null)
             {
-                bool isSuccess = await _categoryRepository.DeleteCategory(id);
-                _response.Result = isSuccess;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _categoryRepository.Delete(category.CategoryId);
+            return Ok();
         }
-    }
+    }    
 }

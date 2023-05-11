@@ -72,6 +72,7 @@ C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Sh
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.dll
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.pdb
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -130,3 +131,16 @@ C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\refint
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.pdb
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.genruntimeconfig.cache
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ref\ERD-Shop.Store.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\DnsClient.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Snappier.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll

@@ -1,63 +1,57 @@
 ﻿using AutoMapper;
+using ERD_Shop.Store.Data;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace ERD_Shop.Store.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private readonly StoreContext _context;
-        private IMapper _mapper;
-        public CategoryRepository(StoreContext context, IMapper mapper)
+        private readonly IMongoDatabase _context;
+       
+        public CategoryRepository(IOptions<Settings> options)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-        public async Task<CategoryDto> CreateUpdateCategory(CategoryDto categoryDto)
-        {
-            Category category = _mapper.Map<CategoryDto, Category>(categoryDto);
-            if (category.CategoryId > 0)
-            {
-                _context.Categories.Update(category);
-            }
-            else
-            {
-                _context.Categories.Add(category);
-            }
-            await _context.SaveChangesAsync();
-            return _mapper.Map<Category, CategoryDto>(category);
+            var client = new MongoClient(options.Value.ConnectionString);
+            _context = client.GetDatabase(options.Value.Database);
         }
 
-        public async Task<bool> DeleteCategory(int CategoryId)
+        public IMongoCollection<Category> categorycollection => _context.GetCollection<Category>("category");
+
+        public void Create(Category category)
         {
-            try
-            {
-                Category category = await _context.Categories.SingleOrDefaultAsync(x => x.CategoryId == CategoryId);
-                if (category == null)
-                {
-                    return false;
-                }
-                _context.Categories.Remove(category);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            categorycollection.InsertOne(category);
         }
 
-        public async Task<IEnumerable<CategoryDto>> GetCategories()
+        public void Delete(int id)
         {
-            IEnumerable<Category> categoryList = await _context.Categories.ToListAsync();
-            return _mapper.Map<List<CategoryDto>>(categoryList);
+            var filter = Builders<Category>.Filter.Eq(c => c.CategoryId, id);
+            categorycollection.DeleteOne(filter);
         }
 
-        public async Task<CategoryDto> GetCategoryById(int CategoryId)
+        public IEnumerable<Category> GetCategories()
         {
-            Category category = await _context.Categories.Where(x => x.CategoryId == CategoryId).FirstOrDefaultAsync();
-            return _mapper.Map<CategoryDto>(category);
+           
+            return categorycollection.Find(a=>true).ToList();
         }
+
+        public Category GetCategoryById(int id)
+        {
+            var categorybyid = categorycollection.Find(m=>m.CategoryId== id).FirstOrDefault();
+            return categorybyid;
+        }
+
+        public void Update(int id, Category category)
+        {
+            var filter = Builders<Category>.Filter.Eq(c => c.CategoryId, id);
+            var update = Builders<Category>.Update
+                .Set("CategoryName", category.CategoryName)
+                .Set("CategoryImg", category.CategoryImg);
+            categorycollection.UpdateOne(filter, update);   
+        }
+
+
     }
 }

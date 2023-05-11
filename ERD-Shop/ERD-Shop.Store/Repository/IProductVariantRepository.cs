@@ -1,13 +1,17 @@
-﻿using ERD_Shop.Store.Models.DTOs;
+﻿using ERD_Shop.Store.Models;
+using ERD_Shop.Store.Models.DTOs;
+using MongoDB.Driver;
 
 namespace ERD_Shop.Store.Repository
 {
     public interface IProductVariantRepository
     {
-        Task<IEnumerable<ProductVariantDto>> GetProductVariants();
-        Task<ProductVariantDto> GetProductVariantById(int ProductVariantId);
-        Task<ProductVariantDto> CreateUpdateProductVariant(ProductVariantDto productVariantDto);
-        Task<bool>DeleteProductVariant(int ProductVariantId);
+        IMongoCollection<ProductVariant> productVariantCollection { get;  }
+        IEnumerable<ProductVariant> GetProductVariants();
+        ProductVariant GetProductVariantById(int id);
+        void Create(ProductVariant productVariant);
+        void Update(int id, ProductVariant productVariant);
+        void Delete(int id);
 
     }
 }

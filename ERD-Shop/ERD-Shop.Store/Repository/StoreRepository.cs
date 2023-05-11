@@ -1,61 +1,55 @@
 ﻿using AutoMapper;
+using ERD_Shop.Store.Data;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace ERD_Shop.Store.Repository
 {
     public class StoreRepository : IStoreRepository
     {
-        private readonly StoreContext _context;
-        private IMapper _mapper;
-        public StoreRepository(StoreContext context, IMapper mapper)
+        private readonly IMongoDatabase _context;
+        public StoreRepository(IOptions<Settings>options)
         {
-            _context= context;
-            _mapper= mapper;
-        }
-        public async Task<StoreDto> CreateUpdateStore(StoreDto storeDto)
-        {
-            Stores store = _mapper.Map<StoreDto, Stores>(storeDto);
-            if (store.StoreId > 0)
-            {
-                _context.Stores.Update(store);
-            }
-            else
-            {
-                _context.Stores.Add(store);
-            }
-            await _context.SaveChangesAsync();
-            return _mapper.Map<Stores, StoreDto>(store);
-        }
-        public async Task<bool> DeleteStore(int StoreId)
-        {
-            try
-            {
-                Stores store = await _context.Stores.SingleOrDefaultAsync(x => x.StoreId == StoreId);
-                if (store == null) {
-                    return false;
-                }
-                _context.Stores.Remove(store);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            var client = new MongoClient(options.Value.ConnectionString);
+            _context = client.GetDatabase(options.Value.Database);
         }
 
-        public async Task<StoreDto> GetStoreById(int StoreId)
+        public IMongoCollection<Stores> storecollection => _context.GetCollection<Stores>("stores");
+
+        public void Create(Stores stores)
         {
-            Stores store = await _context.Stores.Where(x => x.StoreId == StoreId).FirstOrDefaultAsync();
-            return _mapper.Map<StoreDto>(store);
+            storecollection.InsertOne(stores);
         }
 
-        public async Task<IEnumerable<StoreDto>> GetStores()
+        public void Delete(int id)
         {
-            IEnumerable<Stores> storeList = await _context.Stores.ToListAsync();
-            return _mapper.Map<List<StoreDto>>(storeList);
+            var filter = Builders<Stores>.Filter.Eq(c => c.StoreId, id);
+            storecollection.DeleteOne(filter);
+        }
+
+        public Stores GetStoreById(int id)
+        {
+            var storebyid = storecollection.Find(m=>m.StoreId== id).FirstOrDefault();
+            return storebyid;   
+        }
+
+        public IEnumerable<Stores> GetStores()
+        {
+            return storecollection.Find(a => true).ToList();
+        }
+
+        public void Update(int id, Stores stores)
+        {
+            var filter = Builders<Stores>.Filter.Eq(m => m.StoreId, id);
+            var update = Builders<Stores>.Update
+                .Set("StoreName", stores.StoreName)
+                .Set("StoreLocation", stores.StoreLocation)
+                .Set("StoreOwner", stores.StoreOwner)
+                .Set("StoreImg", stores.StoreImg);
+            storecollection.UpdateOne(filter, update);
         }
     }
 }

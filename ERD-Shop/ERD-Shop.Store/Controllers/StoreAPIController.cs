@@ -1,4 +1,5 @@
-﻿using ERD_Shop.Store.Models.DTOs;
+﻿using ERD_Shop.Store.Models;
+using ERD_Shop.Store.Models.DTOs;
 using ERD_Shop.Store.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,87 +8,52 @@ namespace ERD_Shop.Store.Controllers
     [Route("api/stores")]
     public class StoreAPIController : ControllerBase
     {
-        protected ResponseDto _response;
         private IStoreRepository _storeRepository;
         public StoreAPIController(IStoreRepository storeRepository)
         {
             _storeRepository = storeRepository;
-            this._response = new ResponseDto();
-        }
-        [HttpGet]
-        public async Task<object> Get()
-        {
-            try
-            {
-                IEnumerable<StoreDto> storeDtos = await _storeRepository.GetStores();
-                _response.Result = storeDtos;
-            }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-
-            }
-            return _response;
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<object>Get(int id)
+        public ActionResult<Stores> GetStoreById(int id)
         {
-            try
+            var store = _storeRepository.GetStoreById(id);
+            if (store == null)
             {
-                StoreDto storeDto = await _storeRepository.GetStoreById(id);
-                _response.Result = storeDto;
-            }catch(Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
+                return NotFound();
             }
-            return _response;
+            return store;
+
         }
         [HttpPost]
-        public async Task<object>Post(StoreDto storeDto)
+        public ActionResult<Stores> Post(Stores store)
         {
-            try
-            {
-                StoreDto model = await _storeRepository.CreateUpdateStore(storeDto);
-                _response.Result = model;
-            }
-            catch(Exception ex) {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _storeRepository.Create(store);
+            return CreatedAtAction(nameof(GetStoreById), new { id = store.StoreId }, store);
         }
-        [HttpPut]
-        public async Task<object> Put(StoreDto storeDto)
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, Stores stores)
         {
-            try
+            var existingStore = _storeRepository.GetStoreById(id);
+
+            if (existingStore == null)
             {
-                StoreDto model = await _storeRepository.CreateUpdateStore(storeDto);
-                _response.Result = model;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _storeRepository.Update(id, stores);
+            return NoContent();
         }
-        [HttpDelete]
-        public async Task<object> Delete(int id)
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
         {
-            try
+            var store = _storeRepository.GetStoreById(id);
+            if (store == null)
             {
-                bool isSuccess = await _storeRepository.DeleteStore(id);
-                _response.Result=isSuccess;
+                return NotFound();
             }
-            catch(Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _storeRepository.Delete(store.StoreId);
+            return Ok();
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,7 +11,8 @@ namespace ERD_Shop.Store.Models
         {
             Stores = new HashSet<Stores>();
         }
-        [Key]
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public int UserId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
