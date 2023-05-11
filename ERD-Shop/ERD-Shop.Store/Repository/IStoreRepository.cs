@@ -1,12 +1,17 @@
-﻿using ERD_Shop.Store.Models.DTOs;
+﻿using ERD_Shop.Store.Models;
+using MongoDB.Driver;
 
 namespace ERD_Shop.Store.Repository
 {
     public interface IStoreRepository
     {
-        Task<IEnumerable<StoreDto>> GetStores();
-        Task<StoreDto> GetStoreById(int StoreId);
-        Task<StoreDto> CreateUpdateStore(StoreDto storeDto);
-        Task<bool>DeleteStore(int StoreId);
+        IMongoCollection<Stores> storecollection { get; }
+        IEnumerable<Stores> GetStores();
+        Stores GetStoreById(int id);
+        void Create(Stores stores);
+        void Update(int id, Stores stores);
+        void Delete(int id);
+
+
     }
 }

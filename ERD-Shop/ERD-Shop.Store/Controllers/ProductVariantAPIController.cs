@@ -1,95 +1,54 @@
-﻿using ERD_Shop.Store.Models.DTOs;
+﻿using ERD_Shop.Store.Models;
+using ERD_Shop.Store.Models.DTOs;
 using ERD_Shop.Store.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERD_Shop.Store.Controllers
 {
+    [Route("api/productVariants")]
     public class ProductVariantAPIController : ControllerBase
     {
-        protected ResponseDto _response;
         private IProductVariantRepository _productVariantRepository;
-
         public ProductVariantAPIController(IProductVariantRepository productVariantRepository)
         {
             _productVariantRepository = productVariantRepository;
-            this._response = new ResponseDto();
         }
-        [HttpGet]
-        public async Task<object> Get()
+        [HttpGet("{id}")]
+        public ActionResult<ProductVariant>GetProductVariantById(int id)
         {
-            try
-            {
-                IEnumerable<ProductVariantDto> productVariantDtos = await _productVariantRepository.GetProductVariants();
-                _response.Result = productVariantDtos;
+            var productVariant = _productVariantRepository.GetProductVariantById(id);
+            if(productVariant== null) {
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-
-            }
-            return _response;
-        }
-        [HttpGet]
-        [Route("{id}")]
-        public async Task<object> Get(int id)
-        {
-            try
-            {
-                ProductVariantDto productVariantDto = await _productVariantRepository.GetProductVariantById(id);
-                _response.Result = productVariantDto;
-            }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            return productVariant;
         }
         [HttpPost]
-        public async Task<object> Post(ProductVariantDto productVariantDto)
+        public ActionResult<ProductVariant>Post(ProductVariant productVariant)
         {
-            try
-            {
-                ProductVariantDto model = await _productVariantRepository.CreateUpdateProductVariant(productVariantDto);
-                _response.Result = model;
-            }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _productVariantRepository.Create(productVariant);
+            return CreatedAtRoute(nameof(GetProductVariantById), new { id = productVariant.ProductVariantId }, productVariant);
         }
-        [HttpPut]
-        public async Task<object> Put(ProductVariantDto productVariantDto)
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, ProductVariant productVariant)
         {
-            try
+            var existingProductVariant = _productVariantRepository.GetProductVariantById(id);
+            if(existingProductVariant== null)
             {
-                ProductVariantDto model = await _productVariantRepository.CreateUpdateProductVariant(productVariantDto);
-                _response.Result = model;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _productVariantRepository.Update(id, productVariant);
+            return NoContent();
         }
-        [HttpDelete]
-        public async Task<object> Delete(int id)
-        {
-            try
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id) {
+            var productVariant = _productVariantRepository.GetProductVariantById(id);
+            if(productVariant== null)
             {
-                bool isSuccess = await _productVariantRepository.DeleteProductVariant(id);
-                _response.Result = isSuccess;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _productVariantRepository.Delete(id);
+            return Ok();
         }
+        
     }
 }

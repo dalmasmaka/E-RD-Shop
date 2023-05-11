@@ -1,64 +1,53 @@
 ﻿using AutoMapper;
+using ERD_Shop.Store.Data;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace ERD_Shop.Store.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly StoreContext _context;
-        private IMapper _mapper;
-        public ProductRepository(StoreContext context, IMapper mapper)
+        private readonly IMongoDatabase _context;
+        public ProductRepository(IOptions<Settings> options)
         {
-            _context = context;
-            _mapper = mapper;
+            var client = new MongoClient(options.Value.ConnectionString);
+            _context = client.GetDatabase(options.Value.Database);
+        }
+        public IMongoCollection<Product> productcollection => throw new NotImplementedException();
+
+        public void Create(Product product)
+        {
+            productcollection.InsertOne(product);
         }
 
-        public async Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
+        public void Delete(int id)
         {
-            Product product = _mapper.Map<ProductDto, Product>(productDto);
-            if(product.ProductId > 0)
-            {
-                _context.Products.Update(product);
-            }
-            else
-            {
-                _context.Products.Add(product);
-            }
-            await _context.SaveChangesAsync();
-            return _mapper.Map<Product, ProductDto>(product);
+            var filter = Builders<Product>.Filter.Eq(c=> c.ProductId, id);
+            productcollection.DeleteOne(filter);
         }
 
-        public async Task<bool> DeleteProduct(int ProductId)
+        public Product GetProductById(int id)
         {
-            try
-            {
-                Product product = await _context.Products.SingleOrDefaultAsync(x => x.ProductId == ProductId);
-                if (product == null)
-                {
-                    return false;
-                }
-                _context.Products.Remove(product);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+           
+            var productbyid = productcollection.Find(m=>m.ProductId==id).FirstOrDefault();
+            return productbyid;
         }
 
-        public async Task<ProductDto> GetProductById(int ProductId)
+        public IEnumerable<Product> GetProducts()
         {
-            Product product = await _context.Products.Where(x => x.ProductId == ProductId).SingleOrDefaultAsync();
-            return _mapper.Map<ProductDto>(product);
+            return productcollection.Find(a=>true).ToList();
         }
 
-        public async Task<IEnumerable<ProductDto>> GetProducts()
+        public void Update(int id, Product product)
         {
-            IEnumerable<Product> productList = await _context.Products.ToListAsync();
-            return _mapper.Map<List<ProductDto>>(productList);
+            var filter = Builders<Product>.Filter.Eq(c => c.ProductId, id);
+            var update = Builders<Product>.Update
+                .Set("ProductName", product.ProductName)
+                .Set("ProductImg", product.ProductImg);
+            productcollection.UpdateOne(filter, update);
         }
     }
 }

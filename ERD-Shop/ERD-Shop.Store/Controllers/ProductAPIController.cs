@@ -1,9 +1,11 @@
-﻿using ERD_Shop.Store.Models.DTOs;
+﻿using ERD_Shop.Store.Models;
+using ERD_Shop.Store.Models.DTOs;
 using ERD_Shop.Store.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERD_Shop.Store.Controllers
 {
+    [Route("api/products")]
     public class ProductAPIController : ControllerBase
     {
         protected ResponseDto _response;
@@ -15,81 +17,43 @@ namespace ERD_Shop.Store.Controllers
             this._response = new ResponseDto();
         }
         [HttpGet]
-        public async Task<object> Get()
-        {
-            try
-            {
-                IEnumerable<ProductDto> productDtos = await _productRepository.GetProducts();
-                _response.Result = productDtos;
-            }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-
-            }
-            return _response;
-        }
-        [HttpGet]
         [Route("{id}")]
-        public async Task<object> Get(int id)
+        public ActionResult<Product>GetProductById(int id)
         {
-            try
+            var product = _productRepository.GetProductById(id);
+            if(product ==null)
             {
-                ProductDto productDto = await _productRepository.GetProductById(id);
-                _response.Result = productDto;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            return product;
         }
         [HttpPost]
-        public async Task<object> Post(ProductDto productDto)
+        public ActionResult<Product>Post(Product product)
         {
-            try
-            {
-                ProductDto model = await _productRepository.CreateUpdateProduct(productDto);
-                _response.Result = model;
-            }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _productRepository.Create(product);
+            return CreatedAtAction(nameof(GetProductById), new { id = product.ProductId }, product);
         }
-        [HttpPut]
-        public async Task<object> Put(ProductDto productDto)
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, Product product)
         {
-            try
+            var existingProduct = _productRepository.GetProductById(id);
+            if (existingProduct == null)
             {
-                ProductDto model = await _productRepository.CreateUpdateProduct(productDto);
-                _response.Result = model;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _productRepository.Update(id, product);
+            return NoContent();
         }
-        [HttpDelete]
-        public async Task<object> Delete(int id)
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
         {
-            try
+            var product = _productRepository.GetProductById(id);
+            if (product == null)
             {
-                bool isSuccess = await _productRepository.DeleteProduct(id);
-                _response.Result = isSuccess;
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
-            }
-            return _response;
+            _productRepository.Delete(product.ProductId);
+            return Ok();
         }
     }
 }

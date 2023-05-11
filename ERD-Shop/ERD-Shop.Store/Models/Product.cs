@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -6,7 +7,8 @@ namespace ERD_Shop.Store.Models
 {
     public partial class Product
     {
-        [Key]
+        [BsonId]
+
         public int ProductId { get; set; }
         public string? ProductName { get; set; }
         public string? ProductImg { get; set; }
