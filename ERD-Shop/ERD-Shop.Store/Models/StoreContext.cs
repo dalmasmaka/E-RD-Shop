@@ -38,8 +38,6 @@ namespace ERD_Shop.Store.Models
             {
                 entity.ToTable("Category");
 
-                entity.Property(e => e.CategoryId).HasColumnName("categoryID");
-
                 entity.Property(e => e.CategoryImg)
                     .HasMaxLength(500)
                     .IsUnicode(false)

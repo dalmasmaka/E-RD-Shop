@@ -30,6 +30,12 @@ namespace ERD_Shop.User.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
@@ -42,6 +48,7 @@ namespace ERD_Shop.User.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -263,21 +270,21 @@ namespace ERD_Shop.User.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7a7a6367-18c4-4b55-8ba2-d1a73afdfde2",
+                            Id = "96b7ec2f-d5f7-4f3a-91be-ea76545a766e",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "77f66b7f-55f4-4693-8645-22f06d705bb8",
+                            Id = "4f721ed8-21ec-412f-bc06-bd32d1809b5b",
                             ConcurrencyStamp = "2",
                             Name = "User",
                             NormalizedName = "User"
                         },
                         new
                         {
-                            Id = "5f8919e4-406c-4db3-a30f-57f036331905",
+                            Id = "02fff1a7-a7fc-427d-8439-e5c482b63787",
                             ConcurrencyStamp = "3",
                             Name = "Store Keeper",
                             NormalizedName = "Store Keeper"

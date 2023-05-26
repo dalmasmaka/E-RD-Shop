@@ -1,28 +1,23 @@
 using AutoMapper;
 using ERD_Shop.Store;
-using ERD_Shop.Store.Data;
-using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
-using ERD_Shop.Store.Repository;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using ERD_Shop.Store.MongoRepositories;
+using ERD_Shop.Store.Settings;
 using Microsoft.OpenApi.Models;
+using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 var provider = builder.Services.BuildServiceProvider();
 var Configuration = provider.GetRequiredService<IConfiguration>();
 
-// Add services to the container.
+ServiceSettings serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-//builder.Services.AddDbContext<StoreContext>(x => x.UseSqlServer(connectionString));
-builder.Services.Configure<Settings>(
-    options => 
-    {
-        options.ConnectionString = Configuration.GetSection("MongoDB:ConnectionString").Value;
-        options.Database = Configuration.GetSection("MongoDB:Database").Value;
-    });
+builder.Services.AddSingleton(ServiceProvider =>
+{
+    var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+    var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
+    return mongoClient.GetDatabase(serviceSettings.ServiceName);
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -37,10 +32,9 @@ var mapperConfig = MappingConfig.RegisterMaps();
 var mapper = mapperConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//Repository configuration
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-builder.Services.AddTransient<IStoreRepository, StoreRepository>();
-builder.Services.AddTransient<IProductRepository, ProductRepository>();
-builder.Services.AddTransient<IProductVariantRepository, ProductVariantRepository>();
 builder.Services.AddTransient<ResponseDto>();
 
 

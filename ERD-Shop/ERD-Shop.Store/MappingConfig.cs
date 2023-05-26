@@ -10,10 +10,11 @@ namespace ERD_Shop.Store
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
-                config.CreateMap<Stores, StoreDto>();
+                config.CreateMap<Stores, StoreDto>().ReverseMap();
                 config.CreateMap<Category, CategoryDto>();
-                config.CreateMap<Product, ProductDto>();
-                config.CreateMap<ProductVariant, ProductVariantDto>();
+                config.CreateMap<CategoryDto, Category>().ForMember(dest => dest._id, opt => opt.Ignore());
+                config.CreateMap<Product, ProductDto>().ReverseMap();
+                config.CreateMap<ProductVariant, ProductVariantDto>().ReverseMap();
             });
             return mappingConfig;
         }

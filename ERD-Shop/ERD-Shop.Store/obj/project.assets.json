@@ -2705,19 +2705,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dalma\\.nuget\\packages\\": {}
+    "C:\\Users\\Acer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
+      "projectUniqueName": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
       "projectName": "ERD-Shop.Store",
-      "projectPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
-      "packagesPath": "C:\\Users\\Dalma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\obj\\",
+      "projectPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
+      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+      "outputPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dalma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2793,7 +2793,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

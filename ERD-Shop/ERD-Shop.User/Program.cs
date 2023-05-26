@@ -4,7 +4,9 @@ using ERD_Shop.User.DbContexts;
 using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
 using ERD_Shop.User.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using ERD_Shop.User.Settings;
+using MassTransit;
+// using Microsoft.AnspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,6 +40,17 @@ builder.Services.AddAuthentication(options => {
 });
 
 // Add services to the container.
+//Adding MassTransit/RabbitMQ Configuration
+builder.Services.AddMassTransit(options =>
+{
+    options.UsingRabbitMq((context, configurator) =>
+    {
+        var rabbitMQSettings = builder.Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+        configurator.Host(rabbitMQSettings.Host);
+        configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(false));
+    });
+});
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
