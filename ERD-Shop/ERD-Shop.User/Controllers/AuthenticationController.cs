@@ -1,5 +1,7 @@
-﻿using ERD_Shop.User.Models;
+﻿using ERD_Shop.User.Contracts;
+using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
+using MassTransit;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +16,13 @@ namespace ERD_Shop.User.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpGet("GetUsers")]
@@ -53,6 +57,7 @@ namespace ERD_Shop.User.Controllers
                                                                     BirthDate = registrationUser.BirthDate,
                                                                     City_Id = registrationUser.City_Id,
                                                                     Zip_Code = registrationUser.Zip_Code,
+                                                                    Address = registrationUser.Address,
                                                                     Email = registrationUser.Email,
                                                                     SecurityStamp = Guid.NewGuid().ToString()};
             
@@ -68,6 +73,8 @@ namespace ERD_Shop.User.Controllers
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(applicationUser, role);
+                await _publishEndpoint.Publish(new ApplicationUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
+
                 return StatusCode(StatusCodes.Status201Created, new ResponseDto { IsSuccess = true, 
                                                                                   Result = registrationUser,
                                                                                   Message = "User created successfully!" });
@@ -93,6 +100,7 @@ namespace ERD_Shop.User.Controllers
 
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded) {
+                await _publishEndpoint.Publish(new ApplicationUserDeleted(id));
                 return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Message = "User deleted successfully" });
             }
             return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto { IsSuccess = false, Message = "User failed to be deleted" });

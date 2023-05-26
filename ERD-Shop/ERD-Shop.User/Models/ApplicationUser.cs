@@ -21,6 +21,8 @@ namespace ERD_Shop.User.Models
         [Required]
         public int Zip_Code { get; set; }
         [Required]
+        public string Address { get; set; }
+        [Required]
         [RegularExpression("\"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\"", ErrorMessage = "Email address not valid please try again")]
         public string Email { get; set; }
     }
