@@ -1,0 +1,41 @@
+.auth-form-container, .loginForm, .registerForm{
+    display: flex;
+    flex-direction: column;
+  }
+  .registerForm input{
+    padding: 0.8rem;
+    border: none;
+    width: 100%;
+    
+  }
+  .registerBtn{
+    border:none;
+    background-color: #362417;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    filter: blur(0.6px);
+}
+.registerBtn:hover{
+  filter: blur(0px);
+  transition: 2s;
+}
+  .registerForm select{
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+  }
+  .input-flex{
+    margin: 0.7rem 0;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+ }
+ input:focus, select:focus{
+    outline: 0px !important
+   }

@@ -1,0 +1,35 @@
+.auth-form-container, .loginForm, .registerForm{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+    margin-bottom: 8%;
+
+  }
+  .loginForm input{
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+  }
+  .loginBtn{
+    text-decoration: none;
+    border:none;
+    background-color: #362417;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    filter: blur(0.6px);
+  }
+  .loginBtn:hover{
+    filter: blur(0px);
+    transition: 2s;
+  }
+  .linkBtn{
+    text-decoration: none;
+    border: none;
+    background: none;
+    color: #362417;
+    padding-top: 10px;
+  }
+  

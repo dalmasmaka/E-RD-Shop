@@ -1,0 +1,10 @@
+.stores-image{
+    width: 100%;
+}
+.img-store{
+    margin-top: 2%;
+    padding: 1%;
+    height: 15vh;
+    max-width: 20%;
+    object-fit: contain;
+}
