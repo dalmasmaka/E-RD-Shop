@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import { Login } from './Login/Login';
+import { Register } from './Register/Register';
+import { Route, Router, Routes } from 'react-router';
+import Home from './Home/Home';
+import Footer from './Components/Footer/Footer';
+import Header from './Components/Header/Header';
+import CategoryType from './CategoryType/CategoryType';
+import { Category } from './Category/Category';
+import Product from './Product/Product';
+import ProductVariants from './ProductVariant/ProductVariants';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <Header/>
+        <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/category-type" element={<CategoryType />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/category/:id" element={<Product />} />
+        <Route path="/products/:id" element={<ProductVariants />} />
+
+        {/* <Route path="/product/:productId" element={<ProductDetail />} /> */}
+        </Routes>
+        <Footer />
+      </div>
   );
 }
 
