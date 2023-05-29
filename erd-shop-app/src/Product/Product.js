@@ -3,6 +3,9 @@ import iphone from '../Assets/img/iphone.png'
 import { useParams,useNavigate  } from "react-router-dom"
 import './ProductCss.css';
 
+
+
+
 const Product = ({ productid }) => {
   const navigate = useNavigate();
   // Fetch product variants based on the productId
