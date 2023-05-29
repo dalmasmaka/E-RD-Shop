@@ -10,6 +10,7 @@ import CategoryType from './CategoryType/CategoryType';
 import { Category } from './Category/Category';
 import Product from './Product/Product';
 import ProductVariants from './ProductVariant/ProductVariants';
+import ProductVariantDetails from './Details/ProductVariantDetails';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/category/:id" element={<Product />} />
         <Route path="/products/:id" element={<ProductVariants />} />
+        <Route path="/productvariants/:id" element={<ProductVariantDetails />} />
+
 
         {/* <Route path="/product/:productId" element={<ProductDetail />} /> */}
         </Routes>
