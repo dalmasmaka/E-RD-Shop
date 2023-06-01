@@ -2,8 +2,6 @@ import React from 'react';
 import iphone from '../Assets/img/iphone.png'
 import { useParams } from "react-router-dom"
 import './ProductVariantsCss.css';
-import { AiOutlineHeart, AiOutlineShopping } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const ProductVariants = ({ productid }) => {

@@ -11,6 +11,8 @@ import { Category } from './Category/Category';
 import Product from './Product/Product';
 import ProductVariants from './ProductVariant/ProductVariants';
 import ProductVariantDetails from './Details/ProductVariantDetails';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
+import Wishlist from './Wishlist/Wishlist';
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
         <Route path="/category/:id" element={<Product />} />
         <Route path="/products/:id" element={<ProductVariants />} />
         <Route path="/productvariants/:id" element={<ProductVariantDetails />} />
+        <Route path='/shoppingcart' element={<ShoppingCart />} />
+        <Route path='/wishlist' element={<Wishlist />} />
+        
 
 
         {/* <Route path="/product/:productId" element={<ProductDetail />} /> */}

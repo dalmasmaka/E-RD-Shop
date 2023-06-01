@@ -24,8 +24,8 @@ const Header = () => {
             <div className='flex icon-div'>
            { /* isSearchBarOpen ?  <input className='search-input' type="text" placeholder="search"/> : ""*/}
             <button onClick={handleSearchBarClick} className='nav-link icon'><AiOutlineSearch /></button>
-            <Link className='nav-link icon'><AiOutlineHeart /></Link>
-            <Link className='nav-link icon'> <AiOutlineShopping /></Link>
+            <Link className='nav-link icon'  to="/wishlist"><AiOutlineHeart /></Link>
+            <Link className='nav-link icon' to="/shoppingcart"> <AiOutlineShopping /></Link>
             <Link className='nav-link icon'> <BsPersonCircle /></Link>
             </div>
         </div>

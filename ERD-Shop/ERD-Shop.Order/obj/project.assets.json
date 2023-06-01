@@ -18,6 +18,19 @@
           }
         }
       },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "[12.0.1]",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -899,6 +912,20 @@
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
         "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+      "sha512": "+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -2247,6 +2274,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 12.0.1",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
@@ -2254,26 +2282,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Enes1\\.nuget\\packages\\": {}
+    "/Users/rrezerexhepi/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
+      "projectUniqueName": "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Order/ERD-Shop.Order.csproj",
       "projectName": "ERD-Shop.Order",
-      "projectPath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
-      "packagesPath": "C:\\Users\\Enes1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\obj\\",
+      "projectPath": "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Order/ERD-Shop.Order.csproj",
+      "packagesPath": "/Users/rrezerexhepi/.nuget/packages/",
+      "outputPath": "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Order/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Enes1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/rrezerexhepi/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2293,6 +2320,10 @@
         "targetAlias": "net6.0",
         "dependencies": {
           "AutoMapper": {
+            "target": "Package",
+            "version": "[12.0.1, )"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[12.0.1, )"
           },
@@ -2334,7 +2365,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
       }
     }
   }
