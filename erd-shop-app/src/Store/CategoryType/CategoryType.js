@@ -13,13 +13,10 @@ const CategoryType = ({ id, name, image }) => {
   };
 
   return (
-    <div className='product'>
+    <div className='product' onClick={handleGoToClick}>
       <img alt='' src={image} />
       <div className='product-info'>
         <p className='product-name'>{name}</p>
-        <button className='goto-btn' onClick={handleGoToClick}>
-          Go To
-        </button>
       </div>
     </div>
   );

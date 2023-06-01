@@ -25,17 +25,16 @@ const Product = ({ productid }) => {
   return (
     <div className='product-var'>
       <h2 className='product-title'>Products</h2>
-      <div className='category-products'>
+      <div className='category-products' onClick={handleGoToClick}>
       {products.map((product) => (
-        <div key={product.id}> <div className='product'>
-        <img alt='' src={product.image} />
-        <div className='product-info'>
-          <p className='product-name'>{product.name}</p>
-          <button className='goto-btn' onClick={handleGoToClick}>
-            Explore
-          </button>
-        </div>
-      </div></div>
+        <div key={product.id}>
+         <div className='product'>
+          <img alt='' src={product.image} />
+          <div className='product-info' >
+            <p className='product-name'>{product.name}</p>
+          </div>
+         </div>
+      </div>
       ))}
     </div>
     </div>
