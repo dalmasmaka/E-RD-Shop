@@ -6,6 +6,7 @@ using ERD_Shop.User.Models.DTO;
 using ERD_Shop.User.Repositories;
 using ERD_Shop.User.Settings;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 // using Microsoft.AnspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

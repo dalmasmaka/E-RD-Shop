@@ -28,7 +28,7 @@ namespace ERD_Shop.Order.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-ARI3COF;Initial Catalog=Orders;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                optionsBuilder.UseSqlServer("Data Source=YLLKA\\SQLEXPRESS;Initial Catalog=Orders;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 
@@ -37,7 +37,7 @@ namespace ERD_Shop.Order.Models
             modelBuilder.Entity<DiscountCode>(entity =>
             {
                 entity.HasKey(e => e.CodeValueId)
-                    .HasName("PK__Discount__41389C083947874E");
+                    .HasName("PK__Discount__41389C08BCB2A951");
 
                 entity.ToTable("DiscountCode");
 
@@ -49,13 +49,16 @@ namespace ERD_Shop.Order.Models
 
                 entity.Property(e => e.UsageLimit).HasColumnName("usageLimit");
 
-                entity.Property(e => e.UserId).HasColumnName("User_Id");
+                entity.Property(e => e.UserId)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("User_Id");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.DiscountCodes)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("FK__DiscountC__User___3C69FB99");
+                    .HasConstraintName("FK__DiscountC__User___4CA06362");
             });
 
             modelBuilder.Entity<Order>(entity =>
@@ -75,29 +78,32 @@ namespace ERD_Shop.Order.Models
 
                 entity.Property(e => e.TotalPrice).HasColumnName("totalPrice");
 
-                entity.Property(e => e.UserId).HasColumnName("User_Id");
+                entity.Property(e => e.UserId)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("User_Id");
 
                 entity.HasOne(d => d.CodeValue)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CodeValueId)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("FK__Orders__codeValu__403A8C7D");
+                    .HasConstraintName("FK__Orders__codeValu__5070F446");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("FK__Orders__User_Id__3F466844");
+                    .HasConstraintName("FK__Orders__User_Id__4F7CD00D");
 
                 entity.HasMany(d => d.ProductVariants)
                     .WithMany(p => p.Orders)
                     .UsingEntity<Dictionary<string, object>>(
                         "OrderProductVariant",
-                        l => l.HasOne<ProductVariant>().WithMany().HasForeignKey("ProductVariantId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Order_Pro__produ__534D60F1"),
-                        r => r.HasOne<Order>().WithMany().HasForeignKey("OrderId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Order_Pro__order__52593CB8"),
+                        l => l.HasOne<ProductVariant>().WithMany().HasForeignKey("ProductVariantId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Order_Pro__produ__5629CD9C"),
+                        r => r.HasOne<Order>().WithMany().HasForeignKey("OrderId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Order_Pro__order__5535A963"),
                         j =>
                         {
-                            j.HasKey("OrderId", "ProductVariantId").HasName("PK__Order_Pr__0F3FC175B14588FB");
+                            j.HasKey("OrderId", "ProductVariantId").HasName("PK__Order_Pr__0F3FC175CD607495");
 
                             j.ToTable("Order_ProductVariant");
 
@@ -164,29 +170,35 @@ namespace ERD_Shop.Order.Models
                     .IsUnicode(false)
                     .HasColumnName("refundStatus");
 
-                entity.Property(e => e.UserId).HasColumnName("User_Id");
+                entity.Property(e => e.UserId)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("User_Id");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.Refunds)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("FK__Refund__orderID__4AB81AF0");
+                    .HasConstraintName("FK__Refund__orderID__59063A47");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Refunds)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("FK__Refund__User_Id__4BAC3F29");
+                    .HasConstraintName("FK__Refund__User_Id__59FA5E80");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User");
 
-                entity.HasIndex(e => e.Email, "UQ__User__A9D105345F1CE09E")
+                entity.HasIndex(e => e.Email, "UQ__User__A9D10534B0085E86")
                     .IsUnique();
 
-                entity.Property(e => e.UserId).HasColumnName("User_Id");
+                entity.Property(e => e.UserId)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("User_Id");
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(50)
@@ -210,11 +222,9 @@ namespace ERD_Shop.Order.Models
                     .IsUnicode(false)
                     .HasColumnName("Last_Name");
 
-                entity.Property(e => e.Password)
-                    .HasMaxLength(50)
+                entity.Property(e => e.Role)
+                    .HasMaxLength(20)
                     .IsUnicode(false);
-
-                entity.Property(e => e.RoleId).HasColumnName("Role_Id");
 
                 entity.Property(e => e.ZipCode).HasColumnName("Zip_Code");
             });

@@ -131,3 +131,12 @@ E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.pdb
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.genruntimeconfig.cache
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ref\ERD-Shop.Order.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.Abstractions.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\RabbitMQ.Client.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Text.Json.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Threading.Channels.dll

@@ -13,7 +13,7 @@ namespace ERD_Shop.Order.Models
         public int CodeValueId { get; set; }
         public DateTime? ExpirationDate { get; set; }
         public int UsageLimit { get; set; }
-        public int? UserId { get; set; }
+        public string? UserId { get; set; }
 
         public virtual User? User { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
