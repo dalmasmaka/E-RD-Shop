@@ -20,6 +20,7 @@ const Header = () => {
                 <Link className='nav-link' to="/home">Home</Link>
                 <Link className='nav-link' to="/category">Category</Link>
                 <Link className='nav-link' to="/contact">Contact</Link>
+                <Link className='nav-link' to="/dashboard">Dashboard</Link>
             </div>
             <div className='flex'>
             {isSearchBarOpen ?  <input className='search-input' type="text" placeholder="search"/> : ""}
