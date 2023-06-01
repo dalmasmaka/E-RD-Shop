@@ -73,7 +73,7 @@ namespace ERD_Shop.User.Controllers
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(applicationUser, role);
-                await _publishEndpoint.Publish(new ApplicationUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
+                await _publishEndpoint.Publish(new ApplicationOrderUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
 
                 return StatusCode(StatusCodes.Status201Created, new ResponseDto { IsSuccess = true, 
                                                                                   Result = registrationUser,

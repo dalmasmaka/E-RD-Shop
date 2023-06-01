@@ -10,7 +10,7 @@ create table [User](
 	Email varchar(50) unique,
 	Zip_Code int,
 	Birthdate date,
-	[Role_Id] int,
+	[Role] varchar(20),
 	City_Id int,
 	[Address] varchar(50)
 )

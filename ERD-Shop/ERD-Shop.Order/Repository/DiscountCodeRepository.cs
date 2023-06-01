@@ -18,7 +18,6 @@ namespace ERD_Shop.Order.Repository
             model.CodeValueId = discountCodeDto.CodeValueId;
             model.ExpirationDate = discountCodeDto.ExpirationDate;
             model.UsageLimit = discountCodeDto.UsageLimit;
-            model.UserId = discountCodeDto.UserId;
 
             if (discountCodeDto.CodeValueId == 0)
             {
@@ -83,8 +82,7 @@ namespace ERD_Shop.Order.Repository
             {
                 CodeValueId = x.CodeValueId,
                 ExpirationDate = x.ExpirationDate,
-                UsageLimit = x.UsageLimit,
-                UserId = x.UserId
+                UsageLimit = x.UsageLimit
 
 
             }).AsEnumerable();

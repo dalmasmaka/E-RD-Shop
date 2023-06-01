@@ -19,7 +19,6 @@ namespace ERD_Shop.Order.Repository
             model.OrderId = orderDto.OrderId;
             model.OrderDate = DateTime.Now;
             model.ShippingAddress = orderDto.ShippingAddress;
-            model.UserId = orderDto.UserId;
             model.CodeValueId = orderDto.CodeValueId;
             model.TotalPrice = orderDto.TotalPrice;
 
@@ -83,7 +82,6 @@ namespace ERD_Shop.Order.Repository
                 OrderDate = x.OrderDate,
                 TotalPrice = x.TotalPrice,
                 ShippingAddress = x.ShippingAddress,
-                UserId = x.UserId,
                 CodeValueId = x.CodeValueId,
                 Refunds = x.Refunds,
                 CodeValue = x.CodeValue,

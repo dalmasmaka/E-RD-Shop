@@ -44,10 +44,10 @@
           }
         }
       },
-      "MassTransit/8.0.15": {
+      "MassTransit/8.0.16": {
         "type": "package",
         "dependencies": {
-          "MassTransit.Abstractions": "8.0.15",
+          "MassTransit.Abstractions": "8.0.16",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Diagnostics.HealthChecks": "6.0.1",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
@@ -70,7 +70,7 @@
           }
         }
       },
-      "MassTransit.Abstractions/8.0.15": {
+      "MassTransit.Abstractions/8.0.16": {
         "type": "package",
         "compile": {
           "lib/net6.0/MassTransit.Abstractions.dll": {
@@ -119,10 +119,10 @@
           }
         }
       },
-      "MassTransit.RabbitMQ/8.0.15": {
+      "MassTransit.RabbitMQ/8.0.16": {
         "type": "package",
         "dependencies": {
-          "MassTransit": "8.0.15",
+          "MassTransit": "8.0.16",
           "RabbitMQ.Client": "6.5.0"
         },
         "compile": {
@@ -1314,10 +1314,10 @@
         "logo.png"
       ]
     },
-    "MassTransit/8.0.15": {
-      "sha512": "7hbIaCz+WRUBwqfkmMqkH1wITyYMahGPysX2r4e6pATHT6+N5vudr/s3HY94QCxcLAoJiGBg6TfFNRCFn2iWGA==",
+    "MassTransit/8.0.16": {
+      "sha512": "c9cI/N8x1EArfgNLMU5TfbqRSpXSrTzoFpnX/4jhCa2Y3VDxI13/SfAuOWwbujMFNgxhgKtSGC6OHa+vH4Qr6w==",
       "type": "package",
-      "path": "masstransit/8.0.15",
+      "path": "masstransit/8.0.16",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1330,15 +1330,15 @@
         "lib/netstandard2.0/MassTransit.xml",
         "lib/netstandard2.1/MassTransit.dll",
         "lib/netstandard2.1/MassTransit.xml",
-        "masstransit.8.0.15.nupkg.sha512",
+        "masstransit.8.0.16.nupkg.sha512",
         "masstransit.nuspec",
         "mt-logo-small.png"
       ]
     },
-    "MassTransit.Abstractions/8.0.15": {
-      "sha512": "mrTptFjSiHAcnfJcE3qk07403g7TO6Z8GGZqmWVnobMvUFhkBunSTnRdAlv4r0HAeAdz/EU5RefZnw5LgI+Rig==",
+    "MassTransit.Abstractions/8.0.16": {
+      "sha512": "acXJmEIlTIrhwqdpzsLSInHL3TMrrnqM4k4W3CvZCJ96GEAeEllNlJXfappOdVA2Zkcqw+05eOxThzLR3Rk8kA==",
       "type": "package",
-      "path": "masstransit.abstractions/8.0.15",
+      "path": "masstransit.abstractions/8.0.16",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1351,7 +1351,7 @@
         "lib/netstandard2.0/MassTransit.Abstractions.xml",
         "lib/netstandard2.1/MassTransit.Abstractions.dll",
         "lib/netstandard2.1/MassTransit.Abstractions.xml",
-        "masstransit.abstractions.8.0.15.nupkg.sha512",
+        "masstransit.abstractions.8.0.16.nupkg.sha512",
         "masstransit.abstractions.nuspec",
         "mt-logo-small.png"
       ]
@@ -1384,10 +1384,10 @@
         "mt-logo-small.png"
       ]
     },
-    "MassTransit.RabbitMQ/8.0.15": {
-      "sha512": "6sk4wlQyZWPiZxH6prQ9Q1mOXKu+NrkoG4Y9J6bQ60TvibqSwhkidAtfU6QDwPFXHsDuF/TTGUoeMlMPW33bMA==",
+    "MassTransit.RabbitMQ/8.0.16": {
+      "sha512": "M97xmeV1MxCDV4RboVNbePqAZj+Haic+L4KAa8qJzkLIh0bqpCv+3Hb2X+snhGm03jS1Xknh+wzHR+upvIXf8w==",
       "type": "package",
-      "path": "masstransit.rabbitmq/8.0.15",
+      "path": "masstransit.rabbitmq/8.0.16",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1400,7 +1400,7 @@
         "lib/netstandard2.0/MassTransit.RabbitMqTransport.xml",
         "lib/netstandard2.1/MassTransit.RabbitMqTransport.dll",
         "lib/netstandard2.1/MassTransit.RabbitMqTransport.xml",
-        "masstransit.rabbitmq.8.0.15.nupkg.sha512",
+        "masstransit.rabbitmq.8.0.16.nupkg.sha512",
         "masstransit.rabbitmq.nuspec",
         "mt-logo-small.png"
       ]
@@ -3200,7 +3200,7 @@
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "MassTransit.AspNetCore >= 7.3.1",
-      "MassTransit.RabbitMQ >= 8.0.15",
+      "MassTransit.RabbitMQ >= 8.0.16",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.16",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.16",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.16",
@@ -3261,7 +3261,7 @@
           },
           "MassTransit.RabbitMQ": {
             "target": "Package",
-            "version": "[8.0.15, )"
+            "version": "[8.0.16, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
