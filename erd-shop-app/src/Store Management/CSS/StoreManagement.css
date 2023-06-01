@@ -1,0 +1,213 @@
+/* Dashboard CSS */
+.dashboard-content {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    width: 19.9%;
+    background-color: #F2E5D5;
+
+
+}
+
+.pages {
+    background-color: #F2E5D5;
+    width: 80%;
+    border-left: 1px solid #24170f;
+}
+
+/* Table with Data CSS */
+.table-container {
+    border: 1px solid #24170f;
+}
+
+.title {
+    text-align: left;
+}
+
+.create-link {
+    margin-left: auto;
+    border: 1px solid #24170f;
+    padding: 1%;
+    color: black;
+    text-decoration: none;
+}
+
+.table-img {
+    width: 100px;
+
+}
+
+.action-buttons {
+    font-size: 20px;
+    text-align: center;
+}
+
+.delete-button {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.actions-form-container {
+    margin-top: 10px;
+}
+
+
+.category-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.css-b62m3t-container {
+    width: 50%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.productvariant-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.second-row-element {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.text-area-input {
+    width: 50%;
+    display: grid;
+
+
+}
+
+.sidebar-content {
+    padding-left: 4%;
+    text-align: initial;
+}
+
+.content {
+    list-style: none;
+    padding: 2%;
+}
+
+.elements {
+    font-size: 18px;
+    font-weight: 700;
+    list-style: none;
+    padding: 5%;
+    cursor: pointer;
+}
+
+.sub-elements {
+    display: block;
+    padding-left: 10%;
+}
+
+.hide {
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+.main-container {
+    padding: 5%;
+
+}
+
+.header-container {
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #24170f;
+    padding-bottom: 1%;
+}
+
+.store-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.first-row {
+    width: 50%;
+    text-align: left;
+}
+
+.first-row-element {
+    margin-bottom: 30px;
+}
+
+.second-row {
+    width: 50%;
+    float: left;
+}
+
+.upload-img {
+    height: 100px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.image-container {
+    border: 1px solid #24170f;
+    padding: 10px;
+
+}
+
+.labels {
+    height: 30px;
+    width: 50%;
+    display: grid;
+    justify-content: flex-start;
+}
+
+.inputs {
+    width: 50%;
+    display: grid;
+    height: 40px;
+}
+
+.actions-form-container {
+    width: 50%;
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.cancel-form-button {
+    width: 20%;
+    height: 50px;
+    margin-right: 10%;
+    border-color: #24170f;
+    background-color: white;
+
+}
+
+.create-form-button {
+    width: 20%;
+    height: 50px;
+    border-color: #24170f;
+    background-color: white;
+}
