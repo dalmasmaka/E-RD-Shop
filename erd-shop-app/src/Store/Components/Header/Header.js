@@ -22,8 +22,8 @@ const Header = () => {
                 <Link className='nav-link' to="/contact">Contact</Link>
                 <Link className='nav-link' to="/dashboard">Dashboard</Link>
             </div>
-            <div className='flex'>
-            {isSearchBarOpen ?  <input className='search-input' type="text" placeholder="search"/> : ""}
+            <div className='flex icon-div'>
+           { /* isSearchBarOpen ?  <input className='search-input' type="text" placeholder="search"/> : ""*/}
             <button onClick={handleSearchBarClick} className='nav-link icon'><AiOutlineSearch /></button>
             <Link className='nav-link icon'><AiOutlineHeart /></Link>
             <Link className='nav-link icon'> <AiOutlineShopping /></Link>

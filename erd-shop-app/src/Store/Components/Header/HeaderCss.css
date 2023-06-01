@@ -41,4 +41,18 @@ input.search-input {
     right: 15%;
     top: 5%;
 }
-
+@media only screen and (max-width:1440px){
+ /*   .nav-link {
+        text-decoration: none;
+        background: none;
+        outline: none;
+        border: none;
+        color: rgba(241,218,191,1);
+        margin: 8% 3%;
+    }
+    .icon {
+        margin-right: 9%;
+        font-size: 20px;
+        padding-top: 63%;
+    }*/
+}
