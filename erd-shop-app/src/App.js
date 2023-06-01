@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+
 import './App.css';
 import { Login } from './Store/Login/Login';
 import { Register } from './Store/Register/Register';
-import { Route, Router, Routes } from 'react-router';
+import { Route, Routes } from 'react-router';
 import Home from './Store/Home/Home';
 import Footer from './Store/Components/Footer/Footer';
 import Header from './Store/Components/Header/Header';
@@ -22,6 +22,8 @@ import Orders from './Store Management/Orders/Orders';
 import OrderDetails from './Store Management/Orders/OrderDetails'
 import ShippingMethods from './Store Management/Shipping Methods/ShippingMethods';
 import Clients from './Store Management/Clients/Clients';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
+import Wishlist from './Wishlist/Wishlist';
 function App() {
   return (
     <div className="App">
@@ -47,6 +49,8 @@ function App() {
         <Route path='/details' element={<OrderDetails/>} />
         <Route path='/shippingmethods' element={<ShippingMethods/>}/>
         <Route path='/clients' element={<Clients/>} /> 
+        <Route path='/shoppingcart' element={<ShoppingCart />} />
+        <Route path='/wishlist' element={<Wishlist />} />
       </Routes>
       <Footer />
     </div>
