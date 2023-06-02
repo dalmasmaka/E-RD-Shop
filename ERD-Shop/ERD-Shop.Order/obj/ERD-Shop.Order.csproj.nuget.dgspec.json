@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj": {}
+    "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj": {}
   },
   "projects": {
-    "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj": {
+    "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
+        "projectUniqueName": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
         "projectName": "ERD-Shop.Order",
-        "projectPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\obj\\",
+        "projectPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
+        "packagesPath": "C:\\Users\\edikr\\.nuget\\packages\\",
+        "outputPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\edikr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,6 +71,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "User.Contracts": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             }
           },
           "imports": [
@@ -90,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -30,6 +30,8 @@ builder.Services.AddDbContext<OrdersContext>(x=>x.UseSqlServer(connectionString)
 
 // Add services to the container.
 //Adding MassTransit/RabbitMQ Configuration
+var serviceSettings = builder.Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
+
 builder.Services.AddMassTransit(options =>
 {
     options.AddConsumers(Assembly.GetEntryAssembly());
@@ -37,7 +39,7 @@ builder.Services.AddMassTransit(options =>
     {
         var rabbitMQSettings = builder.Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
         configurator.Host(rabbitMQSettings.Host);
-        configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(false));
+        configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
     });
 });
 

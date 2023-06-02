@@ -1,5 +1,4 @@
-﻿using ERD_Shop.User.Contracts;
-using ERD_Shop.User.Models;
+﻿using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
 using MassTransit;
 using Microsoft.AspNetCore.Http;
@@ -7,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.InteropServices;
+using User.Contracts;
 
 namespace ERD_Shop.User.Controllers
 {

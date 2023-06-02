@@ -42,6 +42,8 @@ builder.Services.AddAuthentication(options => {
 
 // Add services to the container.
 //Adding MassTransit/RabbitMQ Configuration
+var serviceSettings = builder.Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
+
 builder.Services.AddMassTransit(options =>
 {
     options.UsingRabbitMq((context, configurator) =>
