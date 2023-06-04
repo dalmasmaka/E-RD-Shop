@@ -19,7 +19,7 @@ namespace ERD_Shop.Store.Models
         public int? StockQuantity { get; set; }
         public string? ShortDescription { get; set; }
         public string? ProductVariantImg { get; set; }
-
+        public int? ProductId { get; set; }
         public virtual ICollection<Product> Products { get; set; }
     }
 }
