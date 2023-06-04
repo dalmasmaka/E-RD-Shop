@@ -3,9 +3,17 @@ import './ShoppingCartCss.css';
 import { MdShoppingCartCheckout } from 'react-icons/md';
 import {RiDeleteBin5Line} from 'react-icons/ri'
 import {TiDeleteOutline} from 'react-icons/ti'
-
+import { useNavigate } from 'react-router';
 
 const ShoppingCart = () => {
+    const navigate = useNavigate();
+    // Fetch product variants based on the productId
+    // You can make an API call or use any other method to fetch the variants
+    const handleGoToClick = () => {
+      navigate('/orderpage'); // Redirect to the product variants page
+    };
+
+
   return (
     <div className="main-container">
     <div className="header-container">
@@ -41,7 +49,7 @@ const ShoppingCart = () => {
         </table>
     </div>
     <div className='order-button'>
-    <button className='goto-order-btn'><MdShoppingCartCheckout />Order</button>
+    <button className='goto-order-btn' onClick={handleGoToClick}><MdShoppingCartCheckout />Order</button>
     </div>
     <div className='deleteAll-button'>
     <button className='delete-order-btn'><RiDeleteBin5Line />Delete All</button>

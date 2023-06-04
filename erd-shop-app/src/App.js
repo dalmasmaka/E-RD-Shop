@@ -24,6 +24,9 @@ import ShippingMethods from './Store Management/Shipping Methods/ShippingMethods
 import Clients from './Store Management/Clients/Clients';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import Wishlist from './Wishlist/Wishlist';
+import OrderPage from './OrderPage/OrderPage';
+import PaymentForm from './OrderPage/PaymentForm/PaymentForm';
+
 function App() {
   return (
     <div className="App">
@@ -51,6 +54,8 @@ function App() {
         <Route path='/clients' element={<Clients/>} /> 
         <Route path='/shoppingcart' element={<ShoppingCart />} />
         <Route path='/wishlist' element={<Wishlist />} />
+        <Route path='/orderpage' element={<OrderPage />} />
+        <Route path='/paymentform' element={<PaymentForm />}/>
       </Routes>
       <Footer />
     </div>

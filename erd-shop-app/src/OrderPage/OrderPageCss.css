@@ -1,0 +1,55 @@
+.order-container {
+    display: flex;
+    margin-top: 7%;
+    margin-bottom: 10%;
+}
+input.order-address {
+    border-radius: 7px;
+    padding: 2%;
+    border: 1px solid #24170f;
+    width: 63%;
+}
+select.shipp-select {
+    width: 94%;
+    /* max-height: 29%; */
+    padding: 2%;
+    border-radius: 7px;
+}
+select.pay-select {
+    width: 94%;
+    /* max-height: 29%; */
+    padding: 2%;
+    border-radius: 7px;
+}
+p.payment-method-select {
+    margin-top: 12%;
+}
+p.shipping-method-select {
+    margin-top: 5%;
+}
+.input-text-order {
+    display: flex;
+    width: 103%;
+}
+h3.complete-order {
+    margin-bottom: 8%;
+    font-size: 28px;
+}
+.order-page {
+    width: 100%;
+}
+.flex-order-left {
+    margin-left: 5%;
+    width: 33%;
+}
+p.enter-bill-address {
+    padding-top: 9px;
+}
+h1.order-title {
+    font-size: 53px;
+}
+.flex-order-right {
+    margin-left: 23%;
+    width: 33%;
+    /* display: flex; */
+}

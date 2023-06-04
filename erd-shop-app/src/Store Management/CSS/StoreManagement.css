@@ -29,11 +29,12 @@
 }
 
 .create-link {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #24170f;
+    font-size: 24px;
     margin-left: auto;
-    border: 1px solid #24170f;
-    padding: 1%;
-    color: black;
-    text-decoration: none;
 }
 
 .table-img {
@@ -47,10 +48,27 @@
 }
 
 .delete-button {
+    color: #24170f;
     margin-right: 5%;
     margin-left: 5%;
+    font-size: 16px;
+    transition: 1s;
 }
-
+.delete-button:hover {
+    font-size: 19px;
+    cursor: pointer;
+    transition: 1s;
+}
+.edit-button {
+    color: #24170f;
+    font-size: 16px;
+    transition: 1s;
+}
+.edit-button:hover {
+    font-size: 19px;
+    cursor: pointer;
+    transition: 1s;
+}
 .actions-form-container {
     margin-top: 10px;
 }
@@ -197,17 +215,44 @@ tr:nth-child(even) {
 }
 
 .cancel-form-button {
-    width: 20%;
-    height: 50px;
-    margin-right: 10%;
-    border-color: #24170f;
-    background-color: white;
-
+    border: 1px solid #24170f;
+    padding: 7px;
+    border-radius: 18px;
+    cursor: pointer;
+    margin-right: 3%;
+    width: 33%;
+    background-color: transparent;
+    transition: 1.5s;
+}
+.cancel-form-button:hover {
+    border: 1px solid #24170f;
+    padding: 7px;
+    color: rgba(241,218,191,1);
+    border-radius: 18px;
+    background-color: #24170f;
+    cursor: pointer;
+    width: 60%;
+    transition: 1.5s;
+    font-size: 18px;
 }
 
 .create-form-button {
-    width: 20%;
-    height: 50px;
-    border-color: #24170f;
-    background-color: white;
+    border: 1px solid #24170f;
+    padding: 7px;
+    border-radius: 18px;
+    cursor: pointer;
+    width: 33%;
+    background-color: transparent;
+    transition: 1.5s;
+}
+.create-form-button:hover {
+    border: 1px solid #24170f;
+    padding: 7px;
+    color: rgba(241,218,191,1);
+    border-radius: 18px;
+    background-color: #24170f;
+    cursor: pointer;
+    width: 60%;
+    transition: 1.5s;
+    font-size: 18px;
 }
