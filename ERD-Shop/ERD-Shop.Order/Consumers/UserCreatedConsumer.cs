@@ -1,8 +1,8 @@
-﻿using ERD_Shop.Order.Contracts;
-using ERD_Shop.Order.Models;
+﻿using ERD_Shop.Order.Models;
 using ERD_Shop.Order.Models.DTOs;
 using ERD_Shop.Order.Repository;
 using MassTransit;
+using User.Contracts;
 
 namespace ERD_Shop.Order.Consumers
 {

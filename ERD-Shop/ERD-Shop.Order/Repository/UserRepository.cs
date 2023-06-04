@@ -18,12 +18,12 @@ namespace ERD_Shop.Order.Repository
         }
         public async Task<UserDto> CreateUser(UserDto user)
         {
-            User userExists = await _db.Users.FirstOrDefaultAsync(u => u.UserId == user.UserId);
+            Models.User userExists = await _db.Users.FirstOrDefaultAsync(u => u.UserId == user.UserId);
             if (userExists != null)
             {
                 return _mapper.Map<UserDto>(userExists);
             }
-            User _user = _mapper.Map<UserDto, User>(user);
+            Models.User _user = _mapper.Map<UserDto, Models.User>(user);
             _db.Add(_user);
             await _db.SaveChangesAsync();
             return user;
@@ -33,7 +33,7 @@ namespace ERD_Shop.Order.Repository
         {
             try
             {
-                User user = await _db.Users.FirstOrDefaultAsync(u => u.UserId == id);
+                Models.User user = await _db.Users.FirstOrDefaultAsync(u => u.UserId == id);
                 if(user == null)
                 {
                     return false;
@@ -50,19 +50,19 @@ namespace ERD_Shop.Order.Repository
 
         public async Task<UserDto> GetUserById(string id)
         {
-            User _user = await _db.Users.FirstOrDefaultAsync(u => u.UserId == id);
+            Models.User _user = await _db.Users.FirstOrDefaultAsync(u => u.UserId == id);
             return _mapper.Map<UserDto>(_user);
         }
 
         public async Task<IEnumerable<UserDto>> GetUsers()
         {
-            IEnumerable<User> users = await _db.Users.ToListAsync();
+            IEnumerable<Models.User> users = await _db.Users.ToListAsync();
             return _mapper.Map<List<UserDto>>(users);
         }
 
         public async Task<UserDto> UpdateUser(UserDto user)
         {
-            User _user = _db.Users.FirstOrDefault(u => u.UserId == user.UserId);
+            Models.User _user = _db.Users.FirstOrDefault(u => u.UserId == user.UserId);
             if(_user == null)
             {
                 return _mapper.Map<UserDto>(_user);
