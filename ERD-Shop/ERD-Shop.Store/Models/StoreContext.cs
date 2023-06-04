@@ -65,14 +65,11 @@ namespace ERD_Shop.Store.Models
                     .IsUnicode(false)
                     .HasColumnName("productName");
 
-                entity.Property(e => e.ProductVariantId).HasColumnName("productVariantID");
+                
 
                 entity.Property(e => e.StoreId).HasColumnName("storeID");
 
-                entity.HasOne(d => d.ProductVariant)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.ProductVariantId)
-                    .HasConstraintName("FK__Product__product__30F848ED");
+             
 
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.Products)
