@@ -50,7 +50,7 @@ namespace ERD_Shop.Order.Repository
 
         public async Task<UserDto> GetUserById(string id)
         {
-            Models.User _user = await _db.Users.FirstOrDefaultAsync(u => u.UserId == id);
+            Models.User _user = await _db.Users.Where(u => u.UserId == id).FirstOrDefaultAsync();
             return _mapper.Map<UserDto>(_user);
         }
 

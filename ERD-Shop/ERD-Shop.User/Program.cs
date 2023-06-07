@@ -4,12 +4,13 @@ using ERD_Shop.User.DbContexts;
 using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
 using ERD_Shop.User.Repositories;
+using ERD_Shop.User.Repositories.Interfaces;
 using ERD_Shop.User.Settings;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-// using Microsoft.AnspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Adding Repositories
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 builder.Services.AddScoped<ICityRepository, CityRepository>();
+builder.Services.AddScoped<IWishlistRepository, WishlistRepository>();
 
 //Adding Response
 builder.Services.AddScoped<ResponseDto>();
@@ -33,8 +35,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
+
 //Adding Authentication
-builder.Services.AddAuthentication(options => {
+builder.Services.AddAuthentication(options =>
+{
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
