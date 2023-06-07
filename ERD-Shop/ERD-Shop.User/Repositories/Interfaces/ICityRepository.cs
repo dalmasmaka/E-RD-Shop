@@ -1,6 +1,6 @@
 ﻿using ERD_Shop.User.Models.DTO;
 
-namespace ERD_Shop.User.Repositories
+namespace ERD_Shop.User.Repositories.Interfaces
 {
     public interface ICityRepository
     {

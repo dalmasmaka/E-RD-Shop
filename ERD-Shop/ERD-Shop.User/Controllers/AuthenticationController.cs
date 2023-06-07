@@ -1,6 +1,8 @@
 ﻿using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
+using ERD_Shop.User.Repositories.Interfaces;
 using MassTransit;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,13 +18,17 @@ namespace ERD_Shop.User.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IWishlistRepository _wishlistRepository;
         private readonly IPublishEndpoint _publishEndpoint;
 
-        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint)
+        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint, IWishlistRepository wishlistRepository, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _publishEndpoint = publishEndpoint;
+            _wishlistRepository = wishlistRepository;
+            _signInManager = signInManager;
         }
 
         [HttpGet("GetUsers")]
@@ -73,6 +79,8 @@ namespace ERD_Shop.User.Controllers
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(applicationUser, role);
+                WishlistDto wishlist = new WishlistDto { ApplicationUserId = applicationUser.Id };
+                await _wishlistRepository.CreateWishlist(wishlist);
                 await _publishEndpoint.Publish(new ApplicationOrderUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
 
                 return StatusCode(StatusCodes.Status201Created, new ResponseDto { IsSuccess = true, 
@@ -88,6 +96,42 @@ namespace ERD_Shop.User.Controllers
             }
         }
 
+        [HttpPost("SignIn")]
+        public async Task<IActionResult> SignIn(LoginApplicationUserDto loginUser, bool isPersistent)
+        {
+            var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, isPersistent, false);
+            if(result.Succeeded)
+            {
+                return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = result, Message = "User has logged in" });
+            }
+            return StatusCode(StatusCodes.Status404NotFound, new ResponseDto { IsSuccess = false, Result = result, Message = "Email or Password is Invalid!"});
+        }
+
+        [HttpPost("SignOut")]
+        public async Task<IActionResult> SignOut()
+        {
+            try
+            {
+                await _signInManager.SignOutAsync();
+                return StatusCode(StatusCodes.Status202Accepted, new ResponseDto { IsSuccess = true, Message = "User succesfully logged out" });
+            }catch(Exception ex)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, new ResponseDto { IsSuccess = false, Message = ex.Message, Errors = new List<string>() { ex.ToString() } });
+            }
+        }
+
+        [HttpGet("IsLoggedIn")]
+        [Authorize]
+        public IActionResult IsLoggedIn()
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return Ok(new { IsLoggedIn = true });
+            }
+
+            return Ok(new { IsLoggedIn = false });
+        }
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete(string id)
@@ -100,6 +144,7 @@ namespace ERD_Shop.User.Controllers
 
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded) {
+                await _wishlistRepository.DeleteWishlist(id);
                 await _publishEndpoint.Publish(new ApplicationUserDeleted(id));
                 return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Message = "User deleted successfully" });
             }

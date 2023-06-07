@@ -2,6 +2,7 @@
 using ERD_Shop.User.DbContexts;
 using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
+using ERD_Shop.User.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 

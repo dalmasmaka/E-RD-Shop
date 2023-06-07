@@ -9,7 +9,7 @@ namespace ERD_Shop.Order.Repository
 
         public DiscountCodeRepository(OrdersContext db)
         {
-            db = _db;
+            _db = db;
         }
 
         public Task<DiscountCodeDto> CreateUpdateDiscountCode(DiscountCodeDto discountCodeDto)

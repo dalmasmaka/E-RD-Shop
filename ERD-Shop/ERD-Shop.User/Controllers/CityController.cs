@@ -1,5 +1,5 @@
 ﻿using ERD_Shop.User.Models.DTO;
-using ERD_Shop.User.Repositories;
+using ERD_Shop.User.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
