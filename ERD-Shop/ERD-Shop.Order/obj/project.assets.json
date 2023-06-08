@@ -1126,7 +1126,7 @@
           }
         }
       },
-      "User.Contracts/1.0.0": {
+      "User.Contracts/1.0.1": {
         "type": "package",
         "compile": {
           "lib/net6.0/User.Contracts.dll": {}
@@ -2915,14 +2915,14 @@
         "version.txt"
       ]
     },
-    "User.Contracts/1.0.0": {
-      "sha512": "Cf6DfHYyteiSe2VUKrPBVoGnz9Fl+6KH73jhQDSFFpRt1bNbDPpXihQoxN1LKRwogNUBccdp1ugnUapHNrCm/g==",
+    "User.Contracts/1.0.1": {
+      "sha512": "sv7r3N4iUJ+55R01ZeZxjrHin0uYxdcmtf8WpBlGnXfT6VodIDZGEfPkwLaNtByFMxBhdGFJw8+nsbUJQAY9xg==",
       "type": "package",
-      "path": "user.contracts/1.0.0",
+      "path": "user.contracts/1.0.1",
       "files": [
         ".nupkg.metadata",
         "lib/net6.0/User.Contracts.dll",
-        "user.contracts.1.0.0.nupkg.sha512",
+        "user.contracts.1.0.1.nupkg.sha512",
         "user.contracts.nuspec"
       ]
     }
@@ -2936,32 +2936,31 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3",
-      "User.Contracts >= 1.0.0"
+      "User.Contracts >= 1.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\edikr\\.nuget\\packages\\": {}
+    "C:\\Users\\Dalma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
+      "projectUniqueName": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
       "projectName": "ERD-Shop.Order",
-      "projectPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
-      "packagesPath": "C:\\Users\\edikr\\.nuget\\packages\\",
-      "outputPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\obj\\",
+      "projectPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
+      "packagesPath": "C:\\Users\\Dalma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\edikr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dalma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-        "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\Packages": {},
+        "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3012,7 +3011,7 @@
           },
           "User.Contracts": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.1, )"
           }
         },
         "imports": [
