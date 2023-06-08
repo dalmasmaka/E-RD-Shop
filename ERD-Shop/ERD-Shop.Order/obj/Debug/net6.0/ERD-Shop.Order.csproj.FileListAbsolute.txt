@@ -217,3 +217,13 @@ C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\sc
 C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.CopyComplete
 C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.genruntimeconfig.cache
 C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ref\ERD-Shop.Order.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.AssemblyReference.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.AssemblyInfoInputs.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.AssemblyInfo.cs
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.CoreCompileInputs.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\refint\ERD-Shop.Order.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.pdb
