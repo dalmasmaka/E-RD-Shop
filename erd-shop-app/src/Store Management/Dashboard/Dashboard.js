@@ -10,7 +10,6 @@ import ProductVariant from "../Product Variants/ProductVariant";
 import ProductVariantForm from "../Product Variants/ProductVariantForm";
 import Orders from "../Orders/Orders";
 import OrderDetails from "../Orders/OrderDetails";
-import ShippingMethods from '../Shipping Methods/ShippingMethods';
 import Clients from '../Clients/Clients';
 
 const Dashboard = () => {
@@ -42,8 +41,6 @@ const Dashboard = () => {
         return <ProductVariantForm />;
       case "Orders":
         return <Orders onPageChange={handlePageChange} />;
-      case "ShippingMethods":
-        return <ShippingMethods />;
       case "OrderDetails":
         return <OrderDetails />;
       case "Clients":

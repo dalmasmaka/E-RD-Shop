@@ -82,14 +82,6 @@ const Sidebar = ({ onPageChange }) => {
               >
                 Orders
               </li>
-              <li
-                className="elements"
-                onClick={(event) =>
-                  handleSubElementClick('ShippingMethods', event)
-                }
-              >
-                Shipping methods
-              </li>
             </ul>
           )}
         </li>

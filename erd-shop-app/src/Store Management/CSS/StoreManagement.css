@@ -256,3 +256,251 @@ tr:nth-child(even) {
     transition: 1.5s;
     font-size: 18px;
 }
+
+@media only screen and (max-width:375px){
+    .labels {
+        height: 30px;
+        width: 100%;
+        display: grid;
+        justify-content: flex-start;
+    }
+    .pages {
+        background-color: #F2E5D5;
+        width: 67%;
+        border-left: 1px solid #24170f;
+    }
+.table-container {
+    border: 1px solid #24170f;
+    overflow: hidden;
+    font-size: 6px;
+}
+.dashboard-content {
+    flex-wrap: nowrap;
+}
+.sidebar {
+    width: 38.9%;
+    background-color: #F2E5D5;
+}
+.store-form {
+    display: block;
+    flex-wrap: wrap;
+}
+.first-row {
+    width: 100%;
+    text-align: left;
+}
+td{
+    border: 1px solid #dddd;
+    text-align: left;
+    padding: 0px;
+}
+.sidebar-content {
+    padding-left: 0%;
+    text-align: initial;
+}
+.cancel-form-button {
+    width: 47%;
+}
+.create-form-button{
+    width: 47%;
+}
+.actions-form-container {
+    margin-top: 14%;
+    width: 100%;
+}
+.css-b62m3t-container {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+.second-row {
+    margin-bottom: 10%;
+    width: 100%;
+    float: left;
+}
+.text-area-input {
+    width: 100%;
+    display: grid;
+}
+.second-row-element #name {
+    margin-top: 17px;
+}
+.css-13cymwt-control {
+    margin-top: 12%;
+}
+.inputs {
+    margin-top: 5%;
+    width: 100%;
+    display: grid;
+    height: 40px;
+}
+}
+
+@media only screen and (max-width:425px) and (min-width:376px){
+    .image-container {
+        border: 1px solid #24170f;
+        padding: 10px;
+        margin-bottom: 10%;
+    }
+    .dashboard-content {
+        flex-wrap: nowrap;
+    }
+    .sidebar {
+        width: 29.9%;
+        background-color: #F2E5D5;
+    }
+    .store-form {
+        display: block;
+        flex-wrap: wrap;
+    }
+    .first-row {
+        width: 100%;
+        text-align: left;
+    }
+    td{
+        border: 1px solid #dddd;
+        text-align: left;
+        padding: 0px;
+    }
+    .table-container {
+        border: 1px solid #24170f;
+        overflow: hidden;
+        font-size: 10px;
+    }
+    .sidebar-content {
+        padding-left: 0%;
+        text-align: initial;
+    }
+    .cancel-form-button {
+        width: 47%;
+    }
+    .create-form-button{
+        width: 47%;
+    }
+    .actions-form-container {
+        margin-top: 14%;
+        width: 100%;
+    }
+    .css-b62m3t-container {
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+    }
+    .second-row {
+        width: 100%;
+        float: left;
+    }
+    .text-area-input {
+        width: 100%;
+        display: grid;
+    }
+    .second-row-element #name {
+        margin-top: 17px;
+    }
+    .css-13cymwt-control {
+        margin-top: 12%;
+    }
+    .inputs {
+        margin-top: 5%;
+        width: 100%;
+        display: grid;
+        height: 40px;
+    }
+    }
+
+    @media only screen and (max-width:768px) and (min-width:426px){
+        .dashboard-content {
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .inputs {
+            width: 100%;
+            margin-top: 6%;
+            display: grid;
+            height: 40px;
+        }
+        .store-form {
+            display: block;
+          
+        }
+        .category-form {
+            display: block;
+        }
+        .product-form {
+            display: flex;
+        }
+        .css-b62m3t-container {
+            width: 100%;
+            margin-top: 9%;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .labels {
+            height: 30px;
+            width: 100%;
+            display: grid;
+            justify-content: flex-start;
+        }
+        .text-area-input {
+            width: 100%;
+            display: grid;
+        }
+        .second-row {
+            width: 50%;
+            margin-left: 4%;
+            margin-top: -1%;
+        }
+        .first-row {
+            width: 46%;
+            text-align: left;
+        }
+    }
+    @media only screen and (max-width:1024px) and (min-width:769px){
+        .inputs {
+            width: 90%;
+            display: grid;
+            height: 40px;
+        }
+        .image-container {
+            margin-top: 8%;
+            border: 1px solid #24170f;
+            padding: 10px;
+        }
+        .css-b62m3t-container {
+            width: 90%;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .text-area-input {
+            width: 90%;
+            display: grid;
+        }
+    }
+    @media only screen and (max-width:1440px) and (min-width:1025px){
+        .inputs {
+            width: 90%;
+            display: grid;
+            height: 40px;
+        }
+        .store-form .second-row {
+            margin-top: 3%;
+            width: 50%;
+            float: left;
+        }
+        .css-b62m3t-container {
+            width: 90%;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .text-area-input {
+            width: 90%;
+            display: grid;
+        }
+        .product-form-container .second-row {
+            /* margin-top: 3%; */
+            width: 50%;
+            float: left;
+        }
+    }

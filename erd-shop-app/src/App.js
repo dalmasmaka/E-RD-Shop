@@ -20,13 +20,11 @@ import ProductVariant from './Store Management/Product Variants/ProductVariant';
 import ProductVariantForm from './Store Management/Product Variants/ProductVariantForm';
 import Orders from './Store Management/Orders/Orders';
 import OrderDetails from './Store Management/Orders/OrderDetails'
-import ShippingMethods from './Store Management/Shipping Methods/ShippingMethods';
 import Clients from './Store Management/Clients/Clients';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import Wishlist from './Wishlist/Wishlist';
 import OrderPage from './OrderPage/OrderPage';
 import PaymentForm from './OrderPage/PaymentForm/PaymentForm';
-
 function App() {
   return (
     <div className="App">
@@ -50,7 +48,6 @@ function App() {
         <Route path='/createproductvariant' element={<ProductVariantForm />} />
         <Route path='/orders' element={<Orders/>} />
         <Route path='/details' element={<OrderDetails/>} />
-        <Route path='/shippingmethods' element={<ShippingMethods/>}/>
         <Route path='/clients' element={<Clients/>} /> 
         <Route path='/shoppingcart' element={<ShoppingCart />} />
         <Route path='/wishlist' element={<Wishlist />} />
