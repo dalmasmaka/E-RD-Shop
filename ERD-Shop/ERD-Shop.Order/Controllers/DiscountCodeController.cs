@@ -51,7 +51,23 @@ namespace ERD_Shop.Order.Controllers
             return _response;
         }
         [HttpPost]
-        public async Task<object> CreateUpdate(DiscountCodeDto discountCodeDto)
+        public async Task<object> Create(DiscountCodeDto discountCodeDto)
+        {
+            try
+            {
+                DiscountCodeDto discountCodeDtos = await _discountCodeRepository.CreateUpdateDiscountCode(discountCodeDto);
+                _response.Result = discountCodeDtos;
+
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+        [HttpPut]
+        public async Task<object> Update(DiscountCodeDto discountCodeDto)
         {
             try
             {

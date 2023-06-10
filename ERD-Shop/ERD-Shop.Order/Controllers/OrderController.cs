@@ -52,7 +52,24 @@ namespace ERD_Shop.Order.Controllers
         }
 
         [HttpPost]
-        public async Task<object> CreateUpdate(OrderDto orderDto) 
+        public async Task<object> Create(OrderDto orderDto)
+        {
+            try
+            {
+                OrderDto orderDtos = await _orderRepository.CreateUpdateOrder(orderDto);
+                _response.Result = orderDtos;
+
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+
+        [HttpPut]
+        public async Task<object> Update(OrderDto orderDto)
         {
             try
             {

@@ -51,7 +51,24 @@ namespace ERD_Shop.Order.Controllers
             return _response;
         }
         [HttpPost]
-        public async Task<object> CreateUpdate(RefundDto refundDto)
+        public async Task<object> Create(RefundDto refundDto)
+        {
+            try
+            {
+
+                RefundDto refundDtos = await _refundRepository.CreateUpdateRefund(refundDto);
+                _response.Result = refundDtos;
+
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+        [HttpPut]
+        public async Task<object> Update(RefundDto refundDto)
         {
             try
             {

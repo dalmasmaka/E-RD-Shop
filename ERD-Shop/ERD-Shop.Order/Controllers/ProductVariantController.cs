@@ -52,11 +52,28 @@ namespace ERD_Shop.Order.Controllers
             return _response;
         }
         [HttpPost]
-        public async Task<object> CreateUpdate(ProductVariantDto productVariantDto)
+        public async Task<object> Create(ProductVariantDto productVariantDto)
         {
             try
             {
-                ProductVariantDto productVariantDtos  = await _productVariantRepository.CreateUpdateProductVariant(productVariantDto);
+                ProductVariantDto productVariantDtos = await _productVariantRepository.CreateUpdateProductVariant(productVariantDto);
+                _response.Result = productVariantDtos;
+
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+
+        [HttpPut]
+        public async Task<object> Update(ProductVariantDto productVariantDto)
+        {
+            try
+            {
+                ProductVariantDto productVariantDtos = await _productVariantRepository.CreateUpdateProductVariant(productVariantDto);
                 _response.Result = productVariantDtos;
 
             }
