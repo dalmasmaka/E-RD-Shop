@@ -12,7 +12,7 @@ namespace ERD_Shop.User.Controllers
     public class WishlistController : ControllerBase
     {
         private ResponseDto _responseDto;
-        private IWishlistRepository _wishlistRepository;
+        private readonly IWishlistRepository _wishlistRepository;
         public WishlistController(ResponseDto responseDto, IWishlistRepository wishlistRepository)
         {
             _responseDto = responseDto;
@@ -49,6 +49,11 @@ namespace ERD_Shop.User.Controllers
         {
             try
             {
+                if(_wishlistRepository.GetWishlistByUser(wishlist.ApplicationUserId) != null)
+                {
+                    _responseDto = new ResponseDto { IsSuccess = false, Message = "User " + wishlist.ApplicationUserId + " already has a Wishlist!" };
+                    return StatusCode(StatusCodes.Status400BadRequest, _responseDto);
+                }
                 await _wishlistRepository.CreateWishlist(wishlist);
                 _responseDto.Result = wishlist;
                 return StatusCode(StatusCodes.Status200OK, _responseDto);
