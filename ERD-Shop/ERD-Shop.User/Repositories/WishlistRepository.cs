@@ -20,7 +20,7 @@ namespace ERD_Shop.User.Repositories
         public async Task<WishlistDto> CreateWishlist(WishlistDto wishlist)
         {
             Wishlist _wishlist = _mapper.Map<WishlistDto, Wishlist>(wishlist);
-            _db.Add(_wishlist);
+            _db.Wishlists.Add(_wishlist);
             await _db.SaveChangesAsync();
             return wishlist;
         }
@@ -42,7 +42,6 @@ namespace ERD_Shop.User.Repositories
                 return false;
             }
         }
-
         public async Task<WishlistDto> GetWishlistByUser(string userId)
         {
             Wishlist wishlist = await _db.Wishlists.Where(w => w.ApplicationUserId == userId).FirstOrDefaultAsync();

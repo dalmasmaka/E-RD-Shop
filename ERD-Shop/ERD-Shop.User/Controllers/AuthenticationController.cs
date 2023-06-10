@@ -1,13 +1,12 @@
 ﻿using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
 using ERD_Shop.User.Repositories.Interfaces;
+using ERD_Shop.User.Services;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices;
 using User.Contracts;
 
 namespace ERD_Shop.User.Controllers
@@ -20,15 +19,19 @@ namespace ERD_Shop.User.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IWishlistRepository _wishlistRepository;
+        private readonly IShoppingCartRepository _shoppingCartRepository;
         private readonly IPublishEndpoint _publishEndpoint;
+        private readonly TokenService _tokenService;
 
-        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint, IWishlistRepository wishlistRepository, SignInManager<ApplicationUser> signInManager)
+        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint, IWishlistRepository wishlistRepository, IShoppingCartRepository shoppingCartRepository, SignInManager<ApplicationUser> signInManager, TokenService tokenService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _publishEndpoint = publishEndpoint;
             _wishlistRepository = wishlistRepository;
+            _shoppingCartRepository = shoppingCartRepository;
             _signInManager = signInManager;
+            _tokenService = tokenService;
         }
 
         [HttpGet("GetUsers")]
@@ -80,7 +83,9 @@ namespace ERD_Shop.User.Controllers
             {
                 await _userManager.AddToRoleAsync(applicationUser, role);
                 WishlistDto wishlist = new WishlistDto { ApplicationUserId = applicationUser.Id };
+                ShoppingCartDto shoppingCart = new ShoppingCartDto { ApplicationUserId = applicationUser.Id };
                 await _wishlistRepository.CreateWishlist(wishlist);
+                await _shoppingCartRepository.CreateShoppingCart(shoppingCart);
                 await _publishEndpoint.Publish(new ApplicationOrderUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
                 await _publishEndpoint.Publish(new ApplicationStoreUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
                 return StatusCode(StatusCodes.Status201Created, new ResponseDto { IsSuccess = true, 
@@ -102,7 +107,9 @@ namespace ERD_Shop.User.Controllers
             var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, isPersistent, false);
             if(result.Succeeded)
             {
-                return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = result, Message = "User has logged in" });
+                ApplicationUser user = await _userManager.FindByNameAsync(loginUser.Email);
+                loginUser.Token = await _tokenService.GenerateToken(user);
+                return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = loginUser, Message = "User has logged in" });
             }
             return StatusCode(StatusCodes.Status404NotFound, new ResponseDto { IsSuccess = false, Result = result, Message = "Email or Password is Invalid!"});
         }
@@ -145,6 +152,7 @@ namespace ERD_Shop.User.Controllers
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded) {
                 await _wishlistRepository.DeleteWishlist(id);
+                await _shoppingCartRepository.DeleteShoppingCart(id);
                 await _publishEndpoint.Publish(new ApplicationUserDeleted(id));
                 return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Message = "User deleted successfully" });
             }
