@@ -273,9 +273,12 @@ tr:nth-child(even) {
     border: 1px solid #24170f;
     overflow: hidden;
     font-size: 6px;
+    margin-top: 12%;
 }
 .dashboard-content {
     flex-wrap: nowrap;
+    padding-top: 19%;
+    /* position: static; */
 }
 .sidebar {
     width: 38.9%;
@@ -337,6 +340,7 @@ td{
 }
 
 @media only screen and (max-width:425px) and (min-width:376px){
+    
     .image-container {
         border: 1px solid #24170f;
         padding: 10px;
@@ -344,6 +348,8 @@ td{
     }
     .dashboard-content {
         flex-wrap: nowrap;
+        padding-top: 19%;
+        /* position: static; */
     }
     .sidebar {
         width: 29.9%;
@@ -366,6 +372,7 @@ td{
         border: 1px solid #24170f;
         overflow: hidden;
         font-size: 10px;
+        margin-top: 12%;
     }
     .sidebar-content {
         padding-left: 0%;

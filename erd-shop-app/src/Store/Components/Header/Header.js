@@ -24,6 +24,7 @@ const Header = () => {
                   <Link className='nav-link' to="/contact">Contact</Link>
                   <Link className='nav-link' to="/dashboard">Dashboard</Link>
                 <div className='div-mobile'>
+                  <button className='nav-link icon'><AiOutlineSearch /></button>
                   <Link className='nav-link icon'  to="/wishlist"><AiOutlineHeart /></Link>
                   <Link className='nav-link icon' to="/shoppingcart"> <AiOutlineShopping /></Link>
                   <Link className='nav-link icon'> <BsPersonCircle /></Link>

@@ -46,3 +46,10 @@ button.quantity-btn {
     padding-top: 17%;
     font-size: 15px;
 }
+@media only screen and (max-width:425px){
+    .container {
+        margin-top: 26%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
