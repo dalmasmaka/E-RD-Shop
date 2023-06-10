@@ -2,11 +2,20 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
 }
-.flex{
+.nav-links-desktop {
+    /* margin-top: 5%; */
     display: flex;
-    width: auto;
-    padding:2% 5%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+.flex {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    padding: 2% 5%;
 }
 .header{
     filter: blur(0.6px);
@@ -41,19 +50,73 @@ input.search-input {
     right: 15%;
     top: 5%;
 }
-@media only screen and (max-width:1440px){
- /*   .nav-link {
-        text-decoration: none;
-        background: none;
-        outline: none;
-        border: none;
+.icon {
+    margin-right: 1%; 
+    font-size: 25px;
+}
+.mobile-menu-icon{
+    display: none;
+}
+.div-mobile{
+    display: none;
+}
+@media only screen and (max-width:425px){
+    .mobile-menu-icon{
+        background: transparent;
+        margin-right: 6%;
         color: rgba(241,218,191,1);
-        margin: 8% 3%;
+        font-size: 30px;
+        border: none;
+        outline: none;
+        top: 10px;
+        right: 10px;
+        display: block;
     }
-    .icon {
-        margin-right: 9%;
-        font-size: 20px;
-        padding-top: 63%;
-    }*/
+    .nav-links-desktop{
+        display: none;
+    }
+    .nav-links-mobile {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        background-color: #24170f;
+        left: 0;
+        top: 69px;
+        transition: all 0.5s ease-out;
+        width: 100%;
+    }
+    .nav-link{
+        color: rgba(241,218,191,1);
+        text-align: center;
+        padding: 32px;
+        width: 100%;
+        transition: all 0.5s ease;
+        margin: 0;
+    }
+    .nav-links-mobile .nav-link {
+        padding: 19px 0;
+        /* width: 100%; */
+    }
+    .div-mobile{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .header {
+        z-index: 2;
+        filter: blur(0.6px);
+        width: 100%;
+        background-color: #24170f;
+        padding: 0 0;
+        position: absolute;
+    }
+    .homepage {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        top: 80px;
+    }
+    
 }
 
