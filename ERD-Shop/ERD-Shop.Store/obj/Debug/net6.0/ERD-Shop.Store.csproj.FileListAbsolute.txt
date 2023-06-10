@@ -224,3 +224,17 @@ E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.pdb
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.genruntimeconfig.cache
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ref\ERD-Shop.Store.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\DnsClient.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Snappier.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll

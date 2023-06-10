@@ -1098,7 +1098,7 @@
     "User.Contracts/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Cf6DfHYyteiSe2VUKrPBVoGnz9Fl+6KH73jhQDSFFpRt1bNbDPpXihQoxN1LKRwogNUBccdp1ugnUapHNrCm/g==",
+      "sha512": "sha512-9u+jaRiVAfF6s9T2iQhqSqmyigfb0vYqp37TDIRIs9sqHcQzPVV43oHc/cUrbkABKDJmL01JjlvSiY1My8dT6w==",
       "path": "user.contracts/1.0.0",
       "hashPath": "user.contracts.1.0.0.nupkg.sha512"
     }

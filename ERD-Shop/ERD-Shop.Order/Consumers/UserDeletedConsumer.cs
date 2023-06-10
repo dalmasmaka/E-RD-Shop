@@ -16,12 +16,12 @@ namespace ERD_Shop.Order.Consumers
         public async Task Consume(ConsumeContext<ApplicationUserDeleted> context)
         {
             var message = context.Message;
-            var item = await _userRepository.GetUserById(message.Id);
+            var item = await _userRepository.GetUserById(message.Email);
             if (item == null)
             {
                 return;
             }
-            await _userRepository.DeleteUser(message.Id);
+            await _userRepository.DeleteUser(message.Email);
         }
     }
 }

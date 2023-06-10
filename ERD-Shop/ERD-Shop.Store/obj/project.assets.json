@@ -2705,19 +2705,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {}
+    "C:\\Users\\Enes1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
+      "projectUniqueName": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
       "projectName": "ERD-Shop.Store",
-      "projectPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\obj\\",
+      "projectPath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\ERD-Shop.Store.csproj",
+      "packagesPath": "C:\\Users\\Enes1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Enes1\\Documents\\GitHub\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Store\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Enes1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
