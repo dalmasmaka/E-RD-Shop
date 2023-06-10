@@ -15,6 +15,7 @@ namespace ERD_Shop.Order.Repository
             model.RefundDate = refundDto.RefundDate;
             model.RefundStatus = refundDto.RefundStatus;
             model.OrderId = refundDto.OrderId;
+            model.UserId = refundDto.UserId;
 
             if (refundDto.RefundId == 0)
             {
@@ -58,7 +59,8 @@ namespace ERD_Shop.Order.Repository
                 RefundId = x.RefundId,
                 RefundDate = x.RefundDate,
                 RefundStatus = x.RefundStatus,
-                OrderId = x.OrderId
+                OrderId = x.OrderId,
+                UserId = x.UserId
 
             }).AsEnumerable();
 

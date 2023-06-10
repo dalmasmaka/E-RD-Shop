@@ -1,4 +1,6 @@
 import '../CSS/StoreManagement.css';
+import {BsPlusCircleDotted} from 'react-icons/bs';
+
 const Store = ({onPageChange}) => {
     function handlePageChange(page) {
         onPageChange(page);
@@ -8,7 +10,7 @@ const Store = ({onPageChange}) => {
         <div className="main-container">
             <div className="header-container">
                 <h1 className='title'>Stores</h1>
-                <button className='create-link' onClick={() => handlePageChange('StoreForm')}>Create new Store</button>
+                <button className='create-link' onClick={() => handlePageChange('StoreForm')}><BsPlusCircleDotted /></button>
             </div>
             <div className="table-container">
                 <table>

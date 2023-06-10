@@ -9,7 +9,7 @@ namespace ERD_Shop.Order.Repository
 
         public DiscountCodeRepository(OrdersContext db)
         {
-            _db = db;
+            db = _db;
         }
 
         public Task<DiscountCodeDto> CreateUpdateDiscountCode(DiscountCodeDto discountCodeDto)
@@ -18,6 +18,7 @@ namespace ERD_Shop.Order.Repository
             model.CodeValueId = discountCodeDto.CodeValueId;
             model.ExpirationDate = discountCodeDto.ExpirationDate;
             model.UsageLimit = discountCodeDto.UsageLimit;
+            model.UserId = discountCodeDto.UserId;
 
             if (discountCodeDto.CodeValueId == 0)
             {
@@ -82,7 +83,8 @@ namespace ERD_Shop.Order.Repository
             {
                 CodeValueId = x.CodeValueId,
                 ExpirationDate = x.ExpirationDate,
-                UsageLimit = x.UsageLimit
+                UsageLimit = x.UsageLimit,
+                UserId = x.UserId
 
 
             }).AsEnumerable();

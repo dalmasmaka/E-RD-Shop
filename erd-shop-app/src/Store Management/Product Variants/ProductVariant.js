@@ -1,5 +1,7 @@
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import '../CSS/StoreManagement.css';
+import { BsPlusCircleDotted } from 'react-icons/bs';
+
 const Productvariant = ({onPageChange}) => {
     function handlePageChange(page) {
         onPageChange(page);
@@ -9,7 +11,7 @@ const Productvariant = ({onPageChange}) => {
         <div className="main-container">
         <div className="header-container">
             <h1 className='title'>Product Variants</h1>
-            <button className='create-link' onClick={() => handlePageChange('ProductVariantForm')}>Create new Product Variant</button>
+            <button className='create-link' onClick={() => handlePageChange('ProductVariantForm')}><BsPlusCircleDotted /></button>
         </div>
         <div className="table-container">
             <table>

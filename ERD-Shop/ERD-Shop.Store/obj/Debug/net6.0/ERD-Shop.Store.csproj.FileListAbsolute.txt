@@ -224,13 +224,3 @@ E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.pdb
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.genruntimeconfig.cache
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ref\ERD-Shop.Store.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.Abstractions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\RabbitMQ.Client.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Text.Json.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Threading.Channels.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\User.Contracts.dll

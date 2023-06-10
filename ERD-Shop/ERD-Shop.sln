@@ -3,15 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERD-Shop.Order", "ERD-Shop.Order\ERD-Shop.Order.csproj", "{977C0273-3A12-4806-8F98-E5E5B4DE8159}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERD-Shop.Store", "ERD-Shop.Store\ERD-Shop.Store.csproj", "{CEE7611E-5B6B-4F56-B86B-29932F393DF7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERD-Shop.User", "ERD-Shop.User\ERD-Shop.User.csproj", "{748D02A9-D296-4CC0-B49B-BE7E3A8494B2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Gateway", "API Gateway", "{A5DA029B-E4F4-4738-89E6-BE9624A0A052}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERD-Shop.APIGateway", "ERD-Shop.APIGateway\ERD-Shop.APIGateway.csproj", "{E77C9711-065F-4C02-888F-19B070C885AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERD-Shop.Order", "ERD-Shop.Order\ERD-Shop.Order.csproj", "{977C0273-3A12-4806-8F98-E5E5B4DE8159}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,24 +15,9 @@ Global
 		{977C0273-3A12-4806-8F98-E5E5B4DE8159}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{977C0273-3A12-4806-8F98-E5E5B4DE8159}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{977C0273-3A12-4806-8F98-E5E5B4DE8159}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEE7611E-5B6B-4F56-B86B-29932F393DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEE7611E-5B6B-4F56-B86B-29932F393DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEE7611E-5B6B-4F56-B86B-29932F393DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEE7611E-5B6B-4F56-B86B-29932F393DF7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{748D02A9-D296-4CC0-B49B-BE7E3A8494B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{748D02A9-D296-4CC0-B49B-BE7E3A8494B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{748D02A9-D296-4CC0-B49B-BE7E3A8494B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{748D02A9-D296-4CC0-B49B-BE7E3A8494B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E77C9711-065F-4C02-888F-19B070C885AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E77C9711-065F-4C02-888F-19B070C885AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E77C9711-065F-4C02-888F-19B070C885AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E77C9711-065F-4C02-888F-19B070C885AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{E77C9711-065F-4C02-888F-19B070C885AA} = {A5DA029B-E4F4-4738-89E6-BE9624A0A052}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A713ACA-19F8-4053-BF64-9B855AF7E588}

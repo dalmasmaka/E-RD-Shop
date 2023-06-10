@@ -1,5 +1,7 @@
 import '../CSS/StoreManagement.css';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
+import {BsPlusCircleDotted} from 'react-icons/bs';
+
 const Category = ({onPageChange}) => {
     function handlePageChange(page) {
         onPageChange(page);
@@ -9,7 +11,7 @@ const Category = ({onPageChange}) => {
         <div className="main-container">
             <div className="header-container">
                 <h1 className='title'>Category</h1>
-                <button className='create-link'  onClick={() => handlePageChange('CategoryForm')}>Create new Category</button>
+                <button className='create-link'  onClick={() => handlePageChange('CategoryForm')}><BsPlusCircleDotted /></button>
             </div>
             <div className="table-container">
                 <table>

@@ -12,7 +12,6 @@ namespace ERD_Shop.Order
             {
                 config.CreateMap<OrderDto, Models.Order>();
                 config.CreateMap<Models.Order, OrderDto>();
-                config.CreateMap<Models.User, UserDto>().ReverseMap();
             });
             return mappingConfig;
         }

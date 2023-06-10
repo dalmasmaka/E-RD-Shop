@@ -2,15 +2,14 @@
 using ERD_Shop.User.DbContexts;
 using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
-using ERD_Shop.User.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ERD_Shop.User.Repositories
 {
     public class CityRepository : ICityRepository
     {
-        private readonly ApplicationDbContext _db;
-        private readonly IMapper _mapper;
+        ApplicationDbContext _db;
+        IMapper _mapper;
         public CityRepository(ApplicationDbContext db, IMapper mapper) {
             _db = db;
             _mapper = mapper;

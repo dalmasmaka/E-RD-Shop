@@ -21,7 +21,6 @@ const Clients = () => {
                         <td>Maria Anders</td>
                         <td>200$</td>
                         <td className='action-buttons'>
-                            <AiOutlineInfoCircle className='' />
                             <AiOutlineDelete className='delete-button' />
                             <AiOutlineEdit className='edit-button' />
                         </td>

@@ -13,9 +13,6 @@ namespace ERD_Shop.User
             {
                 config.CreateMap<CountryDto, Country>().ReverseMap();
                 config.CreateMap<CityDto, City>().ReverseMap();
-                config.CreateMap<WishlistDto, Wishlist>().ReverseMap();
-                config.CreateMap<ShoppingCartDto, ShoppingCart>().ReverseMap();
-                config.CreateMap<IProductVariantDto, IProductVariant>().ReverseMap();
             });
             return mappingConfig;
         }

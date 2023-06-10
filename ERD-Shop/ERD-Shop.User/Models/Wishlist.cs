@@ -5,7 +5,7 @@ namespace ERD_Shop.User.Models
     public class Wishlist
     {
         [Key]
-        public int? WishlistId { get; set; }
+        public int WishlistId { get; set; }
         [Required]
         public string ApplicationUserId { get; set; }
         [Required]
