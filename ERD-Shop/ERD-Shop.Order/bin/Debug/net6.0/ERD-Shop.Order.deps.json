@@ -15,7 +15,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
-          "User.Contracts": "1.0.0"
+          "User.Contracts": "1.0.1"
         },
         "runtime": {
           "ERD-Shop.Order.dll": {}
@@ -624,7 +624,7 @@
           }
         }
       },
-      "User.Contracts/1.0.0": {
+      "User.Contracts/1.0.1": {
         "runtime": {
           "lib/net6.0/User.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -1095,12 +1095,12 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
-    "User.Contracts/1.0.0": {
+    "User.Contracts/1.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Cf6DfHYyteiSe2VUKrPBVoGnz9Fl+6KH73jhQDSFFpRt1bNbDPpXihQoxN1LKRwogNUBccdp1ugnUapHNrCm/g==",
-      "path": "user.contracts/1.0.0",
-      "hashPath": "user.contracts.1.0.0.nupkg.sha512"
+      "sha512": "sha512-sv7r3N4iUJ+55R01ZeZxjrHin0uYxdcmtf8WpBlGnXfT6VodIDZGEfPkwLaNtByFMxBhdGFJw8+nsbUJQAY9xg==",
+      "path": "user.contracts/1.0.1",
+      "hashPath": "user.contracts.1.0.1.nupkg.sha512"
     }
   }
 }

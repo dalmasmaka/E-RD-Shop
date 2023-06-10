@@ -12,6 +12,9 @@ namespace ERD_Shop.Store.Models
         {
             Stores = new HashSet<Stores>();
         }
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public ObjectId _id { get; set; }
         public string UserId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
