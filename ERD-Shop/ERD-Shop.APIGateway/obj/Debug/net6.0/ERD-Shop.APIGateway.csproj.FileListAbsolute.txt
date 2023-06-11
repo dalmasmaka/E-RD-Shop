@@ -39,3 +39,10 @@ C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\obj\Debug\net6.0\r
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\obj\Debug\net6.0\ERD-Shop.APIGateway.pdb
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\obj\Debug\net6.0\ERD-Shop.APIGateway.genruntimeconfig.cache
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\obj\Debug\net6.0\ref\ERD-Shop.APIGateway.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.APIGateway\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
