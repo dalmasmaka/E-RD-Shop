@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ERD_Shop.Order.Controllers
 {
-    [Route("api/refunds")]
+    [Route("api/[controller]")]
     public class RefundController : ControllerBase
     {
         protected ResponseDto _response;
@@ -84,7 +84,7 @@ namespace ERD_Shop.Order.Controllers
             }
             return _response;
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<object> DeleteRefund(int refundId)
         {
             try
