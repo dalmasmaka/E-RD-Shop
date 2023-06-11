@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj": {}
+    "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj": {}
   },
   "projects": {
-    "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj": {
+    "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
+        "projectUniqueName": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
         "projectName": "ERD-Shop.User",
-        "projectPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "E:\\Edi_Krasniqi\\Viti 3\\Semestri 6\\Lab2\\Final Project\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\obj\\",
+        "projectPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
+        "packagesPath": "C:\\Users\\Dalma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dalma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -98,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
