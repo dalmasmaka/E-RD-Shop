@@ -131,3 +131,166 @@ E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.pdb
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.genruntimeconfig.cache
 E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ref\ERD-Shop.Order.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.Abstractions.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\RabbitMQ.Client.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Text.Json.dll
+E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.AssemblyReference.cache
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.GeneratedMSBuildEditorConfig.editorconfig
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.AssemblyInfoInputs.cache
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.AssemblyInfo.cs
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.CoreCompileInputs.cache
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.MvcApplicationPartsAssemblyInfo.cs
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.MvcApplicationPartsAssemblyInfo.cache
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\refint\ERD-Shop.Order.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.pdb
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\appsettings.Development.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\appsettings.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.exe
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.deps.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.runtimeconfig.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.pdb
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\AutoMapper.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Humanizer.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.Abstractions.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Text.Json.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\User.Contracts.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets\msbuild.ERD-Shop.Order.Microsoft.AspNetCore.StaticWebAssets.props
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets\msbuild.build.ERD-Shop.Order.props
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ERD-Shop.Order.props
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ERD-Shop.Order.props
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets.pack.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets.build.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets.development.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\scopedcss\bundle\ERD-Shop.Order.styles.css
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.CopyComplete
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.genruntimeconfig.cache
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ref\ERD-Shop.Order.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.AssemblyReference.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.AssemblyInfoInputs.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.AssemblyInfo.cs
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.CoreCompileInputs.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\refint\ERD-Shop.Order.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.pdb
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\appsettings.json
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.exe
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.deps.json
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.runtimeconfig.json
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\ERD-Shop.Order.pdb
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.Abstractions.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\User.Contracts.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets\msbuild.ERD-Shop.Order.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets\msbuild.build.ERD-Shop.Order.props
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ERD-Shop.Order.props
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ERD-Shop.Order.props
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\scopedcss\bundle\ERD-Shop.Order.styles.css
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.CopyComplete
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.genruntimeconfig.cache
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ref\ERD-Shop.Order.dll

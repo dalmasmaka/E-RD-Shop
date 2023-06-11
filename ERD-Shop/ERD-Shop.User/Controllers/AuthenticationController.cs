@@ -1,12 +1,13 @@
-﻿using ERD_Shop.User.Contracts;
-using ERD_Shop.User.Models;
+﻿using ERD_Shop.User.Models;
 using ERD_Shop.User.Models.DTO;
+using ERD_Shop.User.Repositories.Interfaces;
+using ERD_Shop.User.Services;
 using MassTransit;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices;
+using User.Contracts;
 
 namespace ERD_Shop.User.Controllers
 {
@@ -16,13 +17,21 @@ namespace ERD_Shop.User.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IWishlistRepository _wishlistRepository;
+        private readonly IShoppingCartRepository _shoppingCartRepository;
         private readonly IPublishEndpoint _publishEndpoint;
+        private readonly TokenService _tokenService;
 
-        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint)
+        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint, IWishlistRepository wishlistRepository, IShoppingCartRepository shoppingCartRepository, SignInManager<ApplicationUser> signInManager, TokenService tokenService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _publishEndpoint = publishEndpoint;
+            _wishlistRepository = wishlistRepository;
+            _shoppingCartRepository = shoppingCartRepository;
+            _signInManager = signInManager;
+            _tokenService = tokenService;
         }
 
         [HttpGet("GetUsers")]
@@ -73,8 +82,12 @@ namespace ERD_Shop.User.Controllers
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(applicationUser, role);
-                await _publishEndpoint.Publish(new ApplicationUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
-
+                WishlistDto wishlist = new WishlistDto { ApplicationUserId = applicationUser.Id };
+                ShoppingCartDto shoppingCart = new ShoppingCartDto { ApplicationUserId = applicationUser.Id };
+                await _wishlistRepository.CreateWishlist(wishlist);
+                await _shoppingCartRepository.CreateShoppingCart(shoppingCart);
+                await _publishEndpoint.Publish(new ApplicationOrderUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
+                await _publishEndpoint.Publish(new ApplicationStoreUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
                 return StatusCode(StatusCodes.Status201Created, new ResponseDto { IsSuccess = true, 
                                                                                   Result = registrationUser,
                                                                                   Message = "User created successfully!" });
@@ -86,6 +99,44 @@ namespace ERD_Shop.User.Controllers
                                                                                               Message = "User failed to be created!",
                                                                                               Errors = errorDescriptions});
             }
+        }
+
+        [HttpPost("SignIn")]
+        public async Task<IActionResult> SignIn(LoginApplicationUserDto loginUser, bool isPersistent)
+        {
+            var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, isPersistent, false);
+            if(result.Succeeded)
+            {
+                ApplicationUser user = await _userManager.FindByNameAsync(loginUser.Email);
+                loginUser.Token = await _tokenService.GenerateToken(user);
+                return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = loginUser, Message = "User has logged in" });
+            }
+            return StatusCode(StatusCodes.Status404NotFound, new ResponseDto { IsSuccess = false, Result = result, Message = "Email or Password is Invalid!"});
+        }
+
+        [HttpPost("SignOut")]
+        public async Task<IActionResult> SignOut()
+        {
+            try
+            {
+                await _signInManager.SignOutAsync();
+                return StatusCode(StatusCodes.Status202Accepted, new ResponseDto { IsSuccess = true, Message = "User succesfully logged out" });
+            }catch(Exception ex)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, new ResponseDto { IsSuccess = false, Message = ex.Message, Errors = new List<string>() { ex.ToString() } });
+            }
+        }
+
+        [HttpGet("IsLoggedIn")]
+        [Authorize]
+        public IActionResult IsLoggedIn()
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return Ok(new { IsLoggedIn = true });
+            }
+
+            return Ok(new { IsLoggedIn = false });
         }
 
         [HttpDelete]
@@ -100,6 +151,8 @@ namespace ERD_Shop.User.Controllers
 
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded) {
+                await _wishlistRepository.DeleteWishlist(id);
+                await _shoppingCartRepository.DeleteShoppingCart(id);
                 await _publishEndpoint.Publish(new ApplicationUserDeleted(id));
                 return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Message = "User deleted successfully" });
             }
