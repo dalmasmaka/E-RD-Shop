@@ -1,5 +1,5 @@
 import React from 'react'
-import './PaymentFormCss.css';
+//import './PaymentFormCss.css';
 
 const PaymentForm = () => {
   return (
