@@ -83,7 +83,7 @@ namespace ERD_Shop.Store.Controllers
             }
             return _response;
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ResponseDto> DeleteAsync(int id)
         {
             try

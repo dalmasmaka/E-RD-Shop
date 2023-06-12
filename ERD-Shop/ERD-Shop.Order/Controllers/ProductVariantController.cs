@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ERD_Shop.Order.Controllers
 {
-    [Route("api/productvariants")]
+    [Route("api/[controller]")]
     public class ProductVariantController : ControllerBase
     {
 
@@ -84,7 +84,7 @@ namespace ERD_Shop.Order.Controllers
             }
             return _response;
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<object> DeleteProductVariant(int productVariantId)
         {
             try
