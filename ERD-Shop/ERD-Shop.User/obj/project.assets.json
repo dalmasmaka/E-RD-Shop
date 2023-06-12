@@ -820,6 +820,15 @@
           }
         }
       },
+      "Order.Contracts/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Order.Contracts.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Order.Contracts.dll": {}
+        }
+      },
       "RabbitMQ.Client/6.5.0": {
         "type": "package",
         "dependencies": {
@@ -2366,6 +2375,17 @@
         "version.txt"
       ]
     },
+    "Order.Contracts/1.0.0": {
+      "sha512": "jTqGzZONg9x7yYRHkGocKYwMv/fck216Z3C2HweMw1No6f8BhSq/c+pgvMSKI4njyPG7t0YYd0oVgRsBVIU66g==",
+      "type": "package",
+      "path": "order.contracts/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net6.0/Order.Contracts.dll",
+        "order.contracts.1.0.0.nupkg.sha512",
+        "order.contracts.nuspec"
+      ]
+    },
     "RabbitMQ.Client/6.5.0": {
       "sha512": "9hY5HiWPtCla1/l0WmXmLnqoX7iKE3neBQUWnetIJrRpOvTbO//XQfQDh++xgHCshL40Kv/6bR0HDkmJz46twg==",
       "type": "package",
@@ -3205,31 +3225,33 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.16",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.16",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.16",
+      "Order.Contracts >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dalma\\.nuget\\packages\\": {}
+    "C:\\Users\\edikr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
+      "projectUniqueName": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
       "projectName": "ERD-Shop.User",
-      "projectPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
-      "packagesPath": "C:\\Users\\Dalma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\obj\\",
+      "projectPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\ERD-Shop.User.csproj",
+      "packagesPath": "C:\\Users\\edikr\\.nuget\\packages\\",
+      "outputPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.User\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dalma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\edikr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-        "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\Packages": {},
+        "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3281,6 +3303,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[6.0.16, )"
+          },
+          "Order.Contracts": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

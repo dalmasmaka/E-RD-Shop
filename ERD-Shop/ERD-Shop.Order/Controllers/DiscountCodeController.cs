@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ERD_Shop.Order.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/discountcode")]
+    [ApiController]
     public class DiscountCodeController : ControllerBase
     {
         protected ResponseDto _response;
@@ -83,7 +84,7 @@ namespace ERD_Shop.Order.Controllers
             return _response;
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public async Task<object> DeleteDiscountCode(int discountCodeId)
         {
             try

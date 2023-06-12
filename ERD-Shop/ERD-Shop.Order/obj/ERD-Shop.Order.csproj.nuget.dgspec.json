@@ -1,28 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj": {}
+    "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj": {
+    "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
+        "projectUniqueName": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
         "projectName": "ERD-Shop.Order",
-        "projectPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
-        "packagesPath": "C:\\Users\\Dalma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\obj\\",
+        "projectPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\ERD-Shop.Order.csproj",
+        "packagesPath": "C:\\Users\\edikr\\.nuget\\packages\\",
+        "outputPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.Order\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dalma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\edikr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-          "C:\\Users\\Dalma\\Desktop\\E-RD-Shop\\ERD-Shop\\Packages": {},
+          "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

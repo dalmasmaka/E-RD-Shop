@@ -6,7 +6,8 @@ namespace ERD_Shop.Order.Repository
     {
         Task<IEnumerable<OrderDto>> GetOrders();
         Task<OrderDto> GetOrderById(int orderId);
-        Task <OrderDto> CreateUpdateOrder(OrderDto orderDto);
+        Task<OrderDto> CreateOrder(OrderDto orderDto);
+        Task<OrderDto> UpdateOrder(OrderDto orderDto);
         Task<bool> DeleteOrder(int orderId);
     }
 }

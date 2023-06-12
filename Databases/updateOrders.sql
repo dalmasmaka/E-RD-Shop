@@ -15,7 +15,7 @@ create table [User](
 	[Address] varchar(50)
 )
 create table DiscountCode(
-codeValueID int identity(1,1) primary key,
+codeValueID int primary key,
 expirationDate datetime,
 usageLimit int not null,
 [User_Id] varchar(50) foreign key references [User]([User_Id]) on delete set null,
@@ -29,9 +29,9 @@ shippingAddress varchar(250),
 codeValueID int foreign key references DiscountCode(codeValueID) on delete set null
 )
 create table ProductVariant(
-productVariantID int identity(1,1) primary key,
+productVariantID int primary key,
 name varchar(250),
-price int
+price float(20)
 )
 create table Order_ProductVariant(
 orderID int foreign key references Orders(orderID),
@@ -45,7 +45,6 @@ refundStatus varchar(250),
 orderID int foreign key references Orders(orderID) on delete set null,
 [User_Id] varchar(50) foreign key references [User]([User_Id]) on delete set null
 )
-
 create table PaymentGateway(
 paymentGatewayID int identity(1,1) primary key,
 paymentGatewayName varchar(250),
@@ -54,4 +53,3 @@ paymentStatus varchar(250),
 paymentMethod varchar(250),
 paymentTransactionId int
 )
-

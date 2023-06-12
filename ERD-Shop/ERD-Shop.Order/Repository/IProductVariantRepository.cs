@@ -6,7 +6,8 @@ namespace ERD_Shop.Order.Repository
     {
         Task<IEnumerable<ProductVariantDto>> GetProductVariants();
         Task<ProductVariantDto> GetProductVariantId(int productVariantId);
-        Task<ProductVariantDto> CreateUpdateProductVariant(ProductVariantDto productVariantDto);
+        Task<ProductVariantDto> CreateProductVariant(ProductVariantDto productVariantDto);
+        Task<ProductVariantDto> UpdateProductVariant(ProductVariantDto productVariantDto);
         Task<bool> DeleteProductVariant(int productVariantId);
     }
 }

@@ -1,20 +1,28 @@
+using ERD_Shop.Order.Models;
 using ERD_Shop.Order.Models.DTOs;
 using ERD_Shop.Order.Repository;
+using MassTransit;
+using MassTransit.SagaStateMachine;
 using Microsoft.AspNetCore.Mvc;
+using Order.Contracts;
 
 namespace ERD_Shop.Order.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/orders")]
+    [ApiController]
     public class OrderController : ControllerBase
     {
         protected ResponseDto _response;
-        private IOrderRepository _orderRepository;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IOrderProductRepository _orderProductRepository;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-
-        public OrderController(IOrderRepository orderRepository)
+        public OrderController(IOrderRepository orderRepository, IOrderProductRepository orderProductRepository, IPublishEndpoint publishEndpoint)
         {
             _orderRepository = orderRepository;
-            this._response = new ResponseDto();
+            _orderProductRepository = orderProductRepository;
+            _response = new ResponseDto();
+            _publishEndpoint = publishEndpoint;
         }
         [HttpGet]
         public async Task<object> Get()
@@ -56,9 +64,17 @@ namespace ERD_Shop.Order.Controllers
         {
             try
             {
-                OrderDto orderDtos = await _orderRepository.CreateUpdateOrder(orderDto);
-                _response.Result = orderDtos;
-
+                OrderDto order = await _orderRepository.CreateOrder(orderDto);
+                if (orderDto.ProductVariants.Any())
+                {
+                    IEnumerable<ProductVariant> products = orderDto.ProductVariants.ToList();
+                    foreach (ProductVariant productVariant in products)
+                    {
+                        await _orderProductRepository.CreateOrderProduct(new OrderProductDto { OrderId = order.OrderId, ProductId = productVariant.ProductVariantId });
+                        await _publishEndpoint.Publish(new WishlistCartProductDeletion(productVariant.ProductVariantId, orderDto.UserId));
+                    }
+                }
+                _response.Result = orderDto;
             }
             catch (Exception ex)
             {
@@ -73,7 +89,7 @@ namespace ERD_Shop.Order.Controllers
         {
             try
             {
-                OrderDto orderDtos = await _orderRepository.CreateUpdateOrder(orderDto);
+                OrderDto orderDtos = await _orderRepository.UpdateOrder(orderDto);
                 _response.Result = orderDtos;
 
             }
@@ -84,7 +100,7 @@ namespace ERD_Shop.Order.Controllers
             }
             return _response;
         }
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public async Task<object> DeleteOrder(int orderId)
         {
             try

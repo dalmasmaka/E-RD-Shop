@@ -20,8 +20,8 @@ namespace ERD_Shop.Order.Models
 
         public virtual DiscountCode? CodeValue { get; set; }
         public virtual User? User { get; set; }
-        public virtual ICollection<Refund> Refunds { get; set; }
+        public virtual ICollection<Refund>? Refunds { get; set; }
 
-        public virtual ICollection<ProductVariant> ProductVariants { get; set; }
+        public virtual ICollection<ProductVariant>? ProductVariants { get; set; }
     }
 }

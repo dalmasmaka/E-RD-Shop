@@ -294,3 +294,6 @@ C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\scoped
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.csproj.CopyComplete
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ERD-Shop.Order.genruntimeconfig.cache
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\obj\Debug\net6.0\ref\ERD-Shop.Order.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Order.Contracts\obj\Order.Contracts.csproj.nuget.dgspec.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Order.Contracts\obj\project.assets.json
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Order.Contracts\bin\Debug\net6.0\Order.Contracts.deps.json
