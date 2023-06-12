@@ -35,14 +35,14 @@ const Store = ({ onPageChange }) => {
             <div className="table-container">
                 <table>
                     <tr>
-                        <th>ID</th>
+              
                         <th>Store</th>
                         <th>Store Owner</th>
                         <th>Contact</th>
                     </tr>
                     {stores.map(store => (
-                        <tr key={store.storeId}>
-                            <td>{store.storeId}</td>
+                        <tr key={store._id}>
+                         
                             <td>{store.storeName}</td>
                             <td>{store.storeOwner}</td>
                             <td>{store.storeContact}</td>

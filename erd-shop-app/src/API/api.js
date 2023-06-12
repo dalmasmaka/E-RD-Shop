@@ -1,4 +1,4 @@
-const BASE_URL = 'https://localhost:5000/api';
+export const BASE_URL = 'https://localhost:5000/api';
 
 export function getUsers(){
     return fetch(`${BASE_URL}/Authentication/GetUsers`)
