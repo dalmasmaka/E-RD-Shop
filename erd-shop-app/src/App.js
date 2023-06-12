@@ -21,10 +21,10 @@ import ProductVariantForm from './Store Management/Product Variants/ProductVaria
 import Orders from './Store Management/Orders/Orders';
 import OrderDetails from './Store Management/Orders/OrderDetails'
 import Clients from './Store Management/Clients/Clients';
-import ShoppingCart from './ShoppingCart/ShoppingCart';
-import Wishlist from './Wishlist/Wishlist';
-import OrderPage from './OrderPage/OrderPage';
-import PaymentForm from './OrderPage/PaymentForm/PaymentForm';
+import ShoppingCart from './Store Management/ShoppingCart/ShoppingCart';
+import Wishlist from './Store Management/Wishlist/Wishlist';
+import OrderPage from './Store Management/OrderPage/OrderPage';
+import PaymentForm from './Store Management/OrderPage/PaymentForm/PaymentForm';
 function App() {
   return (
     <div className="App">

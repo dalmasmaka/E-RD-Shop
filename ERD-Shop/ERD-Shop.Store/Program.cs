@@ -11,7 +11,7 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 var provider = builder.Services.BuildServiceProvider();
 var Configuration = provider.GetRequiredService<IConfiguration>();
-
+builder.Services.AddCors();
 ServiceSettings serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
 builder.Services.AddSingleton(ServiceProvider =>
@@ -59,6 +59,14 @@ builder.Services.AddTransient<ResponseDto>();
 
 
 var app = builder.Build();
+app.UseCors(builder =>
+{
+    builder.WithOrigins("http://localhost:3000")
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
