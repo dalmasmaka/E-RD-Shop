@@ -12,7 +12,7 @@ namespace ERD_Shop.Order.Models
 
         public int ProductVariantId { get; set; }
         public string? Name { get; set; }
-        public int? Price { get; set; }
+        public float? Price { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
     }

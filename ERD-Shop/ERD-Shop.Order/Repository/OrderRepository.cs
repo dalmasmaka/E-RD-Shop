@@ -1,5 +1,8 @@
+using AutoMapper;
 using ERD_Shop.Order.Models;
 using ERD_Shop.Order.Models.DTOs;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 using System.Data.Common;
 
 namespace ERD_Shop.Order.Repository
@@ -7,42 +10,26 @@ namespace ERD_Shop.Order.Repository
     public class OrderRepository : IOrderRepository
     {
         private readonly OrdersContext _db;
+        private readonly IMapper _mapper;
 
-        public OrderRepository(OrdersContext db)
+        public OrderRepository(OrdersContext db, IMapper mapper)
         {
             _db = db;
+            _mapper = mapper;
         }
 
-        public Task<OrderDto> CreateUpdateOrder(OrderDto orderDto)
+        public async Task<OrderDto> CreateOrder(OrderDto orderDto)
         {
-            var model = new ERD_Shop.Order.Models.Order();
-            model.OrderId = orderDto.OrderId;
-            model.OrderDate = DateTime.Now;
-            model.ShippingAddress = orderDto.ShippingAddress;
-            model.CodeValueId = orderDto.CodeValueId;
-            model.TotalPrice = orderDto.TotalPrice;
-
-            if (orderDto.OrderId == 0)
-            {
-                // CREATE
-
-
-
-                _db.Orders.Add(model);
-                _db.SaveChanges();
-            }
-            else
-            {
-                _db.Orders.Update(model);
-                _db.SaveChanges();
-                // Edit
-            }
-
-            return Task.FromResult(orderDto);
-
-
+            Models.Order order = _mapper.Map<OrderDto, Models.Order>(orderDto);
+            _db.Orders.Add(order);
+            await _db.SaveChangesAsync();
+            orderDto.OrderId = order.OrderId;
+            return _mapper.Map<OrderDto>(orderDto);
         }
-
+        public async Task<OrderDto> UpdateOrder(OrderDto orderDto)
+        {
+            throw new NotImplementedException();
+        }
         public Task<bool> DeleteOrder(int orderId)
         {
             var model = _db.Orders.FirstOrDefault(x => x.OrderId == orderId);
@@ -81,11 +68,9 @@ namespace ERD_Shop.Order.Repository
                 OrderId = x.OrderId,
                 OrderDate = x.OrderDate,
                 TotalPrice = x.TotalPrice,
+                UserId = x.UserId,
                 ShippingAddress = x.ShippingAddress,
                 CodeValueId = x.CodeValueId,
-                Refunds = x.Refunds,
-                CodeValue = x.CodeValue,
-                User = x.User,
                 ProductVariants = x.ProductVariants
 
             }).AsEnumerable();

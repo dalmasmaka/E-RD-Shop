@@ -21,6 +21,7 @@ builder.Services.AddTransient<IDiscountCodeRepository, DiscountCodeRepository>()
 builder.Services.AddTransient<IRefundRepository, RefundRepository>();
 builder.Services.AddTransient<IProductVariantRepository, ProductVariantRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IOrderProductRepository, OrderProductRepository>();
 
 
 

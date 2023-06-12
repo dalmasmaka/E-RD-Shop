@@ -69,14 +69,12 @@ namespace ERD_Shop.User.Repositories
 
         public async Task<IEnumerable<IProductVariantDto>> GetUserShoppingCartProducts(string userId)
         {
-            ShoppingCart shoppingCart = await _db.ShoppingCarts.Where(w => w.ApplicationUserId == userId).FirstOrDefaultAsync();
             List<IProductVariant> products = await _db.ShoppingCarts.Where(w => w.ApplicationUserId == userId).SelectMany(w => w.ProductVariants).ToListAsync();
             return _mapper.Map<List<IProductVariantDto>>(products);
         }
 
         public async Task<bool> UserHasProduct(string userId, int productId)
         {
-            Wishlist wishlist = await _db.Wishlists.Where(w => w.ApplicationUserId == userId).FirstOrDefaultAsync();
             IProductVariant product = await _db.ProductVariants.Where(p => p.ProductVariantId == productId).FirstOrDefaultAsync();
             List<IProductVariant> products = await _db.ShoppingCarts.Where(w => w.ApplicationUserId == userId).SelectMany(w => w.ProductVariants).ToListAsync();
 

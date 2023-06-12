@@ -1,3 +1,4 @@
+using AutoMapper;
 using ERD_Shop.Order.Models;
 using ERD_Shop.Order.Models.DTOs;
 
@@ -7,34 +8,22 @@ namespace ERD_Shop.Order.Repository
     {
 
         private readonly OrdersContext _db;
-        public ProductVariantRepository(OrdersContext db) {
-            db = _db;
+        private readonly IMapper _mapper;
+        public ProductVariantRepository(OrdersContext db, IMapper mapper) {
+            _db = db;
+            _mapper = mapper;
         }
 
-        public Task<ProductVariantDto> CreateUpdateProductVariant(ProductVariantDto productVariantDto)
+        public async Task<ProductVariantDto> CreateProductVariant(ProductVariantDto productVariantDto)
         {
-            var model = new ERD_Shop.Order.Models.ProductVariant();
-            model.ProductVariantId = productVariantDto.ProductVariantId;
-            model.Name = productVariantDto.Name;
-            model.Price = productVariantDto.Price;
-
-            if (productVariantDto.ProductVariantId == 0)
-            {
-                // CREATE
-
-
-
-                _db.ProductVariants.Add(model);
-                _db.SaveChanges();
-            }
-            else
-            {
-                _db.ProductVariants.Update(model);
-                _db.SaveChanges();
-                // Edit
-            }
-
-            return Task.FromResult(productVariantDto);
+            ProductVariant productVariant = _mapper.Map<ProductVariantDto, ProductVariant>(productVariantDto);
+            _db.ProductVariants.Add(productVariant);
+            await _db.SaveChangesAsync();
+            return _mapper.Map<ProductVariantDto>(productVariant);
+        }
+        public Task<ProductVariantDto> UpdateProductVariant(ProductVariantDto productVariantDto)
+        {
+            throw new NotImplementedException();
         }
 
         public Task<bool> DeleteProductVariant(int productVariantId)
@@ -73,8 +62,6 @@ namespace ERD_Shop.Order.Repository
                 ProductVariantId = x.ProductVariantId,
                 Name = x.Name,
                 Price = x.Price
-
-
             }).AsEnumerable();
 
             return Task.FromResult(model);

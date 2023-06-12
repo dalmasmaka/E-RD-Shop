@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ERD_Shop.Order.Controllers
 {
     [Route("api/discountcode")]
+    [ApiController]
     public class DiscountCodeController : ControllerBase
     {
         protected ResponseDto _response;

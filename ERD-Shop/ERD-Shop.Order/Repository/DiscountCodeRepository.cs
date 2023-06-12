@@ -1,5 +1,6 @@
 using ERD_Shop.Order.Models;
 using ERD_Shop.Order.Models.DTOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace ERD_Shop.Order.Repository
 {
@@ -12,38 +13,41 @@ namespace ERD_Shop.Order.Repository
             _db = db;
         }
 
-        public Task<DiscountCodeDto> CreateUpdateDiscountCode(DiscountCodeDto discountCodeDto)
+        public async Task<DiscountCodeDto> CreateUpdateDiscountCode(DiscountCodeDto discountCodeDto)
         {
             var model = new ERD_Shop.Order.Models.DiscountCode();
             model.CodeValueId = discountCodeDto.CodeValueId;
             model.ExpirationDate = discountCodeDto.ExpirationDate;
             model.UsageLimit = discountCodeDto.UsageLimit;
+            model.UserId = discountCodeDto.UserId;
 
             if (discountCodeDto.CodeValueId == 0)
             {
                 // CREATE
-                string discountCode = "abdef";
-                Random test = new Random();
-
-                for (int i = 0; i < 3; i++)
-                {
-                    discountCode += test.Next();
-                }
-
-
+                model.CodeValueId = await GenerateDiscountCode();
 
                 _db.DiscountCodes.Add(model);
-                _db.SaveChanges();
+                await _db.SaveChangesAsync();
             }
             else
             {
+                // UPDATE
                 _db.DiscountCodes.Update(model);
-                _db.SaveChanges();
-                // Edit
+                await _db.SaveChangesAsync();
             }
+            return discountCodeDto;
+        }
 
-            return Task.FromResult(discountCodeDto);
-
+        public async Task<int> GenerateDiscountCode()
+        {
+            Random rnd = new Random();
+            int codeId = rnd.Next(100000,999999);
+            DiscountCode codeExists = await _db.DiscountCodes.Where(d => d.CodeValueId == codeId).FirstOrDefaultAsync();
+            if(codeExists != null)
+            {
+                await GenerateDiscountCode();
+            }
+            return codeId;
         }
 
         public Task<bool> DeleteDiscountCode(int discountCodeId)

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ERD_Shop.Order.Controllers
 {
     [Route("api/refunds")]
+    [ApiController]
     public class RefundController : ControllerBase
     {
         protected ResponseDto _response;

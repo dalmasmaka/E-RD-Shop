@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ERD_Shop.Order.Controllers
 {
     [Route("api/productvariants")]
+    [ApiController]
     public class ProductVariantController : ControllerBase
     {
 
@@ -56,7 +57,7 @@ namespace ERD_Shop.Order.Controllers
         {
             try
             {
-                ProductVariantDto productVariantDtos = await _productVariantRepository.CreateUpdateProductVariant(productVariantDto);
+                ProductVariantDto productVariantDtos = await _productVariantRepository.CreateProductVariant(productVariantDto);
                 _response.Result = productVariantDtos;
 
             }
@@ -73,7 +74,7 @@ namespace ERD_Shop.Order.Controllers
         {
             try
             {
-                ProductVariantDto productVariantDtos = await _productVariantRepository.CreateUpdateProductVariant(productVariantDto);
+                ProductVariantDto productVariantDtos = await _productVariantRepository.UpdateProductVariant(productVariantDto);
                 _response.Result = productVariantDtos;
 
             }
