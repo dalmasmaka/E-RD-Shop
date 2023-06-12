@@ -18,7 +18,6 @@ const ShoppingCart = () => {
     // Replace this sample data with the actual logic to calculate the total price
     const products = [
       { id: 1, name: 'produkti 1', store: 'Dior', price: 200, quantity: 3 },
-      { id: 1, name: 'produkti 1', store: 'Dior', price: 100, quantity: 1 },
 
       // Add more products as needed
     ];
