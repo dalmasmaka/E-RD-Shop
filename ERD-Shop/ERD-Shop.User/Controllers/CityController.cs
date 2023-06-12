@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ERD_Shop.User.Controllers
 {
-    [Route("api/cities")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CityController : ControllerBase
     {

@@ -1,0 +1,114 @@
+.order-container {
+    display: flex;
+    margin-top: 7%;
+    margin-bottom: 10%;
+}
+input.order-address {
+    border-radius: 7px;
+    padding: 2%;
+    border: 1px solid #24170f;
+    width: 63%;
+}
+select.shipp-select {
+    width: 94%;
+    /* max-height: 29%; */
+    padding: 2%;
+    border-radius: 7px;
+}
+select.pay-select {
+    width: 94%;
+    /* max-height: 29%; */
+    padding: 2%;
+    border-radius: 7px;
+}
+p.payment-method-select {
+    margin-top: 12%;
+}
+p.shipping-method-select {
+    margin-top: 5%;
+}
+.input-text-order {
+    display: flex;
+    width: 103%;
+}
+h3.complete-order {
+    margin-bottom: 8%;
+    font-size: 28px;
+}
+.order-page {
+    width: 100%;
+}
+.flex-order-left {
+    margin-left: 5%;
+    width: 33%;
+}
+p.enter-bill-address {
+    padding-top: 9px;
+}
+h1.order-title {
+    font-size: 53px;
+}
+.flex-order-right {
+    margin-left: 23%;
+    width: 33%;
+    margin-top: -3%;
+    /* display: flex; */
+}
+.submit-button-order {
+    margin-bottom: 11%;
+    border: 1px solid #24170f;
+    padding: 7px;
+    border-radius: 18px;
+    cursor: pointer;
+    width: 46%;
+    background-color: transparent;
+    transition: 1.5s;
+}
+.submit-button-order:hover {
+    border: 1px solid #24170f;
+    padding: 7px;
+    color: rgba(241,218,191,1);
+    border-radius: 18px;
+    background-color: #24170f;
+    cursor: pointer;
+    width: 50%;
+    transition: 1.5s;
+    font-size: 18px;
+}
+@media only screen and (max-width:425px){
+    .flex-order-right {
+        margin-left: 11%;
+        width: 42%;
+        font-size: 10px;
+        margin-top: 1%;
+        /* display: flex; */
+    }
+    .order-page {
+        width: 100%;
+        margin-top: 21%;
+    }
+    .input-text-order {
+        display: block;
+        width: 100%;
+    }
+    input.order-address {
+        border-radius: 7px;
+        padding: 2%;
+        border: 1px solid #24170f;
+        width: 90%;
+    }
+    .rccs__number {
+        margin-top: -15%;
+        margin-left: -10%;
+    }
+    .rccs__cvc.rccs--focused {
+        margin-left: -11%;
+    }
+    .payment-form .rccs {
+        margin-bottom: 6%;
+        margin-left: 7%;
+    }
+    h2.payment-details {
+        margin-left: 8%;
+    }
+}
