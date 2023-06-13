@@ -8,9 +8,11 @@ namespace ERD_Shop.Store.Models
 {
     public partial class Stores
     {
+        private static int lastStoreId = 0;
         public Stores()
         {
             Products = new HashSet<Product>();
+            StoreId = GenerateNextStoreId();
         }
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
@@ -22,7 +24,11 @@ namespace ERD_Shop.Store.Models
         public string? StoreOwner { get; set; }
         public string? StoreContact { get; set; }
         public string? StoreImg { get; set; }
-
+        private static int GenerateNextStoreId()
+        {
+            lastStoreId++;
+            return lastStoreId;
+        }
         public virtual User? User { get; set; }
         public virtual ICollection<Product> Products { get; set; }
     }
