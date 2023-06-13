@@ -24,12 +24,12 @@ namespace ERD_Shop.Order.Controllers
         {
             try
             {
-                IEnumerable<ProductVariantDto> productVariants = await _orderProductRepository.GetOrderProducts();
-                if(!productVariants.Any())
+                IEnumerable<OrderProductDto> orderProducts = await _orderProductRepository.GetOrderProducts();
+                if(!orderProducts.Any())
                 {
                     return NotFound("There are no order products.");
                 }
-                return Ok(productVariants);
+                return Ok(orderProducts);
             }catch(Exception ex)
             {
                 return BadRequest(ex.Message);
@@ -55,7 +55,7 @@ namespace ERD_Shop.Order.Controllers
             }
         }
         [HttpGet]
-        [Route("{userId}")]
+        [Route("/api/OrderManagement/ByUserId/{userId}")]
         public async Task<IActionResult> GetOrderProductsByUser(string userId)
         {
             try

@@ -5,7 +5,7 @@ namespace ERD_Shop.Order.Repository
 {
     public interface IOrderProductRepository
     {
-        public Task<IEnumerable<ProductVariantDto>> GetOrderProducts();
+        public Task<IEnumerable<OrderProductDto>> GetOrderProducts();
         public Task<IEnumerable<ProductVariantDto>> GetUserOrderProducts(string userId);
         public Task<IEnumerable<ProductVariantDto>> GetOrderProductsById(int orderId);
         public Task<OrderProductDto> CreateOrderProduct(OrderProductDto orderProductDto);
