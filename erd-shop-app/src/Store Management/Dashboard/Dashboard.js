@@ -26,7 +26,7 @@ const Dashboard = () => {
       case "Store":
         return <Store onPageChange={handlePageChange} />;
       case "StoreForm":
-        return <StoreForm />;
+        return <StoreForm onPageChange={handlePageChange}/>;
       case "Category":
         return <Category onPageChange={handlePageChange} />;
       case "CategoryForm":

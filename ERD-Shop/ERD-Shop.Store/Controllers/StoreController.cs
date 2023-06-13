@@ -52,7 +52,7 @@ namespace ERD_Shop.Store.Controllers
             return _response;
         }
         [HttpPost]
-        public async Task<ResponseDto> CreateAsync(StoreDto store)
+        public async Task<ResponseDto> CreateAsync([FromBody]StoreDto store)
         {
             try
             {
