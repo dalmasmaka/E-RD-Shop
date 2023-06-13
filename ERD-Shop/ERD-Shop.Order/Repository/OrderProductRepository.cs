@@ -38,10 +38,20 @@ namespace ERD_Shop.Order.Repository
             return true;
         }
 
-        public async Task<IEnumerable<ProductVariantDto>> GetOrderProducts()
+        public async Task<IEnumerable<OrderProductDto>> GetOrderProducts()
         {
-            IEnumerable<ProductVariant> products = await _db.Orders.SelectMany(o => o.ProductVariants).ToListAsync();
-            return _mapper.Map<List<ProductVariantDto>>(products);
+            IEnumerable<Models.Order> orders = await _db.Orders.ToListAsync();
+            List<OrderProductDto> orderProducts = new List<OrderProductDto>();
+            IEnumerable<ProductVariant> products = new List<ProductVariant>();
+            foreach (Models.Order order in orders)
+            {
+                products = await _db.Orders.Where(o => o.OrderId == order.OrderId).SelectMany(o => o.ProductVariants).ToListAsync();
+                foreach(ProductVariant product in products)
+                {
+                    orderProducts.Add(new OrderProductDto { OrderId = order.OrderId, ProductId = product.ProductVariantId, UserId = order.UserId });
+                }
+            }
+            return _mapper.Map<List<OrderProductDto>>(orderProducts);
         }
 
         public async Task<IEnumerable<ProductVariantDto>> GetOrderProductsById(int orderId)
