@@ -13,8 +13,9 @@ namespace ERD_Shop.Store.Models
             Products = new HashSet<Product>();
         }
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId _id { get; set; }
+        [BsonElement("ProductVariantId")]
         public int ProductVariantId { get; set; }
         public string? ProductVariantName { get; set; }
         public string? SkuCode { get; set; }

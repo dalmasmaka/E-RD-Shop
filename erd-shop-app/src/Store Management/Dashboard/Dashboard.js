@@ -14,9 +14,11 @@ import Clients from '../Clients/Clients';
 
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState("Store");
+  const [selectedStore, setSelectedStore] = useState(null);
 
   // Function to handle page change
-  const handlePageChange = (page) => {
+  const handlePageChange = (page, store = null) => {
+    setSelectedStore(store);
     setCurrentPage(page);
   };
 
@@ -24,9 +26,9 @@ const Dashboard = () => {
   const renderPage = () => {
     switch (currentPage) {
       case "Store":
-        return <Store onPageChange={handlePageChange} />;
+        return <Store onPageChange={handlePageChange} onEdit={handlePageChange} />;
       case "StoreForm":
-        return <StoreForm onPageChange={handlePageChange}/>;
+        return <StoreForm onPageChange={handlePageChange} selectedStore={selectedStore} />;
       case "Category":
         return <Category onPageChange={handlePageChange} />;
       case "CategoryForm":
@@ -44,7 +46,7 @@ const Dashboard = () => {
       case "OrderDetails":
         return <OrderDetails />;
       case "Clients":
-        return <Clients/>;
+        return <Clients />;
       default:
         return null;
     }

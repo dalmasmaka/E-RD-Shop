@@ -11,6 +11,7 @@ namespace ERD_Shop.Store.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId _id { get; set; }
+        [BsonElement("CategoryId")]
         public int CategoryId { get; set; }
         public string? CategoryName { get; set; }
         public string? CategoryImg { get; set; }

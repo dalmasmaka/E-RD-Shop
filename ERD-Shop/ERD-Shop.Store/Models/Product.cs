@@ -9,7 +9,9 @@ namespace ERD_Shop.Store.Models
     public partial class Product
     {
         [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId _id { get; set; }
+        [BsonElement("ProductId")]
         public int ProductId { get; set; }
         public string? ProductName { get; set; }
         public string? ProductImg { get; set; }
