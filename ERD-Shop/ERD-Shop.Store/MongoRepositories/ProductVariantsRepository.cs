@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace ERD_Shop.Store.MongoRepositories
@@ -11,10 +12,26 @@ namespace ERD_Shop.Store.MongoRepositories
         private readonly IMongoCollection<ProductVariant> dbCollection;
         private readonly FilterDefinitionBuilder<ProductVariant> filterBuilder = Builders<ProductVariant>.Filter;
         private readonly IMapper _mapper;
+        private readonly IMongoDatabase _database;
         public ProductVariantsRepository(IMapper mapper, IMongoDatabase database)
         {
+            _database = database;
             _mapper = mapper;
             dbCollection = database.GetCollection<ProductVariant>(collectionName);
+        }
+        private static int GetNextSequenceValue(IMongoDatabase database, string collectionName)
+        {
+            var countersCollection = database.GetCollection<BsonDocument>("ProductVariantCounters");
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", collectionName);
+            var update = Builders<BsonDocument>.Update.Inc("seq", 1);
+            var options = new FindOneAndUpdateOptions<BsonDocument>
+            {
+                ReturnDocument = ReturnDocument.After,
+                IsUpsert = true
+            };
+
+            var result = countersCollection.FindOneAndUpdate(filter, update, options);
+            return result["seq"].AsInt32;
         }
 
         public async Task<ProductVariantDto> CreateAsync(ProductVariantDto productVariant)
@@ -23,6 +40,8 @@ namespace ERD_Shop.Store.MongoRepositories
             {
                 throw new ArgumentNullException(nameof(productVariant));
             }
+            int nextProductVariantId = GetNextSequenceValue(_database, collectionName);
+            productVariant.ProductVariantId = nextProductVariantId;
             ProductVariant _productVariant = _mapper.Map<ProductVariantDto, ProductVariant>(productVariant);
             await dbCollection.InsertOneAsync(_productVariant);
             return productVariant;
