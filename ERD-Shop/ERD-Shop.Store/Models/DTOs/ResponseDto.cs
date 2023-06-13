@@ -1,4 +1,6 @@
-﻿namespace ERD_Shop.Store.Models.DTOs
+﻿using MassTransit.Transports;
+
+namespace ERD_Shop.Store.Models.DTOs
 {
     public class ResponseDto
     {
@@ -7,4 +9,4 @@
         public string DisplayMessage { get; set; } = "";
         public List<string>? ErrorMessage { get; set; }
     }
-}
+} 

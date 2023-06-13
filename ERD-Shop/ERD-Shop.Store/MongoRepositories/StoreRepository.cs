@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace ERD_Shop.Store.MongoRepositories
@@ -27,12 +28,11 @@ namespace ERD_Shop.Store.MongoRepositories
             return store;
 
         }
-
         public async Task<StoreDto> DeleteAsync(int id)
         {
-            FilterDefinition<Stores> filter = filterBuilder.Eq(stores => stores.StoreId ,id);
+            FilterDefinition<Stores> filter = Builders<Stores>.Filter.Eq(store => store._id, id);
             Stores _stores = await dbCollection.Find(filter).FirstOrDefaultAsync();
-            await dbCollection.DeleteOneAsync(filter);
+            await dbCollection.FindOneAndDeleteAsync(filter);
             return _mapper.Map<StoreDto>(_stores);
         }
 
