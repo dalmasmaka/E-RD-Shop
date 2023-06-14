@@ -32,7 +32,7 @@ const ShoppingCart = () => {
   return (
     <div className='main-container'>
       <div className='header-container'>
-        <h2 className='title'>Shopping Cart</h2>
+        <h2 className='shopping-title'>Shopping Cart</h2>
       </div>
       <div className='table-container'>
         <table>
