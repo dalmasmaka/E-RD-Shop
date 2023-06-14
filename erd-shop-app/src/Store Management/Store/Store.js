@@ -8,6 +8,8 @@ import StoreForm from "../Store/StoreForm";
 
 const Store = ({ onPageChange, onEdit }) => {
   const [stores, setStores] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [storesPerPage, setStoresPerPage] = useState(10);
   const [selectedStore, setSelectedStore] = useState(null);
   const handleEdit = (store) => {
     setSelectedStore(store);
@@ -15,8 +17,7 @@ const Store = ({ onPageChange, onEdit }) => {
   };
 
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [storesPerPage, setStoresPerPage] = useState(10);
+
 
   useEffect(() => {
     getStores()

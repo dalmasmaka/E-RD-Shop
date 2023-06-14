@@ -2,13 +2,19 @@ import { useEffect, useState } from 'react';
 import '../CSS/StoreManagement.css';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import { BsPlusCircleDotted } from 'react-icons/bs';
-import { getCategory } from '../../API/api';
+import { BASE_URL, getCategory } from '../../API/api';
+import Swal from 'sweetalert2';
 
-const Category = ({ onPageChange }) => {
+
+const Category = ({ onPageChange, onEdit }) => {
     const [categories, setCategories] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [categoriesPerPage, setCategoriesPerPage] = useState(10);
-
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const handleEdit = (category) => {
+        setSelectedCategory(category);
+        onEdit("CategoryForm", null, category);
+    };
     useEffect(() => {
         getCategory()
             .then(data => setCategories(data.result))
@@ -22,11 +28,57 @@ const Category = ({ onPageChange }) => {
     //Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-
     function handlePageChange(page) {
         onPageChange(page);
     }
 
+    const handleDelete = (id) => {
+        Swal.fire({
+          title: 'Delete Category',
+          text: 'Are you sure you want to delete this category?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#3085d6',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const url = `${BASE_URL}/Category/${id}`;
+      
+            fetch(url, {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({}) // Add an empty request body
+            })
+              .then(response => {
+                if (response.ok) {
+                  window.location.reload();
+                 
+                } else {
+                  // Handle error case
+                  console.error('Error deleting category:', response.status);
+                  if (response.status === 400) {
+                    return response.json(); // Parse response body as JSON
+                  } else {
+                    throw new Error('Unexpected error occurred');
+                  }
+                }
+              })
+              .then(data => {
+                // Check for validation errors
+                if (data && data.errors) {
+                  console.error('Validation errors:', data.errors);
+                }
+              })
+              .catch(error => {
+                // Handle network error or unexpected error
+                console.error('Error:', error);
+              });
+          }
+        });
+      };
     return (
         <div className="main-container">
             <div className="header-container">
@@ -41,14 +93,14 @@ const Category = ({ onPageChange }) => {
                         <th>Category</th>
                         <th>Actions</th>
                     </tr>
-                    {categories.map(categories => (
-                        <tr key={categories.categoryId}>
+                    {currentCategories.map(categories => (
+                        <tr key={categories._id}>
                             <td>{categories.categoryId}</td>
                             <td><img className='table-img' src={categories.categoryImg} alt='img' /></td>
                             <td>{categories.categoryName}</td>
                             <td className='action-buttons'>
-                                <AiOutlineDelete className='delete-button' />
-                                <AiOutlineEdit className='edit-button' />
+                                <AiOutlineDelete className='delete-button' onClick={() => handleDelete(categories.categoryId)}/>
+                                <AiOutlineEdit className='edit-button' onClick={() => handleEdit(categories)}/>
                             </td>
 
                         </tr>

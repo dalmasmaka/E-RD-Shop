@@ -86,7 +86,9 @@ namespace ERD_Shop.Store.MongoRepositories
                 
                 .Set(existingStore => existingStore.StoreName, store.StoreName)
                 .Set(existingStore => existingStore.StoreOwner, store.StoreOwner)
-                .Set(existingStore => existingStore.StoreLocation, store.StoreLocation);
+                .Set(existingStore => existingStore.StoreLocation, store.StoreLocation)
+                .Set(existingStore => existingStore.StoreContact, store.StoreContact)
+                .Set(existingStore => existingStore.StoreImg, store.StoreImg); ;
 
             await dbCollection.UpdateOneAsync(filter, update);
 
