@@ -21,6 +21,7 @@ const Dashboard = () => {
     setSelectedStore(store);
     setCurrentPage(page);
   };
+  
 
   // Function to render the current page
   const renderPage = () => {
@@ -28,7 +29,7 @@ const Dashboard = () => {
       case "Store":
         return <Store onPageChange={handlePageChange} onEdit={handlePageChange} />;
       case "StoreForm":
-        return <StoreForm onPageChange={handlePageChange} selectedStore={selectedStore} />;
+        return <StoreForm onPageChange={handlePageChange}  selectedStore={selectedStore}/>;
       case "Category":
         return <Category onPageChange={handlePageChange} />;
       case "CategoryForm":

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace ERD_Shop.Store.MongoRepositories
@@ -11,12 +12,27 @@ namespace ERD_Shop.Store.MongoRepositories
         private readonly IMongoCollection<Category> dbCollection;
         private readonly FilterDefinitionBuilder<Category> filterBuilder = Builders<Category>.Filter;
         private readonly IMapper _mapper;
+        private readonly IMongoDatabase _database;
         public CategoryRepository(IMapper mapper, IMongoDatabase database)
-        {   
+        {
+            _database = database;
             dbCollection = database.GetCollection<Category>(collectionName);
             _mapper = mapper;
         }
+        private static int GetNextSequenceValue(IMongoDatabase database, string collectionName)
+        {
+            var countersCollection = database.GetCollection<BsonDocument>("CategoryCounters");
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", collectionName);
+            var update = Builders<BsonDocument>.Update.Inc("seq", 1);
+            var options = new FindOneAndUpdateOptions<BsonDocument>
+            {
+                ReturnDocument = ReturnDocument.After,
+                IsUpsert = true
+            };
 
+            var result = countersCollection.FindOneAndUpdate(filter, update, options);
+            return result["seq"].AsInt32;
+        }
         public async Task<ICollection<CategoryDto>> GetAllAsync()
         {
             var categories = await dbCollection.Find(filterBuilder.Empty).ToListAsync();
@@ -34,6 +50,8 @@ namespace ERD_Shop.Store.MongoRepositories
             {
                 throw new ArgumentNullException(nameof(category));
             }
+            int nextCategoryId = GetNextSequenceValue(_database, collectionName);
+            category.CategoryId = nextCategoryId;
             Category _category = _mapper.Map<CategoryDto, Category>(category);
             await dbCollection.InsertOneAsync(_category);
             return category;
@@ -46,9 +64,13 @@ namespace ERD_Shop.Store.MongoRepositories
             }
             FilterDefinition<Category> filter = filterBuilder.Eq(existingCategory => existingCategory.CategoryId, category.CategoryId);
             Category _category = await dbCollection.Find(filter).FirstOrDefaultAsync();
-            _category.CategoryName = category.CategoryName;
-            _category.CategoryImg = category.CategoryImg;
-            await dbCollection.ReplaceOneAsync(filter, _category);
+
+            
+            UpdateDefinition<Category> update = Builders<Category>.Update
+                .Set(existingCategory => existingCategory.CategoryName, category.CategoryName)
+                .Set(existingCategory => existingCategory.CategoryImg, category.CategoryImg);
+                await dbCollection.UpdateOneAsync(filter, update);
+
             return category;
         }
         public  async Task<CategoryDto> DeleteAsync(int id)

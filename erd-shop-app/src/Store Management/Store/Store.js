@@ -4,14 +4,17 @@ import { BsPlusCircleDotted } from 'react-icons/bs';
 import { BASE_URL, getStores } from '../../API/api';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import Swal from 'sweetalert2';
+import StoreForm from "../Store/StoreForm";
 
-const Store = ({ onPageChange }) => {
+const Store = ({ onPageChange, onEdit }) => {
   const [stores, setStores] = useState([]);
   const [selectedStore, setSelectedStore] = useState(null);
   const handleEdit = (store) => {
     setSelectedStore(store);
-    handlePageChange('StoreForm')
-  }
+    onEdit("StoreForm", store);
+  };
+
+
   const [currentPage, setCurrentPage] = useState(1);
   const [storesPerPage, setStoresPerPage] = useState(10);
 
@@ -102,7 +105,7 @@ const Store = ({ onPageChange }) => {
               <td>{store.storeContact}</td>
               <td className='action-buttons'>
                 <AiOutlineDelete onClick={() => handleDelete(store.storeId)}className='delete-button' />
-                <AiOutlineEdit  className='edit-button' />
+                <AiOutlineEdit  onClick={() => handleEdit(store)} className='edit-button' />
               </td>
             </tr>
 

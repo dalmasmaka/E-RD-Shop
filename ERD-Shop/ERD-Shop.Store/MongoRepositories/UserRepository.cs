@@ -54,7 +54,16 @@ namespace ERD_Shop.Store.MongoRepositories
             }
             FilterDefinition<Models.User> filter = filterBuilder.Eq(existingUser => existingUser.UserId, user.UserId);
             Models.User _user = await dbCollection.Find(filter).FirstOrDefaultAsync();
-            await dbCollection.ReplaceOneAsync(filter, _user);
+
+            UpdateDefinition<Models.User> update = Builders<Models.User>.Update
+                .Set(existingUser => existingUser.Role, user.Role)
+                .Set(existingUser => existingUser.Email, user.Email)
+                .Set(existingUser => existingUser.Address, user.Address)
+                .Set(existingUser => existingUser.Birthdate, user.Birthdate)
+                .Set(existingUser => existingUser.CityId, user.CityId)
+                .Set(existingUser => existingUser.LastName, user.LastName)
+                .Set(existingUser => existingUser.ZipCode, user.ZipCode);
+            await dbCollection.UpdateOneAsync(filter, update);
             return user;
         }
     }

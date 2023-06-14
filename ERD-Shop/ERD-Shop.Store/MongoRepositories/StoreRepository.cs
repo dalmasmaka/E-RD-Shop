@@ -74,17 +74,23 @@ namespace ERD_Shop.Store.MongoRepositories
 
         public async Task<StoreDto> UpdateAsync(StoreDto store)
         {
-            if(store == null)
+            if (store == null)
             {
                 throw new ArgumentNullException(nameof(store));
             }
+
             FilterDefinition<Stores> filter = filterBuilder.Eq(existingStore => existingStore.StoreId, store.StoreId);
             Stores _stores = await dbCollection.Find(filter).FirstOrDefaultAsync();
-            _stores.StoreName = store.StoreName;
-            _stores.StoreOwner = store.StoreOwner;
-            _stores.StoreLocation = store.StoreLocation;
-            await dbCollection.ReplaceOneAsync(filter, _stores);
+
+            UpdateDefinition<Stores> update = Builders<Stores>.Update
+                
+                .Set(existingStore => existingStore.StoreName, store.StoreName)
+                .Set(existingStore => existingStore.StoreOwner, store.StoreOwner)
+                .Set(existingStore => existingStore.StoreLocation, store.StoreLocation);
+
+            await dbCollection.UpdateOneAsync(filter, update);
+
             return store;
-        }
+    }
     }
 }

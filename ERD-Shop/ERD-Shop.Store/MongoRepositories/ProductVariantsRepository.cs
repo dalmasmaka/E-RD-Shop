@@ -78,7 +78,11 @@ namespace ERD_Shop.Store.MongoRepositories
             }
             FilterDefinition<ProductVariant> filter = filterBuilder.Eq(existingProductVariant => existingProductVariant.ProductVariantId, productVariant.ProductVariantId);
             ProductVariant _productVariant = await dbCollection.Find(filter).FirstOrDefaultAsync();
-            await dbCollection.ReplaceOneAsync(filter, _productVariant);
+
+            UpdateDefinition<ProductVariant> update = Builders<ProductVariant>.Update
+                .Set(existingProductVariant => existingProductVariant.ProductVariantName, productVariant.ProductVariantName)
+                .Set(existingProductVariant => existingProductVariant.ProductVariantImg, productVariant.ProductVariantImg);
+            await dbCollection.UpdateOneAsync(filter, update);
             return productVariant;
         }
     }

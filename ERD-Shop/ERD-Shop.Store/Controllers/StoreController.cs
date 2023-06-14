@@ -68,7 +68,7 @@ namespace ERD_Shop.Store.Controllers
             return _response;
         }
         [HttpPut]
-        public async Task<ResponseDto> UpdateAsync(StoreDto store)
+        public async Task<ResponseDto> UpdateAsync([FromBody]StoreDto store)
         {
             try
             {
