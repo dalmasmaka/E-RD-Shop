@@ -37,6 +37,7 @@
     color: rgba(241,218,191,1);
     margin: 21px 3%;
 }
+
 .icon{
     margin-right: 9%;
     font-size: 20px;
@@ -56,6 +57,10 @@
     display: none;
 }
 @media only screen and (max-width:425px){
+    .icon {
+        margin-right: 0%;
+        font-size: 25px;
+    }
     .mobile-menu-icon{
         background: transparent;
         margin-right: 6%;
@@ -114,4 +119,15 @@
     }
     
 }
+button.nav-link.icon.logout {
+    font-size: 19px;
+    transition: 1s;
+    cursor: pointer;
+}
 
+@media (max-width:1440px) and (min-width:426px){
+    .icon {
+        margin-right: -10%;
+        font-size: 25px;
+    }
+}
