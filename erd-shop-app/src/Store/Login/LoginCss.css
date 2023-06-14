@@ -32,4 +32,8 @@
     color: #362417;
     padding-top: 10px;
   }
-  
+  @media (max-width:425px) {
+    .auth-form-container{
+      margin-top: 14%;
+  }
+  }
