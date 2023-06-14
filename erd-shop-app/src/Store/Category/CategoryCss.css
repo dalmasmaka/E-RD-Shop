@@ -8,3 +8,32 @@
     font-size: 50px;
     font-weight: bold;
 }
+input.search-input:focus{
+    border: none;
+    outline: none;
+  }
+  input.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.search-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #24170f;
+    padding: 8px;
+    margin: 3% auto;
+    border-radius: 13px;
+    width: 200px;
+  }
+
+  .search-input::placeholder{
+    font-size: 16px;
+    color: #24170f;
+  }
+@media (max-width:767px) {
+    .category {
+        margin-top: 20%;
+    }   
+}

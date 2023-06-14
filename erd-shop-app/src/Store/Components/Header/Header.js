@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import './HeaderCss.css'
-import {AiOutlineSearch, AiOutlineHeart, AiOutlineShopping} from 'react-icons/ai';
+import {AiOutlineHeart, AiOutlineShopping} from 'react-icons/ai';
 import {BiMenu} from 'react-icons/bi';
 import {FaTimes} from 'react-icons/fa';
 import {BsPersonCircle} from 'react-icons/bs'
@@ -21,10 +21,8 @@ const Header = () => {
                   <div className='nav-links-mobile'>
                   <Link className='nav-link' to="/home">Home</Link>
                   <Link className='nav-link' to="/category">Category</Link>
-                  <Link className='nav-link' to="/contact">Contact</Link>
                   <Link className='nav-link' to="/dashboard">Dashboard</Link>
                 <div className='div-mobile'>
-                  <button className='nav-link icon'><AiOutlineSearch /></button>
                   <Link className='nav-link icon'  to="/wishlist"><AiOutlineHeart /></Link>
                   <Link className='nav-link icon' to="/shoppingcart"> <AiOutlineShopping /></Link>
                   <Link className='nav-link icon'> <BsPersonCircle /></Link>
@@ -36,9 +34,7 @@ const Header = () => {
                <div className='nav-links-desktop'>
                   <Link className='nav-link' to="/home">Home</Link>
                   <Link className='nav-link' to="/category">Category</Link>
-                  <Link className='nav-link' to="/contact">Contact</Link>
                   <Link className='nav-link' to="/dashboard">Dashboard</Link>
-                  <button className='nav-link icon'><AiOutlineSearch /></button>
                   <Link className='nav-link icon'  to="/wishlist"><AiOutlineHeart /></Link>
                   <Link className='nav-link icon' to="/shoppingcart"> <AiOutlineShopping /></Link>
                   <Link className='nav-link icon'> <BsPersonCircle /></Link>
