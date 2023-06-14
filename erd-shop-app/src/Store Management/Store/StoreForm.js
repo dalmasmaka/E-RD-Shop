@@ -43,6 +43,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         event.preventDefault();
         const url = `${BASE_URL}/Store`;
         const requestData = {
+            storeId: storeId,
             storeName: storeName,
             storeOwner: storeOwner,
             storeLocation: storeLocation,
@@ -132,12 +133,13 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
                 <form className="store-form" onSubmit={handleSubmit}>
                     <div className="first-row">
                         <div className='first-row-element'>
-                            <label className='labels' htmlFor="storeId">Store ID: </label>
+                           <div style={{ display: 'none' }}>
+                           <label className='labels' htmlFor="storeId">Store ID: </label>
                             <input className='inputs' type="text" id="storeId" name="storeId" required
                                 minLength="4" size="10"
-                                value={storeId}
-                                disabled
+                                value={storeId} 
                                 onChange={(e) => setStoreId(e.target.value)} />
+                           </div>
                             <label className='labels' htmlFor="storeName">Store name: </label>
                             <input className='inputs' type="text" id="storeName" name="storeName" required
                                 minLength="4" size="10"
