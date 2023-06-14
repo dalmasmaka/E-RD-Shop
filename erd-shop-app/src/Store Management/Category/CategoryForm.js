@@ -1,7 +1,24 @@
 import React, { useState } from 'react';
-const CategoryForm = () => {
+import { useEffect } from 'react';
+import { BASE_URL } from '../../API/api';
+import Swal from 'sweetalert2';
+const CategoryForm = ({onPageChange, selectedCategory }) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
+    const [categoryName, setCategoryName] = useState('');
+    const [categoryImg, setCategoryImg] = useState('');
+
+    useEffect(() => {
+        if(selectedCategory){
+            debugger
+            setCategoryName(selectedCategory.categoryName);
+            setCategoryImg(selectedCategory.categoryImg);
+        }
+    }, [selectedCategory]);
+    console.log(selectedCategory)
+    const handlePageChange = (page) => {
+        onPageChange(page);
+    };
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -17,6 +34,87 @@ const CategoryForm = () => {
             setPreviewImage(null);
         }
     };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const url = `${BASE_URL}/Category`;
+        const requestData = {
+            categoryName: categoryName,
+            categoryImg: categoryImg,
+        };
+
+        if (selectedCategory) {
+            requestData.categoryId = selectedCategory.categoryId
+            fetch(url, {
+                method: 'PUT',
+                body: JSON.stringify(requestData),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    showUpdateSuccessMessage();
+                })
+                .catch((error) => {
+                    showErrorMessage();
+                });
+        } else {
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(requestData),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    showCreateSuccessMessage();
+                })
+                .catch((error) => {
+                    showErrorMessage();
+                });
+        }
+    };
+
+    const showCreateSuccessMessage = () => {
+        debugger
+        Swal.fire({
+            title: 'Successfully!',
+            text: 'Category has been created!',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK',
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                handlePageChange('Category'); // Call handlePageChange with the desired page
+            }
+        });
+    };
+    const showUpdateSuccessMessage = () => {
+        debugger
+        Swal.fire({
+            title: 'Successfully!',
+            text: 'Category has been updated!',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK',
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                handlePageChange('Category'); // Call handlePageChange with the desired page
+            }
+        });
+    };
+    const showErrorMessage = () => {
+        Swal.fire(
+            'error',
+            'Oops...',
+            'Something went wrong!'
+        );
+    };
 
     return(
         <div className="main-container">
@@ -24,25 +122,28 @@ const CategoryForm = () => {
             <h2 className="title">Create new Category</h2>
         </div>
         <div className="category-form-container">
-            <form className="category-form">
+            <form className="category-form" onSubmit={handleSubmit}>
                 <div className="first-row">
                     <div className='first-row-element'>
-                        <label className='labels' for="name">Category name: </label>
-                        <input className='inputs' type="text" id="name" name="name" required
-                            minlength="4" maxlength="8" size="10" />
+                        <label className='labels' htmlFor="categoryName">Category name: </label>
+                        <input className='inputs' type="text" id="categoryName" name="categoryName" required
+                            minlength="4" size="10" 
+                            value={categoryName}
+                            
+                            onChange={(e) => setCategoryName(e.target.value)} />
                     </div>
                 </div>
                 <div className="second-row">
                     <div className="image-container">
                         <div>
-                            <input type="file" onChange={handleImageChange} />
+                            <input type="file" accept="image/*" onChange={handleImageChange} />
                         </div>
-                        {previewImage && <img className='upload-img' src={previewImage} alt="Preview" />}
+                        {previewImage && <img className='upload-img' id='categoryImg' name='categoryImg' src={previewImage} alt="Preview" />}
                     </div>
                 </div>
                 <div className='actions-form-container'>
-                    <button className='cancel-form-button'>Cancel</button>
-                    <button className='create-form-button'>Create</button>
+                    <button className='cancel-form-button' onClick={() => handlePageChange('Category')}>Cancel</button>
+                    <button className='create-form-button' type='submit'>Save</button>
                 </div>
             </form>
         </div>

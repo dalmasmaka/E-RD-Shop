@@ -15,10 +15,20 @@ import Clients from '../Clients/Clients';
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState("Store");
   const [selectedStore, setSelectedStore] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProductVariant, setSelectedProductVariant] = useState(null);
 
   // Function to handle page change
-  const handlePageChange = (page, store = null) => {
-    setSelectedStore(store);
+  const handlePageChange = (page, store = null, category = null) => {
+    debugger
+    if (store) {
+      setSelectedStore(store);
+      setSelectedCategory(null);
+    } else if (category) {
+      setSelectedCategory(category);
+      setSelectedStore(null);
+    }
     setCurrentPage(page);
   };
   
@@ -31,21 +41,21 @@ const Dashboard = () => {
       case "StoreForm":
         return <StoreForm onPageChange={handlePageChange}  selectedStore={selectedStore}/>;
       case "Category":
-        return <Category onPageChange={handlePageChange} />;
+        return <Category onPageChange={handlePageChange} onEdit={handlePageChange} />;
       case "CategoryForm":
-        return <CategoryForm />;
+        return <CategoryForm  onPageChange={handlePageChange} selectedCategory={selectedCategory}/>;
       case "Products":
-        return <Products onPageChange={handlePageChange} />;
+        return <Products onPageChange={handlePageChange} onEdit={handlePageChange}/>;
       case "ProductForm":
-        return <ProductForm />;
+        return <ProductForm  onPageChange={handlePageChange} selectedCategory={selectedProduct}/>;
       case "ProductVariant":
-        return <ProductVariant onPageChange={handlePageChange} />;
+        return <ProductVariant onPageChange={handlePageChange} onEdit={handlePageChange}/>;
       case "ProductVariantForm":
-        return <ProductVariantForm />;
+        return <ProductVariantForm onPageChange={handlePageChange} selectedProductVariant={selectedProductVariant} />;
       case "Orders":
-        return <Orders onPageChange={handlePageChange} />;
+        return <Orders onPageChange={handlePageChange} onEdit={handlePageChange}/>;
       case "OrderDetails":
-        return <OrderDetails />;
+        return <OrderDetails onPageChange={handlePageChange} />;
       case "Clients":
         return <Clients />;
       default:

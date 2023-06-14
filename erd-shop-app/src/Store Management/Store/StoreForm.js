@@ -9,11 +9,9 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
     const [storeOwner, setStoreOwner] = useState('');
     const [storeLocation, setStoreLocation] = useState('');
     const [storeContact, setStoreContact] = useState('');
-    const [storeId, setStoreId] = useState('');
 
     useEffect(() => {
         if (selectedStore) {
-            setStoreId(selectedStore.storeId);
             setStoreName(selectedStore.storeName);
             setStoreOwner(selectedStore.storeOwner);
             setStoreLocation(selectedStore.storeLocation);
@@ -43,7 +41,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         event.preventDefault();
         const url = `${BASE_URL}/Store`;
         const requestData = {
-            storeId: storeId,
             storeName: storeName,
             storeOwner: storeOwner,
             storeLocation: storeLocation,
@@ -52,6 +49,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         };
 
         if (selectedStore) {
+            requestData.storeId = selectedStore.storeId
             fetch(url, {
                 method: 'PUT',
                 body: JSON.stringify(requestData),
@@ -133,13 +131,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
                 <form className="store-form" onSubmit={handleSubmit}>
                     <div className="first-row">
                         <div className='first-row-element'>
-                           <div style={{ display: 'none' }}>
-                           <label className='labels' htmlFor="storeId">Store ID: </label>
-                            <input className='inputs' type="text" id="storeId" name="storeId" required
-                                minLength="4" size="10"
-                                value={storeId} 
-                                onChange={(e) => setStoreId(e.target.value)} />
-                           </div>
                             <label className='labels' htmlFor="storeName">Store name: </label>
                             <input className='inputs' type="text" id="storeName" name="storeName" required
                                 minLength="4" size="10"
@@ -169,14 +160,14 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
                     <div className="second-row">
                         <div className="image-container">
                             <div>
-                                <input type="file" accept="image/*" onChange={handleImageChange} />
+                                <input type="file" accept="image/*" onChange={handleImageChange}/>
                             </div>
                             {previewImage && <img className='upload-img' id='storeImg' name='storeImg' src={previewImage} alt="Preview" />}
                         </div>
                     </div>
                     <div className='actions-form-container'>
                         <button className='cancel-form-button' onClick={() => handlePageChange('Store')}>Cancel</button>
-                        <button className='create-form-button' type='submit'>Create</button>
+                        <button className='create-form-button' type='submit'>Save</button>
                     </div>
                 </form>
             </div>
