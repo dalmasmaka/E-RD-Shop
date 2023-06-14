@@ -43,7 +43,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         event.preventDefault();
         const url = `${BASE_URL}/Store`;
         const requestData = {
-            storeId: storeId,
             storeName: storeName,
             storeOwner: storeOwner,
             storeLocation: storeLocation,
@@ -52,9 +51,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         };
 
         if (selectedStore) {
-            debugger
-            // Update existing store
-
             fetch(url, {
                 method: 'PUT',
                 body: JSON.stringify(requestData),
@@ -64,7 +60,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data)
                     showUpdateSuccessMessage();
                 })
                 .catch((error) => {
