@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './CategoryType.css';
-import ProductVariants from '../Product/Product'
+import Product from '../Product/Product'
 
 const CategoryType = ({ id, name, image }) => {
   const navigate = useNavigate();
