@@ -8,6 +8,7 @@ const OrderPage = () => {
   const [selectShippingMethod, setSelectShippingMethod] = useState('');
   const [selectPaymentMethod, setSelectPaymentMethod] = useState('');
   const [countdown, setCountdown] = useState(null);
+  const [showImage, setShowImage] = useState(false);
 
   useEffect(() => {
     if (selectPaymentMethod !== 'option5') {
@@ -25,6 +26,10 @@ const OrderPage = () => {
       return () => clearInterval(countdownInterval);
     }
   }, [selectPaymentMethod]);
+
+  const handleClick = () => {
+    setShowImage(true);
+  };
 
   return (
     <div className='order-page'>
@@ -79,8 +84,18 @@ const OrderPage = () => {
           )}
         </div>
       </div>
-      <button className='submit-button-order' type='submit'>
-        Submit
+      <button className='submit-button-order' type='submit' onClick={handleClick}>
+        {showImage ? (
+          <img
+            className='submit-finished'
+            src='https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png'
+            height='30'
+            width='30'
+            alt='Finished'
+          />
+        ) : (
+          <span>Submit</span>
+        )}
       </button>
     </div>
   );

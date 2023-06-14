@@ -15,19 +15,14 @@
     align-items: center;
     display: flex;
     width: 100%;
-    padding: 2% 5%;
+    padding: 0% 5%;
 }
 .header{
-    filter: blur(0.6px);
     width: 100%;
     background-color: #24170f;
     padding: 0 0;
     /* position: sticky;
      top: 0 */
-}
-.header:hover {
-    filter: blur(0px);
-    transition: 2s;
 }
 .nav-link {
     text-decoration: none;
@@ -131,3 +126,7 @@ button.nav-link.icon.logout {
         font-size: 25px;
     }
 }
+.nav-link:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+  }

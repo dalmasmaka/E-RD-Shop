@@ -36,6 +36,7 @@ export const Category = () => {
   return (
     <div className="category">
       <h1 className="category-title">Category</h1>
+      
       <form className="form-search">
         <div className="search-container">
       <AiOutlineSearch />
