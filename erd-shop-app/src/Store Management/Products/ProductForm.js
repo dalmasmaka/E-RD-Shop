@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AsyncSelect from 'react-select/async';
+import { getStores } from '../../API/api';
 //import { colourOptions } from '../data';
 
 const ProductForm = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
-   
+    const [stores, setStores] = useState([]);
+    useEffect(() => {
+        const fetchStores = async() => {
+            const data = await getStores();
+            setStores(data.result);
+        }
+        fetchStores();
+    }, [])
     
     const colourOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
     const filterColors = (inputValue) => {
@@ -53,7 +61,11 @@ const ProductForm = () => {
                         </div>
                         <div className='first-row-element'>
                         <label className='labels' htmlFor="name">Choose the store: </label>
-                            <AsyncSelect cacheOptions loadOptions={loadOptions} defaultOptions />
+                        <select>
+                                {stores.map((store) => {
+                                    return <option>{store.storeName}</option>;
+                                })}
+                            </select>
                         </div>
                     </div>
                     {/* Rest of the code */}
