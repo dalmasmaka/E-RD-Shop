@@ -13,6 +13,7 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
             debugger
             setCategoryName(selectedCategory.categoryName);
             setCategoryImg(selectedCategory.categoryImg);
+            setPreviewImage(selectedCategory.categoryImg); 
         }
     }, [selectedCategory]);
     console.log(selectedCategory)
@@ -129,7 +130,6 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
                         <input className='inputs' type="text" id="categoryName" name="categoryName" required
                             minLength="4" size="10" 
                             value={categoryName}
-                            
                             onChange={(e) => setCategoryName(e.target.value)} />
                     </div>
                 </div>
@@ -142,7 +142,7 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
                     </div>
                 </div>
                 <div className='actions-form-container'>
-                    <button className='cancel-form-button' onClick={() => handlePageChange('Category')}>Cancel</button>
+                    <button className='cancel-form-button' onClick={() => handlePageChange('Category') }>Cancel</button>
                     <button className='create-form-button' type='submit'>Save</button>
                 </div>
             </form>

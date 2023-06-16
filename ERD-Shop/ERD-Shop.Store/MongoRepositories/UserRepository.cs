@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
+using ERD_Shop.Store.MongoRepositories.Interface;
 using MongoDB.Driver;
 
 namespace ERD_Shop.Store.MongoRepositories
