@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import AsyncSelect from 'react-select/async';
-import { BASE_URL } from '../../API/api';
+import { BASE_URL, getStores } from '../../API/api';
 import Swal from 'sweetalert2';
 
 
-const ProductForm = ({onPageChange, selectedProduct}) => {
+const ProductForm = ({ onPageChange, selectedProduct }) => {
     const [stores, setStores] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
@@ -13,7 +13,7 @@ const ProductForm = ({onPageChange, selectedProduct}) => {
     const [productImg, setProductImg] = useState('');
 
     useEffect(() => {
-        if(selectedProduct){
+        if (selectedProduct) {
             setProductName(selectedProduct.productName);
             setProductImg(selectedProduct.productImg);
         }
@@ -22,12 +22,12 @@ const ProductForm = ({onPageChange, selectedProduct}) => {
         onPageChange(page);
     };
 
- 
+
     useEffect(() => {
-    getStores()
-      .then(data => setStores(data.result))
-      .catch(error => console.error('Error: ', error));
-  }, []);
+        getStores()
+            .then(data => setStores(data.result))
+            .catch(error => console.error('Error: ', error));
+    }, []);
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setSelectedImage(file);
@@ -112,7 +112,7 @@ const ProductForm = ({onPageChange, selectedProduct}) => {
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'OK',
         }).then((result) => {
-console.log(result)
+            console.log(result)
             if (result.isConfirmed) {
                 handlePageChange('Products'); // Call handlePageChange with the desired page
             }
@@ -125,21 +125,21 @@ console.log(result)
             'Something went wrong!'
         );
     };
-const loadOptions = (inputValue, callback) => {
-  // Simulated asynchronous request to fetch store options
-  setTimeout(() => {
-    const filteredStores = stores.filter((store) =>
-      store.storeName.toLowerCase().includes(inputValue.toLowerCase())
-    );
+    const loadOptions = (inputValue, callback) => {
+        // Simulated asynchronous request to fetch store options
+        setTimeout(() => {
+            const filteredStores = stores.filter((store) =>
+                store.storeName.toLowerCase().includes(inputValue.toLowerCase())
+            );
 
-    const options = filteredStores.map((store) => ({
-      value: store.storeId,
-      label: store.storeName
-    }));
+            const options = filteredStores.map((store) => ({
+                value: store.storeId,
+                label: store.storeName
+            }));
 
-    callback(options);
-  }, 1000);
-};
+            callback(options);
+        }, 1000);
+    };
     return (
         <div className="main-container">
             <div className="header-container">
@@ -150,34 +150,32 @@ const loadOptions = (inputValue, callback) => {
                     <div className="first-row">
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="productName">Product name: </label>
-                            <input className='inputs' type="text" id="productName" name="productName" required minLength="4" maxLength="8" size="10" 
-                            value={productName}
-                            onChange={(e) => setProductName(e.target.value)}/>
+                            <input className='inputs' type="text" id="productName" name="productName" required minLength="4" maxLength="8" size="10"
+                                value={productName}
+                                onChange={(e) => setProductName(e.target.value)} />
                         </div>
                         <div className='first-row-element'>
-                        <label className='labels' htmlFor="name">Choose the store: </label>
+                            <label className='labels' htmlFor="name">Choose the store: </label>
 
                             <AsyncSelect cacheOptions loadOptions={loadOptions} defaultOptions />
                         </div>
-                        </div>
-
                     </div>
-                    {/* Rest of the code */}
-                    <div className="second-row">
-                        <div className="image-container">
-                            <div>
-                                <input type="file" accept="image/*" onChange={handleImageChange} />
-                            </div>
-                            {previewImage && <img className='upload-img' id='productImg' name='productImg' src={previewImage} alt="Preview" />}
-                        </div>
+            {/* Rest of the code */}
+            <div className="second-row">
+                <div className="image-container">
+                    <div>
+                        <input type="file" accept="image/*" onChange={handleImageChange} />
                     </div>
-                    <div className='actions-form-container'>
-                        <button className='cancel-form-button' onClick={() => handlePageChange('Products')}>Cancel</button>
-                        <button className='create-form-button' type='submit'>Create</button>
-                    </div>
-                </form>
+                    {previewImage && <img className='upload-img' id='productImg' name='productImg' src={previewImage} alt="Preview" />}
+                </div>
             </div>
-        </div>
+            <div className='actions-form-container'>
+                <button className='cancel-form-button' onClick={() => handlePageChange('Products')}>Cancel</button>
+                <button className='create-form-button' type='submit'>Create</button>
+            </div>
+        </form>
+            </div >
+        </div >
     );
 };
 
