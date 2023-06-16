@@ -87,7 +87,8 @@ const Category = ({ onPageChange, onEdit }) => {
             </div>
             <div className="table-container">
                 <table>
-                    <tr>
+                  <tbody>
+                  <tr>
                         <th>ID</th>
                         <th>Category Image</th>
                         <th>Category</th>
@@ -105,7 +106,7 @@ const Category = ({ onPageChange, onEdit }) => {
 
                         </tr>
                     ))}
-
+                  </tbody>
                 </table>
             </div>
             <div className="pagination">

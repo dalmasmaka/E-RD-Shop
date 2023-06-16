@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 
 const ProductForm = ({onPageChange, selectedProduct}) => {
+    const [stores, setStores] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
     const [productName, setProductName] = useState('');
@@ -18,27 +19,15 @@ const ProductForm = ({onPageChange, selectedProduct}) => {
         }
     }, [selectedProduct]);
     const handlePageChange = (page) => {
-        debugger
         onPageChange(page);
     };
 
-    // const colourOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
-    // const filterColors = (inputValue) => {
-    //     return colourOptions.filter((i) =>
-    //       i.label && i.label.toLowerCase().includes(inputValue.toLowerCase())
-    //     );
-    //   };
-      
-      
-    // const loadOptions = (
-    //     inputValue,
-    //     callback
-    // ) => {
-    //     setTimeout(() => {
-    //         callback(filterColors(inputValue));
-    //     }, 1000);
-    // };
-
+ 
+    useEffect(() => {
+    getStores()
+      .then(data => setStores(data.result))
+      .catch(error => console.error('Error: ', error));
+  }, []);
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setSelectedImage(file);
@@ -115,7 +104,6 @@ const ProductForm = ({onPageChange, selectedProduct}) => {
         });
     };
     const showUpdateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Product has been updated!',
@@ -137,7 +125,21 @@ console.log(result)
             'Something went wrong!'
         );
     };
+const loadOptions = (inputValue, callback) => {
+  // Simulated asynchronous request to fetch store options
+  setTimeout(() => {
+    const filteredStores = stores.filter((store) =>
+      store.storeName.toLowerCase().includes(inputValue.toLowerCase())
+    );
 
+    const options = filteredStores.map((store) => ({
+      value: store.storeId,
+      label: store.storeName
+    }));
+
+    callback(options);
+  }, 1000);
+};
     return (
         <div className="main-container">
             <div className="header-container">
@@ -152,10 +154,13 @@ console.log(result)
                             value={productName}
                             onChange={(e) => setProductName(e.target.value)}/>
                         </div>
-                        {/* <div className='first-row-element'>
+                        <div className='first-row-element'>
                         <label className='labels' htmlFor="name">Choose the store: </label>
+
                             <AsyncSelect cacheOptions loadOptions={loadOptions} defaultOptions />
-                        </div> */}
+                        </div>
+                        </div>
+
                     </div>
                     {/* Rest of the code */}
                     <div className="second-row">

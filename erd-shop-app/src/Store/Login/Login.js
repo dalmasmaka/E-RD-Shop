@@ -19,7 +19,7 @@ export const Login = (props) => {
 
     return (
         <div className="auth-form-container">
-            <h2>Log In</h2>
+            <h2 className='login-txt'>Log In</h2>
             <form className="loginForm" onSubmit={handleSubmit}>
             <div className="input-flex">
                 <MdEmail />
