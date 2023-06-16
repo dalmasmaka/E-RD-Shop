@@ -5,6 +5,10 @@
     background-color: #24170f;
     width: 100%;
     padding: 5% 0;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .icons svg{
     margin: 15px;
