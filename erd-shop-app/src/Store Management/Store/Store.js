@@ -15,10 +15,6 @@ const Store = ({ onPageChange, onEdit }) => {
     setSelectedStore(store);
     onEdit("StoreForm", store);
   };
-
-
-
-
   useEffect(() => {
     getStores()
       .then(data => setStores(data.result))

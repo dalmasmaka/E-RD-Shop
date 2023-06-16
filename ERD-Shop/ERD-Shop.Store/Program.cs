@@ -2,6 +2,7 @@ using AutoMapper;
 using ERD_Shop.Store;
 using ERD_Shop.Store.Models.DTOs;
 using ERD_Shop.Store.MongoRepositories;
+using ERD_Shop.Store.MongoRepositories.Interface;
 using ERD_Shop.Store.Settings;
 using MassTransit;
 using Microsoft.OpenApi.Models;

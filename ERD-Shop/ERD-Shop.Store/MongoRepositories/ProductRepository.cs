@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
+using ERD_Shop.Store.MongoRepositories.Interface;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -33,7 +35,7 @@ namespace ERD_Shop.Store.MongoRepositories
             var result = countersCollection.FindOneAndUpdate(filter, update, options);
             return result["seq"].AsInt32;
         }
-        public async Task<ProductDto> CreateAsync(ProductDto productDto)
+        public async Task<ProductDto> CreateAsync([FromBody]ProductDto productDto)
         {
             if(productDto == null) throw new ArgumentNullException(nameof(productDto));
             int nextProductId = GetNextSequenceValue(_database, collectionName);
