@@ -1,8 +1,20 @@
-export const BASE_URL = "https://localhost:5000/api";
-/*export const BASE_URL = "https://localhost:5002/api";*/
+/*export const BASE_URL = "https://localhost:5000/api";*/
+export const BASE_URL = "https://localhost:5002/api";
 
 export function getUsers() {
   return fetch(`${BASE_URL}/Authentication/GetUsers`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+export function getUser() {
+  return fetch(`${BASE_URL}/User`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -82,4 +94,28 @@ export async function getVariantDetails(variantId) {
     throw new Error("Network response was not ok");
   }
   return await response.json();
+}
+export function getVariantsInWishlist() {
+  return fetch(`${BASE_URL}/WishlistManagement`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+export function getVariantsInShoppingCart() {
+  return fetch(`${BASE_URL}/ShoppingCartManagement`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }

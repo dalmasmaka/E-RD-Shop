@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AsyncSelect from 'react-select/async';
 import { getStores } from '../../API/api';
+import { BASE_URL } from '../../API/api';
 //import { colourOptions } from '../data';
 
 const ProductForm = () => {

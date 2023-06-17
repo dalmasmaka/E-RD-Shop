@@ -1,28 +1,64 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import './ShoppingCartCss.css';
 import { MdShoppingCartCheckout } from 'react-icons/md';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { useNavigate } from 'react-router';
+import { BASE_URL } from '../../API/api';
+import { getVariantsInShoppingCart } from '../../API/api';
+import { getUser } from '../../API/api';
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
-  // Fetch product variants based on the productId
-  // You can make an API call or use any other method to fetch the variants
+  const testwishlist = [];
+
+    const [shoppingCart, setShoppingCart] = useState([]);
+    const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      const user = await getUser();
+      setUserId(user.userId);
+    }
+    fetchUserId();
+  }, [])
+
+  const clearShoppingCart = (userId) => {
+    const url = `${BASE_URL}/ShoppingCartManagement`
+    const requestData = {
+      userId: userId
+    };
+    fetch(url, {
+      method:"DELETE",
+      body: JSON.stringify(requestData),
+      headers:{
+        'Content-Type': "application/json"
+      }
+    })
+    navigate.go(0)
+  }
+  const clearVariantfromShoppingCart = (variant) => {
+    const url = `${BASE_URL}/ShoppingCartManagement`
+    const requestData = {
+        variant: variant
+    };
+    fetch(url, {
+      method:"DELETE",
+      body: JSON.stringify(requestData),
+      headers:{
+        'Content-Type': "application/json"
+      }
+    })
+  }
+
   const handleGoToClick = () => {
     navigate('/orderpage'); // Redirect to the product variants page
   };
 
-  // Calculate the total price of all products
+
+
   const calculateTotalPrice = () => {
-    // Replace this sample data with the actual logic to calculate the total price
-    const products = [
-      { id: 1, name: 'produkti 1', store: 'Dior', price: 200, quantity: 3 },
-
-      // Add more products as needed
-    ];
-
-    const totalPrice = products.reduce((total, product) => {
+    const totalPrice = shoppingCart.reduce((total, product) => {
       return total + product.price * product.quantity;
     }, 0);
 
@@ -47,20 +83,23 @@ const ShoppingCart = () => {
             </tr>
           </thead>
           <tbody>
+                    
+          {testwishlist.map((variant) => {
+          return(
             <tr>
-              <td>1</td>
-              <td>
-                <p>produkti 1</p>
-              </td>
-              <td>Dior</td>
-              <td>200$</td>
-              <td>3</td>
+              <td>{variant.id}</td>
+              <td>{variant.name}</td>
+              <td>{variant.store}</td>
+              <td>{variant.price}</td>
+              <td>{variant.quantity}</td>
               <td className='action-buttons'>
-                <button className='delete-product-shoppingcart'>
+                <button className='delete-product-shoppingcart' onClick={() => clearVariantfromShoppingCart(variant)}>
                   <TiDeleteOutline />
                 </button>
-              </td>
+                </td>
             </tr>
+          )
+        })}
             {/* Add more product rows as needed */}
           </tbody>
           <tfoot>
@@ -81,7 +120,7 @@ const ShoppingCart = () => {
         </button>
       </div>
       <div className='deleteAll-button'>
-        <button className='delete-order-btn'>
+        <button className='delete-order-btn' onClick={() => clearShoppingCart(userId)}>
           <RiDeleteBin5Line />
           Delete All
         </button>
