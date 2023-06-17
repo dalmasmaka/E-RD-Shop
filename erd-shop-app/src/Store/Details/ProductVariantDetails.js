@@ -11,12 +11,15 @@ import {
 } from "react-icons/ai";
 import { useParams } from "react-router";
 import { getVariantDetails } from "../../API/api";
+import { BASE_URL } from "../../API/api";
+import { getVariantsInWishlist } from "../../API/api";
+import { getVariantsInShoppingCart } from "../../API/api";
 
 const ProductVariantDetails = () => {
   const [isHeartFilled, setIsHeartFilled] = useState(false);
   const [isCartFilled, setIsCartFilled] = useState(false);
   const [count, setCount] = useState(0);
-  // const [variant, setVariant] = useState({})
+  const [variant, setVariant] = useState({})
   const id = useParams();
   //   useEffect(() => {
   //     const fetchVariantDetails = async () => {
@@ -26,12 +29,36 @@ const ProductVariantDetails = () => {
   //     fetchVariantDetails();
   // }, []);
 
-  const handleGoToClickWishlist = () => {
-    setIsHeartFilled(!isHeartFilled);
+  const handleAddToWishlist = (variant) => {
+    const url = `${BASE_URL}/WishlistManagement`;
+    const requestData = {
+      variant: variant,
+      quantity: count
+    };
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(requestData),
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  })
+  setIsHeartFilled(!isHeartFilled);
   };
 
-  const handleGoToClickCart = () => {
-    setIsCartFilled(!isCartFilled);
+  const handleAddToShoppingCart = (variant) => {
+    const url = `${BASE_URL}/ShoppingCartManagement`;
+    const requestData = {
+      variant: variant,
+      quantity: count
+    };
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(requestData),
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  })
+  setIsCartFilled(!isCartFilled);
   };
 
   const incrementCount = () => {
@@ -77,13 +104,13 @@ const ProductVariantDetails = () => {
         </div>
         <button
           className="btn-flex-details btn-wishlist-details"
-          onClick={handleGoToClickWishlist}
+          onClick={() => handleAddToWishlist(variant)}
         >
           {isHeartFilled ? <AiFillHeart /> : <AiOutlineHeart />}
         </button>
         <button
           className="btn-flex-details btn-shopping-details"
-          onClick={handleGoToClickCart}
+          onClick={() => handleAddToShoppingCart(variant)}
         >
           {isCartFilled ? <AiTwotoneShopping /> : <AiOutlineShopping />}
         </button>
