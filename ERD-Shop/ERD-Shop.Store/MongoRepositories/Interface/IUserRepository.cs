@@ -1,6 +1,6 @@
 ﻿using ERD_Shop.Store.Models.DTOs;
 
-namespace ERD_Shop.Store.MongoRepositories
+namespace ERD_Shop.Store.MongoRepositories.Interface
 {
     public interface IUserRepository
     {

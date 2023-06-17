@@ -1,5 +1,5 @@
 ﻿using ERD_Shop.Store.Models.DTOs;
-using ERD_Shop.Store.MongoRepositories;
+using ERD_Shop.Store.MongoRepositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;

@@ -58,3 +58,22 @@
     transition: 1s;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 14px 15px, rgba(0, 0, 0, 0.12) 0px 30px 20px, rgba(0, 0, 0, 0.12) 0px 12px 5px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
 }
+
+.product-title{
+    color: #ffffff;
+    background: linear-gradient(to right, #4d4d4d 0, white 10%, #24170f 20%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 10s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    white-space: nowrap;
+  }
+  @keyframes shine{
+    0%{
+      background-position: 0;
+    }
+    100%{
+      background-position: 205px
+    }
+  }

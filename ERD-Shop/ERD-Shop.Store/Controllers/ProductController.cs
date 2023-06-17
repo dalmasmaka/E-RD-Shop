@@ -1,5 +1,5 @@
 ﻿using ERD_Shop.Store.Models.DTOs;
-using ERD_Shop.Store.MongoRepositories;
+using ERD_Shop.Store.MongoRepositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -52,7 +52,7 @@ namespace ERD_Shop.Store.Controllers
             return _response;
         }
         [HttpPost]
-        public async Task<ResponseDto> CreateAsync(ProductDto product)
+        public async Task<ResponseDto> CreateAsync([FromBody]ProductDto product)
         {
             try
             {

@@ -37,3 +37,32 @@
       margin-top: 14%;
   }
   }
+  form.loginForm {
+    width: 70%;
+    margin-left: 16%;
+}
+.login-txt{
+  font-size: 63px;
+  background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #24170f, transparent, transparent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: "Source Sans Pro", sans-serif;
+  animation: reveal 3000ms ease-in-out forwards 200ms, glow 2500ms linear infinite 2000ms;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes reveal {
+  80% {
+    letter-spacing: 8px;
+  }
+  100% {
+    background-size: 300% 300%;
+  }
+}
+
+@keyframes glow {
+  40% {
+    text-shadow: 0 0 8px #24170f;
+  }
+}

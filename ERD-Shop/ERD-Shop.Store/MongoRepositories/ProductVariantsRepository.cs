@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
+using ERD_Shop.Store.MongoRepositories.Interface;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -81,7 +82,11 @@ namespace ERD_Shop.Store.MongoRepositories
 
             UpdateDefinition<ProductVariant> update = Builders<ProductVariant>.Update
                 .Set(existingProductVariant => existingProductVariant.ProductVariantName, productVariant.ProductVariantName)
-                .Set(existingProductVariant => existingProductVariant.ProductVariantImg, productVariant.ProductVariantImg);
+                .Set(existingProductVariant => existingProductVariant.ProductVariantImg, productVariant.ProductVariantImg)
+                .Set(existingProductVariant => existingProductVariant.ShortDescription, productVariant.ShortDescription)
+                .Set(existingProductVariant => existingProductVariant.StockQuantity, productVariant.StockQuantity)
+                .Set(existingProductVariant => existingProductVariant.SkuCode, productVariant.SkuCode)
+                .Set(existingProductVariant => existingProductVariant.Price, productVariant.Price);
             await dbCollection.UpdateOneAsync(filter, update);
             return productVariant;
         }

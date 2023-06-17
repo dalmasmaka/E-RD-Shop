@@ -1,19 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { BASE_URL, getCategory, getStores } from '../../API/api';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import AsyncSelect from 'react-select/async';
+import { BASE_URL, getStores } from '../../API/api';
 import Swal from 'sweetalert2';
-//import { colourOptions } from '../data';
 
-const ProductForm = ([onPageChange, selectedProduct]) => {
+
+const ProductForm = ({ onPageChange, selectedProduct }) => {
+    const [stores, setStores] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
-    const [category, setCategory] = useState(0);
-    const [categories, setCategories] = useState([]);
-    const [store, setStore] = useState(0);
-    const [stores, setStores] = useState([]);
-    const [productId, setProductId] = useState(0);
     const [productName, setProductName] = useState('');
+    const [productImg, setProductImg] = useState('');
 
+    useEffect(() => {
+        if (selectedProduct) {
+            setProductName(selectedProduct.productName);
+            setProductImg(selectedProduct.productImg);
+        }
+    }, [selectedProduct]);
+    const handlePageChange = (page) => {
+        onPageChange(page);
+    };
+
+
+    useEffect(() => {
+        getStores()
+            .then(data => setStores(data.result))
+            .catch(error => console.error('Error: ', error));
+    }, []);
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setSelectedImage(file);
@@ -28,20 +42,17 @@ const ProductForm = ([onPageChange, selectedProduct]) => {
             setPreviewImage(null);
         }
     };
-    const handlePageChange = (page) => {
-        onPageChange(page);
-    };
     const handleSubmit = (event) => {
+
         event.preventDefault();
-        const url = `${BASE_URL}/Store`;
+        const url = `${BASE_URL}/Product`;
         const requestData = {
-            productId: productId,
             productName: productName,
-            storeId: store,
-            categoryId: category
+            productImg: productImg,
         };
 
         if (selectedProduct) {
+            requestData.productId = selectedProduct.productId
             fetch(url, {
                 method: 'PUT',
                 body: JSON.stringify(requestData),
@@ -57,6 +68,7 @@ const ProductForm = ([onPageChange, selectedProduct]) => {
                     showErrorMessage();
                 });
         } else {
+            // Create new store
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify(requestData),
@@ -66,15 +78,17 @@ const ProductForm = ([onPageChange, selectedProduct]) => {
             })
                 .then((response) => response.json())
                 .then((data) => {
+                    console.log(data)
                     showCreateSuccessMessage();
                 })
                 .catch((error) => {
                     showErrorMessage();
                 });
         }
-    }
+    };
+
     const showCreateSuccessMessage = () => {
-        // debugger
+        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Product has been created!',
@@ -85,12 +99,11 @@ const ProductForm = ([onPageChange, selectedProduct]) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('Category'); // Call handlePageChange with the desired page
+                handlePageChange('Products'); // Call handlePageChange with the desired page
             }
         });
     };
     const showUpdateSuccessMessage = () => {
-        // debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Product has been updated!',
@@ -99,9 +112,9 @@ const ProductForm = ([onPageChange, selectedProduct]) => {
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'OK',
         }).then((result) => {
-
+            console.log(result)
             if (result.isConfirmed) {
-                handlePageChange('Category'); // Call handlePageChange with the desired page
+                handlePageChange('Products'); // Call handlePageChange with the desired page
             }
         });
     };
@@ -112,69 +125,57 @@ const ProductForm = ([onPageChange, selectedProduct]) => {
             'Something went wrong!'
         );
     };
-    useEffect(() => {
-        if(selectedProduct){
-            setStore(selectedProduct.storeId);
-            setProductId(selectedProduct.productId);
-            setProductName(selectedProduct.productName);
-            setCategory(selectedProduct.categoryId);
-            setCategory(selectedProduct.productImg)
-        }
-        getCategory()
-            .then(data => setCategories(data.result))
-            .catch(error => console.error('Error: ', error));
-        getStores()
-            .then(data => setStores(data.result))
-            .catch(error => console.error('Error: ', error));
-    }, [])
+    const loadOptions = (inputValue, callback) => {
+        // Simulated asynchronous request to fetch store options
+        setTimeout(() => {
+            const filteredStores = stores.filter((store) =>
+                store.storeName.toLowerCase().includes(inputValue.toLowerCase())
+            );
 
+            const options = filteredStores.map((store) => ({
+                value: store.storeId,
+                label: store.storeName
+            }));
+
+            callback(options);
+        }, 1000);
+    };
     return (
         <div className="main-container">
             <div className="header-container">
                 <h2 className="title">Create new Product</h2>
             </div>
             <div className="product-form-container">
-                <form className="product-form">
+                <form className="product-form" onSubmit={handleSubmit}>
                     <div className="first-row">
                         <div className='first-row-element'>
-                            <label className='labels' htmlFor="name">Product name: </label>
-                            <input className='inputs' type="text" id="name" name="name" value={productName} onChange={(e) => setProductName(e.target.value)} required/>
+                            <label className='labels' htmlFor="productName">Product name: </label>
+                            <input className='inputs' type="text" id="productName" name="productName" required minLength="4" maxLength="8" size="10"
+                                value={productName}
+                                onChange={(e) => setProductName(e.target.value)} />
                         </div>
                         <div className='first-row-element'>
-                        <label className='labels' htmlFor="name">Choose the store: </label>
-                            <select className="select" value={category} onChange={(e) => {setCategory(e.target.value)}}>
-                                <option value='0'>Category</option>
-                                {categories.map(category => (
-                                    <option value={category.categoryId} key={category.categoryId}>{category.categoryName}</option>
-                                ))}
-                            </select>
-                        </div>
-                        <div className='first-row-element'>
-                        <label className='labels' htmlFor="name">Choose a category: </label>
-                            <select className="select" value={store} onChange={(e) => {setStore(e.target.value);console.log(e.target.value)}}>
-                                <option value='0'>Store</option>
-                                {stores.map(store => (
-                                    <option value={store.storeId}>{store.storeName}</option>
-                                ))}
-                            </select>
+                            <label className='labels' htmlFor="name">Choose the store: </label>
+
+                            <AsyncSelect cacheOptions loadOptions={loadOptions} defaultOptions />
                         </div>
                     </div>
-                    <div className="second-row">
-                        <div className="image-container">
-                            <div>
-                                <input type="file" onChange={handleImageChange} />
-                            </div>
-                            {previewImage && <img className='upload-img' src={previewImage} alt="Preview" />}
-                        </div>
+            {/* Rest of the code */}
+            <div className="second-row">
+                <div className="image-container">
+                    <div>
+                        <input type="file" accept="image/*" onChange={handleImageChange} />
                     </div>
-                    <div className='actions-form-container'>
-                        <button className='cancel-form-button' onClick={() => {handlePageChange('Products')}}>Cancel</button>
-                        <button className='create-form-button' type="submit">Create</button>
-                    </div>
-                </form>
+                    {previewImage && <img className='upload-img' id='productImg' name='productImg' src={previewImage} alt="Preview" />}
+                </div>
             </div>
-            <button onClick={() => console.log(stores)}>Test</button>
-        </div>
+            <div className='actions-form-container'>
+                <button className='cancel-form-button' onClick={() => handlePageChange('Products')}>Cancel</button>
+                <button className='create-form-button' type='submit'>Create</button>
+            </div>
+        </form>
+            </div >
+        </div >
     );
 };
 

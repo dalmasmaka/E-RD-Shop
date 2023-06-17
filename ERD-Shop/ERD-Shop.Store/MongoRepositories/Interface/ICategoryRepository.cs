@@ -3,7 +3,7 @@ using ERD_Shop.Store.Models.DTOs;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace ERD_Shop.Store.MongoRepositories
+namespace ERD_Shop.Store.MongoRepositories.Interface
 {
     public interface ICategoryRepository
     {
