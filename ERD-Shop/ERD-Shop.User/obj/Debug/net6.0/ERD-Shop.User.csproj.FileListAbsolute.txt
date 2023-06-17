@@ -176,3 +176,4 @@ C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.User\obj\Debug\net6.0\ERD
 C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.User\obj\Debug\net6.0\ERD-Shop.User.genruntimeconfig.cache
 C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.User\obj\Debug\net6.0\ref\ERD-Shop.User.dll
 C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.User\bin\Debug\net6.0\Order.Contracts.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.User\bin\Debug\net6.0\Store.Contracts.dll

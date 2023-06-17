@@ -1,6 +1,7 @@
 using AutoMapper;
 using ERD_Shop.Order.Models;
 using ERD_Shop.Order.Models.DTOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace ERD_Shop.Order.Repository
 {
@@ -21,9 +22,12 @@ namespace ERD_Shop.Order.Repository
             await _db.SaveChangesAsync();
             return _mapper.Map<ProductVariantDto>(productVariant);
         }
-        public Task<ProductVariantDto> UpdateProductVariant(ProductVariantDto productVariantDto)
+        public async Task<ProductVariantDto> UpdateProductVariant(ProductVariantDto productVariantDto)
         {
-            throw new NotImplementedException();
+            ProductVariant productVariant = _mapper.Map<ProductVariantDto, ProductVariant>(productVariantDto);
+            _db.ProductVariants.Update(productVariant);
+            await _db.SaveChangesAsync();
+            return _mapper.Map<ProductVariantDto>(productVariant);
         }
 
         public Task<bool> DeleteProductVariant(int productVariantId)
@@ -40,17 +44,10 @@ namespace ERD_Shop.Order.Repository
             return Task.FromResult(false);
         }
 
-        public Task<ProductVariantDto> GetProductVariantId(int productVariantId)
+        public async Task<ProductVariantDto> GetProductVariantId(int productVariantId)
         {
-            var prod = _db.ProductVariants.FirstOrDefault(x => x.ProductVariantId == productVariantId);
-
-            var dto = new ProductVariantDto()
-            {
-                ProductVariantId = prod.ProductVariantId,
-
-            };
-            // orderDto = _mapper.Map<OrderDto>(order);
-            return Task.FromResult(dto);
+            ProductVariant productVariant = await _db.ProductVariants.Where(p => p.ProductVariantId == productVariantId).FirstOrDefaultAsync();
+            return _mapper.Map<ProductVariantDto>(productVariant);
         }
 
         public Task<IEnumerable<ProductVariantDto>> GetProductVariants()

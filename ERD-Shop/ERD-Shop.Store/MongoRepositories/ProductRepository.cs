@@ -76,7 +76,9 @@ namespace ERD_Shop.Store.MongoRepositories
 
             UpdateDefinition<Product> update = Builders<Product>.Update
                 .Set(existingProduct => existingProduct.ProductName, productDto.ProductName)
-                .Set(existingProduct => existingProduct.ProductImg, productDto.ProductImg);
+                .Set(existingProduct => existingProduct.ProductImg, productDto.ProductImg)
+                .Set(existingProduct => existingProduct.CategoryId, productDto.CategoryId)
+                .Set(existingProduct => existingProduct.StoreId, productDto.StoreId);
             await dbCollection.UpdateOneAsync(filter, update);
             return productDto;
         }

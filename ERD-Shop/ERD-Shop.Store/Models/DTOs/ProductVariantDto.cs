@@ -4,9 +4,11 @@
     {
         public int ProductVariantId { get; set; }
         public string? ProductVariantName { get; set; }
+        public float Price { get; set; }
         public string? SkuCode { get; set; }
         public int? StockQuantity { get; set; }
         public string? ShortDescription { get; set; }
         public string? ProductVariantImg { get; set; }
+        public int? ProductId { get; set; }
     }
 }

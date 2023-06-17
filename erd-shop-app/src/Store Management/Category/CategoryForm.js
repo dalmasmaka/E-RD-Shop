@@ -127,9 +127,7 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
                     <div className='first-row-element'>
                         <label className='labels' htmlFor="categoryName">Category name: </label>
                         <input className='inputs' type="text" id="categoryName" name="categoryName" required
-                            minlength="4" size="10" 
                             value={categoryName}
-                            
                             onChange={(e) => setCategoryName(e.target.value)} />
                     </div>
                 </div>
