@@ -9,8 +9,6 @@
 .sidebar {
     width: 19.9%;
     background-color: #F2E5D5;
-
-
 }
 
 .pages {
@@ -207,6 +205,7 @@ tr:nth-child(even) {
 
 .inputs {
     width: 50%;
+    padding-left: 0.5%;
     display: grid;
     height: 40px;
 }
@@ -360,6 +359,12 @@ tr:nth-child(even) {
         display: grid;
         height: 40px;
     }
+    .select{
+        margin-top:5%;
+        width:100%;
+        display:grid;
+        height:40px;
+    }
 }
 
 @media only screen and (max-width:425px) and (min-width:376px) {
@@ -452,6 +457,12 @@ tr:nth-child(even) {
         display: grid;
         height: 40px;
     }
+    .select{
+        margin-top:5%;
+        width:100%;
+        display:grid;
+        height:40px;
+    }
 }
 
 @media only screen and (max-width:768px) and (min-width:426px) {
@@ -467,6 +478,12 @@ tr:nth-child(even) {
         margin-top: 6%;
         display: grid;
         height: 40px;
+    }
+    .select{
+        width:100%;
+        margin-top:6%;
+        display:grid;
+        height:40px;
     }
 
     .store-form {
@@ -518,6 +535,11 @@ tr:nth-child(even) {
         width: 90%;
         display: grid;
         height: 40px;
+    }
+    .select{
+        widht:90%;
+        display:grid;
+        height:40px;
     }
 
     .image-container {
@@ -589,4 +611,10 @@ div.pagination {
     width: 20px;
     height: 20px;
     border-radius: 50%;
+}
+
+.select{
+    min-width:50%;
+    height:40px;
+    padding-left: 1%;
 }

@@ -30,8 +30,6 @@ namespace ERD_Shop.User.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-
-
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -156,10 +154,7 @@ namespace ERD_Shop.User.Migrations
             modelBuilder.Entity("ERD_Shop.User.Models.IProductVariant", b =>
                 {
                     b.Property<int>("ProductVariantId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductVariantId"), 1L, 1);
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
@@ -194,11 +189,11 @@ namespace ERD_Shop.User.Migrations
 
             modelBuilder.Entity("ERD_Shop.User.Models.Wishlist", b =>
                 {
-                    b.Property<int>("WishlistId")
+                    b.Property<int?>("WishlistId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WishlistId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("WishlistId"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
@@ -270,21 +265,21 @@ namespace ERD_Shop.User.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "96b7ec2f-d5f7-4f3a-91be-ea76545a766e",
+                            Id = "f40fa452-a897-407a-b5fb-05c35c0dba33",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "4f721ed8-21ec-412f-bc06-bd32d1809b5b",
+                            Id = "16e19d8b-2901-47a3-b142-a2f9fd347725",
                             ConcurrencyStamp = "2",
                             Name = "User",
                             NormalizedName = "User"
                         },
                         new
                         {
-                            Id = "02fff1a7-a7fc-427d-8439-e5c482b63787",
+                            Id = "bfc7ff70-ee53-4113-a0cd-f9bf846ee9e6",
                             ConcurrencyStamp = "3",
                             Name = "Store Keeper",
                             NormalizedName = "Store Keeper"

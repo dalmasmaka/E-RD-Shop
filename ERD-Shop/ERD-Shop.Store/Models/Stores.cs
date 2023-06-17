@@ -16,7 +16,7 @@ namespace ERD_Shop.Store.Models
 
         [BsonElement("StoreId")]
         public int StoreId { get; set; }
-        public int? UserId { get; set; }
+        public string? UserId { get; set; }
         public string? StoreName { get; set; }
         public string? StoreLocation { get; set; }
         public string? StoreOwner { get; set; }

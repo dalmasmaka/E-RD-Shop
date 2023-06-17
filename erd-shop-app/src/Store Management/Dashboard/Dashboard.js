@@ -20,14 +20,29 @@ const Dashboard = () => {
   const [selectedProductVariant, setSelectedProductVariant] = useState(null);
 
   // Function to handle page change
-  const handlePageChange = (page, store = null, category = null) => {
+  const handlePageChange = (page, store = null, category = null, product = null, productVariant = null) => {
     debugger
     if (store) {
       setSelectedStore(store);
       setSelectedCategory(null);
+      setSelectedProduct(null);
+      setSelectedProductVariant(null);
     } else if (category) {
       setSelectedCategory(category);
       setSelectedStore(null);
+      setSelectedProduct(null);
+    }
+    else if(product){
+      setSelectedCategory(null);
+      setSelectedStore(null);
+      setSelectedProduct(product);
+      setSelectedProductVariant(null);
+    }
+    else if(productVariant){
+      setSelectedCategory(null);
+      setSelectedStore(null);
+      setSelectedProduct(null);
+      setSelectedProductVariant(productVariant);
     }
     setCurrentPage(page);
   };
@@ -47,7 +62,7 @@ const Dashboard = () => {
       case "Products":
         return <Products onPageChange={handlePageChange} onEdit={handlePageChange}/>;
       case "ProductForm":
-        return <ProductForm  onPageChange={handlePageChange} selectedCategory={selectedProduct}/>;
+        return <ProductForm  onPageChange={handlePageChange} selectedProduct={selectedProduct}/>;
       case "ProductVariant":
         return <ProductVariant onPageChange={handlePageChange} onEdit={handlePageChange}/>;
       case "ProductVariantForm":

@@ -16,6 +16,7 @@ namespace ERD_Shop.Store.Models
         public string? ProductName { get; set; }
         public string? ProductImg { get; set; }
         public int? StoreId { get; set; }
+        public int? CategoryId { get; set; }
         public virtual Stores? Store { get; set; }
     }
 }

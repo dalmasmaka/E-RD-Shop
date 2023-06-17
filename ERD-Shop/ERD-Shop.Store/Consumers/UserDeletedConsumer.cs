@@ -1,4 +1,4 @@
-﻿using ERD_Shop.Store.MongoRepositories;
+﻿using ERD_Shop.Store.MongoRepositories.Interface;
 using MassTransit;
 using User.Contracts;
 

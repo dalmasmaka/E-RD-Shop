@@ -35,7 +35,7 @@ price float(20)
 )
 create table Order_ProductVariant(
 orderID int foreign key references Orders(orderID),
-productVariantID int foreign key references ProductVariant(productVariantID),
+productVariantID int foreign key references ProductVariant(productVariantID) on delete cascade,
 primary key(orderID,productVariantID)
 )
 create table Refund(
