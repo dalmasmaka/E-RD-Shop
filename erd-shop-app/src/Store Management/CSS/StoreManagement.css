@@ -87,6 +87,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+.user-form {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .css-b62m3t-container {
     width: 50%;

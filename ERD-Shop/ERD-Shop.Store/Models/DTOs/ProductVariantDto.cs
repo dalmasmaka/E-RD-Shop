@@ -9,5 +9,9 @@
         public int? StockQuantity { get; set; }
         public string? ShortDescription { get; set; }
         public string? ProductVariantImg { get; set; }
+        public string? Barcode { get; set; }
+        public double? SupplyPrice { get; set; }
+        public double? TotalSupplyPrice { get; set; }
+        public int? ProductId { get; set; }
     }
 }

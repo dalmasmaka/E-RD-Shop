@@ -37,41 +37,41 @@ const Products = ({ onPageChange, onEdit }) => {
     Swal.fire({
       title: 'Delete products',
       text: 'Are you sure you want to delete this product?',
-      icon:'warning',
-      showCancelButton : true,
+      icon: 'warning',
+      showCancelButton: true,
       confirmButtonColor: '#d33',
       cancelButtonColor: '#3085d6',
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-      if(result.isConfirmed){
+      if (result.isConfirmed) {
         const url = `${BASE_URL}/Product/${id}`;
         fetch(url, {
           method: 'DELETE',
           headers: {
-            'Content-Type' : 'application/json',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({})
         })
-        .then(response => {
-          if(response.ok){
-            window.location.reload(); // Reload the current page
-          } else{
-            console.error('Error deleting product:', response.status);
-            if(response.status === 400){
-              return response.json();
-            }else{
-              throw new Error('Unexpected error occurred!');
+          .then(response => {
+            if (response.ok) {
+              window.location.reload(); // Reload the current page
+            } else {
+              console.error('Error deleting product:', response.status);
+              if (response.status === 400) {
+                return response.json();
+              } else {
+                throw new Error('Unexpected error occurred!');
+              }
             }
-          }
-        })
-        .then(data => {
-          if(data && data.errors){
-            console.error('Validation errors: ', data.errors);
-          }
-        })
-        .catch(error => {
-          console.log('Error: ', error);
-        });
+          })
+          .then(data => {
+            if (data && data.errors) {
+              console.error('Validation errors: ', data.errors);
+            }
+          })
+          .catch(error => {
+            console.log('Error: ', error);
+          });
       }
     });
   };
@@ -83,24 +83,27 @@ const Products = ({ onPageChange, onEdit }) => {
       </div>
       <div className="table-container">
         <table>
-          <tr>
-            <th>ID</th>
-            <th>Product Image</th>
-            <th>Product</th>
-            <th>Actions</th>
-          </tr>
-          {products.map(product => (
-            <tr key={product.productId}>
-              <td>{product.productId}</td>
-              <td><img className='table-img' src={product.productImg} alt='img' /></td>
-              <td>{product.productName}</td>
-              <td className='action-buttons'>
-                <AiOutlineDelete onClick={() => handleDelete(product.productId)} className='delete-button' />
-                <AiOutlineEdit onClick={() => handleEdit(product)} className='edit-button' />
-              </td>
-
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <th>Product Image</th>
+              <th>Product</th>
+              <th>Actions</th>
             </tr>
-          ))}
+            {currentProducts.map(product => (
+              <tr key={product.productId}>
+                <td>{product.productId}</td>
+                <td><img className='table-img' src={product.productImg} alt='img' /></td>
+                <td>{product.productName}</td>
+                <td className='action-buttons'>
+                  <AiOutlineDelete onClick={() => handleDelete(product.productId)} className='delete-button' />
+                  <AiOutlineEdit onClick={() => handleEdit(product)} className='edit-button' />
+                </td>
+
+              </tr>
+            ))}
+          </tbody>
+
         </table>
       </div>
       <div className="pagination">

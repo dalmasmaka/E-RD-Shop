@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ERD_Shop.Store.Models
 {
-    public partial class Product
+    public class Product
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -15,7 +15,8 @@ namespace ERD_Shop.Store.Models
         public int ProductId { get; set; }
         public string? ProductName { get; set; }
         public string? ProductImg { get; set; }
+        public bool? IsTransportable { get; set; }
         public int? StoreId { get; set; }
-        public virtual Stores? Store { get; set; }
+        public int? CategoryId { get; set; }
     }
 }
