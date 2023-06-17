@@ -89,14 +89,15 @@ const Category = ({ onPageChange, onEdit }) => {
                 <table>
                   <tbody>
                   <tr>
-                        <th>ID</th>
+             
                         <th>Category Image</th>
                         <th>Category</th>
                         <th>Actions</th>
                     </tr>
                     {currentCategories.map(categories => (
-                        <tr key={categories._id}>
-                            <td>{categories.categoryId}</td>
+                        <tr key={categories.categoryId}>
+
+                          
                             <td><img className='table-img' src={categories.categoryImg} alt='img' /></td>
                             <td>{categories.categoryName}</td>
                             <td className='action-buttons'>

@@ -10,7 +10,8 @@ import ProductVariant from "../Product Variants/ProductVariant";
 import ProductVariantForm from "../Product Variants/ProductVariantForm";
 import Orders from "../Orders/Orders";
 import OrderDetails from "../Orders/OrderDetails";
-import Clients from '../Clients/Clients';
+import Users from '../Clients/Users';
+import UserForm from '../Clients/UserForm';
 
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState("Store");
@@ -18,32 +19,45 @@ const Dashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedProductVariant, setSelectedProductVariant] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   // Function to handle page change
-  const handlePageChange = (page, store = null, category = null, product = null, productVariant = null) => {
-    debugger
+  const handlePageChange = (page, store = null, category = null, product = null, productVariant = null, user=null) => {
     if (store) {
       setSelectedStore(store);
       setSelectedCategory(null);
       setSelectedProduct(null);
       setSelectedProductVariant(null);
+      setSelectedUser(null);
     } else if (category) {
       setSelectedCategory(category);
       setSelectedStore(null);
       setSelectedProduct(null);
+      setSelectedProductVariant(null);
+      setSelectedUser(null);
     }
     else if(product){
       setSelectedCategory(null);
       setSelectedStore(null);
       setSelectedProduct(product);
       setSelectedProductVariant(null);
+      setSelectedUser(null);
     }
     else if(productVariant){
       setSelectedCategory(null);
       setSelectedStore(null);
       setSelectedProduct(null);
       setSelectedProductVariant(productVariant);
+      setSelectedUser(null);
     }
+    else if(user){
+      setSelectedCategory(null);
+      setSelectedStore(null);
+      setSelectedProduct(null);
+      setSelectedProductVariant(null);
+      setSelectedUser(user);
+    }
+
     setCurrentPage(page);
   };
   
@@ -71,8 +85,10 @@ const Dashboard = () => {
         return <Orders onPageChange={handlePageChange} onEdit={handlePageChange}/>;
       case "OrderDetails":
         return <OrderDetails onPageChange={handlePageChange} />;
-      case "Clients":
-        return <Clients />;
+      case "Users":
+        return <Users onPageChange={handlePageChange} onInfo={handlePageChange}/>;
+      case "UserForm":
+        return <UserForm onPageChange={handlePageChange} selectedUser={selectedUser}/>;
       default:
         return null;
     }

@@ -20,7 +20,7 @@ const Store = ({ onPageChange, onEdit }) => {
       .then(data => setStores(data.result))
       .catch(error => console.error('Error: ', error));
   }, []);
-  
+
   //Get current stores
   const indexOfLastStore = currentPage * storesPerPage;
   const indexOfFirstStore = indexOfLastStore - storesPerPage;
@@ -44,7 +44,7 @@ const Store = ({ onPageChange, onEdit }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         const url = `${BASE_URL}/Store/${id}`;
-  
+
         fetch(url, {
           method: 'DELETE',
           headers: {
@@ -55,7 +55,7 @@ const Store = ({ onPageChange, onEdit }) => {
           .then(response => {
             if (response.ok) {
               window.location.reload();
-             
+
             } else {
               // Handle error case
               console.error('Error deleting store:', response.status);
@@ -87,26 +87,27 @@ const Store = ({ onPageChange, onEdit }) => {
       </div>
       <div className="table-container">
         <table>
-          <tr>
+          <tbody>
+            <tr>
 
-            <th>Store</th>
-            <th>Store Owner</th>
-            <th>Contact</th>
-            <th>Actions</th>
-          </tr>
-          {currentStores.map(store => (
-            <tr key={store._id}>
-
-              <td>{store.storeName}</td>
-              <td>{store.storeOwner}</td>
-              <td>{store.storeContact}</td>
-              <td className='action-buttons'>
-                <AiOutlineDelete onClick={() => handleDelete(store.storeId)}className='delete-button' />
-                <AiOutlineEdit  onClick={() => handleEdit(store)} className='edit-button' />
-              </td>
+              <th>Store</th>
+              <th>Store Owner</th>
+              <th>Contact</th>
+              <th>Actions</th>
             </tr>
+            {currentStores.map(store => (
+              <tr key={store.storeId}>
+                <td>{store.storeName}</td>
+                <td>{store.storeOwner}</td>
+                <td>{store.storeContact}</td>
+                <td className='action-buttons'>
+                  <AiOutlineDelete onClick={() => handleDelete(store.storeId)} className='delete-button' />
+                  <AiOutlineEdit onClick={() => handleEdit(store)} className='edit-button' />
+                </td>
+              </tr>
 
-          ))}
+            ))}
+          </tbody>
         </table>
       </div>
       <div className="pagination">

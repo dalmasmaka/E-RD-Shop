@@ -86,7 +86,11 @@ namespace ERD_Shop.Store.MongoRepositories
                 .Set(existingProductVariant => existingProductVariant.ShortDescription, productVariant.ShortDescription)
                 .Set(existingProductVariant => existingProductVariant.StockQuantity, productVariant.StockQuantity)
                 .Set(existingProductVariant => existingProductVariant.SkuCode, productVariant.SkuCode)
-                .Set(existingProductVariant => existingProductVariant.Price, productVariant.Price);
+                .Set(existingProductVariant => existingProductVariant.Price, productVariant.Price)
+                .Set(existingProductVariant => existingProductVariant.SupplyPrice, productVariant.SupplyPrice)
+                .Set(existingProductVariant => existingProductVariant.TotalSupplyPrice, productVariant.TotalSupplyPrice)
+                .Set(existingProductVariant => existingProductVariant.Barcode, productVariant.Barcode)
+                .Set(existingProductVariant => existingProductVariant.ProductId, productVariant.ProductId);
             await dbCollection.UpdateOneAsync(filter, update);
             return productVariant;
         }
