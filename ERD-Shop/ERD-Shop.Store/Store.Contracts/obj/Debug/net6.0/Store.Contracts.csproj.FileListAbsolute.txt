@@ -1,0 +1,12 @@
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\bin\Debug\net6.0\Store.Contracts.deps.json
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\bin\Debug\net6.0\Store.Contracts.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\bin\Debug\net6.0\Store.Contracts.pdb
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\Store.Contracts.csproj.AssemblyReference.cache
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\Store.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\Store.Contracts.AssemblyInfoInputs.cache
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\Store.Contracts.AssemblyInfo.cs
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\Store.Contracts.csproj.CoreCompileInputs.cache
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\Store.Contracts.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\refint\Store.Contracts.dll
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\Store.Contracts.pdb
+C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\store.contracts\obj\Debug\net6.0\ref\Store.Contracts.dll
