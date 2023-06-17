@@ -12,25 +12,27 @@ const Orders = ({ onPageChange }) => {
             </div>
             <div className="table-container">
                 <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Products</th>
-                        <th>Order Date</th>
-                        <th>Total Price</th>
-                        <th>Actions</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <p>produkti 1</p>
-                            <p>produkti 2</p>
-                        </td>
-                        <td>Maria Anders</td>
-                        <td>200$</td>
-                        <td className='action-buttons'>
-                            <AiOutlineInfoCircle onClick={() => handlePageChange('OrderDetails')} />
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Products</th>
+                            <th>Order Date</th>
+                            <th>Total Price</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <p>produkti 1</p>
+                                <p>produkti 2</p>
+                            </td>
+                            <td>Maria Anders</td>
+                            <td>200$</td>
+                            <td className='action-buttons'>
+                                <AiOutlineInfoCircle onClick={() => handlePageChange('OrderDetails')} />
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

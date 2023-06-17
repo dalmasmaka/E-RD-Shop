@@ -94,18 +94,10 @@ const Sidebar = ({ onPageChange }) => {
             <ul className="sub-elements">
               <li
                 className="elements"
-                onClick={(event) => handleSubElementClick('Clients', event)}
+                onClick={(event) => handleSubElementClick('Users', event)}
               >
-                Clients
+                Users
               </li>
-              {/* <li
-                className="elements"
-                onClick={(event) =>
-                  handleSubElementClick('StoreKeepers', event)
-                }
-              >
-                Store Keepers
-              </li> */}
             </ul>
           )}
         </li>
