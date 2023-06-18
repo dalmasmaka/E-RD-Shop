@@ -1,4 +1,4 @@
-import './RegisterCss.css';
+import './RegisterStorekeeperCss.css';
 import React, { useState } from "react";
 import { FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
@@ -8,12 +8,11 @@ import { IoIosArrowDropdownCircle } from 'react-icons/io';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import { LoginSocialGoogle } from 'reactjs-social-login';
 
-export const Register = (props) => {
+export const RegisterStorekeeper = (props) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [selectRole, setSelectRole] = useState(''); 
     const [confirmPassword, setConfirmPassword] = useState(''); 
 
 
@@ -27,7 +26,7 @@ export const Register = (props) => {
 
     return (
         <div className="auth-form-container">
-            <h2 className='register-txt'>Register</h2>
+            <h2 className='register-txt'>Register as Storekeeper</h2>
             <form className="registerForm" onSubmit={handleSubmit}>
               <div className="input-flex">
                 <FaUser />
@@ -47,8 +46,8 @@ export const Register = (props) => {
                </div>
                 <button className='registerBtn'>Register</button>
             </form>
-            <Link className="linkregisterBtn" to="/registerstorekeeper">Want to register as a storekeeper? Register here.</Link>
-                <Link className="linkBtn" to="/login">Already have an account? Login here.</Link>
+            <Link className="linkregisterBtn" to="/register">Want to register as a client? Register here.</Link>
+                <Link className="linkBtn" to="/">Already have an account? Login here.</Link>
                 <div>
       <LoginSocialGoogle
         client_id={
