@@ -5,7 +5,7 @@ import "./ProductCss.css";
 import { getProductsByCategory } from "../../API/api";
 
 const Product = ({ productid }) => {
-  // const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
   // Fetch product variants based on the productId
   // You can make an API call or use any other method to fetch the variants
@@ -14,25 +14,26 @@ const Product = ({ productid }) => {
   };
   // Assuming you have an array of variants for the selected product
   let { id } = useParams();
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const data = await getProductsByCategory(id);
-  //     setProducts(data.result);
-  //   };
-  //   fetchProducts();
-  // }, []);
-  const products = [
-    { id: 1, name: 'iphone', image:iphone },
-    { id: 2, name: 'samsung', image:iphone },
-    { id: 3, name: 'iphone13', image:iphone},
-    { id: 4, name: 'samsung', image:iphone },
-    { id: 5, name: 'iphone13', image:iphone}
-  ];
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProductsByCategory(id);
+      setProducts(data.result);
+    };
+    fetchProducts();
+  }, []);
+  // const products = [
+  //   { id: 1, name: 'iphone', image:iphone },
+  //   { id: 2, name: 'samsung', image:iphone },
+  //   { id: 3, name: 'iphone13', image:iphone},
+  //   { id: 4, name: 'samsung', image:iphone },
+  //   { id: 5, name: 'iphone13', image:iphone}
+  // ];
   return (
     <div className="product-var">
       <h2 className="product-title">Products</h2>
       <div className="category-products">
-        {products.map((product) => {
+        <button onClick={() => console.log(products)}>Click</button>
+        {/* {products.map((product) => {
           return (
             <div key={product.id}  onClick={() => handleGoToClick(product.id)}>
               <div className="product">
@@ -43,7 +44,7 @@ const Product = ({ productid }) => {
               </div>
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );
