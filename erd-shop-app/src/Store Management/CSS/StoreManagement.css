@@ -7,14 +7,13 @@
 }
 
 .sidebar {
-    width: 19.9%;
-    background-color: #F2E5D5;
+    width: 20%;
 }
 
 .pages {
-    background-color: #F2E5D5;
+   
     width: 80%;
-    border-left: 1px solid #24170f;
+  
 }
 
 /* Table with Data CSS */
@@ -66,6 +65,18 @@
 }
 
 .edit-button:hover {
+    font-size: 19px;
+    cursor: pointer;
+    transition: 1s;
+}
+.add-button{
+    color: #24170f;
+    margin-right: 5%;
+    margin-left: 5%;
+    font-size: 16px;
+    transition: 1s;
+}
+.add-button:hover {
     font-size: 19px;
     cursor: pointer;
     transition: 1s;
@@ -541,7 +552,7 @@ tr:nth-child(even) {
         height: 40px;
     }
     .select{
-        widht:90%;
+        width:90%;
         display:grid;
         height:40px;
     }
@@ -617,8 +628,9 @@ div.pagination {
     border-radius: 50%;
 }
 
-.select{
-    min-width:50%;
-    height:40px;
-    padding-left: 1%;
+
+.select-dropdownList{
+    height: 42px !important;
+    width: 51% !important;
+    padding-left: 0.5%;
 }

@@ -19,7 +19,7 @@ namespace ERD_Shop.Store.Models
         public double? SupplyPrice { get; set; }
         public int? StockQuantity { get; set; }
         public double? TotalSupplyPrice { get; set; } // kalkulohet nga supply price per nje produkt variant me numrin e stokut
-        public int? Price { get; set; }
+        public float Price { get; set; }
         public string? ShortDescription { get; set; }
         public string? ProductVariantImg { get; set; }
         public int? ProductId { get; set; }

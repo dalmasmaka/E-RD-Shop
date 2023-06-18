@@ -50,7 +50,7 @@ const Category = ({ onPageChange, onEdit }) => {
               headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify({}) // Add an empty request body
+              body: JSON.stringify({})
             })
               .then(response => {
                 if (response.ok) {
@@ -60,7 +60,7 @@ const Category = ({ onPageChange, onEdit }) => {
                   // Handle error case
                   console.error('Error deleting category:', response.status);
                   if (response.status === 400) {
-                    return response.json(); // Parse response body as JSON
+                    return response.json(); 
                   } else {
                     throw new Error('Unexpected error occurred');
                   }
