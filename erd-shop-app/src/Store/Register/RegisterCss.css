@@ -65,3 +65,15 @@
       text-shadow: 0 0 8px #24170f;
     }
   }
+
+  .linkregisterBtn {
+    text-decoration: none;
+    border: none;
+    margin-left: 56%;
+    background: none;
+    color: #362417;
+    padding-top: 10px;
+    margin-top: -7%;
+    margin-bottom: 4%;
+}
+
