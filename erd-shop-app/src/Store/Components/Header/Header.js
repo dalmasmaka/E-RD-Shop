@@ -86,7 +86,7 @@ const Header = () => {
                 className='nav-link icon'
                 onClick={() => setShowLogout(true)}
               >
-                <BsPersonCircle />
+                Log In
               </Link>
             )}
           </div>
