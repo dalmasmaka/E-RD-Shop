@@ -22,7 +22,7 @@ const Users = ({onInfo }) => {
   // Get current users
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+  // const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -85,7 +85,7 @@ const Users = ({onInfo }) => {
             </tr>
           </thead>
           <tbody>
-            {currentUsers.map(user => (
+            {users.map(user => (
               <tr key={user.id}>
                 <td>{user.id}</td>
                 <td>{user.first_Name}</td>

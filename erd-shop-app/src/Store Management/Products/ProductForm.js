@@ -157,8 +157,11 @@ const ProductForm = ({ onPageChange, selectedProduct }) => {
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="name">Choose the store: </label>
 
-                            <AsyncSelect cacheOptions loadOptions={loadOptions} defaultOptions />
-                        </div>
+                            <select className='select-store-for-product'>
+                                {stores.map((store) => {
+                                    return <option>{store.storeName}</option>;
+                                })}
+                            </select>                        </div>
                     </div>
             {/* Rest of the code */}
             <div className="second-row">

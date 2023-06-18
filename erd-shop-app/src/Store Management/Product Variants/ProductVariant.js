@@ -22,7 +22,7 @@ const Productvariant = ({ onPageChange, onEdit }) => {
   //Get current product variants 
   const indexOfLastProductVariant = currentPage * productVariantsPerPage;
   const indexOfFirstProductVariant = indexOfLastProductVariant - productVariantsPerPage;
-  const currentProductVariants = productVariants.slice(indexOfFirstProductVariant, indexOfLastProductVariant);
+  // const currentProductVariants = productVariants.slice(indexOfFirstProductVariant, indexOfLastProductVariant);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 

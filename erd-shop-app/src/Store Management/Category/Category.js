@@ -23,7 +23,7 @@ const Category = ({ onPageChange, onEdit }) => {
     //Get current categories
     const indexOfLastCategory = currentPage * categoriesPerPage;
     const indexOfFirstCategory = indexOfLastCategory - categoriesPerPage;
-    const currentCategories = categories.slice(indexOfFirstCategory, indexOfLastCategory);
+    // const currentCategories = categories.slice(indexOfFirstCategory, indexOfLastCategory);
 
     //Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -94,7 +94,7 @@ const Category = ({ onPageChange, onEdit }) => {
                         <th>Category</th>
                         <th>Actions</th>
                     </tr>
-                    {currentCategories.map(categories => (
+                    {categories.map(categories => (
                         <tr key={categories.categoryId}>
 
                           

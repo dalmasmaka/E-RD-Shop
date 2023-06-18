@@ -622,3 +622,7 @@ div.pagination {
     height:40px;
     padding-left: 1%;
 }
+select.select-store-for-product {
+    width: 92%;
+    text-align: center;
+}

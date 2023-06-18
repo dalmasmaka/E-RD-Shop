@@ -82,3 +82,6 @@ input.search-input:focus{
     background-position: 500%;
   }
 }
+.category {
+  width: 62%;
+}
