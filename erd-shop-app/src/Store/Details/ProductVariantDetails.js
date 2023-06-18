@@ -10,7 +10,7 @@ import {
   AiFillShopping,
 } from "react-icons/ai";
 import { useParams } from "react-router";
-import { getVariantDetails } from "../../API/api";
+import { getVariantDetails,getStoreById } from "../../API/api";
 import { BASE_URL } from "../../API/api";
 import { getVariantsInWishlist } from "../../API/api";
 import { getVariantsInShoppingCart } from "../../API/api";
@@ -20,14 +20,17 @@ const ProductVariantDetails = () => {
   const [isCartFilled, setIsCartFilled] = useState(false);
   const [count, setCount] = useState(0);
   const [variant, setVariant] = useState({})
-  const id = useParams();
-  //   useEffect(() => {
-  //     const fetchVariantDetails = async () => {
-  //       const data = await getVariantDetails(id);
-  //       setVariant(data.result);
-  //     };
-  //     fetchVariantDetails();
-  // }, []);
+  let {id}= useParams();
+  
+    useEffect(() => {
+      const fetchVariantDetails = async () => {
+        const data = await getVariantDetails(id);
+        setVariant(data.result);
+      };
+      fetchVariantDetails();
+  }, [id]);
+
+  console.log(variant)
 
   const handleAddToWishlist = (variant) => {
     const url = `${BASE_URL}/WishlistManagement`;
@@ -62,8 +65,10 @@ const ProductVariantDetails = () => {
   };
 
   const incrementCount = () => {
-    setCount((prevCount) => prevCount + 1);
-  };
+    if(count < variant.stockQuantity){
+      setCount((prevCount) => prevCount + 1);
+    };
+  }
 
   const decrementCount = () => {
     if (count > 0) {
@@ -74,18 +79,15 @@ const ProductVariantDetails = () => {
   return (
     <div className="container">
       <div className="leftDiv">
-        <img alt="" src={iphone1}></img>
+        <img alt="" src={variant.productVariantImg}></img>
       </div>
       <div className="rightDiv">
-        <h2 className="variant-title">Title</h2>
+        <h2 className="variant-title">{variant.productVariantName}</h2>
         <h4 className="variant-price">
-          Price:<span className="product-price"> 300$</span>
+          Price:<span className="product-price">{variant.price}</span>
         </h4>
         <p className="variant-category">
-          Category:<span className="category-type"> Iphone</span>
-        </p>
-        <p className="variant-store">
-          Store:<span className="store-type"> Apple</span>
+          Description:<span className="category-type"> {variant.shortDescription}</span>
         </p>
         <div className="quantity">
           <button
