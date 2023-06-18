@@ -74,6 +74,18 @@ export function getStores() {
       console.error("Error:", error);
     });
 }
+export function getStoreById(id) {
+  return fetch(`${BASE_URL}/Store/${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 export async function getProductsByCategory(categoryId) {
   const response = await fetch(`${BASE_URL}/Category/${categoryId}`);
   if (!response.ok) {
