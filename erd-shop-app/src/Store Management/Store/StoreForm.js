@@ -84,7 +84,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
     };
 
     const showCreateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Store has been created!',
@@ -100,7 +99,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         });
     };
     const showUpdateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Store has been updated!',
@@ -125,7 +123,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
     return (
         <div className="main-container">
             <div className="header-container">
-                <h2 className="title">Create new Store</h2>
+                <h2 className="title">Store Details</h2>
             </div>
             <div className="store-form-container">
                 <form className="store-form" onSubmit={handleSubmit}>
@@ -167,7 +165,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
                     </div>
                     <div className='actions-form-container'>
                         <button className='cancel-form-button' onClick={() => handlePageChange('Store')}>Cancel</button>
-                        <button className='create-form-button' type='submit'>Save</button>
+                        <button className='create-form-button' type='submit'>Save Details</button>
                     </div>
                 </form>
             </div>

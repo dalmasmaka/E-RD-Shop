@@ -81,7 +81,6 @@ const Productvariant = ({ onPageChange, onEdit }) => {
     <div className="main-container">
       <div className="header-container">
         <h1 className='title'>Product Variants</h1>
-        <button className='create-link' onClick={() => handlePageChange('ProductVariantForm')}><BsPlusCircleDotted /></button>
       </div>
       <div className="table-container">
         <table>
@@ -95,7 +94,7 @@ const Productvariant = ({ onPageChange, onEdit }) => {
             </tr>
             {productVariants.map(productVariant => (
               <tr key={productVariant.productVariantId}>
-                <td>1</td>
+                <td>{productVariant.productVariantId}</td>
                 <td><img className='table-img' src={productVariant.productVariantImg} alt='img' /></td>
                 <td>{productVariant.productVariantName}</td>
                 <td>{productVariant.shortDescription}</td>

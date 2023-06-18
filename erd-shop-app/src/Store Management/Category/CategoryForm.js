@@ -10,7 +10,6 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
 
     useEffect(() => {
         if(selectedCategory){
-            debugger
             setCategoryName(selectedCategory.categoryName);
             setCategoryImg(selectedCategory.categoryImg);
             setPreviewImage(selectedCategory.categoryImg); 
@@ -29,6 +28,7 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setPreviewImage(reader.result);
+                setCategoryImg(reader.result)
             };
             reader.readAsDataURL(file);
         } else {
@@ -78,7 +78,6 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
     };
 
     const showCreateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Category has been created!',
@@ -89,12 +88,11 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('Category'); // Call handlePageChange with the desired page
+                handlePageChange('Category');
             }
         });
     };
     const showUpdateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Category has been updated!',
@@ -105,7 +103,7 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('Category'); // Call handlePageChange with the desired page
+                handlePageChange('Category'); 
             }
         });
     };
@@ -120,7 +118,7 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
     return(
         <div className="main-container">
         <div className="header-container">
-            <h2 className="title">Create new Category</h2>
+            <h2 className="title">Category Details</h2>
         </div>
         <div className="category-form-container">
             <form className="category-form" onSubmit={handleSubmit}>
@@ -142,7 +140,7 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
                 </div>
                 <div className='actions-form-container'>
                     <button className='cancel-form-button' onClick={() => handlePageChange('Category') }>Cancel</button>
-                    <button className='create-form-button' type='submit'>Save</button>
+                    <button className='create-form-button' type='submit'>Save Details</button>
                 </div>
             </form>
         </div>

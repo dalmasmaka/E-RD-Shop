@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AsyncSelect from 'react-select/async';
 import { BASE_URL } from '../../API/api';
 import Swal from 'sweetalert2';
-const ProductVariantForm = ({onPageChange, selectedProductVariant}) => {
+const ProductVariantForm = ({ onPageChange, selectedProductVariant, selectedProduct }) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
     const [productVariantName, setProductVariantName] = useState('')
@@ -11,20 +11,34 @@ const ProductVariantForm = ({onPageChange, selectedProductVariant}) => {
     const [stockQuantity, setStockQuantity] = useState('')
     const [shortDescription, setShortDescription] = useState('')
     const [productVariantImg, setProductVariantImg] = useState('')
+    const [productId, setProductId] = useState('')
+    const [productName, setProductName] = useState('')
+    const [supplyPrice, setSupplyPrice] = useState('')
+    const [barcode, setBarcode] = useState('')
+    const [totalSupplyPrice, setTotalSupplyPrice] = useState('')
+    useEffect(() => {
+        if (selectedProduct) {
+            setProductId(selectedProduct.productId)
+            setProductName(selectedProduct.productName)
+        }
+    }, [selectedProduct]);
 
     useEffect(() => {
-        if(selectedProductVariant)
-        {
+        if (selectedProductVariant) {
             setProductVariantName(selectedProductVariant.productVariantName);
             setSkuCode(selectedProductVariant.skuCode);
-            setStockQuantity(selectedProductVariant.setStockQuantity);
+            setStockQuantity(selectedProductVariant.stockQuantity);
             setShortDescription(selectedProductVariant.shortDescription);
-            setPrice(selectedProductVariant.setPrice);
+            setPrice(selectedProductVariant.price);
             setProductVariantImg(selectedImage);
+            setSupplyPrice(selectedProductVariant.supplyPrice);
+            setBarcode(selectedProductVariant.barcode);
+            setTotalSupplyPrice(selectedProductVariant.totalSupplyPrice);
+            setProductId(selectedProductVariant.productId);
         }
     }, [selectedProductVariant]);
 
-    const handlePageChange = (page) =>{
+    const handlePageChange = (page) => {
         onPageChange(page);
     }
 
@@ -36,6 +50,7 @@ const ProductVariantForm = ({onPageChange, selectedProductVariant}) => {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setPreviewImage(reader.result);
+                setProductVariantImg(reader.result);
             };
             reader.readAsDataURL(file);
         } else {
@@ -43,17 +58,30 @@ const ProductVariantForm = ({onPageChange, selectedProductVariant}) => {
         }
     };
 
+    useEffect(() => {
+        if (stockQuantity !== '' && supplyPrice !== '') {
+            const calculatedTotalSupplyPrice = stockQuantity * supplyPrice;
+            setTotalSupplyPrice(calculatedTotalSupplyPrice);
+        } else {
+            setTotalSupplyPrice(''); 
+        }
+    }, [stockQuantity, supplyPrice]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const url = `${BASE_URL}/ProductVariant`;
+
         const requestData = {
             productVariantName: productVariantName,
             skuCode: skuCode,
             stockQuantity: stockQuantity,
             shortDescription: shortDescription,
             productVariantImg: productVariantImg,
-            price: price
+            price: price,
+            barcode: barcode,
+            supplyPrice: supplyPrice,
+            totalSupplyPrice: totalSupplyPrice,
+            productId: productId,
         };
 
         if (selectedProductVariant) {
@@ -91,7 +119,6 @@ const ProductVariantForm = ({onPageChange, selectedProductVariant}) => {
     };
 
     const showCreateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Product Variant has been created!',
@@ -102,12 +129,11 @@ const ProductVariantForm = ({onPageChange, selectedProductVariant}) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('ProductVariant'); // Call handlePageChange with the desired page
+                handlePageChange('ProductVariant');
             }
         });
     };
     const showUpdateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Product Variant has been updated!',
@@ -118,7 +144,7 @@ const ProductVariantForm = ({onPageChange, selectedProductVariant}) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('ProductVariant'); // Call handlePageChange with the desired page
+                handlePageChange('ProductVariant'); 
             }
         });
     };
@@ -129,75 +155,64 @@ const ProductVariantForm = ({onPageChange, selectedProductVariant}) => {
             'Something went wrong!'
         );
     };
-
-    const colourOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
-    const filterColors = (inputValue) => {
-        return colourOptions.filter((i) =>
-            i.label && i.label.toLowerCase().includes(inputValue.toLowerCase())
-        );
-    };
-
-
-    const loadOptions = (
-        inputValue,
-        callback
-    ) => {
-        setTimeout(() => {
-            callback(filterColors(inputValue));
-        }, 1000);
-    };
-
-
-
     return (
         <div className="main-container">
             <div className="header-container">
-                <h2 className="title">Create new Product Variant</h2>
+                <h2 className="title">Product Variant Details</h2>
             </div>
             <div className="product-form-container">
-                <form className="product-form" onSubmit={handleSubmit}> 
+                <form className="product-form" onSubmit={handleSubmit}>
                     <div className="first-row">
                         <div className='first-row-element'>
-                            <label className='labels' htmlFor="productVariantName">Product Variant name: </label>
-                            <input className='inputs' type="text" id="productVariantName" name="productVariantName" required value={productVariantName}  onChange={(e) => setProductVariantName(e.target.value)} />
+                            <label className='labels' htmlFor="name">Product ID of Product Variant: </label>
+                            <input className='inputs' type="text" id="productName" name="productName" required value={productId} onChange={(e) => setProductName(e.target.value)} disabled />
                         </div>
                         <div className='first-row-element'>
-                            <label className='labels' htmlFor="skuCode">SKU code: </label>
-                            <input className='inputs' type="text" id="skuCode" name="skuCode" required value={skuCode}  onChange={(e) => setSkuCode(e.target.value)}  />
+                            <label className='labels' htmlFor="productVariantName">Product Variant name: </label>
+                            <input className='inputs' type="text" id="productVariantName" name="productVariantName" required value={productVariantName} onChange={(e) => setProductVariantName(e.target.value)} />
+                        </div>
+                        <div className='first-row-element'>
+                            <label className='labels' htmlFor="shortDescription">Product Description: </label>
+                            <textarea className='text-area-input' id="shortDescription" name="shortDescription" rows="5" cols="30" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} ></textarea>
                         </div>
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="price">Price: </label>
-                            <input className='inputs' type="number" id="price" name="price" required value={price}  onChange={(e) => setPrice(e.target.value)}  />
+                            <input className='inputs' type="number" id="price" name="price" required value={price} onChange={(e) => setPrice(e.target.value)} />
                         </div>
+
                         <div className='first-row-element'>
-                            <label className='labels' htmlFor="stockQuantity">Stock Quantity: </label>
-                            <input className='inputs' type="number" id="stockQuantity" name="stockQuantity" required value={stockQuantity}  onChange={(e) => setStockQuantity(e.target.value)}  />
+                            <label className='labels' htmlFor="barcode">Barcode: </label>
+                            <input className='inputs' type="text" id="barcode" name="barcode" required value={barcode} onChange={(e) => setBarcode(e.target.value)} />
                         </div>
-
-
-
                     </div>
                     <div className="second-row">
                         <div className='second-row-element'>
-                            <label className='labels' htmlFor="name">Choose the product: </label>
-                            <AsyncSelect cacheOptions loadOptions={loadOptions} defaultOptions />
+                            <label className='labels' htmlFor="skuCode">SKU code: </label>
+                            <input className='inputs' type="text" id="skuCode" name="skuCode" required value={skuCode} onChange={(e) => setSkuCode(e.target.value)} />
                         </div>
                         <div className='second-row-element'>
-                            <label className='labels' htmlFor="shortDescription">Product Description: </label>
-                            <textarea className='text-area-input' id="shortDescription" name="shortDescription" rows="5" cols="30" value={shortDescription}  onChange={(e) => setShortDescription(e.target.value)} ></textarea>
+                            <label className='labels' htmlFor="stockQuantity">Stock Quantity: </label>
+                            <input className='inputs' type="number" id="stockQuantity" name="stockQuantity" required value={stockQuantity} onChange={(e) => setStockQuantity(e.target.value)} />
                         </div>
-
+                        <div className='second-row-element'>
+                            <label className='labels' htmlFor="supplyPrice">Supply Price : </label>
+                            <input className='inputs' type="number" id="supplyPrice" name="supplyPrice" required value={supplyPrice} onChange={(e) => setSupplyPrice(e.target.value)} />
+                        </div>
+                        <div className='second-row-element'>
+                            <label className='labels' htmlFor="totalSupplyPrice">Total Supply Price : </label>
+                            <input className='inputs' type="number" id="totalSupplyPrice" name="totalSupplyPrice" required value={totalSupplyPrice} onChange={(e) => setTotalSupplyPrice(e.target.value)} disabled />
+                        </div>
                         <div className="image-container">
                             <div>
                                 <input type="file" onChange={handleImageChange} />
                             </div>
-                            {previewImage && <img className='upload-img' src={previewImage} alt="Preview" id='productVariantImg' name='productVariantImg'  />}
+                            {previewImage && <img className='upload-img' src={previewImage} alt="Preview" id='productVariantImg' name='productVariantImg' />}
                         </div>
 
                     </div>
                     <div className='actions-form-container'>
                         <button className='cancel-form-button' onClick={() => handlePageChange('ProductVariant')}>Cancel</button>
-                        <button className='create-form-button' type='submit'>Create</button>
+                        <button className='create-form-button' type='submit'>Save Details</button>
                     </div>
                 </form>
             </div>
