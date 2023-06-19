@@ -84,7 +84,7 @@ const ProductVariantDetails = () => {
       <div className="rightDiv">
         <h2 className="variant-title">{variant.productVariantName}</h2>
         <h4 className="variant-price">
-          Price:<span className="product-price">{variant.price}</span>
+          Price:<span className="product-price">{variant.price}$</span>
         </h4>
         <p className="variant-category">
           Description:<span className="category-type"> {variant.shortDescription}</span>

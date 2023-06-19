@@ -131,27 +131,27 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="storeName">Store name: </label>
                             <input className='inputs' type="text" id="storeName" name="storeName" required
-                                minLength="4" size="10"
+                                size="10"
                                 value={storeName}
                                 onChange={(e) => setStoreName(e.target.value)} />
                         </div>
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="storeOwner">Owner: </label>
                             <input className='inputs' type="text" id="storeOwner" name="storeOwner" required
-                                minLength="4"
+                                
                                 value={storeOwner}
                                 onChange={(e) => setStoreOwner(e.target.value)} />
                         </div>
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="storeLocation">Location: </label>
                             <input className='inputs' type="text" id="storeLocation" name="storeLocation" required
-                                minLength="4" value={storeLocation}
+                                value={storeLocation}
                                 onChange={(e) => setStoreLocation(e.target.value)} />
                         </div>
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="storeContact">Contact: </label>
                             <input className='inputs' type="text" id="storeContact" name="storeContact" required
-                                minLength="4" value={storeContact}
+                                value={storeContact}
                                 onChange={(e) => setStoreContact(e.target.value)} />
                         </div>
                     </div>

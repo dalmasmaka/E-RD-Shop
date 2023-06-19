@@ -88,7 +88,6 @@ const Wishlist = () => {
                     <th>Product</th>
                     <th>Store</th>
                     <th>Price</th>
-                    <th>Quantity</th>
                     <th>Actions</th>
     
                 </tr>
@@ -100,7 +99,6 @@ const Wishlist = () => {
               <td>{variant.name}</td>
               <td>{variant.store}</td>
               <td>{variant.price}</td>
-              <td>{variant.quantity}</td>
               <td className="action-buttons">
                 <button className="delete-product-shoppingcart" onClick={() => clearVariant(variant)}><TiDeleteOutline /></button>
                 <button className="addto-order-btn" onClick={() => taketoShoppingCart(variant)}><MdShoppingCartCheckout /></button>
