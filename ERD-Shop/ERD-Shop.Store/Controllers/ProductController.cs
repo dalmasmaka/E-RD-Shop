@@ -94,10 +94,20 @@ namespace ERD_Shop.Store.Controllers
             }
             catch (Exception ex)
             {
-                _response.isSuccess = false;
-                _response.ErrorMessage = new List<string>() { ex.ToString() };
+                if (ex.Message == "Product cannot be deleted because it has associated product variants.")
+                {
+                    _response.isSuccess = false;
+                    _response.ErrorMessage = new List<string>() { "Product has associated variants and cannot be deleted." };
+                }
+                else
+                {
+                    _response.isSuccess = false;
+                    _response.ErrorMessage = new List<string>() { "An error occurred while deleting the product." };
+                }
             }
             return _response;
         }
+
+
     }
 }

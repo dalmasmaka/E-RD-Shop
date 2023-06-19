@@ -15,11 +15,13 @@ namespace ERD_Shop.Store.MongoRepositories
         private readonly FilterDefinitionBuilder<Product> filterBuilder = Builders<Product>.Filter;
         private readonly IMapper _mapper;
         private readonly IMongoDatabase _database;
-        public ProductRepository(IMapper mapper, IMongoDatabase database)
+        private readonly IProductVariantRepository _productVariantRepository;
+        public ProductRepository(IMapper mapper, IMongoDatabase database, IProductVariantRepository productVariantRepository)
         {
-            _database =database;
+            _database = database;
             _mapper = mapper;
             dbCollection = database.GetCollection<Product>(collectionName);
+            _productVariantRepository = productVariantRepository;
         }
         private static int GetNextSequenceValue(IMongoDatabase database, string collectionName)
         {
@@ -47,6 +49,12 @@ namespace ERD_Shop.Store.MongoRepositories
 
         public async Task<ProductDto> DeleteAsync(int id)
         {
+            ICollection<ProductVariantDto> productVariants = await _productVariantRepository.GetAllAsync();
+            bool hasAssociatedVariant = productVariants.Any(pv => pv.ProductId == id);
+            if (hasAssociatedVariant)
+            {
+                throw new Exception("Product cannot be deleted because it has associated product variants.");
+            }
             FilterDefinition<Product> filter = filterBuilder.Eq(products => products.ProductId, id);
             Product product = await dbCollection.Find(filter).FirstOrDefaultAsync();
             await dbCollection.DeleteOneAsync(filter);

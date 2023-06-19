@@ -29,7 +29,7 @@ const Products = ({ onPageChange, onEdit }) => {
   //Get current products in the table 
   const indexOfLastUser = currentPage * productsPerPage;
   const indexOfFirstUser = indexOfLastUser - productsPerPage;
-  // const currentProducts = products.slice(indexOfFirstUser, indexOfLastUser);
+  const currentProducts = products.slice(indexOfFirstUser, indexOfLastUser);
   //Change the page of table
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -57,19 +57,15 @@ const Products = ({ onPageChange, onEdit }) => {
         })
           .then(response => {
             if (response.ok) {
-              window.location.reload(); // Reload the current page
+              return response.json(); // Parse the response JSON
             } else {
-              console.error('Error deleting product:', response.status);
-              if (response.status === 400) {
-                return response.json();
-              } else {
-                throw new Error('Unexpected error occurred!');
-              }
+              throw new Error('Error deleting product: ' + response.status);
             }
           })
           .then(data => {
-            if (data && data.errors) {
-              console.error('Validation errors: ', data.errors);
+            if (data.isSuccess) {
+            } else {
+              showErrorDeletionMessage();
             }
           })
           .catch(error => {
@@ -78,6 +74,13 @@ const Products = ({ onPageChange, onEdit }) => {
       }
     });
   };
+  const showErrorDeletionMessage = () => {
+    Swal.fire(
+      'Oops...',
+      'Product has associated variants and cannot be deleted.'
+  );
+  }
+  
   return (
     <div className="main-container">
       <div className="header-container">
@@ -93,7 +96,7 @@ const Products = ({ onPageChange, onEdit }) => {
               <th>Product</th>
               <th>Actions</th>
             </tr>
-            {products.map(product => (
+            {currentProducts.map(product => (
               <tr key={product.productId}>
                 <td>{product.productId}</td>
                 <td><img className='table-img' src={product.productImg} alt='img' /></td>
