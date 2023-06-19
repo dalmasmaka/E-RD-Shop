@@ -64,6 +64,7 @@ const Products = ({ onPageChange, onEdit }) => {
           })
           .then(data => {
             if (data.isSuccess) {
+              window.location.reload(); 
             } else {
               showErrorDeletionMessage();
             }
