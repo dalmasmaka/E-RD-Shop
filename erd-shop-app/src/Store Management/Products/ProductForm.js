@@ -162,7 +162,7 @@ const ProductForm = ({ onPageChange, selectedProduct }) => {
                     <div className="first-row">
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="productName">Product name: </label>
-                            <input className='inputs' type="text" id="productName" name="productName" required minLength="4" maxLength="8" size="10"
+                            <input className='inputs' type="text" id="productName" name="productName" required size="10"
                                 value={productName}
                                 onChange={(e) => setProductName(e.target.value)} />
                         </div>
