@@ -5,6 +5,7 @@ import { AiFillLock } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import { LoginSocialGoogle } from 'reactjs-social-login';
+import { BASE_URL, singIn } from '../../API/api';
 
 export const Login = (props) => {
     const navigate = useNavigate();
@@ -13,6 +14,26 @@ export const Login = (props) => {
 
 
     const handleSubmit = (e) =>{
+        const url = `${BASE_URL}/Authentication/SignIn`
+        const requestData = {
+          email: email,
+          password: password
+        };
+        fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(requestData),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((response) => response.json())
+          .then(data => {
+            localStorage.setItem('Token', data.Result.Token);
+            localStorage.setItem('Email', data.Result.Username);
+          })
+          .catch(error => {
+            console.error("Error:",error);
+          });
         e.preventDefault();
         navigate('/home');
     }
@@ -29,7 +50,7 @@ export const Login = (props) => {
                 <AiFillLock />
                 <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" id="password" name="password"></input>
             </div>   
-            <Link className='loginBtn' to="/home">Log In</Link>     
+            <button className='loginBtn' type='submit'>Login</button>   
             </form>
             <Link className='linkBtn' to="/register">Don't have an account? Register here.</Link>     
             <div>

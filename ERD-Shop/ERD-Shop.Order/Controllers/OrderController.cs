@@ -15,12 +15,14 @@ namespace ERD_Shop.Order.Controllers
         protected ResponseDto _response;
         private readonly IOrderRepository _orderRepository;
         private readonly IOrderProductRepository _orderProductRepository;
+        private readonly IDiscountCodeRepository _discountCodeRepository;
         private readonly IPublishEndpoint _publishEndpoint;
 
-        public OrderController(IOrderRepository orderRepository, IOrderProductRepository orderProductRepository, IPublishEndpoint publishEndpoint)
+        public OrderController(IOrderRepository orderRepository, IOrderProductRepository orderProductRepository, IDiscountCodeRepository discountCodeRepository, IPublishEndpoint publishEndpoint)
         {
             _orderRepository = orderRepository;
             _orderProductRepository = orderProductRepository;
+            _discountCodeRepository = discountCodeRepository;
             _response = new ResponseDto();
             _publishEndpoint = publishEndpoint;
         }
@@ -64,6 +66,23 @@ namespace ERD_Shop.Order.Controllers
         {
             try
             {
+                if(orderDto.CodeValueId > 0)
+                {
+                    DiscountCodeDto discountCode = await _discountCodeRepository.GetDiscountCodeId((int)orderDto.CodeValueId);
+                    if(discountCode == null)
+                    {
+                        return new ResponseDto { IsSuccess = false, DisplayMessage = "The discount code "+orderDto.CodeValueId+" does not exist."};
+                    }
+                    else if(orderDto.UserId != discountCode.UserId)
+                    {
+                        return new ResponseDto { IsSuccess = false, DisplayMessage = "The discount code " + orderDto.CodeValueId + " is not reedemable" };
+                    }
+                    else if(discountCode.UsageLimit == 0)
+                    {
+                        return new ResponseDto { IsSuccess = false, DisplayMessage = "The discount code " + orderDto.CodeValueId + " has reached its usage limit." };
+                    }
+                    await _discountCodeRepository.UseDiscountCode((int)orderDto.CodeValueId);
+                }
                 OrderDto order = await _orderRepository.CreateOrder(orderDto);
                 if (orderDto.ProductVariants.Any())
                 {

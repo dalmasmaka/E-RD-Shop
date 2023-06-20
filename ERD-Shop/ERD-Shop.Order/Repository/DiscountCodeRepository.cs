@@ -21,7 +21,7 @@ namespace ERD_Shop.Order.Repository
             model.UsageLimit = discountCodeDto.UsageLimit;
             model.UserId = discountCodeDto.UserId;
 
-            if (discountCodeDto.CodeValueId == 0)
+            if (discountCodeDto.CodeValueId == 0 || discountCodeDto.CodeValueId == null)
             {
                 // CREATE
                 model.CodeValueId = await GenerateDiscountCode();
@@ -38,6 +38,13 @@ namespace ERD_Shop.Order.Repository
             return discountCodeDto;
         }
 
+        public async Task<int> UseDiscountCode(int codeValueId)
+        {
+            DiscountCode _discountCode = await _db.DiscountCodes.Where(c => c.CodeValueId == codeValueId).FirstOrDefaultAsync();
+            _discountCode.UsageLimit -= 1;
+            await _db.SaveChangesAsync();
+            return _discountCode.CodeValueId;
+        }
         public async Task<int> GenerateDiscountCode()
         {
             Random rnd = new Random();

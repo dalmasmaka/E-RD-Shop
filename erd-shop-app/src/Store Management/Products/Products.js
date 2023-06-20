@@ -27,9 +27,9 @@ const Products = ({ onPageChange, onEdit }) => {
       .catch(error => console.error('Error: ', error));
   }, []);
   //Get current products in the table 
-  const indexOfLastUser = currentPage * productsPerPage;
-  const indexOfFirstUser = indexOfLastUser - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstUser, indexOfLastUser);
+  // const indexOfLastUser = currentPage * productsPerPage;
+  // const indexOfFirstUser = indexOfLastUser - productsPerPage;
+  // const currentProducts = products.slice(indexOfFirstUser, indexOfLastUser);
   //Change the page of table
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -97,7 +97,7 @@ const Products = ({ onPageChange, onEdit }) => {
               <th>Product</th>
               <th>Actions</th>
             </tr>
-            {currentProducts.map(product => (
+            {products.map(product => (
               <tr key={product.productId}>
                 <td>{product.productId}</td>
                 <td><img className='table-img' src={product.productImg} alt='img' /></td>

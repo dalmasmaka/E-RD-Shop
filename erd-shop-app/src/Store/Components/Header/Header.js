@@ -14,7 +14,8 @@ const Header = () => {
   const [showLogout, setShowLogout] = useState(false); // State to track if logout button should be shown
 
   const handleLogout = () => {
-    // Handle logout logic here
+    localStorage.removeItem('Token');
+    localStorage.removeItem('Email');
     navigate('/login');
     // You can redirect to a login page or perform any necessary actions
   };
@@ -43,7 +44,7 @@ const Header = () => {
                   <AiOutlineShopping />
                 </Link>
                 {/* Conditionally render either the logout button or the BsPersonCircle icon */}
-                {showLogout ? (
+                {localStorage.getItem('Token')!=null && localStorage.getItem('Email')!=null ? (
                   <button className='nav-link icon' onClick={handleLogout}>
                     Logout
                   </button>
