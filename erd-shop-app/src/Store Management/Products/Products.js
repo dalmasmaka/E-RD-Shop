@@ -14,11 +14,11 @@ const Products = ({ onPageChange, onEdit }) => {
   //Handle Edit Form 
   const handleEdit = (product) => {
     setSelectedProduct(product);
-    onEdit("ProductForm", null, null, product);
+    onEdit("dashboard/productform", null, null, product);
   };
   const handleCreateProductVariant = (product) => {
     setSelectedProduct(product);
-    onEdit("ProductVariantForm", null, null, product);
+    onEdit("dashboard/productvariantform", null, null, product);
   };
   //API Fetch for Products
   useEffect(() => {

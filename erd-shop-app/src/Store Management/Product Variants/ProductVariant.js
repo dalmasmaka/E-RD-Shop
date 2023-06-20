@@ -12,7 +12,7 @@ const Productvariant = ({ onPageChange, onEdit }) => {
   const [selectedProductVariant, setSelectedProductVariant] = useState(null);
   const handleEdit = (productVariant) => {
     setSelectedProductVariant(productVariant);
-    onEdit("ProductVariantForm", null, null, null, productVariant);
+    onEdit("dashboard/productvariantform", null, null, null, productVariant);
   };
   useEffect(() => {
     getProductVariants()
@@ -25,10 +25,7 @@ const Productvariant = ({ onPageChange, onEdit }) => {
   // const currentProductVariants = productVariants.slice(indexOfFirstProductVariant, indexOfLastProductVariant);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
-
-  function handlePageChange(page) {
-    onPageChange(page);
-  }
+  
   const handleDelete = (id) => {
     Swal.fire({
       title: 'Delete ProductVariant',
@@ -47,31 +44,28 @@ const Productvariant = ({ onPageChange, onEdit }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({}) // Add an empty request body
+          body: JSON.stringify({}) 
         })
           .then(response => {
             if (response.ok) {
 
-              window.location.reload(); // Reload the current page
+              window.location.reload(); 
 
             } else {
-              // Handle error case
               console.error('Error deleting product variant:', response.status);
               if (response.status === 400) {
-                return response.json(); // Parse response body as JSON
+                return response.json(); 
               } else {
                 throw new Error('Unexpected error occurred');
               }
             }
           })
           .then(data => {
-            // Check for validation errors
             if (data && data.errors) {
               console.error('Validation errors:', data.errors);
             }
           })
           .catch(error => {
-            // Handle network error or unexpected error
             console.error('Error:', error);
           });
       }

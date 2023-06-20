@@ -30,7 +30,7 @@ const ProductForm = ({ onPageChange, selectedProduct }) => {
     }, [selectedProduct]);
 
     const handlePageChange = (page) => {
-        onPageChange(page);
+        onPageChange("dashboard/products");
     };
 
     useEffect(() => {
@@ -215,7 +215,7 @@ const ProductForm = ({ onPageChange, selectedProduct }) => {
                         </div>
                     </div>
                     <div className='actions-form-container'>
-                        <button className='cancel-form-button' onClick={() => handlePageChange('Products')}>Cancel</button>
+                        <button className='cancel-form-button' onClick={() => handlePageChange()}>Cancel</button>
                         <button className='create-form-button' type='submit'>Save Details</button>
                     </div>
                 </form>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from "../Components/Sidebar";
 import Store from "../Store/Store";
 import StoreForm from "../Store/StoreForm";
-import Category from "../Category/Category";
+import { useRoutes } from 'react-router-dom';
 import CategoryForm from "../Category/CategoryForm";
 import Products from "../Products/Products";
 import ProductForm from "../Products/ProductForm";
@@ -12,8 +12,11 @@ import Orders from "../Orders/Orders";
 import OrderDetails from "../Orders/OrderDetails";
 import Users from '../Users/Users';
 import UserForm from '../Users/UserForm';
+import { useNavigate } from 'react-router-dom';
+import Categories from '../Category/Category';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState("Store");
   const [selectedStore, setSelectedStore] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -59,45 +62,31 @@ const Dashboard = () => {
     }
 
     setCurrentPage(page);
+    navigate(`/${page.toLowerCase()}`);
   };
-  
-  const renderPage = () => {
-    switch (currentPage) {
-      case "Store":
-        return <Store onPageChange={handlePageChange} onEdit={handlePageChange} />;
-      case "StoreForm":
-        return <StoreForm onPageChange={handlePageChange}  selectedStore={selectedStore}/>;
-      case "Category":
-        return <Category onPageChange={handlePageChange} onEdit={handlePageChange} />;
-      case "CategoryForm":
-        return <CategoryForm  onPageChange={handlePageChange} selectedCategory={selectedCategory}/>;
-      case "Products":
-        return <Products onPageChange={handlePageChange} onEdit={handlePageChange}/>;
-      case "ProductForm":
-        return <ProductForm  onPageChange={handlePageChange} selectedProduct={selectedProduct}/>;
-      case "ProductVariant":
-        return <ProductVariant onPageChange={handlePageChange} onEdit={handlePageChange}/>;
-      case "ProductVariantForm":
-        return <ProductVariantForm onPageChange={handlePageChange} selectedProductVariant={selectedProductVariant} selectedProduct={selectedProduct}/>;
-      case "Orders":
-        return <Orders onPageChange={handlePageChange} onEdit={handlePageChange}/>;
-      case "OrderDetails":
-        return <OrderDetails onPageChange={handlePageChange} />;
-      case "Users":
-        return <Users onPageChange={handlePageChange} onInfo={handlePageChange}/>;
-      case "UserForm":
-        return <UserForm onPageChange={handlePageChange} selectedUser={selectedUser}/>;
-      default:
-        return null;
-    }
-  };
+  const routes = useRoutes([
+    { path: 'stores', element: <Store onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'storeform', element: <StoreForm onPageChange={handlePageChange} selectedStore={selectedStore} /> },
+    { path: 'categories', element: <Categories onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'categoryform', element: <CategoryForm onPageChange={handlePageChange} selectedCategory={selectedCategory} /> },
+    { path: 'products', element: <Products onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'productform', element: <ProductForm onPageChange={handlePageChange} selectedProduct={selectedProduct} /> },
+    { path: 'productvariants', element: <ProductVariant onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'productvariantform', element: <ProductVariantForm onPageChange={handlePageChange} selectedProductVariant={selectedProductVariant} selectedProduct={selectedProduct} /> },
+    { path: 'orders', element: <Orders onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'orderdetails', element: <OrderDetails onPageChange={handlePageChange} /> },
+    { path: 'users', element: <Users onPageChange={handlePageChange} onInfo={handlePageChange} /> },
+    { path: 'userdetails', element: <UserForm onPageChange={handlePageChange} selectedUser={selectedUser} /> },
+  ]);
 
   return (
     <div className="dashboard-content">
       <div className="sidebar">
         <Sidebar onPageChange={handlePageChange} />
       </div>
-      <div className="pages">{renderPage()}</div>
+      <div className="pages">
+     {routes}
+      </div>
     </div>
   );
 };

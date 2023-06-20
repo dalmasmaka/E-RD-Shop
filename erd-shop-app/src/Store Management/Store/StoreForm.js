@@ -164,7 +164,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
                         </div>
                     </div>
                     <div className='actions-form-container'>
-                        <button className='cancel-form-button' onClick={() => handlePageChange('Store')}>Cancel</button>
+                        <button className='cancel-form-button' onClick={() => handlePageChange('dashboard/stores')}>Cancel</button>
                         <button className='create-form-button' type='submit'>Save Details</button>
                     </div>
                 </form>

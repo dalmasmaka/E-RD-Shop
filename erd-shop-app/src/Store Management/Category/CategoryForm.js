@@ -15,9 +15,9 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
             setPreviewImage(selectedCategory.categoryImg); 
         }
     }, [selectedCategory]);
-    console.log(selectedCategory)
-    const handlePageChange = (page) => {
-        onPageChange(page);
+
+    const handlePageChange = () => {
+        onPageChange("dashboard/categories");
     };
 
     const handleImageChange = (event) => {
@@ -53,10 +53,10 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
                 },
             })
                 .then((response) => response.json())
-                .then((data) => {
+                .then(() => {
                     showUpdateSuccessMessage();
                 })
-                .catch((error) => {
+                .catch(() => {
                     showErrorMessage();
                 });
         } else {
@@ -68,10 +68,10 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
                 },
             })
                 .then((response) => response.json())
-                .then((data) => {
+                .then(() => {
                     showCreateSuccessMessage();
                 })
-                .catch((error) => {
+                .catch(() => {
                     showErrorMessage();
                 });
         }
@@ -139,7 +139,7 @@ const CategoryForm = ({onPageChange, selectedCategory }) => {
                     </div>
                 </div>
                 <div className='actions-form-container'>
-                    <button className='cancel-form-button' onClick={() => handlePageChange('Category') }>Cancel</button>
+                    <button className='cancel-form-button' onClick={() => handlePageChange() }>Cancel</button>
                     <button className='create-form-button' type='submit'>Save Details</button>
                 </div>
             </form>

@@ -40,23 +40,20 @@ const Sidebar = ({ onPageChange }) => {
           <MdOutlineStoreMallDirectory /> Store Inventory
           {storeSectionActive && (
             <ul className="sub-elements">
-              <li
-                className="elements"
-                onClick={(event) => handleSubElementClick('Store', event)}
-              >
-                Store
+              <li className="elements" onClick={(event) => handleSubElementClick('Store', event)}>
+                <a className='sub-elements' href="/dashboard/stores">Store</a>
               </li>
               <li
                 className="elements"
                 onClick={(event) => handleSubElementClick('Category', event)}
               >
-                Category
+               <a href="/dashboard/categories" className='sub-elements'>Category</a>
               </li>
               <li
                 className="elements"
                 onClick={(event) => handleSubElementClick('Products', event)}
               >
-                Product
+              <a href="/dashboard/products" className='sub-elements'>Product</a>
               </li>
               <li
                 className="elements"
@@ -64,7 +61,7 @@ const Sidebar = ({ onPageChange }) => {
                   handleSubElementClick('ProductVariant', event)
                 }
               >
-                Product Variant
+               <a href="/dashboard/productvariants" className='sub-elements'>Product Variant</a>
               </li>
             </ul>
           )}
@@ -80,7 +77,7 @@ const Sidebar = ({ onPageChange }) => {
                 className="elements"
                 onClick={(event) => handleSubElementClick('Orders', event)}
               >
-                Orders
+                 <a href="/dashboard/orders" className='sub-elements'>Orders</a>
               </li>
             </ul>
           )}
@@ -96,7 +93,7 @@ const Sidebar = ({ onPageChange }) => {
                 className="elements"
                 onClick={(event) => handleSubElementClick('Users', event)}
               >
-                Users
+                <a href="/dashboard/users" className='sub-elements'>Users</a>
               </li>
             </ul>
           )}
