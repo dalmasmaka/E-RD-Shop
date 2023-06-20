@@ -13,7 +13,7 @@ import OrderDetails from "../Orders/OrderDetails";
 import Users from '../Users/Users';
 import UserForm from '../Users/UserForm';
 import { useNavigate } from 'react-router-dom';
-import Categories from '../Category/Category';
+import Categories from '../Category/Categories';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -62,21 +62,21 @@ const Dashboard = () => {
     }
 
     setCurrentPage(page);
-    navigate(`/${page.toLowerCase()}`);
+    navigate(page);
   };
   const routes = useRoutes([
-    { path: 'stores', element: <Store onPageChange={handlePageChange} onEdit={handlePageChange} /> },
-    { path: 'storeform', element: <StoreForm onPageChange={handlePageChange} selectedStore={selectedStore} /> },
-    { path: 'categories', element: <Categories onPageChange={handlePageChange} onEdit={handlePageChange} /> },
-    { path: 'categoryform', element: <CategoryForm onPageChange={handlePageChange} selectedCategory={selectedCategory} /> },
-    { path: 'products', element: <Products onPageChange={handlePageChange} onEdit={handlePageChange} /> },
-    { path: 'productform', element: <ProductForm onPageChange={handlePageChange} selectedProduct={selectedProduct} /> },
-    { path: 'productvariants', element: <ProductVariant onPageChange={handlePageChange} onEdit={handlePageChange} /> },
-    { path: 'productvariantform', element: <ProductVariantForm onPageChange={handlePageChange} selectedProductVariant={selectedProductVariant} selectedProduct={selectedProduct} /> },
-    { path: 'orders', element: <Orders onPageChange={handlePageChange} onEdit={handlePageChange} /> },
-    { path: 'orderdetails', element: <OrderDetails onPageChange={handlePageChange} /> },
-    { path: 'users', element: <Users onPageChange={handlePageChange} onInfo={handlePageChange} /> },
-    { path: 'userdetails', element: <UserForm onPageChange={handlePageChange} selectedUser={selectedUser} /> },
+    { path: 'dashboard/stores', element: <Store onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'dashboard/storeform', element: <StoreForm onPageChange={handlePageChange} selectedStore={selectedStore} /> },
+    { path: 'dashboard/categories', element: <Categories onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'dashboard/categoryform', element: <CategoryForm onPageChange={handlePageChange} selectedCategory={selectedCategory} /> },
+    { path: 'dashboard/products', element: <Products onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'dashboard/productform', element: <ProductForm onPageChange={handlePageChange} selectedProduct={selectedProduct} /> },
+    { path: 'dashboard/productvariants', element: <ProductVariant onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'dashboard/productvariantform', element: <ProductVariantForm onPageChange={handlePageChange} selectedProductVariant={selectedProductVariant} selectedProduct={selectedProduct} /> },
+    { path: 'dashboard/orders', element: <Orders onPageChange={handlePageChange} onEdit={handlePageChange} /> },
+    { path: 'dashboard/orderdetails', element: <OrderDetails onPageChange={handlePageChange} /> },
+    { path: 'dashboard/users', element: <Users onPageChange={handlePageChange} onInfo={handlePageChange} /> },
+    { path: 'dashboard/userdetails', element: <UserForm onPageChange={handlePageChange} selectedUser={selectedUser} /> },
   ]);
 
   return (

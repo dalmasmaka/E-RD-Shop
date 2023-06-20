@@ -23,11 +23,11 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    setLoading(true);
-
     const timeoutId = setTimeout(() => {
       setLoading(false);
+
     }, 200);
+
 
     return () => clearTimeout(timeoutId);
   }, [location]);
@@ -48,7 +48,7 @@ function App() {
               path="/productvariants/:id"
               element={<ProductVariantDetails />}
             />
-            <Route path="/dashboard/*" element={<Dashboard />} />
+            <Route path="/*" element={<Dashboard />} />
             <Route path="/shoppingcart" element={<ShoppingCart />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/orderpage" element={<OrderPage />} />
@@ -57,7 +57,7 @@ function App() {
           </Routes>
           <Footer />
         </div>
-      )}
+      )};
     </div>
   );
 }

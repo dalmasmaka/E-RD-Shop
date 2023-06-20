@@ -38,8 +38,8 @@ const ProductVariantForm = ({ onPageChange, selectedProductVariant, selectedProd
         }
     }, [selectedProductVariant]);
 
-    const handlePageChange = (page) => {
-        onPageChange('dashboard/products');
+    const handlePageChange = () => {
+        onPageChange('dashboard/productvariants');
     }
 
     const handleImageChange = (event) => {
@@ -129,7 +129,7 @@ const ProductVariantForm = ({ onPageChange, selectedProductVariant, selectedProd
         }).then((result) => {
 
             if (result.isConfirmed) {
-                window.location.reload();
+                handlePageChange();
             }
         });
     };
@@ -144,7 +144,7 @@ const ProductVariantForm = ({ onPageChange, selectedProductVariant, selectedProd
         }).then((result) => {
 
             if (result.isConfirmed) {
-                window.location.reload();
+                handlePageChange();
             }
         });
     };
