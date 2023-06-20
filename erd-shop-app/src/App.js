@@ -25,7 +25,9 @@ function App() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setLoading(false);
-    }, 500);
+
+    }, 200);
+
 
     return () => clearTimeout(timeoutId);
   }, [location]);
