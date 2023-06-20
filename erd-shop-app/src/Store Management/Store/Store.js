@@ -13,7 +13,7 @@ const Store = ({ onPageChange, onEdit }) => {
   const [selectedStore, setSelectedStore] = useState(null);
   const handleEdit = (store) => {
     setSelectedStore(store);
-    onEdit("StoreForm", store);
+    onEdit("dashboard/storeform", store);
   };
   useEffect(() => {
     getStores()
@@ -29,8 +29,8 @@ const Store = ({ onPageChange, onEdit }) => {
   //change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  const handlePageChange = (page) => {
-    onPageChange(page);
+  const handlePageChange = () => {
+    onPageChange("dashboard/storeform");
   };
   const handleDelete = (id) => {
     Swal.fire({

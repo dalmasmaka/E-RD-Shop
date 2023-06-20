@@ -17,7 +17,7 @@ const Users = ({onInfo }) => {
   }, []);
   const handleInfo = (user) => {
     setSelectedClient(user);
-    onInfo("UserForm", null, null, null, null, user);
+    onInfo("dashboard/userdetails", null, null, null, null, user);
   }
   // Get current users
   const indexOfLastUser = currentPage * usersPerPage;

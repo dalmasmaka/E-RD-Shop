@@ -1,4 +1,7 @@
-const OrderDetails = () => {
+const OrderDetails = ({onPageChange}) => {
+    const handlePageChange = () => {
+        onPageChange("dashboard/orders");
+    };
     return (
         <div className="main-container">
             <div className="header-container">
@@ -30,7 +33,7 @@ const OrderDetails = () => {
                     </div>
                     <div className='actions-form-container'>
 
-                        <button className='create-form-button'>Exit</button>
+                        <button className='create-form-button' onClick={() => handlePageChange()}>Exit</button>
                     </div>
                 </div>
             </div>

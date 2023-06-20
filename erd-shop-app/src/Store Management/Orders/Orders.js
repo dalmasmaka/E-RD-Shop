@@ -1,8 +1,8 @@
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import '../CSS/StoreManagement.css';
 const Orders = ({ onPageChange }) => {
-    function handlePageChange(page) {
-        onPageChange(page);
+    function handlePageChange() {
+        onPageChange("dashboard/orderdetails");
     }
     return (
         <div className="main-container">
