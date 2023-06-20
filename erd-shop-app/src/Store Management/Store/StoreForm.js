@@ -84,7 +84,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
     };
 
     const showCreateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Store has been created!',
@@ -100,7 +99,6 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         });
     };
     const showUpdateSuccessMessage = () => {
-        debugger
         Swal.fire({
             title: 'Successfully!',
             text: 'Store has been updated!',
@@ -125,7 +123,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
     return (
         <div className="main-container">
             <div className="header-container">
-                <h2 className="title">Create new Store</h2>
+                <h2 className="title">Store Details</h2>
             </div>
             <div className="store-form-container">
                 <form className="store-form" onSubmit={handleSubmit}>
@@ -133,27 +131,27 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="storeName">Store name: </label>
                             <input className='inputs' type="text" id="storeName" name="storeName" required
-                                minLength="4" size="10"
+                                size="10"
                                 value={storeName}
                                 onChange={(e) => setStoreName(e.target.value)} />
                         </div>
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="storeOwner">Owner: </label>
                             <input className='inputs' type="text" id="storeOwner" name="storeOwner" required
-                                minLength="4"
+                                
                                 value={storeOwner}
                                 onChange={(e) => setStoreOwner(e.target.value)} />
                         </div>
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="storeLocation">Location: </label>
                             <input className='inputs' type="text" id="storeLocation" name="storeLocation" required
-                                minLength="4" value={storeLocation}
+                                value={storeLocation}
                                 onChange={(e) => setStoreLocation(e.target.value)} />
                         </div>
                         <div className='first-row-element'>
                             <label className='labels' htmlFor="storeContact">Contact: </label>
                             <input className='inputs' type="text" id="storeContact" name="storeContact" required
-                                minLength="4" value={storeContact}
+                                value={storeContact}
                                 onChange={(e) => setStoreContact(e.target.value)} />
                         </div>
                     </div>
@@ -167,7 +165,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
                     </div>
                     <div className='actions-form-container'>
                         <button className='cancel-form-button' onClick={() => handlePageChange('Store')}>Cancel</button>
-                        <button className='create-form-button' type='submit'>Save</button>
+                        <button className='create-form-button' type='submit'>Save Details</button>
                     </div>
                 </form>
             </div>

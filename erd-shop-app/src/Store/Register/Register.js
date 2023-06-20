@@ -33,15 +33,6 @@ export const Register = (props) => {
                 <FaUser />
                     <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Full Name" id="name" name="name"></input>
               </div>
-              <div className="input-flex">
-                <IoIosArrowDropdownCircle />
-                <select value={selectRole} onChange={(e) => setSelectRole(e.target.value)}>
-                    <option value="option0">Role</option>
-                    <option value="option1">Admin</option>
-                    <option value="option2">Storekeeper</option>
-                    <option value="option3">Client</option>
-                </select>
-                </div>
                 <div className="input-flex">
                 <MdEmail />
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" id="email" name="email"></input>
@@ -56,7 +47,8 @@ export const Register = (props) => {
                </div>
                 <button className='registerBtn'>Register</button>
             </form>
-                <Link className="linkBtn" to="/">Already have an account? Login here.</Link>
+            <Link className="linkregisterBtn" to="/registerstorekeeper">Want to register as a storekeeper? Register here.</Link>
+                <Link className="linkBtn" to="/login">Already have an account? Login here.</Link>
                 <div>
       <LoginSocialGoogle
         client_id={

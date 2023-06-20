@@ -69,7 +69,7 @@ input.search-input:focus{
   background: linear-gradient(90deg, #24170f, #fff, #24170f);
   background-repeat: no-repeat;
   background-size: 80%;
-  animation: animate 10s linear infinite;
+  animation: animate 7s linear infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
@@ -81,4 +81,7 @@ input.search-input:focus{
   100% {
     background-position: 500%;
   }
+}
+.category {
+  width: 62%;
 }

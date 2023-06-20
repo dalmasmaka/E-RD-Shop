@@ -3,10 +3,11 @@ import iphone from "../Assets/img/iphone.png";
 import { useParams } from "react-router-dom";
 import "./ProductVariantsCss.css";
 import { useNavigate } from "react-router-dom";
-import { getVariantsByProduct } from "../../API/api";
+import { getVariantsByProduct,getProductVariants } from "../../API/api";
 
 const ProductVariants = ({ productid }) => {
   const [products, setProducts] = useState([]);
+  const [productVariants, setProductVariants] = useState([]);
 
   const navigate = useNavigate();
   let { id } = useParams();
@@ -15,34 +16,40 @@ const ProductVariants = ({ productid }) => {
   const handleGoToClick = (id) => {
     navigate(`/productvariants/${id}`); // Redirect to the product variants page
   };
-  // useEffect(() => {
-  //   const fetchProductVariants = async () => {
-  //     const data = await getVariantsByProduct(id);
-  //     setProducts(data.result);
-  //   };
-  //   fetchProductVariants();
-  // }, []);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const data = await getVariantsByProduct(id);
+      setProducts(data.result);
+    };
+    fetchProduct();
+  }, [id]);
 
-  const productVariants = [
-    { id: 1, name: "iphone", image: iphone },
-    { id: 2, name: "samsung", image: iphone },
-    { id: 3, name: "iphone13", image: iphone },
-    { id: 4, name: "samsung", image: iphone },
-    { id: 5, name: "iphone13", image: iphone },
-  ];
+  useEffect(() => {
+    const fetchProductVariants = async () => {
+      const data = await getProductVariants();
+      const filteredProductVariants = data.result.filter(
+        (productVariant) => productVariant.productId === products.productId
+      );
+      setProductVariants(filteredProductVariants);
+    };
+    if (products.productId) {
+      fetchProductVariants();
+    }
+  }, [products]);
+
   return (
     <div className="product-var">
       <h2 className="product-title">Type</h2>
       <div className="category-products">
         {productVariants.map((productVariant) => (
-          <div key={productVariant.id}>
+          <div key={productVariant.productVariantId}>
             <div
               className="product"
-              onClick={() => handleGoToClick(productVariant.id)}
+              onClick={() => handleGoToClick(productVariant.productVariantId)}
             >
-              <img alt="" src={productVariant.image} />
+              <img alt="" src={productVariant.productVariantImg} />
               <div className="product-info">
-                <p className="product-name">{productVariant.name}</p>
+                <p className="product-name">{productVariant.productVariantName}</p>
                 <div className="btn-flex"></div>
               </div>
             </div>

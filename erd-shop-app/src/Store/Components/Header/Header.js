@@ -27,7 +27,7 @@ const Header = () => {
           <img className='logo-img' src={logoPic} alt='' />
           {isMobile ? (
             <div className='nav-links-mobile'>
-              <Link className='nav-link' to='/home'>
+              <Link className='nav-link' to='/'>
                 Home
               </Link>
               <Link className='nav-link' to='/category'>
@@ -62,7 +62,7 @@ const Header = () => {
             <></>
           )}
           <div className='nav-links-desktop'>
-            <Link className='nav-link' to='/home'>
+            <Link className='nav-link' to='/'>
               Home
             </Link>
             <Link className='nav-link' to='/category'>
@@ -87,7 +87,7 @@ const Header = () => {
                 className='nav-link icon'
                 onClick={() => setShowLogout(true)}
               >
-                <BsPersonCircle />
+                Log In
               </Link>
             )}
           </div>

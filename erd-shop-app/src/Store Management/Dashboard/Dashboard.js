@@ -10,8 +10,8 @@ import ProductVariant from "../Product Variants/ProductVariant";
 import ProductVariantForm from "../Product Variants/ProductVariantForm";
 import Orders from "../Orders/Orders";
 import OrderDetails from "../Orders/OrderDetails";
-import Users from '../Clients/Users';
-import UserForm from '../Clients/UserForm';
+import Users from '../Users/Users';
+import UserForm from '../Users/UserForm';
 
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState("Store");
@@ -61,8 +61,6 @@ const Dashboard = () => {
     setCurrentPage(page);
   };
   
-
-  // Function to render the current page
   const renderPage = () => {
     switch (currentPage) {
       case "Store":
@@ -80,7 +78,7 @@ const Dashboard = () => {
       case "ProductVariant":
         return <ProductVariant onPageChange={handlePageChange} onEdit={handlePageChange}/>;
       case "ProductVariantForm":
-        return <ProductVariantForm onPageChange={handlePageChange} selectedProductVariant={selectedProductVariant} />;
+        return <ProductVariantForm onPageChange={handlePageChange} selectedProductVariant={selectedProductVariant} selectedProduct={selectedProduct}/>;
       case "Orders":
         return <Orders onPageChange={handlePageChange} onEdit={handlePageChange}/>;
       case "OrderDetails":

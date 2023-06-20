@@ -24,7 +24,7 @@ const Store = ({ onPageChange, onEdit }) => {
   //Get current stores
   const indexOfLastStore = currentPage * storesPerPage;
   const indexOfFirstStore = indexOfLastStore - storesPerPage;
-  const currentStores = stores.slice(indexOfFirstStore, indexOfLastStore);
+  // const currentStores = stores.slice(indexOfFirstStore, indexOfLastStore);
 
   //change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -95,7 +95,7 @@ const Store = ({ onPageChange, onEdit }) => {
               <th>Contact</th>
               <th>Actions</th>
             </tr>
-            {currentStores.map(store => (
+            {stores.map(store => (
               <tr key={store.storeId}>
                 <td>{store.storeName}</td>
                 <td>{store.storeOwner}</td>

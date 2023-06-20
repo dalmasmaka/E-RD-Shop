@@ -1,4 +1,4 @@
-import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
+import { AiOutlineDelete, AiOutlineEdit, AiOutlinePlusCircle } from 'react-icons/ai';
 import '../CSS/StoreManagement.css';
 import { BsPlusCircleDotted } from 'react-icons/bs'
 import { useEffect, useState } from 'react';
@@ -16,6 +16,10 @@ const Products = ({ onPageChange, onEdit }) => {
     setSelectedProduct(product);
     onEdit("ProductForm", null, null, product);
   };
+  const handleCreateProductVariant = (product) => {
+    setSelectedProduct(product);
+    onEdit("ProductVariantForm", null, null, product);
+  };
   //API Fetch for Products
   useEffect(() => {
     getProducts()
@@ -30,7 +34,6 @@ const Products = ({ onPageChange, onEdit }) => {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   function handlePageChange(page) {
-    debugger
     onPageChange(page);
   }
   const handleDelete = (id) => {
@@ -54,19 +57,16 @@ const Products = ({ onPageChange, onEdit }) => {
         })
           .then(response => {
             if (response.ok) {
-              window.location.reload(); // Reload the current page
+              return response.json(); // Parse the response JSON
             } else {
-              console.error('Error deleting product:', response.status);
-              if (response.status === 400) {
-                return response.json();
-              } else {
-                throw new Error('Unexpected error occurred!');
-              }
+              throw new Error('Error deleting product: ' + response.status);
             }
           })
           .then(data => {
-            if (data && data.errors) {
-              console.error('Validation errors: ', data.errors);
+            if (data.isSuccess) {
+              window.location.reload(); 
+            } else {
+              showErrorDeletionMessage();
             }
           })
           .catch(error => {
@@ -75,6 +75,13 @@ const Products = ({ onPageChange, onEdit }) => {
       }
     });
   };
+  const showErrorDeletionMessage = () => {
+    Swal.fire(
+      'Oops...',
+      'Product has associated variants and cannot be deleted.'
+  );
+  }
+  
   return (
     <div className="main-container">
       <div className="header-container">
@@ -98,6 +105,7 @@ const Products = ({ onPageChange, onEdit }) => {
                 <td className='action-buttons'>
                   <AiOutlineDelete onClick={() => handleDelete(product.productId)} className='delete-button' />
                   <AiOutlineEdit onClick={() => handleEdit(product)} className='edit-button' />
+                  <AiOutlinePlusCircle className='add-button' onClick={() => handleCreateProductVariant(product)}/>
                 </td>
 
               </tr>
