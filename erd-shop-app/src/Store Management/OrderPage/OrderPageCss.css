@@ -60,6 +60,7 @@ h1.order-title {
     /* display: flex; */
 }
 .submit-button-order {
+    margin-top: 6%;
     margin-bottom: 11%;
     border: 1px solid #24170f;
     padding: 7px;
@@ -127,4 +128,8 @@ input.order-address:focus{
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(36,23,15,.6);
     
 }
-
+.table-container.order {
+    width: 74%;
+    border: 1px solid #24170f;
+    margin-left: 12%;
+}

@@ -77,3 +77,6 @@
     margin-bottom: 4%;
 }
 
+.auth-form-container.register{
+  width: 40%;
+}

@@ -25,7 +25,7 @@ export const RegisterStorekeeper = (props) => {
     }
 
     return (
-        <div className="auth-form-container">
+        <div className="auth-form-container register-storekeeper">
             <h2 className='register-txt'>Register as Storekeeper</h2>
             <form className="registerForm" onSubmit={handleSubmit}>
               <div className="input-flex">

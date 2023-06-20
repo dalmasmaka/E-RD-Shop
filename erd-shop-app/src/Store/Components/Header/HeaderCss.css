@@ -21,13 +21,21 @@
     width: 100%;
     background-color: #24170f;
     padding: 0 0;
-    /* position: sticky;
-     top: 0 */
-     position: sticky;
-     top: 0;
-     left: 0;
-     right: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
 }
+/* .header {
+    width: 100%;
+    background-color: rgba(36, 23, 15, 0.7);
+    padding: 0 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+} */
 .nav-link {
     text-decoration: none;
     background: none;

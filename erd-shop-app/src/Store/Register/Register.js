@@ -26,7 +26,7 @@ export const Register = (props) => {
     }
 
     return (
-        <div className="auth-form-container">
+        <div className="auth-form-container register">
             <h2 className='register-txt'>Register</h2>
             <form className="registerForm" onSubmit={handleSubmit}>
               <div className="input-flex">
