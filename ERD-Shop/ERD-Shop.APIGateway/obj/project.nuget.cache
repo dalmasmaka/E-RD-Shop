@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BVHS38NAkPI9Y3dDjLTubKCn43xcwdNeM05LZPauwni1HefWaSb3SMDhk13+ZLEI3OiJj5BE3CrgM5g3ouj0tQ==",
+  "dgSpecHash": "C07IuqKy7dO5z4NPPoniQUIsTdLa4wU0vbmEBGn/J+3VvYqEd9FVJ9J5omdH4MoHnMiQf9CJ7GtBiYdu+ZCYcw==",
   "success": true,
-  "projectFilePath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\ERD-Shop.APIGateway\\ERD-Shop.APIGateway.csproj",
+  "projectFilePath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\erd-shop\\erd-shop.apigateway\\ERD-Shop.APIGateway.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\edikr\\.nuget\\packages\\fluentvalidation\\9.3.0\\fluentvalidation.9.3.0.nupkg.sha512",
     "C:\\Users\\edikr\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",

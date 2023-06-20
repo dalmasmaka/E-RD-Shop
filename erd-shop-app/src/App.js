@@ -27,7 +27,7 @@ function App() {
 
     const timeoutId = setTimeout(() => {
       setLoading(false);
-    }, 200);
+    }, 2000);
 
     return () => clearTimeout(timeoutId);
   }, [location]);

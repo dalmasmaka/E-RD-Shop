@@ -15,7 +15,7 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('Token');
-    localStorage.removeItem('Email');
+    localStorage.removeItem('Identification');
     navigate('/login');
     // You can redirect to a login page or perform any necessary actions
   };
@@ -44,17 +44,17 @@ const Header = () => {
                   <AiOutlineShopping />
                 </Link>
                 {/* Conditionally render either the logout button or the BsPersonCircle icon */}
-                {localStorage.getItem('Token')!=null && localStorage.getItem('Email')!=null ? (
+                {localStorage.getItem('Token')!=null && localStorage.getItem('Identification')!=null ? (
                   <button className='nav-link icon' onClick={handleLogout}>
                     Logout
                   </button>
                 ) : (
-                  <Link
+                  <button
                     className='nav-link icon'
-                    onClick={() => setShowLogout(true)}
+                    onClick={handleLogout}
                   >
                     <BsPersonCircle />
-                  </Link>
+                  </button>
                 )}
               </div>
             </div>
@@ -78,17 +78,17 @@ const Header = () => {
               <AiOutlineShopping />
             </Link>
             {/* Conditionally render either the logout button or the BsPersonCircle icon */}
-            {showLogout ? (
+            {localStorage.getItem('Token')!=null && localStorage.getItem('Identification')!=null ? (
               <button className='nav-link icon logout'  onClick={handleLogout}>
                 Logout
               </button>
             ) : (
-              <Link
+              <button
                 className='nav-link icon'
-                onClick={() => setShowLogout(true)}
+                onClick={handleLogout}
               >
                 Log In
-              </Link>
+              </button>
             )}
           </div>
         </div>

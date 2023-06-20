@@ -11,9 +11,9 @@ import {
   AiFillShopping,
 } from "react-icons/ai";
 import { useParams } from "react-router";
-import { getVariantDetails,getVariantsByProduct,getProductVariants,getStoreById } from "../../API/api";
+import { getVariantDetails,getProductVariants, getUserWishlistProducts, getUserShoppingCartProducts } from "../../API/api";
 import { BASE_URL } from "../../API/api";
-import { getVariantsInWishlist } from "../../API/api";
+import { getUsers } from "../../API/api";
 import { getVariantsInShoppingCart } from "../../API/api";
 
 const ProductVariantDetails = () => {
@@ -22,6 +22,9 @@ const ProductVariantDetails = () => {
   const [count, setCount] = useState(0);
   const [variant, setVariant] = useState({})
   const [relevantVariants, setRelevantVariants] = useState([]);
+  const [userWishlistProducts, setUserWishlistProducts] = useState([]);
+  const [userShoppingCartProducts, setUserShoppingCartProducts] = useState([]);
+  const userId = localStorage.getItem('Identification');
   const navigate = useNavigate();
   // const [products, setProducts] = useState([]);
   const handleGoToClick = (id) => {
@@ -33,6 +36,19 @@ const ProductVariantDetails = () => {
     useEffect(() => {
       const fetchVariantDetails = async () => {
         const data = await getVariantDetails(id);
+        try{
+          const wishlistProducts = await getUserWishlistProducts(userId);
+          setUserWishlistProducts(wishlistProducts.Result);
+        }catch(exception){
+          console.log(exception);
+        }
+        try{
+          const shoppingCartProducts = await getUserShoppingCartProducts(userId);
+          setUserShoppingCartProducts(shoppingCartProducts.Result);
+        }catch(exception){
+          console.log(exception);
+        }
+
         setVariant(data.result);
       };
       fetchVariantDetails();
@@ -42,8 +58,8 @@ const ProductVariantDetails = () => {
   const handleAddToWishlist = (variant) => {
     const url = `${BASE_URL}/WishlistManagement`;
     const requestData = {
-      variant: variant,
-      quantity: count
+      UserId: userId,
+      ProductId: variant.productVariantId
     };
     fetch(url, {
       method: 'POST',
@@ -52,14 +68,30 @@ const ProductVariantDetails = () => {
           'Content-Type': 'application/json',
       },
   })
-  setIsHeartFilled(!isHeartFilled);
+  window.location.reload();
+  };
+
+  const handleRemoveFromWishlist = (variant) => {
+    const url = `${BASE_URL}/WishlistManagement`;
+    const requestData = {
+      UserId: userId,
+      ProductId: variant.productVariantId
+    };
+    fetch(url, {
+      method: 'DELETE',
+      body: JSON.stringify(requestData),
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  })
+  window.location.reload();
   };
 
   const handleAddToShoppingCart = (variant) => {
     const url = `${BASE_URL}/ShoppingCartManagement`;
     const requestData = {
-      variant: variant,
-      quantity: count
+      UserId: userId,
+      ProductId: variant.productVariantId
     };
     fetch(url, {
       method: 'POST',
@@ -67,10 +99,25 @@ const ProductVariantDetails = () => {
       headers: {
           'Content-Type': 'application/json',
       },
-  })
-  setIsCartFilled(!isCartFilled);
+  }).then(response => console.log(response))
+  // window.location.reload();
   };
-
+  
+  const handleRemoveFromShoppingCart = (variant) => {
+    const url = `${BASE_URL}/ShoppingCartManagement`;
+    const requestData = {
+      UserId: userId,
+      ProductId: variant.productVariantId
+    };
+    fetch(url, {
+      method: 'DELETE',
+      body: JSON.stringify(requestData),
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  })
+  window.location.reload();
+  };
   const incrementCount = () => {
     if(count < variant.stockQuantity){
       setCount((prevCount) => prevCount + 1);
@@ -123,18 +170,31 @@ const ProductVariantDetails = () => {
             <FaChevronRight />
           </button>
         </div>
-        <button
-          className="btn-flex-details btn-wishlist-details"
-          onClick={() => handleAddToWishlist(variant)}
-        >
-          {isHeartFilled ? <AiFillHeart /> : <AiOutlineHeart />}
-        </button>
+          {userWishlistProducts.find(product => product.ProductVariantId == id) != null ?
+            <button
+              className="btn-flex-details btn-wishlist-details"
+              onClick={() => handleRemoveFromWishlist(variant)}
+            >
+              <AiFillHeart /> 
+            </button>
+          :
+            <button
+              className="btn-flex-details btn-wishlist-details"
+              onClick={() => handleAddToWishlist(variant)}
+            >
+              <AiOutlineHeart />
+            </button>
+            }
+          {userShoppingCartProducts.find(product => product.ProductVariantId == id) != null ? 
         <button
           className="btn-flex-details btn-shopping-details"
           onClick={() => handleAddToShoppingCart(variant)}
-        >
-          {isCartFilled ? <AiTwotoneShopping /> : <AiOutlineShopping />}
-        </button>
+        ><AiTwotoneShopping /></button>: 
+        <button
+          className="btn-flex-details btn-shopping-details"
+          onClick={() => handleRemoveFromShoppingCart(variant)}
+        ><AiOutlineShopping /></button>}
+        
       </div>
     </div>
     <h1 className="tekst-varianti">Similar Products</h1>

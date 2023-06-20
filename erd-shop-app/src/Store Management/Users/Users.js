@@ -12,7 +12,7 @@ const Users = ({onInfo }) => {
 
   useEffect(() => {
     getUsers()
-      .then(data => setUsers(data.result))
+      .then(data => setUsers(data.Result))
       .catch(error => console.error('Error:', error));
   }, []);
   const handleInfo = (user) => {
@@ -42,6 +42,7 @@ const Users = ({onInfo }) => {
           method: 'DELETE',
           headers: {
             'Content-Type' : 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('Token')}`
           },
           body: JSON.stringify({})
         })
@@ -85,28 +86,30 @@ const Users = ({onInfo }) => {
             </tr>
           </thead>
           <tbody>
-            {users.map(user => (
+            {users != null ?
+            users.map(user => (
               <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.first_Name}</td>
-                <td>{user.last_Name}</td>
-                <td>{user.email}</td>
+                <td>{user.Id}</td>
+                <td>{user.First_Name}</td>
+                <td>{user.Last_Name}</td>
+                <td>{user.Email}</td>
                 <td className='action-buttons'>
                   <AiOutlineDelete className='delete-button' onClick={() => handleDelete(user.id)}/>
                   <AiOutlineInfoCircle className='edit-button' onClick={() => handleInfo(user)} />
                 </td>
               </tr>
-            ))}
+            )):null}
           </tbody>
         </table>
       </div>
       <div className="pagination">
+        {users != null? 
         <Pagination
           usersPerPage={usersPerPage}
           totalUsers={users.length}
           currentPage={currentPage}
           paginate={paginate}
-        />
+        />:null}
       </div>
     </div>
   );

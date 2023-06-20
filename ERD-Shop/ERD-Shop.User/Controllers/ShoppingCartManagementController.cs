@@ -74,7 +74,7 @@ namespace ERD_Shop.User.Controllers
                     WishlistProductDto _wishlistProduct = new WishlistProductDto { ProductId =  shoppingCartProduct.ProductId, UserId = shoppingCartProduct.UserId };
                     bool removedFromWishlist = await _wishlistProductRepository.DeleteProductFromWishlist(_wishlistProduct);
                 }
-                _responseDto = new ResponseDto { IsSuccess = true, Message = "Product added to Wishlist", Result = _shoppingCartProduct };
+                _responseDto = new ResponseDto { IsSuccess = true, Message = "Product added to Shopping Cart", Result = _shoppingCartProduct };
                 return StatusCode(StatusCodes.Status200OK, _responseDto);
             }
             catch (Exception ex)
@@ -95,7 +95,7 @@ namespace ERD_Shop.User.Controllers
                     _responseDto = new ResponseDto { IsSuccess = true, Message = "Either product or user doesn't exist please check the data inserted" };
                     return StatusCode(StatusCodes.Status404NotFound, _responseDto);
                 }
-                _responseDto = new ResponseDto { IsSuccess = true, Message = "Product removed from users wishlist" };
+                _responseDto = new ResponseDto { IsSuccess = true, Message = "Product removed from users Shopping Cart" };
                 return StatusCode(StatusCodes.Status200OK, _responseDto);
             }
             catch (Exception ex)
