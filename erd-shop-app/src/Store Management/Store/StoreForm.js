@@ -94,7 +94,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('Store'); // Call handlePageChange with the desired page
+                handlePageChange('dashboard/stores'); // Call handlePageChange with the desired page
             }
         });
     };
@@ -109,7 +109,7 @@ const StoreForm = ({ onPageChange, selectedStore }) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('Store'); // Call handlePageChange with the desired page
+                handlePageChange('dashboard/stores'); // Call handlePageChange with the desired page
             }
         });
     };
