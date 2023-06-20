@@ -7,10 +7,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Formats.Asn1;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 using User.Contracts;
 
 namespace ERD_Shop.User.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
@@ -22,8 +27,9 @@ namespace ERD_Shop.User.Controllers
         private readonly IShoppingCartRepository _shoppingCartRepository;
         private readonly IPublishEndpoint _publishEndpoint;
         private readonly TokenService _tokenService;
+        private readonly IConfiguration _configuration;
 
-        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint, IWishlistRepository wishlistRepository, IShoppingCartRepository shoppingCartRepository, SignInManager<ApplicationUser> signInManager, TokenService tokenService)
+        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint, IWishlistRepository wishlistRepository, IShoppingCartRepository shoppingCartRepository, SignInManager<ApplicationUser> signInManager, TokenService tokenService, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -32,6 +38,7 @@ namespace ERD_Shop.User.Controllers
             _shoppingCartRepository = shoppingCartRepository;
             _signInManager = signInManager;
             _tokenService = tokenService;
+            _configuration = configuration;
         }
 
         [HttpGet("GetUsers")]
@@ -47,7 +54,7 @@ namespace ERD_Shop.User.Controllers
             //Return success
             return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Message = "OK", Result = users });
         }
-
+        [AllowAnonymous]
         [HttpPost("Register")]
         public async Task<IActionResult> Register(RegisterApplicationUserDto registrationUser, string role)
         {
@@ -103,7 +110,7 @@ namespace ERD_Shop.User.Controllers
                                                                                               Errors = errorDescriptions});
             }
         }
-
+        [AllowAnonymous]
         [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn(LoginApplicationUserDto loginUser, bool isPersistent)
         {
@@ -112,7 +119,7 @@ namespace ERD_Shop.User.Controllers
             {
                 ApplicationUser user = await _userManager.FindByNameAsync(loginUser.Email);
                 loginUser.Token = await _tokenService.GenerateToken(user);
-                return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = loginUser, Message = "User has logged in" });
+                return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = new { Username = loginUser.Email, Token = loginUser.Token}, Message = "User has logged in" });
             }
             return StatusCode(StatusCodes.Status404NotFound, new ResponseDto { IsSuccess = false, Result = result, Message = "Email or Password is Invalid!"});
         }
@@ -131,12 +138,11 @@ namespace ERD_Shop.User.Controllers
         }
 
         [HttpGet("IsLoggedIn")]
-        [Authorize]
         public IActionResult IsLoggedIn()
         {
             if (User.Identity?.IsAuthenticated == true)
             {
-                return Ok(new { IsLoggedIn = true });
+                return Ok(new { IsLoggedIn = true, ApplicationUser = User.Identity.Name });
             }
 
             return Ok(new { IsLoggedIn = false });

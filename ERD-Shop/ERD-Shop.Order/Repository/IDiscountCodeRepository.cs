@@ -7,6 +7,7 @@ namespace ERD_Shop.Order.Repository
         Task<IEnumerable<DiscountCodeDto>> GetDiscountCode();
         Task<DiscountCodeDto> GetDiscountCodeId(int discountCodeId);
         Task<DiscountCodeDto> CreateUpdateDiscountCode(DiscountCodeDto discountCodeDto);
+        Task<int> UseDiscountCode(int codeValueId);
         Task<bool> DeleteDiscountCode(int discountCodeId);
     }
 }

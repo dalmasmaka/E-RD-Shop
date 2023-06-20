@@ -9,9 +9,11 @@ namespace ERD_Shop.Order.Consumers
     public class UserCreatedConsumer : IConsumer<ApplicationOrderUserCreated>
     {
         private readonly IUserRepository _userRepository;
-        public UserCreatedConsumer(IUserRepository userRepository)
+        private readonly IDiscountCodeRepository _discountCodeRepository;
+        public UserCreatedConsumer(IUserRepository userRepository, IDiscountCodeRepository discountCodeRepository)
         {
             _userRepository = userRepository;
+            _discountCodeRepository = discountCodeRepository;
         }
 
         public async Task Consume(ConsumeContext<ApplicationOrderUserCreated> context)
@@ -33,7 +35,9 @@ namespace ERD_Shop.Order.Consumers
                 Email = message.Email,
                 Role = message.Role
             };
-            await _userRepository.CreateUser(item);
+            UserDto user = await _userRepository.CreateUser(item);
+            var discountCode = new DiscountCodeDto { CodeValueId = 0, ExpirationDate = DateTime.UtcNow.AddDays(30), UsageLimit = 1, UserId = user.UserId};
+            await _discountCodeRepository.CreateUpdateDiscountCode(discountCode);
         }
     }
 }

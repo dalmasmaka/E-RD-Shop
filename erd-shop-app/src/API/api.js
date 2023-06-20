@@ -1,5 +1,5 @@
-/*export const BASE_URL = "https://localhost:5000/api";*/
-export const BASE_URL = "https://localhost:5002/api";
+export const BASE_URL = "https://localhost:5000/api";
+// export const BASE_URL = "https://localhost:5002/api";
 
 export function getUsers() {
   return fetch(`${BASE_URL}/Authentication/GetUsers`)
@@ -13,6 +13,7 @@ export function getUsers() {
       console.error("Error:", error);
     });
 }
+
 export function getUser() {
   return fetch(`${BASE_URL}/User`)
     .then((response) => {
