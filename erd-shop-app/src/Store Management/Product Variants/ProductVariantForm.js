@@ -39,7 +39,7 @@ const ProductVariantForm = ({ onPageChange, selectedProductVariant, selectedProd
     }, [selectedProductVariant]);
 
     const handlePageChange = (page) => {
-        onPageChange(page);
+        onPageChange('dashboard/products');
     }
 
     const handleImageChange = (event) => {
@@ -129,7 +129,7 @@ const ProductVariantForm = ({ onPageChange, selectedProductVariant, selectedProd
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('ProductVariant');
+                window.location.reload();
             }
         });
     };
@@ -144,7 +144,7 @@ const ProductVariantForm = ({ onPageChange, selectedProductVariant, selectedProd
         }).then((result) => {
 
             if (result.isConfirmed) {
-                handlePageChange('ProductVariant'); 
+                window.location.reload();
             }
         });
     };
@@ -211,7 +211,7 @@ const ProductVariantForm = ({ onPageChange, selectedProductVariant, selectedProd
 
                     </div>
                     <div className='actions-form-container'>
-                        <button className='cancel-form-button' onClick={() => handlePageChange('ProductVariant')}>Cancel</button>
+                        <button className='cancel-form-button' onClick={() => handlePageChange()}>Cancel</button>
                         <button className='create-form-button' type='submit'>Save Details</button>
                     </div>
                 </form>

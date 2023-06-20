@@ -6,14 +6,14 @@ import { BASE_URL, getCategory } from '../../API/api';
 import Swal from 'sweetalert2';
 
 
-const Category = ({ onPageChange, onEdit }) => {
+const Categories = ({ onPageChange, onEdit }) => {
     const [categories, setCategories] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [categoriesPerPage, setCategoriesPerPage] = useState(10);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const handleEdit = (category) => {
         setSelectedCategory(category);
-        onEdit("CategoryForm", null, category);
+        onEdit("dashboard/categoryform", null, category);
     };
     useEffect(() => {
         getCategory()
@@ -28,8 +28,8 @@ const Category = ({ onPageChange, onEdit }) => {
     //Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-    function handlePageChange(page) {
-        onPageChange(page);
+    function handlePageChange() {
+        onPageChange("dashboard/categoryform");
     }
 
     const handleDelete = (id) => {
@@ -144,4 +144,4 @@ const Pagination = ({ categoriesPerPage, totalCategories, currentPage, paginate 
         </ul>
     );
 };
-export default Category
+export default Categories
