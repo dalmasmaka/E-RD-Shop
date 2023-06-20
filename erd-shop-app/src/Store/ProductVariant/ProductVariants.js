@@ -36,6 +36,7 @@ const ProductVariants = ({ productid }) => {
       fetchProductVariants();
     }
   }, [products]);
+  console.log(productVariants)
 
   return (
     <div className="product-var">
