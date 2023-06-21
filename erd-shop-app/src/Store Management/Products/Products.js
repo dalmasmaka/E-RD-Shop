@@ -33,8 +33,8 @@ const Products = ({ onPageChange, onEdit }) => {
   //Change the page of table
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  function handlePageChange(page) {
-    onPageChange(page);
+  function handlePageChange() {
+    onPageChange("dashboard/productform");
   }
   const handleDelete = (id) => {
     Swal.fire({
@@ -86,7 +86,7 @@ const Products = ({ onPageChange, onEdit }) => {
     <div className="main-container">
       <div className="header-container">
         <h1 className='title'>Products</h1>
-        <button className='create-link' onClick={() => handlePageChange('ProductForm')}><BsPlusCircleDotted /></button>
+        <button className='create-link' onClick={() => handlePageChange()}><BsPlusCircleDotted /></button>
       </div>
       <div className="table-container">
         <table>
