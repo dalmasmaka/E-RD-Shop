@@ -49,7 +49,8 @@ namespace ERD_Shop.User.Controllers
         {
             try
             {
-                if(_wishlistRepository.GetWishlistByUser(wishlist.ApplicationUserId) != null)
+                WishlistDto wishlistExists = await _wishlistRepository.GetWishlistByUser(wishlist.ApplicationUserId);
+                if (wishlistExists != null)
                 {
                     _responseDto = new ResponseDto { IsSuccess = false, Message = "User " + wishlist.ApplicationUserId + " already has a Wishlist!" };
                     return StatusCode(StatusCodes.Status400BadRequest, _responseDto);

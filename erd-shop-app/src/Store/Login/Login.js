@@ -29,13 +29,13 @@ export const Login = (props) => {
           .then((response) => response.json())
           .then(data => {
             localStorage.setItem('Token', data.Result.Token);
-            localStorage.setItem('Email', data.Result.Username);
+            localStorage.setItem('Identification', data.Result.Identification);
           })
           .catch(error => {
             console.error("Error:",error);
           });
         e.preventDefault();
-        navigate('/home');
+        navigate('/');
     }
 
     return (
@@ -63,7 +63,7 @@ export const Login = (props) => {
         access_type="offline"
         onResolve={({ provider, data }) => {
           console.log(provider, data);
-          navigate('/home');
+          navigate('/');
         }}
         onReject={(err) => {
           console.log(err);

@@ -62,7 +62,8 @@ namespace ERD_Shop.User.Controllers
         {
             try
             {
-                if(_shoppingCartRepository.GetShoppingCartByUser(shoppingCart.ApplicationUserId) != null)
+                ShoppingCartDto existsShoppingCart = await _shoppingCartRepository.GetShoppingCartByUser(shoppingCart.ApplicationUserId);
+                if(existsShoppingCart != null)
                 {
                     _responseDto = new ResponseDto { IsSuccess = false, Message = "User "+shoppingCart.ApplicationUserId+" already has a Shopping Cart" };
                     return StatusCode(StatusCodes.Status400BadRequest, _responseDto);

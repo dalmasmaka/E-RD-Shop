@@ -2,7 +2,13 @@ export const BASE_URL = "https://localhost:5000/api";
 // export const BASE_URL = "https://localhost:5002/api";
 
 export function getUsers() {
-  return fetch(`${BASE_URL}/Authentication/GetUsers`)
+  return fetch(`${BASE_URL}/Authentication/GetUsers`, {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.Token}`
+    }
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -108,18 +114,22 @@ export async function getVariantDetails(variantId) {
   }
   return await response.json();
 }
-export function getVariantsInWishlist() {
-  return fetch(`${BASE_URL}/WishlistManagement`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+export async function getUserWishlistProducts(userId){
+  const response = await fetch(`${BASE_URL}/WishlistManagement/${userId}`);
+  if(!response.ok){
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
 }
+
+export async function getUserShoppingCartProducts(userId){
+  const response = await fetch(`${BASE_URL}/ShoppingCartManagement/${userId}`);
+  if(!response.ok){
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}
+
 export function getVariantsInShoppingCart() {
   return fetch(`${BASE_URL}/ShoppingCartManagement`)
     .then((response) => {

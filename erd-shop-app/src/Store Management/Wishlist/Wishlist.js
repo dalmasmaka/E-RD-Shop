@@ -4,26 +4,31 @@ import './WishlistCss.css';
 import { MdShoppingCartCheckout } from 'react-icons/md';
 import {RiDeleteBin5Line} from 'react-icons/ri'
 import {TiDeleteOutline} from 'react-icons/ti'
-import { getVariantsInWishlist } from "../../API/api";
+import { getUserWishlistProducts, getUsers } from "../../API/api";
 import { BASE_URL } from '../../API/api';
-import { getUser } from '../../API/api';
 
 
 
 const Wishlist = () => {
 
     const testwishlist = [];
-
-    const [wishlist, setWishlist] = useState([]);
     const history = useNavigate();
+    const [users, setUsers] = useState([]);
     const [userId, setUserId] = useState("");
+    const [userWishlistProducts, setUserWishlistProducts] = useState([]);
 
   useEffect(() => {
     const fetchUserId = async () => {
-      const user = await getUser();
-      setUserId(user.userId);
+      await getUsers()
+        .then(data => setUsers(data.Result));
+      // var user = users.find(user => user.Email == localStorage.getItem('Email'));
+      // console.log(user);
+      // setUserId(user.Id);
     }
     fetchUserId();
+    setTimeout(() => {
+      console.log(users);
+    },5000)
   }, [])
 
   const clearWishlist = (userId) => {
@@ -67,14 +72,6 @@ const Wishlist = () => {
     })
   }
 
-    useEffect(() => {
-      const fetchWishlist = async() => {
-        const data = await getVariantsInWishlist();
-        setWishlist(data);
-      };
-      fetchWishlist();
-    }, [])
-
     return (
         <div className="main-container">
         <div className="header-container">
@@ -92,7 +89,7 @@ const Wishlist = () => {
     
                 </tr>
                
-                {testwishlist.map((variant) => {
+                {userWishlistProducts.map((variant) => {
           return(
             <tr>
               <td>{variant.id}</td>

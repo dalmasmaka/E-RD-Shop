@@ -119,7 +119,7 @@ namespace ERD_Shop.User.Controllers
             {
                 ApplicationUser user = await _userManager.FindByNameAsync(loginUser.Email);
                 loginUser.Token = await _tokenService.GenerateToken(user);
-                return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = new { Username = loginUser.Email, Token = loginUser.Token}, Message = "User has logged in" });
+                return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = new { Identification = user.Id, Token = loginUser.Token}, Message = "User has logged in" });
             }
             return StatusCode(StatusCodes.Status404NotFound, new ResponseDto { IsSuccess = false, Result = result, Message = "Email or Password is Invalid!"});
         }
