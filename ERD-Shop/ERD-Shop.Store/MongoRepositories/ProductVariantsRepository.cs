@@ -71,6 +71,38 @@ namespace ERD_Shop.Store.MongoRepositories
             return _mapper.Map<ProductVariantDto>(productVariant);
         }
 
+        public async Task<Dictionary<string, int>> GetProducatVariantCount()
+        {
+            Dictionary<string, int> productCount = new Dictionary<string, int>();
+            var productVariants = await dbCollection.Find(filterBuilder.Empty).ToListAsync();
+            foreach( var productVariant in productVariants ) {
+                string product = productVariant.ProductName;
+                if(productCount.ContainsKey(product))
+                {
+                    productCount[product]++;
+                }
+                else
+                {
+                    productCount[product] =1;
+                }
+
+            }
+            return productCount;
+        }
+        public async Task<List<ProductVariant>> GetTopTenMostExpensiveVariants()
+        {
+            var sort = Builders<ProductVariant>.Sort.Descending(x => x.Price);
+            var options = new FindOptions<ProductVariant>
+            {
+                Sort = sort,
+                Limit = 10
+            };
+
+            var filter = Builders<ProductVariant>.Filter.Empty;
+            var result = await dbCollection.FindAsync(filter, options);
+            return await result.ToListAsync();
+        }
+
         public async Task<ProductVariantDto> UpdateAsync(ProductVariantDto productVariant)
         {
             if(productVariant == null)

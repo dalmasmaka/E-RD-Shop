@@ -7,6 +7,7 @@ namespace ERD_Shop.Order.Models
     {
         public Order()
         {
+            Payments = new HashSet<Payment>();
             Refunds = new HashSet<Refund>();
             ProductVariants = new HashSet<ProductVariant>();
         }
@@ -20,8 +21,9 @@ namespace ERD_Shop.Order.Models
 
         public virtual DiscountCode? CodeValue { get; set; }
         public virtual User? User { get; set; }
-        public virtual ICollection<Refund>? Refunds { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<Refund> Refunds { get; set; }
 
-        public virtual ICollection<ProductVariant>? ProductVariants { get; set; }
+        public virtual ICollection<ProductVariant> ProductVariants { get; set; }
     }
 }
