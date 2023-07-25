@@ -13,5 +13,6 @@
         public double? SupplyPrice { get; set; }
         public double? TotalSupplyPrice { get; set; }
         public int? ProductId { get; set; }
+        public string? ProductName { get; set; }
     }
 }

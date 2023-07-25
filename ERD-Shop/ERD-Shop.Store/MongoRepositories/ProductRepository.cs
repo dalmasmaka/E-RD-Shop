@@ -3,6 +3,7 @@ using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
 using ERD_Shop.Store.MongoRepositories.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -12,10 +13,12 @@ namespace ERD_Shop.Store.MongoRepositories
     {
         private const string collectionName = "Products";
         private readonly IMongoCollection<Product> dbCollection;
+        private readonly IMongoCollection<Category> categorydbCollection;
         private readonly FilterDefinitionBuilder<Product> filterBuilder = Builders<Product>.Filter;
         private readonly IMapper _mapper;
         private readonly IMongoDatabase _database;
         private readonly IProductVariantRepository _productVariantRepository;
+        private readonly ICategoryRepository ICategoryRepository;
         public ProductRepository(IMapper mapper, IMongoDatabase database, IProductVariantRepository productVariantRepository)
         {
             _database = database;
@@ -37,6 +40,75 @@ namespace ERD_Shop.Store.MongoRepositories
             var result = countersCollection.FindOneAndUpdate(filter, update, options);
             return result["seq"].AsInt32;
         }
+        //public async Task<Dictionary<string, List<Product>>> Top10ProductsByCategory()
+        //{
+        //    Dictionary<string, List<Product>> topProductsByCategory = new Dictionary<string, List<Product>>();
+
+        //    // Retrieve all products from the database
+        //    var products = await dbCollection.Find(filterBuilder.Empty).ToListAsync();
+
+        //    // Group products by category
+        //    var groupedProducts = products.GroupBy(p => p.CategoryId.ToString());
+
+        //    // Iterate over each category
+        //    foreach (var group in groupedProducts)
+        //    {
+        //        string category = group.Key;
+
+        //        // Order products within the category by the number of occurrences
+        //        var sortedProducts = group.OrderByDescending(p => group.Count()).Take(10).ToList();
+
+        //        // Add the top 10 products to the dictionary
+        //        topProductsByCategory[category] = sortedProducts;
+        //    }
+
+        //    return topProductsByCategory;
+        //}
+
+        public async Task<Dictionary<string, CategoryInfo>> Top10ProductsByCategory()
+        {
+            Dictionary<string, CategoryInfo> topProductsByCategory = new Dictionary<string, CategoryInfo>();
+
+            // Retrieve all products from the database
+            var products = await dbCollection.Find(filterBuilder.Empty).ToListAsync();
+
+            // Group products by category
+            var groupedProducts = products.GroupBy(p => p.CategoryId.ToString());
+
+            // Iterate over each category
+            foreach (var group in groupedProducts)
+            {
+                string categoryId = group.Key;
+
+                // Get the category name for the current category ID
+                var category = await GetCategoryName(categoryId);
+
+                // Order products within the category by the number of occurrences
+                var sortedProducts = group.OrderByDescending(p => group.Count()).Take(10).ToList();
+
+                // Create a CategoryInfo object to store the category ID, category name, and count
+                var categoryInfo = new CategoryInfo
+                {
+                    CategoryId = int.Parse(categoryId),
+                    CategoryName = category.CategoryName,
+                    Count = sortedProducts.Count
+                };
+
+                // Add the top 10 products to the dictionary
+                topProductsByCategory[categoryId] = categoryInfo;
+            }
+
+            return topProductsByCategory;
+        }
+
+        private async Task<Category> GetCategoryName(string categoryId)
+        {
+            // Retrieve the category with the specified ID from the database
+            var category = await categorydbCollection.Find(c => c.CategoryId.ToString() == categoryId).FirstOrDefaultAsync();
+            return category;
+        }
+
+
         public async Task<ProductDto> CreateAsync([FromBody]ProductDto productDto)
         {
             if(productDto == null) throw new ArgumentNullException(nameof(productDto));
@@ -93,5 +165,7 @@ namespace ERD_Shop.Store.MongoRepositories
             await dbCollection.UpdateOneAsync(filter, update);
             return productDto;
         }
+
+        
     }
 }

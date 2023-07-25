@@ -14,6 +14,7 @@ namespace ERD_Shop.Order
                 config.CreateMap<Models.Order, OrderDto>();
                 config.CreateMap<Models.User, UserDto>().ReverseMap();
                 config.CreateMap<ProductVariant, ProductVariantDto>().ReverseMap();
+                config.CreateMap<Payment, PaymentDto>().ReverseMap();
             });
             return mappingConfig;
         }

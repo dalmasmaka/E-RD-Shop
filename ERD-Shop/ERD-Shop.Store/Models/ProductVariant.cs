@@ -23,6 +23,7 @@ namespace ERD_Shop.Store.Models
         public string? ShortDescription { get; set; }
         public string? ProductVariantImg { get; set; }
         public int? ProductId { get; set; }
+        public string? ProductName { get; set; }
 
     }
 }
