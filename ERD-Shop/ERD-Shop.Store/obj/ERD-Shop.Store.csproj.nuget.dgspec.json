@@ -1,29 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\erd-shop\\erd-shop.store\\ERD-Shop.Store.csproj": {}
+    "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/ERD-Shop.Store.csproj": {}
   },
   "projects": {
-    "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\erd-shop\\erd-shop.store\\ERD-Shop.Store.csproj": {
+    "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/ERD-Shop.Store.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\erd-shop\\erd-shop.store\\ERD-Shop.Store.csproj",
+        "projectUniqueName": "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/ERD-Shop.Store.csproj",
         "projectName": "ERD-Shop.Store",
-        "projectPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\erd-shop\\erd-shop.store\\ERD-Shop.Store.csproj",
-        "packagesPath": "C:\\Users\\edikr\\.nuget\\packages\\",
-        "outputPath": "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\erd-shop\\erd-shop.store\\obj\\",
+        "projectPath": "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/ERD-Shop.Store.csproj",
+        "packagesPath": "/Users/rrezerexhepi/.nuget/packages/",
+        "outputPath": "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\edikr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/rrezerexhepi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-          "C:\\University\\Year 3\\Lab 2\\E-RD-Shop\\ERD-Shop\\Packages": {},
+          "/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/Packages": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -104,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }

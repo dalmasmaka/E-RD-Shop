@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "react-credit-cards": "^0.8.3",
+    "react-icons": "^4.10.1",
+    "react-responsive-carousel": "^3.2.23"
+  }
+}

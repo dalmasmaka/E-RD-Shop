@@ -1,334 +1,428 @@
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\appsettings.json
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.exe
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.deps.json
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.runtimeconfig.json
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.pdb
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Humanizer.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Runtime.Caching.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Windows.Extensions.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.AssemblyReference.cache
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.AssemblyInfoInputs.cache
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.AssemblyInfo.cs
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.CoreCompileInputs.cache
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.build.ERD-Shop.Store.props
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ERD-Shop.Store.props
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ERD-Shop.Store.props
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\scopedcss\bundle\ERD-Shop.Store.styles.css
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.CopyComplete
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\refint\ERD-Shop.Store.dll
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.pdb
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.genruntimeconfig.cache
-C:\Users\Enes1\Documents\GitHub\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ref\ERD-Shop.Store.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\appsettings.Development.json
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\appsettings.json
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.exe
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.deps.json
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.runtimeconfig.json
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.pdb
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.Core.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\DnsClient.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Humanizer.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.OpenApi.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Bson.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.Core.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\SharpCompress.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Snappier.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Drawing.Common.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Runtime.Caching.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Security.Permissions.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Windows.Extensions.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ZstdSharp.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.AssemblyReference.cache
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.AssemblyInfoInputs.cache
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.AssemblyInfo.cs
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.CoreCompileInputs.cache
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.build.ERD-Shop.Store.props
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ERD-Shop.Store.props
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ERD-Shop.Store.props
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.pack.json
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.build.json
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.development.json
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\scopedcss\bundle\ERD-Shop.Store.styles.css
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.CopyComplete
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\refint\ERD-Shop.Store.dll
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.pdb
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.genruntimeconfig.cache
-E:\Edi_Krasniqi\Viti 3\Semestri 6\Lab2\Final Project\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ref\ERD-Shop.Store.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\appsettings.Development.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\appsettings.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.exe
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.deps.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.runtimeconfig.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.pdb
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.Core.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\DnsClient.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Humanizer.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.Abstractions.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Bson.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.Core.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\RabbitMQ.Client.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\SharpCompress.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Snappier.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Runtime.Caching.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Text.Json.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Threading.Channels.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Windows.Extensions.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\User.Contracts.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ZstdSharp.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.AssemblyReference.cache
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.AssemblyInfoInputs.cache
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.AssemblyInfo.cs
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.CoreCompileInputs.cache
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.build.ERD-Shop.Store.props
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ERD-Shop.Store.props
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ERD-Shop.Store.props
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.pack.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.build.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.development.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\scopedcss\bundle\ERD-Shop.Store.styles.css
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.CopyComplete
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\refint\ERD-Shop.Store.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.pdb
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.genruntimeconfig.cache
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ref\ERD-Shop.Store.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\erd-shop\erd-shop.store\bin\Debug\net6.0\Order.Contracts.dll
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Store.Contracts\bin\Debug\net6.0\Store.Contracts.deps.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Store.Contracts\obj\project.assets.json
-C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Store.Contracts\obj\Store.Contracts.csproj.nuget.dgspec.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Store.Contracts\bin\Debug\net6.0\Store.Contracts.deps.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Store.Contracts\obj\project.assets.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Store.Contracts\obj\Store.Contracts.csproj.nuget.dgspec.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\appsettings.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.exe
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.deps.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.runtimeconfig.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ERD-Shop.Store.pdb
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.Core.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\DnsClient.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Humanizer.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.Abstractions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Bson.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Driver.Core.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Order.Contracts.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\RabbitMQ.Client.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\SharpCompress.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Snappier.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Runtime.Caching.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Text.Json.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Threading.Channels.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\System.Windows.Extensions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\User.Contracts.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\ZstdSharp.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.AssemblyReference.cache
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.AssemblyInfoInputs.cache
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.AssemblyInfo.cs
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.CoreCompileInputs.cache
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.build.ERD-Shop.Store.props
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ERD-Shop.Store.props
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ERD-Shop.Store.props
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\scopedcss\bundle\ERD-Shop.Store.styles.css
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.csproj.CopyComplete
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\refint\ERD-Shop.Store.dll
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.pdb
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ERD-Shop.Store.genruntimeconfig.cache
-C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Store\obj\Debug\net6.0\ref\ERD-Shop.Store.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.Development.json
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.json
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.exe
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.deps.json
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.runtimeconfig.json
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.pdb
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Humanizer.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Identity.Client.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.OpenApi.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Configuration.ConfigurationManager.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Drawing.Common.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Runtime.Caching.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Permissions.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Windows.Extensions.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.AssemblyReference.cache
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfoInputs.cache
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfo.cs
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CoreCompileInputs.cache
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.build.ERD-Shop.Store.props
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.ERD-Shop.Store.props
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ERD-Shop.Store.props
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.pack.json
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.build.json
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.development.json
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/scopedcss/bundle/ERD-Shop.Store.styles.css
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CopyComplete
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/refint/ERD-Shop.Store.dll
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.pdb
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.genruntimeconfig.cache
+C:/Users/Enes1/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ref/ERD-Shop.Store.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.Development.json
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.json
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.exe
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.deps.json
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.runtimeconfig.json
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.pdb
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AWSSDK.Core.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AWSSDK.SecurityToken.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/DnsClient.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Humanizer.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Identity.Client.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.OpenApi.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Win32.SystemEvents.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Bson.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Driver.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Driver.Core.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Libmongocrypt.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/SharpCompress.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Snappier.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Configuration.ConfigurationManager.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Drawing.Common.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Runtime.Caching.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Cryptography.ProtectedData.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Permissions.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Windows.Extensions.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ZstdSharp.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/linux/native/libmongocrypt.so
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/osx/native/libmongocrypt.dylib
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/native/mongocrypt.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.AssemblyReference.cache
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfoInputs.cache
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfo.cs
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CoreCompileInputs.cache
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.build.ERD-Shop.Store.props
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.ERD-Shop.Store.props
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ERD-Shop.Store.props
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.pack.json
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.build.json
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.development.json
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/scopedcss/bundle/ERD-Shop.Store.styles.css
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CopyComplete
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/refint/ERD-Shop.Store.dll
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.pdb
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.genruntimeconfig.cache
+E:/Edi_Krasniqi/Viti 3/Semestri 6/Lab2/Final Project/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ref/ERD-Shop.Store.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.Development.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.exe
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.deps.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.runtimeconfig.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.pdb
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AWSSDK.Core.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AWSSDK.SecurityToken.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/DnsClient.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Humanizer.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.Abstractions.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.RabbitMqTransport.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Identity.Client.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.OpenApi.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Win32.SystemEvents.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Bson.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Driver.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Driver.Core.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Libmongocrypt.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/RabbitMQ.Client.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/SharpCompress.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Snappier.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Configuration.ConfigurationManager.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Drawing.Common.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Runtime.Caching.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Cryptography.ProtectedData.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Permissions.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Text.Json.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Threading.Channels.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Windows.Extensions.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/User.Contracts.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ZstdSharp.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/linux/native/libmongocrypt.so
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/osx/native/libmongocrypt.dylib
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/native/mongocrypt.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.AssemblyReference.cache
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfoInputs.cache
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfo.cs
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CoreCompileInputs.cache
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.build.ERD-Shop.Store.props
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.ERD-Shop.Store.props
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ERD-Shop.Store.props
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.pack.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.build.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.development.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/scopedcss/bundle/ERD-Shop.Store.styles.css
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CopyComplete
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/refint/ERD-Shop.Store.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.pdb
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.genruntimeconfig.cache
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ref/ERD-Shop.Store.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/erd-shop/erd-shop.store/bin/Debug/net6.0/Order.Contracts.dll
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/bin/Debug/net6.0/Store.Contracts.deps.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/obj/project.assets.json
+C:/University/Year 3/Lab 2/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/obj/Store.Contracts.csproj.nuget.dgspec.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/bin/Debug/net6.0/Store.Contracts.deps.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/obj/project.assets.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/obj/Store.Contracts.csproj.nuget.dgspec.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.Development.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.exe
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.deps.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.runtimeconfig.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.pdb
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AWSSDK.Core.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AWSSDK.SecurityToken.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/DnsClient.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Humanizer.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.Abstractions.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.RabbitMqTransport.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Identity.Client.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.OpenApi.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Bson.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Driver.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Driver.Core.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Libmongocrypt.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Order.Contracts.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/RabbitMQ.Client.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/SharpCompress.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Snappier.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Configuration.ConfigurationManager.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Drawing.Common.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Runtime.Caching.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Permissions.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Text.Json.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Threading.Channels.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Windows.Extensions.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/User.Contracts.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ZstdSharp.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/linux/native/libmongocrypt.so
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/osx/native/libmongocrypt.dylib
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/native/mongocrypt.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.AssemblyReference.cache
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfoInputs.cache
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfo.cs
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CoreCompileInputs.cache
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.build.ERD-Shop.Store.props
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.ERD-Shop.Store.props
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ERD-Shop.Store.props
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.pack.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.build.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.development.json
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/scopedcss/bundle/ERD-Shop.Store.styles.css
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CopyComplete
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/refint/ERD-Shop.Store.dll
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.pdb
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.genruntimeconfig.cache
+C:/Users/Dalma/Desktop/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ref/ERD-Shop.Store.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.Development.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/appsettings.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/bin/Debug/net6.0/Store.Contracts.deps.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/obj/project.assets.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Store.Contracts/obj/Store.Contracts.csproj.nuget.dgspec.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.deps.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.runtimeconfig.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ERD-Shop.Store.pdb
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AWSSDK.Core.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/AWSSDK.SecurityToken.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/DnsClient.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Humanizer.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.Abstractions.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MassTransit.RabbitMqTransport.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Identity.Client.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Microsoft.Win32.SystemEvents.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Bson.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Driver.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Driver.Core.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/MongoDB.Libmongocrypt.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Order.Contracts.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/RabbitMQ.Client.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/SharpCompress.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Snappier.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Configuration.ConfigurationManager.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Drawing.Common.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Runtime.Caching.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Cryptography.ProtectedData.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Security.Permissions.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Text.Json.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Threading.Channels.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/System.Windows.Extensions.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/User.Contracts.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/ZstdSharp.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/linux/native/libmongocrypt.so
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/osx/native/libmongocrypt.dylib
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/native/mongocrypt.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.AssemblyReference.cache
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfoInputs.cache
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.AssemblyInfo.cs
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CoreCompileInputs.cache
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cs
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.MvcApplicationPartsAssemblyInfo.cache
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.ERD-Shop.Store.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.build.ERD-Shop.Store.props
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.ERD-Shop.Store.props
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ERD-Shop.Store.props
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.pack.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.build.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/staticwebassets.development.json
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/scopedcss/bundle/ERD-Shop.Store.styles.css
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.csproj.CopyComplete
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/refint/ERD-Shop.Store.dll
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.pdb
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ERD-Shop.Store.genruntimeconfig.cache
+/Users/rrezerexhepi/Documents/GitHub/E-RD-Shop/ERD-Shop/ERD-Shop.Store/obj/Debug/net6.0/ref/ERD-Shop.Store.dll
