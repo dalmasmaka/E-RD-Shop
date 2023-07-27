@@ -1,0 +1,17 @@
+.product{
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    min-width: 100px;
+    z-index: 1;
+    width: 100%;
+    justify-content: flex-end;
+}
+.product > img{
+    width: 100%;
+    height: 84%;
+    object-fit: contain;
+}
+.product{
+    cursor: pointer;
+}
