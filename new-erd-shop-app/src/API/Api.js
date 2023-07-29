@@ -1,5 +1,5 @@
-//export const BASE_URL = "https://localhost:5000/api";
-export const BASE_URL = "https://localhost:5002/api";
+export const BASE_URL = "https://localhost:5000/api";
+// export const BASE_URL = "https://localhost:5002/api";
 
 export function getUsers() {
   return fetch(`${BASE_URL}/Authentication/GetUsers`)
@@ -122,6 +122,30 @@ export function getVariantsInWishlist() {
 }
 export function getVariantsInShoppingCart() {
   return fetch(`${BASE_URL}/ShoppingCartManagement`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+export async function getCountries() {
+  return fetch(`${BASE_URL}/Country`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+export async function getCities() {
+  return fetch(`${BASE_URL}/City`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
