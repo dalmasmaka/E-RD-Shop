@@ -1,36 +1,112 @@
-import style from './Header.module.css'
+import "./Header.css";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineHeart, AiOutlineShopping } from "react-icons/ai";
+import { BiMenu } from "react-icons/bi";
+import { FaTimes } from "react-icons/fa";
+import { BsPersonCircle } from "react-icons/bs";
+import logoPic from "../../Assets/img/logo.png";
 import {
-    BrowserRouter as Router,
-    Route,
-    NavLink,
-    Routes,
-  } from "react-router-dom";
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Routes,
+} from "react-router-dom";
 
 export default function Header() {
-    return (
-        <div className={style.header}>
-            <ul>
-                <NavLink className={style.link} to="/">
-                    <div>
-                        Home
-                    </div>
-                </NavLink>
-                <NavLink className={style.link} to="/products">
-                    <div>
-                        Products
-                    </div>
-                </NavLink>
-                <NavLink className={style.link} to="/dashboard">
-                    <div>
-                        Dashboard
-                    </div>
-                </NavLink>
-                <NavLink className={style.link} to="/login">
-                    <div>
-                        Login
-                    </div>
-                </NavLink>
-            </ul>
+  const [isMobile, setIsMobile] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const [showLogout, setShowLogout] = useState(false); // State to track if logout button should be shown
+
+  const handleLogout = () => {
+    localStorage.removeItem("Token");
+    localStorage.removeItem("Email");
+    // navigate('/login');
+    // You can redirect to a login page or perform any necessary actions
+  };
+
+  return (
+    <div className="header">
+      <div className="flex-between">
+        <div className="flex">
+          <img className="logo-img" src={logoPic} alt="" />
+          {isMobile ? (
+            <div className="nav-links-mobile">
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
+              <Link className="nav-link" to="/category">
+                Category
+              </Link>
+              <Link className="nav-link" to="/dashboard">
+                Dashboard
+              </Link>
+              <div className="div-mobile">
+                <Link className="nav-link icon" to="/wishlist">
+                  <AiOutlineHeart />
+                </Link>
+                <Link className="nav-link icon" to="/shoppingcart">
+                  <AiOutlineShopping />
+                </Link>
+                {/* Conditionally render either the logout button or the BsPersonCircle icon */}
+                {localStorage.getItem("Token") != null &&
+                localStorage.getItem("Email") != null ? (
+                  <button className="nav-link icon" onClick={handleLogout}>
+                    Logout
+                  </button>
+                ) : (
+                  <Link
+                    className="nav-link icon"
+                    onClick={() => setShowLogout(true)}
+                  >
+                    <BsPersonCircle />
+                  </Link>
+                )}
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
+          <div className="nav-links-desktop">
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+            <Link className="nav-link" to="/category">
+              Category
+            </Link>
+            <Link className="nav-link" to="/dashboard">
+              Dashboard
+            </Link>
+            <Link className="nav-link icon" to="/wishlist">
+              <AiOutlineHeart />
+            </Link>
+            <Link className="nav-link icon" to="/shoppingcart">
+              <AiOutlineShopping />
+            </Link>
+            {/* Conditionally render either the logout button or the BsPersonCircle icon */}
+            {showLogout ? (
+              <button className="nav-link icon logout" onClick={handleLogout}>
+                Logout
+              </button>
+            ) : (
+              <Link
+                className="nav-link icon"
+                onClick={() => setShowLogout(true)}
+              >
+                Log In
+              </Link>
+            )}
+          </div>
         </div>
-    )
+        {/* isSearchBarOpen ?  <input className='search-input' type="text" placeholder="search"/> : ""*/}
+        <button
+          className="mobile-menu-icon"
+          onClick={() => setIsMobile(!isMobile)}
+        >
+          {isMobile ? <FaTimes /> : <BiMenu />}
+        </button>
+      </div>
+    </div>
+  );
 }

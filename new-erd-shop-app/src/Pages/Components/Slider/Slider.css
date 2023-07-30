@@ -1,0 +1,12 @@
+.img-slider{
+    width: 100%;
+    height: auto;
+}
+.carousel .thumbs {
+    transition: all .15s ease-in;
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    list-style: none;
+    white-space: nowrap;
+    text-align: center;
+}

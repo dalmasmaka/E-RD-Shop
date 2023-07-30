@@ -1,0 +1,79 @@
+.btn-wishlist {
+    transition: 1.5s;
+    text-decoration: none;
+    border: 1px solid #362417;
+    color: #362417;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: rgba(241,218,191,1);
+}
+.btn-shopping {
+    transition: 1.5s;
+    text-decoration: none;
+    border: 1px solid #362417;
+    color: #362417;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: rgba(241,218,191,1);
+}
+.btn-flex{
+    transition: 1.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-shopping:hover{
+    transition: 1.5s;
+    border: 1px solid rgba(241,218,191,1);
+    color:rgba(241,218,191,1);
+    background-color: #362417;
+}
+.btn-wishlist:hover{
+    border: 1px solid rgba(241,218,191,1);
+    color:rgba(241,218,191,1);
+    background-color: #362417;
+    transition: 1.5s;
+}
+.details:hover{
+    transition: 1.5s;
+    color:#362417;
+    border: 1px solid #362417;
+    background-color: rgba(241,218,191,1);
+}
+.details{
+    transition: 1.5s;
+    border: 1px solid rgba(241,218,191,1);
+    color:rgba(241,218,191,1);
+    cursor: pointer;
+}
+.product{
+    cursor: pointer;
+    transition: 1s;
+}
+.product:hover {
+    transition: 1s;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 14px 15px, rgba(0, 0, 0, 0.12) 0px 30px 20px, rgba(0, 0, 0, 0.12) 0px 12px 5px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
+}
+
+.product-title{
+    color: #ffffff;
+    background: linear-gradient(to right, #4d4d4d 0, white 10%, #24170f 20%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 10s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    white-space: nowrap;
+  }
+  @keyframes shine{
+    0%{
+      background-position: 0;
+    }
+    100%{
+      background-position: 205px
+    }
+  }

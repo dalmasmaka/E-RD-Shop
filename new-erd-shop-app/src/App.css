@@ -1,5 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
+
 body{
     font-family: 'Josefin Sans', sans-serif !important;
 }
+
+
+*{
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .App {
+    overflow-x: hidden !important;
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    background-color: #F5EBE0;
+    /* background: rgb(244, 242, 241);
+    background: linear-gradient(90deg, rgba(146,129,122,1) 0%, rgba(241,218,191,1) 50%, rgba(255,251,255,1) 100%); */
+  }
+  
+  .auth-form-container{
+    padding:2rem;
+    width: 60%;
+    border-radius: 10px;
+    /* box-shadow: 10px 10px 5px #aaaaaa; */
+  }
+  
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+
