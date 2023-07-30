@@ -15,15 +15,16 @@ import Register from "./Pages/Register/Register";
 import {
   BrowserRouter as Router,
   Route,
-  NavLink,
   Routes,
 } from "react-router-dom";
+import Dashboard from './Pages/Management/Components/Dashboard';
 function App() {
   return (
     <>
       <Router>
-        <Header />
+        <Header/>
         <Routes>
+          <Route path="/dashboard/*" element={<Dashboard/>} />
           <Route path="/" element={<Home />} />
           <Route path="/category" element={<Category />} />
           <Route path="/category/:id" element={<Product />} />
