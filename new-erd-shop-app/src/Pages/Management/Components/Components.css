@@ -1,0 +1,171 @@
+.shop-name {
+    border-bottom: 1px solid;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+
+    font-size: 20px;
+    padding: 10px;
+}
+
+li:hover {
+    background-color: rgba(245, 245, 220, 0.863);
+    border-radius: 10px;
+}
+
+.dashboard-container {
+    display: flex;
+    margin-top: 2.5%;
+
+}
+
+.sidebar-container {
+    width: 20%;
+}
+
+.sidebar-pages-container {
+    width: 80%;
+    background-color: #FAFAFA;
+    height: 1000px;
+
+}
+
+.sidebar-content {
+    padding-top: 10%;
+    padding-right: 5%;
+}
+
+.store-container {
+    padding: 5%;
+}
+
+.store-header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-new-button {
+    background-color: rgba(245, 245, 220, 0.863);
+    border: 1px solid rgba(153, 82, 0, 0.245);
+    border-radius: 30px;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.create-new-button:hover {
+    background-color: rgba(153, 82, 0, 0.245);
+    box-shadow: 0px 15px 20px rgba(153, 82, 0, 0.245);
+    transform: translateY(-7px);
+
+}
+
+.datatable-container {
+    margin-top: 20px;
+}
+
+.dt-buttons {
+    display: flex;
+    float: none !important;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+th {
+    background-color: white;
+    padding: 15px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+}
+
+td {
+    background-color: white;
+    padding: 15px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+tr:first-child th:first-child {
+    border-top-left-radius: 30px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 30px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 30px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 30px;
+}
+
+tr:first-child td {
+    border-top-style: solid;
+}
+
+tr td:first-child {
+    border-left-style: solid;
+}
+
+.dt-button {
+    background-color: rgba(245, 245, 220, 0.863) !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    border-radius: 30px !important;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    height: 30px;
+}
+
+.dataTables_filter input {
+    border-radius: 30px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    padding: 10px;
+    height: 100%;
+
+}
+
+select {
+    padding: 5px;
+    background-color: rgba(245, 245, 220, 0.863) !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    border-radius: 30px !important;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+
+}
+
+a.paginate_button {
+    padding: 5px;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}

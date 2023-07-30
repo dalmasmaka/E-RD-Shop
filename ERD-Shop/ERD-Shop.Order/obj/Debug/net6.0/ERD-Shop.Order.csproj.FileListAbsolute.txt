@@ -301,3 +301,4 @@ C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Order.
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Order.Contracts\obj\Order.Contracts.csproj.nuget.dgspec.json
 C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Order.Contracts\obj\project.assets.json
 C:\University\Year 3\Lab 2\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Store.Contracts.dll
+C:\Users\Dalma\Desktop\E-RD-Shop\ERD-Shop\ERD-Shop.Order\bin\Debug\net6.0\Store.Contracts.dll

@@ -4,17 +4,19 @@ import Header from './Pages/Header/Header'
 import {
   BrowserRouter as Router,
   Route,
-  NavLink,
   Routes,
 } from "react-router-dom";
+import Dashboard from './Pages/Management/Components/Dashboard';
+
 
 function App() {
   return (
     <>
       <Router>
-        <Header />
+        <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/dashboard/*" element={<Dashboard/>} />
         </Routes>
       </Router>
     </>
