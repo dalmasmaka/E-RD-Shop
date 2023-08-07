@@ -26,28 +26,6 @@ export default function Store() {
   const [storeOwner, setStoreOwner] = useState('');
   const [storeContact, setStoreContact] = useState('');
 
-  const handleCreateButtonClick = () => {
-    setShowPopUpForm(true);
-  };
-  const handleCancelButtonClick = () => {
-    setShowPopUpForm(false);
-    getStores()
-    .then(data => {
-      setStores(data.result);
-    })
-    .catch(error => {
-      console.error('Error: ', error);
-    });
-    resetForm();
-  }
-  const resetForm = () => {
-    setStoreId('');
-    setStoreName('');
-    setStoreOwner('');
-    setStoreContact('');
-    setImageURL(null);
-
-  }
   useEffect(() => {
     getStores()
       .then(data => {
@@ -59,6 +37,64 @@ export default function Store() {
         setIsLoading(false); // In case of an error, set isLoading to false
       });
   }, []);
+  // DATATABLE 
+  useEffect(() => {
+    if (!dataTableRef.current && !isLoading) {
+      // DataTable initialization when the component mounts and data is available
+      dataTableRef.current = $('#datatable').DataTable({
+        dom: '<"dt-buttons"Bf><"clear">lirtp',
+        paging: true,
+        autoWidth: true,
+        buttons: [
+          'colvis',
+          'copyHtml5',
+          'csvHtml5',
+          'excelHtml5',
+          'pdfHtml5',
+          'print'
+        ],
+      });
+    }
+  }, [isLoading]); // Watch for changes in isLoading state
+  // IMAGE HANDLER
+  const handleFileChange = (event) => { // this function reads the file and sets the imageURL state with the data URL
+    const selectedImage = event.target.files[0];
+    if (selectedImage) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageURL(reader.result);
+      };
+      reader.readAsDataURL(selectedImage);
+    }
+
+  }
+  // FORM INPUTS HANDLER
+  const resetForm = () => {
+    setStoreId('');
+    setStoreName('');
+    setStoreOwner('');
+    setStoreContact('');
+    setImageURL(null);
+
+  }
+  // BUTTON HANDLERS
+  const handleCreateButtonClick = () => {
+    setShowPopUpForm(true);
+  };
+  const handleCancelButtonClick = () => {
+    setShowPopUpForm(false);
+    getStores()
+      .then(data => {
+        setStores(data.result);
+        setIsLoading(false); // Once data is loaded, set isLoading to false
+      })
+      .catch(error => {
+        console.error('Error: ', error);
+        setIsLoading(false); // In case of an error, set isLoading to false
+      });
+    resetForm();
+  }
+
   const handleEditButtonClick = async (id) => {
     try {
       const storeData = await getStore(id);
@@ -90,23 +126,24 @@ export default function Store() {
       ]
     });
   };
-  
+
   const deleteStoreById = async (id) => {
     try {
       await deleteStore(id);
-      // Optional: You may want to refresh the store list after deletion.
       getStores()
         .then(data => {
           setStores(data.result);
+          setIsLoading(false);
         })
         .catch(error => {
           console.error('Error: ', error);
+          setIsLoading(false);
         });
     } catch (error) {
-     
+
     }
   };
-
+  // MAIN FORM SUBMIT HANDLER
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -160,42 +197,12 @@ export default function Store() {
       })
     }
   }
-  useEffect(() => {
-    if (!dataTableRef.current && !isLoading) {
-      // DataTable initialization when the component mounts and data is available
-      dataTableRef.current = $('#datatable').DataTable({
-        dom: '<"dt-buttons"Bf><"clear">lirtp',
-        paging: true,
-        autoWidth: true,
-        buttons: [
-          'colvis',
-          'copyHtml5',
-          'csvHtml5',
-          'excelHtml5',
-          'pdfHtml5',
-          'print'
-        ],
-      });
-    }
-  }, [isLoading]); // Watch for changes in isLoading state
-
-  const handleFileChange = (event) => { // this function reads the file and sets the imageURL state with the data URL
-    const selectedImage = event.target.files[0];
-    if (selectedImage) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageURL(reader.result);
-      };
-      reader.readAsDataURL(selectedImage);
-    }
-
-  }
 
   return (
-    <div className="store-container">
+    <div className="page-container">
 
       {showPopUpForm && <div className="overlay" />}
-      <div className="store-header-container">
+      <div className="page-header-container">
         <h1>All Stores Information</h1>
         <button className="create-new-button" id="createButton" onClick={handleCreateButtonClick}><p>Create new store</p></button>
       </div>
@@ -218,7 +225,7 @@ export default function Store() {
                   <td>{store.storeName}</td>
                   <td>{store.storeOwner}</td>
                   <td>{store.storeContact}</td>
-                  <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(store.storeId)} /> <BsTrash onClick={() => handleDeleteButtonClick(store.storeId)}/></td>
+                  <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(store.storeId)} /> <BsTrash onClick={() => handleDeleteButtonClick(store.storeId)} /></td>
                 </tr>
               ))}
             </tbody>
@@ -277,7 +284,7 @@ export default function Store() {
             </div>
             <div className="form-buttons margin">
               <button className="cancel-button" id="cancelButton" type="button" onClick={handleCancelButtonClick}><p>Cancel</p></button>
-              <button className="create-new-button" id="createButton" type="submit"><p>{storeId? "Update store" : "Create new store"}</p></button>
+              <button className="create-new-button" id="createButton" type="submit"><p>{storeId ? "Update store" : "Create new store"}</p></button>
             </div>
           </form>
 
