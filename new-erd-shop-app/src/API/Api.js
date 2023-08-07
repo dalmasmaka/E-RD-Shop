@@ -1,3 +1,5 @@
+import { post } from "jquery";
+
 export const BASE_URL = "https://localhost:5000/api";
 // export const BASE_URL = "https://localhost:5002/api";
 
@@ -155,4 +157,78 @@ export async function getCities() {
     .catch((error) => {
       console.error("Error:", error);
     });
+}
+export async function postStore(storeData) {
+  try {
+    const response = await fetch(`${BASE_URL}/Store`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(storeData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Error:', error);
+    throw error; // Rethrow the error to handle it in the calling function
+  }
+}
+export async function editStore(storeData) {
+  try {
+    const response = await fetch(`${BASE_URL}/Store`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(storeData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Error:', error);
+    throw error; // Rethrow the error to handle it in the calling function
+  }
+}
+export async function getStore(id) {
+  try {
+    const response = await fetch(`${BASE_URL}/Store/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  }catch(error){
+    console.error('Error:', error);
+    throw error;
+  }
+}
+export async function deleteStore(id){
+  try {
+    const response = await fetch(`${BASE_URL}/Store/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  }catch(error){
+    console.error('Error:', error);
+    throw error;
+  }
 }
