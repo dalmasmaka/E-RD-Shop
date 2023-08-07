@@ -19,24 +19,116 @@ li:hover {
 
 .dashboard-container {
     display: flex;
-    margin-top: 2.5%;
-
+    background-color: #FAFAFA;
 }
 
 .sidebar-container {
     width: 20%;
+   
 }
-
+/* Add this to your CSS file */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control the intensity of the blur */
+    backdrop-filter: blur(8px); /* This creates the blur effect, adjust the value to change the blur level */
+    z-index: 9999; /* Make sure the overlay is on top of other elements */
+  }
+  /* Add this to your CSS file */
+  .popup-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10000; /* Set the z-index higher than the overlay to make the form appear in front */
+  }
+    
 .sidebar-pages-container {
     width: 80%;
     background-color: #FAFAFA;
     height: 1000px;
+    
+
+}
+.store-container .popup-form{
+   
+    background-color: rgba(245, 245, 220, 0.863);
+    margin: auto;
+    border-radius: 30px;
+    padding: 10px;
+}
+@media (max-width:1800px) {
+
+   .store-container .popup-form{
+    width: 90%;
+   
+} 
+
+}
+svg.file-upload-logo {
+    height: 70px;
+    width: 50%;
+    color: rgba(153, 82, 0, 0.245);
+}
+.popup-header{
+    padding: 0 0 0 15px;
+}
+.popup-header h1{
+    font-weight: lighter;
+}
+.popup-header p {
+    font-size: 14px;
+}
+.popup-body{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.store-name-input{
+    text-align: center;
+}
+.store-name-input input{
+   width: 500px;
+}
+.form-input label{
+    display: block;
+    text-align: center;
+}
+.form-input input{
+    border-radius: 30px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    padding: 10px;
+   
+    
+}
+.other-form-inputs input{
+    width: 200px;
+    justify-content: space-between;
+}
+.margin{
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+.flex-inputs {
+    display: flex;
+    gap: 15%;
+    justify-content: center;
 
 }
 
 .sidebar-content {
-    padding-top: 10%;
-    padding-right: 5%;
+    padding: 30px;
+}
+.sidebar-inner-content{
+/*     
+    box-shadow: 10px 0 10px -2px rgba(0, 0, 0, 0.1); */
+
 }
 
 .store-container {
@@ -59,9 +151,29 @@ li:hover {
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    padding: 5px;
+}
+.cancel-button {
+    background-color: rgba(245, 245, 220, 0.863);
+    border: 1px solid rgba(153, 82, 0, 0.245);
+    border-radius: 30px;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    padding: 5px;
 }
 
 .create-new-button:hover {
+    background-color: rgba(153, 82, 0, 0.245);
+    box-shadow: 0px 15px 20px rgba(153, 82, 0, 0.245);
+    transform: translateY(-7px);
+
+}
+.cancel-button:hover {
     background-color: rgba(153, 82, 0, 0.245);
     box-shadow: 0px 15px 20px rgba(153, 82, 0, 0.245);
     transform: translateY(-7px);
@@ -88,9 +200,10 @@ th {
 
 td {
     background-color: white;
-    padding: 15px !important;
+    padding: 10px !important;
     border: 1px solid rgba(153, 82, 0, 0.245) !important;
     box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
 
 }
 
@@ -130,6 +243,7 @@ tr td:first-child {
     cursor: pointer;
     outline: none;
     height: 30px;
+    padding: 5px !important;
 }
 
 .dataTables_filter input {
@@ -138,6 +252,10 @@ tr td:first-child {
     padding: 10px;
     height: 100%;
 
+}
+.form-buttons{
+    float: right;
+    margin-top: 10px;
 }
 
 select {
@@ -168,4 +286,7 @@ a.paginate_button {
 
 table.dataTable.no-footer {
     border-bottom: none !important;
+}
+.actions-td{
+    text-align: center;
 }
