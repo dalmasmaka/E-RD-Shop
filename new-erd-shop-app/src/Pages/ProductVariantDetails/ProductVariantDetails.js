@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./ProductVariantDetails.css";
 import {
@@ -9,7 +10,7 @@ import {
   AiFillShopping,
 } from "react-icons/ai";
 import { useParams } from "react-router";
-import { getVariantDetails,getStoreById } from "../../API/Api";
+import { getVariantDetails,getVariantsByProduct,getProductVariants,getStoreById } from "../../API/Api";
 import { BASE_URL } from "../../API/Api";
 import { getVariantsInWishlist } from "../../API/Api";
 import { getVariantsInShoppingCart } from "../../API/Api";
@@ -19,6 +20,13 @@ const ProductVariantDetails = () => {
   const [isCartFilled, setIsCartFilled] = useState(false);
   const [count, setCount] = useState(0);
   const [variant, setVariant] = useState({})
+  const [relevantVariants, setRelevantVariants] = useState([]);
+  const navigate = useNavigate();
+  // const [products, setProducts] = useState([]);
+  const handleGoToClick = (id) => {
+    navigate(`/productvariants/${id}`); // Redirect to the product variants page
+  };
+
   let {id}= useParams();
   
     useEffect(() => {
@@ -29,7 +37,6 @@ const ProductVariantDetails = () => {
       fetchVariantDetails();
   }, [id]);
 
-  console.log(variant)
 
   const handleAddToWishlist = (variant) => {
     const url = `${BASE_URL}/WishlistManagement`;
@@ -74,8 +81,20 @@ const ProductVariantDetails = () => {
       setCount((prevCount) => prevCount - 1);
     }
   };
-
+  useEffect(() => {
+    const fetchRelevantVariants = async () => {
+      const data = await getProductVariants();
+      const filteredProductVariants = data.result.filter(
+        (productVariant) => productVariant.productId === variant.productId
+      ).filter((v) => v.productVariantId !== variant.productVariantId);
+      setRelevantVariants(filteredProductVariants);
+    };
+    if (variant.productId) {
+      fetchRelevantVariants();
+    }
+  }, [variant]);
   return (
+    <div className="all-container">
     <div className="container">
       <div className="leftDiv">
         <img alt="" src={variant.productVariantImg}></img>
@@ -115,6 +134,24 @@ const ProductVariantDetails = () => {
         >
           {isCartFilled ? <AiTwotoneShopping /> : <AiOutlineShopping />}
         </button>
+      </div>
+    </div>
+    <h1 className="tekst-varianti">Similar Products</h1>
+    <div className="category-products variante">
+        {relevantVariants.map((productVariant) => (
+          <div className="products-variant" key={productVariant.productVariantId}>
+            <div
+              className="product"
+              onClick={() => handleGoToClick(productVariant.productVariantId)}
+            >
+              <img alt="" src={productVariant.productVariantImg} />
+              <div className="product-info">
+                <p className="product-name">{productVariant.productVariantName}</p>
+                <div className="btn-flex"></div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

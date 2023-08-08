@@ -8,6 +8,10 @@
     justify-content: center;
     align-items: center;
 }
+.take-to-img {
+  display: flex;
+  justify-content: space-around;
+}
 .take-to-category-laptop{
   display: flex;
 }
@@ -95,7 +99,14 @@ video{
     color: #fff;
   }
   
-  
+  .all-store {
+    padding-top: 5%;
+    background-color: #DAD3CE;
+}
+.all-category {
+  padding-top: 5%;
+  background-color: #DAD3CE;
+}
 .banner-btn{
     font-family: system-ui, sans-serif;
     font-size: 2.8rem;
@@ -104,17 +115,102 @@ video{
     font-weight: bold;  
     border: none;
   }
-
-  .all-stores {
-    width: 87%;
-    margin-top: 7%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 7%;
-    margin-bottom: 6%;
+  .div-store {
+    background-color: #635147;
+    padding-right: 6%;
+    padding-left: 6%;
+    margin-bottom: 8%;
+    margin-top: 4%;
+    padding-bottom: 1%;
+    padding-top: 6%;
+}
+.div-category {
+  /* background-color: #635147; */
+  padding-right: 6%;
+  padding-left: 6%;
+  margin-bottom: 8%;
+  margin-top: 4%;
+  padding-bottom: 1%;
+  padding-top: 6%;
+}
+.all-categories {
+  padding-left: 3%;
+  padding-top: 4%;
+  width: 176%;
+  /* width: 87%; */
+  /* margin-top: 7%; */
+  display: flex;
+  background-color: #DAD3CE;
+  flex-wrap: wrap;
+  /* margin-left: 7%; */
+  margin-bottom: 6%;
+  border-radius: 22px;
+}
+.all-category {
+  display: flex;
+  border-radius: 22px;
+  padding-top: 5%;
+  background-color: #DAD3CE;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
 }
 
+
+p.store-text {
+  padding-left: 56px;
+  padding-top: 1%;
+  font-size: 18px;
+  padding-right: 32%;
+}
+p.category-text {
+  padding-left: 26px;
+  padding-top: 9%;
+  font-size: 25px;
+  padding-right: 9%;
+}
+h1.store-home {
+  margin-left: 4%;
+  font-size: 50px;
+}
+h1.category-home {
+  margin-left: 2%;
+  font-size: 62px;
+}
+.all-store {
+  border-radius: 22px;
+  padding-top: 5%;
+  background-color: #DAD3CE;
+}
+.all-category {
+  border-radius: 22px;
+  padding-top: 5%;
+  background-color: #DAD3CE;
+}
+.all-stores {
+  padding: 3%;
+  display: flex;
+  background-color: #DAD3CE;
+  flex-wrap: wrap;
+  margin-bottom: 6%;
+  border-radius: 22px;
+}
+/* .all-categories {
+  padding: 3%;
+  display: flex;
+  background-color: #DAD3CE;
+  flex-wrap: wrap;
+  margin-bottom: 6%;
+  border-radius: 22px;
+} */
 .our-stores {
+  text-align: center;
+  margin-top: 4%;
+  margin-bottom: -4%;
+}
+.our-category {
   text-align: center;
   margin-top: 4%;
   margin-bottom: -4%;
