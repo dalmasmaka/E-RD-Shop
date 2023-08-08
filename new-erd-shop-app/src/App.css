@@ -4,6 +4,10 @@
 body{
   background-color: #DAD3CE;
 }
+
+body{
+    font-family: 'Josefin Sans', sans-serif !important;
+}
 *{
     max-width: 100%;
     margin: 0;
@@ -37,3 +41,4 @@ body{
   select::-ms-expand {
     display: none;
   }
+

@@ -1,0 +1,310 @@
+/* SIDEBAR CSS START*/
+
+.sidebar-content {
+    padding: 30px;
+}
+
+/* .sidebar-inner-content {
+        
+        box-shadow: 10px 0 10px -2px rgba(0, 0, 0, 0.1);
+
+} */
+
+.shop-name {
+    border-bottom: 1px solid;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+
+    font-size: 20px;
+    padding: 10px;
+}
+
+li:hover {
+    background-color: rgba(245, 245, 220, 0.863);
+    border-radius: 10px;
+}
+/* SIDEBAR CSS END*/
+
+/* DASHBOARD CSS START*/
+
+.dashboard-container {
+    display: flex;
+    background-color: #FAFAFA;
+}
+
+.sidebar-container {
+    width: 20%;
+
+}
+.sidebar-pages-container {
+    width: 80%;
+    background-color: #FAFAFA;
+    height: 1000px;
+
+
+}
+/* DASHBOARD CSS END*/
+
+
+
+
+.page-container .popup-form {
+
+    background-color: rgba(245, 245, 220, 0.863);
+    margin: auto;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+@media (max-width:1800px) {
+
+    .page-container .popup-form {
+        width: 90%;
+
+    }
+
+}
+/* PAGE HEADER CONTAINER CSS */
+.page-container {
+    padding: 5%;
+}
+.page-header-container {
+    display: flex;
+    justify-content: space-between;
+}
+.create-new-button {
+    background-color: rgba(245, 245, 220, 0.863);
+    border: 1px solid rgba(153, 82, 0, 0.245);
+    border-radius: 30px;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    padding: 5px;
+}
+.create-new-button:hover {
+    background-color: rgba(153, 82, 0, 0.245);
+    box-shadow: 0px 15px 20px rgba(153, 82, 0, 0.245);
+    transform: translateY(-7px);
+
+}
+/* DATATABLE CONTAINER CSS */
+.datatable-container {
+    margin-top: 20px;
+}
+.dataTables_filter input {
+    border-radius: 30px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    padding: 10px;
+    height: 100%;
+
+}
+a.paginate_button {
+    padding: 5px;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
+.actions-td {
+    text-align: center;
+}
+.dt-buttons {
+    display: flex;
+    float: none !important;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+th {
+    background-color: white;
+    padding: 15px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+}
+
+td {
+    background-color: white;
+    padding: 10px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+
+}
+
+tr:first-child th:first-child {
+    border-top-left-radius: 30px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 30px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 30px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 30px;
+}
+
+tr:first-child td {
+    border-top-style: solid;
+}
+
+tr td:first-child {
+    border-left-style: solid;
+}
+
+.dt-button {
+    background-color: rgba(245, 245, 220, 0.863) !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    border-radius: 30px !important;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    height: 30px;
+    padding: 5px !important;
+}
+select {
+    padding: 5px;
+    background-color: rgba(245, 245, 220, 0.863) !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    border-radius: 30px !important;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+
+}
+
+
+
+/* POP UP FORM CSS */
+.popup-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+}
+
+.popup-header {
+    padding: 0 0 0 15px;
+}
+
+.popup-header h1 {
+    font-weight: lighter;
+}
+
+.popup-header p {
+    font-size: 14px;
+}
+
+.popup-body {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.margin {
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+/* FORM CONTAINER CSS */
+.form-input label {
+    display: block;
+    text-align: center;
+}
+
+.form-input input {
+    border-radius: 30px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    padding: 10px;
+
+
+}
+
+.other-form-inputs input {
+    width: 200px;
+    justify-content: space-between;
+}
+svg.file-upload-logo {
+    height: 70px;
+    width: 50%;
+    color: rgba(153, 82, 0, 0.245);
+}
+
+
+.store-name-input {
+    text-align: center;
+}
+
+.store-name-input input {
+    width: 500px;
+}
+.flex-inputs {
+    display: flex;
+    gap: 15%;
+    justify-content: center;
+
+}
+.cancel-button {
+    background-color: rgba(245, 245, 220, 0.863);
+    border: 1px solid rgba(153, 82, 0, 0.245);
+    border-radius: 30px;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    padding: 5px;
+}
+
+
+.cancel-button:hover {
+    background-color: rgba(153, 82, 0, 0.245);
+    box-shadow: 0px 15px 20px rgba(153, 82, 0, 0.245);
+    transform: translateY(-7px);
+
+}
+.form-buttons {
+    float: right;
+    margin-top: 10px;
+}
+
