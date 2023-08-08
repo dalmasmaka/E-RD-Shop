@@ -44,7 +44,7 @@
 }
 .header{
     width: 100%;
-    background-color: #24170f;
+    background-color: #DAD3CE;
     padding: 0 0;
     position: fixed;
     top: 0;
@@ -66,10 +66,9 @@
     background: none;
     outline: none;
     border: none;
-    color: rgba(241,218,191,1);
-    margin: 21px 3%;
+    color: black;
+    /* margin: 21px 3%; */
 }
-
 .icon{
     margin-right: 9%;
     font-size: 20px;
@@ -112,7 +111,7 @@
         display: flex;
         flex-direction: column;
         list-style: none;
-        background-color: #24170f;
+        background-color: #635147;
         left: 0;
         top: 69px;
         transition: all 0.5s ease-out;
@@ -139,7 +138,7 @@
         z-index: 2;
         filter: blur(0.6px);
         width: 100%;
-        background-color: #24170f;
+        background-color: #DAD3CE;
         padding: 0 0;
         position: absolute;
     }
