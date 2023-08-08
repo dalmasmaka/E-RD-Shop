@@ -52,6 +52,7 @@ p.enter-bill-address {
 }
 h1.order-title {
     font-size: 53px;
+    text-align: center;
 }
 .flex-order-right {
     margin-left: 23%;
