@@ -1,6 +1,6 @@
 import "./Header.css";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AiOutlineHeart, AiOutlineShopping } from "react-icons/ai";
 import { BiMenu } from "react-icons/bi";
 import { FaTimes } from "react-icons/fa";
@@ -15,15 +15,49 @@ import {
 
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [userRole, setUserRole] = useState();
+  const params = useParams();
   const navigate = useNavigate();
-  const [showLogout, setShowLogout] = useState(false); // State to track if logout button should be shown
 
+  useEffect(() => {
+    if (localStorage.getItem("access-token") != undefined) {
+      const userData = parseJwt(localStorage.getItem("access-token"));
+      setUserRole(
+        userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+      );
+    }
+  }, []);
+  useEffect(() => {
+    if (localStorage.getItem("access-token") != undefined) {
+      const userData = parseJwt(localStorage.getItem("access-token"));
+      setUserRole(
+        userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+      );
+    }
+  }, [params]);
+
+  function parseJwt(token) {
+    try {
+      var base64Url = token.split(".")[1];
+      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var jsonPayload = decodeURIComponent(
+        window
+          .atob(base64)
+          .split("")
+          .map(function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
+
+      return JSON.parse(jsonPayload);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   const handleLogout = () => {
-    localStorage.removeItem("Token");
-    localStorage.removeItem("Email");
-    // navigate('/login');
-    // You can redirect to a login page or perform any necessary actions
+    localStorage.removeItem("access-token");
+    navigate("/login");
   };
 
   return (
@@ -39,9 +73,11 @@ export default function Header() {
               <Link className="nav-link" to="/category">
                 Category
               </Link>
-              <Link className="nav-link" to="/dashboard">
-                Dashboard
-              </Link>
+              {userRole === "Admin" ? (
+                <Link className="nav-link" to="/dashboard">
+                  Dashboard
+                </Link>
+              ) : null}
               <div className="div-mobile">
                 <Link className="nav-link icon" to="/wishlist">
                   <AiOutlineHeart />
@@ -49,17 +85,12 @@ export default function Header() {
                 <Link className="nav-link icon" to="/shoppingcart">
                   <AiOutlineShopping />
                 </Link>
-                {/* Conditionally render either the logout button or the BsPersonCircle icon */}
-                {localStorage.getItem("Token") != null &&
-                localStorage.getItem("Email") != null ? (
+                {localStorage.getItem("access-token") != null ? (
                   <button className="nav-link icon" onClick={handleLogout}>
                     Logout
                   </button>
                 ) : (
-                  <Link
-                    className="nav-link icon"
-                    onClick={() => setShowLogout(true)}
-                  >
+                  <Link to="/login" className="nav-link icon">
                     <BsPersonCircle />
                   </Link>
                 )}
@@ -75,31 +106,28 @@ export default function Header() {
             <Link className="nav-link" to="/category">
               Category
             </Link>
-            <Link className="nav-link" to="/dashboard">
-              Dashboard
-            </Link>
+            {userRole === "Admin" ? (
+              <Link className="nav-link" to="/dashboard">
+                Dashboard
+              </Link>
+            ) : null}
             <Link className="nav-link icon" to="/wishlist">
               <AiOutlineHeart />
             </Link>
             <Link className="nav-link icon" to="/shoppingcart">
               <AiOutlineShopping />
             </Link>
-            {/* Conditionally render either the logout button or the BsPersonCircle icon */}
-            {showLogout ? (
-              <button className="nav-link icon logout" onClick={handleLogout}>
+            {localStorage.getItem("access-token") != null ? (
+              <button className="nav-link icon" onClick={handleLogout}>
                 Logout
               </button>
             ) : (
-              <Link
-                className="nav-link icon"
-                onClick={() => setShowLogout(true)}
-              >
-                Log In
+              <Link to="/login" className="nav-link icon">
+                Login
               </Link>
             )}
           </div>
         </div>
-        {/* isSearchBarOpen ?  <input className='search-input' type="text" placeholder="search"/> : ""*/}
         <button
           className="mobile-menu-icon"
           onClick={() => setIsMobile(!isMobile)}

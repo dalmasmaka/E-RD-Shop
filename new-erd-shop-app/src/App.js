@@ -12,19 +12,16 @@ import OrderPage from "./Pages/OrderPage/OrderPage";
 import PaymentForm from "./Pages/OrderPage/PaymentForm/PaymentForm";
 import Register from "./Pages/Register/Register";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
-import Dashboard from './Pages/Management/Components/Dashboard';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Dashboard from "./Pages/Management/Components/Dashboard";
+import Login from "./Pages/Login/Login";
 function App() {
   return (
     <>
       <Router>
-        <Header/>
+        <Header />
         <Routes>
-          <Route path="/dashboard/*" element={<Dashboard/>} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/" element={<Home />} />
           <Route path="/category" element={<Category />} />
           <Route path="/category/:id" element={<Product />} />
@@ -38,6 +35,7 @@ function App() {
           <Route path="/orderpage" element={<OrderPage />} />
           <Route path="/paymentform" element={<PaymentForm />} />
           <Route path="/register/:role" element={<Register />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </Router>
