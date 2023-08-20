@@ -110,8 +110,20 @@ export async function getVariantDetails(variantId) {
   }
   return await response.json();
 }
-export function getVariantsInWishlist() {
-  return fetch(`${BASE_URL}/WishlistManagement`)
+export async function getVariantsInUserWishlist(userId) {
+  return await fetch(`${BASE_URL}/WishlistManagement/${userId}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+export async function getVariantsInUserShoppingCart(userId) {
+  return await fetch(`${BASE_URL}/ShoppingCartManagement/${userId}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -161,74 +173,74 @@ export async function getCities() {
 export async function postStore(storeData) {
   try {
     const response = await fetch(`${BASE_URL}/Store`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(storeData),
     });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
 
     return response.json();
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
     throw error; // Rethrow the error to handle it in the calling function
   }
 }
 export async function editStore(storeData) {
   try {
     const response = await fetch(`${BASE_URL}/Store`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(storeData),
     });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
 
     return response.json();
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
     throw error; // Rethrow the error to handle it in the calling function
   }
 }
 export async function getStore(id) {
   try {
     const response = await fetch(`${BASE_URL}/Store/${id}`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-      }
+        "Content-Type": "application/json",
+      },
     });
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
     return response.json();
-  }catch(error){
-    console.error('Error:', error);
+  } catch (error) {
+    console.error("Error:", error);
     throw error;
   }
 }
-export async function deleteStore(id){
+export async function deleteStore(id) {
   try {
     const response = await fetch(`${BASE_URL}/Store/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
-      }
+        "Content-Type": "application/json",
+      },
     });
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
     return response.json();
-  }catch(error){
-    console.error('Error:', error);
+  } catch (error) {
+    console.error("Error:", error);
     throw error;
   }
 }
