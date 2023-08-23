@@ -175,16 +175,28 @@ export async function getVariantsInUserShoppingCart(userId) {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-    });
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  } catch (error) {
-    console.error('Error:', error);
-    throw error;
+      return response.json();
+    })
+    .catch ((error) => {
+      console.error('Error:', error);
+      throw error;
+    })
   }
-}
+  export async function getVariantsInUserShoppingCart(userId) {
+    try {
+      const response = await fetch(`${BASE_URL}/ShoppingCartManagement/${userId}`);
+  
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+  
+      return response.json();
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
+    }
+  }
+  
 export async function getCategories() {
   return fetch(`${BASE_URL}/Category`)
     .then((response) => {
