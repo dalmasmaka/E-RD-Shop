@@ -156,7 +156,23 @@ export async function getStore(id) {
     throw error;
   }
 }
-
+export async function deleteStore(id) {
+  try {
+    const response = await fetch(`${BASE_URL}/Store/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+}
 export async function getVariantsInUserWishlist(userId) {
   return await fetch(`${BASE_URL}/WishlistManagement/${userId}`)
     .then((response) => {
@@ -181,20 +197,6 @@ export async function getVariantsInUserShoppingCart(userId) {
       console.error('Error:', error);
       throw error;
     })
-  }
-  export async function getVariantsInUserShoppingCart(userId) {
-    try {
-      const response = await fetch(`${BASE_URL}/ShoppingCartManagement/${userId}`);
-  
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-  
-      return response.json();
-    } catch (error) {
-      console.error('Error:', error);
-      throw error;
-    }
   }
   
 export async function getCategories() {

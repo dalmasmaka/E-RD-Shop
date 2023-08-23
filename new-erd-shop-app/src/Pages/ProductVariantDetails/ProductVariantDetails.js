@@ -11,10 +11,8 @@ import {
 } from "react-icons/ai";
 import { useParams } from "react-router";
 import {
-  getVariantDetails,
-  getVariantsByProduct,
+  getProductVariant,
   getProductVariants,
-  getStoreById,
   getVariantsInUserWishlist,
   getVariantsInUserShoppingCart,
 } from "../../API/Api";
@@ -39,7 +37,7 @@ const ProductVariantDetails = () => {
 
   useEffect(() => {
     const fetchVariantDetails = async () => {
-      const data = await getVariantDetails(id);
+      const data = await getProductVariant(id);
       setVariant(data.result);
     };
     fetchVariantDetails();
