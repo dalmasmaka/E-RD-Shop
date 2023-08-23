@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CategoryType from "../CategoryType/CategoryType";
 /*import iphone from "../Assets/img/iphone.png";*/
 import "./Category.css";
-import { getCategory } from "../../API/Api";
+import { getCategories } from "../../API/Api";
 import { AiOutlineSearch } from "react-icons/ai";
 
  const Category = () => {
@@ -12,7 +12,7 @@ import { AiOutlineSearch } from "react-icons/ai";
   const [searchTimeout, setSearchTimeout] = useState();
 
   useEffect(() => {
-    getCategory()
+    getCategories()
       .then((data) => setCategories(data.result))
       .catch((error) => console.error("Error: ", error));
   }, []);

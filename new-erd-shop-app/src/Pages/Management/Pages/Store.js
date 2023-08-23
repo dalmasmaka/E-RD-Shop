@@ -98,7 +98,7 @@ export default function Store() {
   const handleEditButtonClick = async (id) => {
     try {
       const storeData = await getStore(id);
-      setStoreId(storeData.result.storeId)
+      setStoreId(storeData.result.storeId);
       setStoreName(storeData.result.storeName);
       setStoreOwner(storeData.result.storeOwner);
       setStoreContact(storeData.result.storeContact);
@@ -108,6 +108,24 @@ export default function Store() {
 
     catch (error) {
       console.error('Error fetching store data:', error);
+    }
+  };
+
+  const deleteStoreById = async (id) => {
+    try {
+      await deleteStore(id);
+      getStores()
+        .then(data => {
+          setStores(data.result);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.error('Error: ', error);
+          setIsLoading(false);
+        });
+    } catch (error) {
+      console.error('Error: ', error);
+      throw error;
     }
   };
   const handleDeleteButtonClick = (id) => {
@@ -127,22 +145,6 @@ export default function Store() {
     });
   };
 
-  const deleteStoreById = async (id) => {
-    try {
-      await deleteStore(id);
-      getStores()
-        .then(data => {
-          setStores(data.result);
-          setIsLoading(false);
-        })
-        .catch(error => {
-          console.error('Error: ', error);
-          setIsLoading(false);
-        });
-    } catch (error) {
-
-    }
-  };
   // MAIN FORM SUBMIT HANDLER
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -200,7 +202,6 @@ export default function Store() {
 
   return (
     <div className="page-container">
-
       {showPopUpForm && <div className="overlay" />}
       <div className="page-header-container">
         <h1>All Stores Information</h1>
@@ -241,7 +242,7 @@ export default function Store() {
         </div>
         <div className="popup-body">
           <form onSubmit={handleSubmit}>
-            <div className="form-input store-name-input margin">
+            <div className="form-input form-name-input margin">
               <label>Store name</label>
               <input type="text" value={storeName} onChange={(e) => setStoreName(e.target.value)} required minLength={5} />
 
@@ -257,11 +258,11 @@ export default function Store() {
               </div>
             </div>
             <div className="flex-inputs">
-              <div className="form-input store-name-input margin">
+              <div className="form-input form-name-input margin">
                 <label htmlFor="fileInput">
 
                   {imageURL ? (
-                    <div className="form-input store-name-input ">
+                    <div className="form-input form-name-input ">
                       <p>Store Logo</p>
                       <img src={imageURL} alt="Uploaded" style={{ maxWidth: '200px' }} />
                     </div>) :

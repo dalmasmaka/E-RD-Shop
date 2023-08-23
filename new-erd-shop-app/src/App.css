@@ -12,7 +12,7 @@ body{
     max-width: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Josefin Sans', sans-serif !important;
   }
   .App {
     overflow-x: hidden !important;

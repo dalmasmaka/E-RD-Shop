@@ -10,7 +10,7 @@ import {
   AiFillShopping,
 } from "react-icons/ai";
 import { useParams } from "react-router";
-import { getVariantDetails,getVariantsByProduct,getProductVariants,getStoreById } from "../../API/Api";
+import { getVariantDetails,getVariantsByProduct,getProductVariants,getStoreById, getProductVariant } from "../../API/Api";
 import { BASE_URL } from "../../API/Api";
 import { getVariantsInWishlist } from "../../API/Api";
 import { getVariantsInShoppingCart } from "../../API/Api";
@@ -31,7 +31,7 @@ const ProductVariantDetails = () => {
   
     useEffect(() => {
       const fetchVariantDetails = async () => {
-        const data = await getVariantDetails(id);
+        const data = await getProductVariant(id);
         setVariant(data.result);
       };
       fetchVariantDetails();

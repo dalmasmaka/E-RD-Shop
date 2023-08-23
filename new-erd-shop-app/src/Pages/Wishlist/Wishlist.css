@@ -85,9 +85,8 @@ button.delete-product-shoppingcart:hover {
     margin-top: 5%;
 }
 .wishlist-title{
-    font-family: 'Montserrat', sans-serif;
     position: relative;
-    font-family: sans-serif;
+    font-family: 'Josefin Sans', sans-serif !important;
     text-transform: uppercase;
     font-size:1.4em;
     letter-spacing: 4px;

@@ -108,10 +108,10 @@ video{
   background-color: #DAD3CE;
 }
 .banner-btn{
-    font-family: system-ui, sans-serif;
+  font-family: 'Josefin Sans', sans-serif !important;
     font-size: 2.8rem;
     cursor: pointer;
-    padding: .1em .6em;
+    padding: 0.5em .6em;
     font-weight: bold;  
     border: none;
   }
