@@ -16,7 +16,7 @@
   border-radius: 5px;
 }
 .contentDiv h1 {
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Josefin Sans', sans-serif !important;
   font-weight: 500;
 }
 .registerForm input,
@@ -75,10 +75,10 @@
   margin-top: 1%;
 }
 .storekeeperDiv p {
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Josefin Sans', sans-serif !important;
 }
 .storekeeperDiv a {
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Josefin Sans', sans-serif !important;
   color: #635147;
   margin-left: 5px;
 }

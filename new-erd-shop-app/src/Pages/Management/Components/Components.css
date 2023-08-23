@@ -28,6 +28,7 @@ li:hover {
     background-color: rgba(245, 245, 220, 0.863);
     border-radius: 10px;
 }
+
 /* SIDEBAR CSS END*/
 
 /* DASHBOARD CSS START*/
@@ -41,6 +42,7 @@ li:hover {
     width: 20%;
 
 }
+
 .sidebar-pages-container {
     width: 80%;
     background-color: #FAFAFA;
@@ -48,6 +50,7 @@ li:hover {
 
 
 }
+
 /* DASHBOARD CSS END*/
 
 
@@ -69,17 +72,20 @@ li:hover {
     }
 
 }
+
 /* PAGE HEADER CONTAINER CSS */
 .page-container {
     padding: 5%;
 }
+
 .page-header-container {
     display: flex;
     justify-content: space-between;
 }
+
 .create-new-button {
     background-color: #DAD3CE;
-        border: 1px solid rgba(153, 82, 0, 0.245);
+    border: 1px solid rgba(153, 82, 0, 0.245);
     border-radius: 30px;
     letter-spacing: 2px;
     font-family: 'Josefin Sans', sans-serif !important;
@@ -90,16 +96,19 @@ li:hover {
     outline: none;
     padding: 5px;
 }
+
 .create-new-button:hover {
     background-color: rgba(153, 82, 0, 0.245);
     box-shadow: 0px 15px 20px rgba(153, 82, 0, 0.245);
     transform: translateY(-7px);
 
 }
+
 /* DATATABLE CONTAINER CSS */
 .datatable-container {
     margin-top: 20px;
 }
+
 .dataTables_filter input {
     border-radius: 30px !important;
     border: 1px solid rgba(153, 82, 0, 0.245) !important;
@@ -107,6 +116,7 @@ li:hover {
     height: 100%;
 
 }
+
 a.paginate_button {
     padding: 5px;
     letter-spacing: 2px;
@@ -117,12 +127,15 @@ a.paginate_button {
     cursor: pointer;
     outline: none;
 }
+
 table.dataTable.no-footer {
     border-bottom: none !important;
 }
+
 .actions-td {
     text-align: center;
 }
+
 .dt-buttons {
     display: flex;
     float: none !important;
@@ -172,7 +185,7 @@ tr td:first-child {
 
 .dt-button {
     background-color: #DAD3CE !important;
-        border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
     border-radius: 30px !important;
     letter-spacing: 2px;
     font-family: 'Josefin Sans', sans-serif !important;
@@ -184,6 +197,7 @@ tr td:first-child {
     height: 30px;
     padding: 5px !important;
 }
+
 select {
     padding: 5px;
     background-color: #DAD3CE !important;
@@ -212,6 +226,7 @@ select {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10000;
 }
+
 .overlay {
     position: fixed;
     top: 0;
@@ -242,10 +257,12 @@ select {
     justify-content: center;
     display: flex;
 }
+
 .margin {
     margin-top: 5%;
     margin-bottom: 2%;
 }
+
 /* FORM CONTAINER CSS */
 .form-input label {
     display: block;
@@ -264,6 +281,7 @@ select {
     width: 200px;
     justify-content: space-between;
 }
+
 svg.file-upload-logo {
     height: 70px;
     width: 50%;
@@ -271,11 +289,14 @@ svg.file-upload-logo {
 }
 
 
-.store-name-input {
+.form-name-input {
     text-align: center;
 }
 
-.store-name-input input {
+.form-name-input input {
+    width: 500px;
+}
+.form-name-input select {
     width: 500px;
 }
 .flex-inputs {
@@ -284,6 +305,7 @@ svg.file-upload-logo {
     justify-content: center;
 
 }
+
 .cancel-button {
     background-color: #F7EFE6;
     border: 1px solid rgba(153, 82, 0, 0.245);
@@ -305,9 +327,22 @@ svg.file-upload-logo {
     transform: translateY(-7px);
 
 }
+
 .form-buttons {
     margin-left: 20%;
-    /* float: right; */
+    float: right;
     margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.form-dropdown {
+    width: 220px;
+    padding: 10px;
+}
+
+.switch input {
+    display: none;
+
 }
 

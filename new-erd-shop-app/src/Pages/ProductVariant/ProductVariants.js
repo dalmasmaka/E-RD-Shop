@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductVariant.css";
 import { useNavigate } from "react-router-dom";
-import { getVariantsByProduct,getProductVariants } from "../../API/Api";
+import { getVariantsByProduct,getProductVariants, getProduct } from "../../API/Api";
 
 const ProductVariants = ({ productid }) => {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ const ProductVariants = ({ productid }) => {
   };
   useEffect(() => {
     const fetchProduct = async () => {
-      const data = await getVariantsByProduct(id);
+      const data = await getProduct(id);
       setProducts(data.result);
     };
     fetchProduct();

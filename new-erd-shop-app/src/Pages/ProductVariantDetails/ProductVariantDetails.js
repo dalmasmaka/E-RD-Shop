@@ -18,6 +18,7 @@ import {
   getVariantsInUserWishlist,
   getVariantsInUserShoppingCart,
 } from "../../API/Api";
+
 import { BASE_URL } from "../../API/Api";
 
 const ProductVariantDetails = () => {
@@ -35,12 +36,14 @@ const ProductVariantDetails = () => {
   };
   let { id } = useParams();
 
+
   useEffect(() => {
     const fetchVariantDetails = async () => {
       const data = await getVariantDetails(id);
       setVariant(data.result);
     };
     fetchVariantDetails();
+
   }, [id]);
   useEffect(() => {
     if (localStorage.getItem("access-token") != undefined) {

@@ -6,7 +6,7 @@ import banner from '../../Assets/img/mall.mp4'
 import { Link } from 'react-router-dom';
 import imazh from '../../Assets/img/mac.png'
 import { getStores } from '../../API/Api';
-import { getCategory } from '../../API/Api';
+import { getCategories } from '../../API/Api';
 import StoresForHome from '../Components/StoresForHome/StoresForHome';
 import CategoryForHome from '../Components/CategoryForHome/CategoryForHome';
 
@@ -22,7 +22,7 @@ import CategoryForHome from '../Components/CategoryForHome/CategoryForHome';
   }, []);
 
   useEffect(() => {
-    getCategory()
+    getCategories()
       .then((data) => setCategory(data.result))
       .catch((error) => console.error("Error: ", error));
   }, []);
