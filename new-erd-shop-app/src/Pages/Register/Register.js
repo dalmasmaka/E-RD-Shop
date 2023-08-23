@@ -1,7 +1,7 @@
 import style from "./Register.module.css";
 import { getCountries, getCities } from "../../API/Api";
 import { useEffect, useState } from "react";
-import { NavLink, Navigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");

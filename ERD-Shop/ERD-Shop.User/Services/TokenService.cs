@@ -23,7 +23,7 @@ namespace ERD_Shop.User.Services
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.GivenName, user.First_Name)
+                new Claim(ClaimTypes.Actor, user.Id)
             };
 
             var roles = await _userManager.GetRolesAsync(user);

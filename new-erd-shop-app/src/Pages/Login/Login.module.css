@@ -1,4 +1,4 @@
-.registerDiv {
+.loginDiv {
   min-height: 92vh;
   width: 100%;
   background-color: inherit;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 .contentDiv {
-  min-height: 60vh;
+  min-height: 40vh;
   min-width: 30%;
   background-color: #f7efe6;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.249);
@@ -16,11 +16,10 @@
   border-radius: 5px;
 }
 .contentDiv h1 {
-  font-family: 'Josefin Sans', sans-serif !important;
+  font-family: "Times New Roman", Times, serif;
   font-weight: 500;
 }
-.registerForm input,
-.registerDiv select {
+.registerForm input {
   height: 4vh;
   background-color: transparent;
   border-radius: 5px;
@@ -28,24 +27,6 @@
   padding-left: 0.5%;
   margin-top: 4%;
 }
-.nameInput {
-  width: 39.5%;
-  margin-top: 5%;
-}
-.nameInput:first-child {
-  margin-right: 2%;
-}
-.nameInput:last-child {
-  margin-left: 2%;
-}
-.birthdateInput {
-  width: 82%;
-}
-.locationInput {
-  width: 26.66%;
-  margin-inline: 0.5%;
-}
-.addressInput,
 .emailInput,
 .passwordInput {
   width: 82%;
@@ -67,7 +48,7 @@
   border-radius: 5px;
 }
 .storekeeperDiv {
-  font-size: 80%;
+  font-size: 90%;
   margin-left: 9%;
   text-align: left;
   display: flex;
@@ -75,10 +56,10 @@
   margin-top: 1%;
 }
 .storekeeperDiv p {
-  font-family: 'Josefin Sans', sans-serif !important;
+  font-family: "Times New Roman", Times, serif;
 }
 .storekeeperDiv a {
-  font-family: 'Josefin Sans', sans-serif !important;
+  font-family: "Times New Roman", Times, serif;
   color: #635147;
   margin-left: 5px;
 }
