@@ -76,7 +76,6 @@ const ProductVariantDetails = () => {
       setProductExistsWishlist(wishlistProductExists);
 
       const userShoppingCart = await getVariantsInUserShoppingCart(userId);
-      console.log(userShoppingCart);
       const shoppingCartProductExists =
         userShoppingCart.Result.find(
           (product) => product.ProductVariantId == id
@@ -125,7 +124,7 @@ const ProductVariantDetails = () => {
       UserId: userId,
       ProductId: variant.productVariantId,
     };
-    await fetch(url, {
+   const result = await fetch(url, {
       method: "POST",
       body: JSON.stringify(requestData),
       headers: {

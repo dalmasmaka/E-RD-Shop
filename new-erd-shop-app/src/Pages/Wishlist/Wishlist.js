@@ -1,59 +1,93 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { useParams } from "react-router-dom";
 import "./Wishlist.css";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { TiDeleteOutline } from "react-icons/ti";
-import { getVariantsInUserWishlist } from "../../API/Api";
+import {
+  getProductVariants,
+  getVariantsInUserWishlist,
+  getVariantsInWishlist,
+} from "../../API/Api";
 import { BASE_URL } from "../../API/Api";
 import { getUser } from "../../API/Api";
 
 const Wishlist = () => {
-  const testwishlist = [];
-
+  const params = useParams();
   const [wishlist, setWishlist] = useState([]);
   const history = useNavigate();
   const [userId, setUserId] = useState("");
 
   useEffect(() => {
-    const fetchUserId = async () => {
-      const user = await getUser();
-      setUserId(user.userId);
-    };
-    fetchUserId();
+    if (localStorage.getItem("access-token") != undefined) {
+      const userData = parseJwt(localStorage.getItem("access-token"));
+      setUserId(
+        userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+      );
+    }
   }, []);
+  useEffect(() => {
+    if (localStorage.getItem("access-token") != undefined) {
+      const userData = parseJwt(localStorage.getItem("access-token"));
+      setUserId(
+        userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+      );
+    }
+  }, [params]);
 
-  const clearWishlist = (userId) => {
+  function parseJwt(token) {
+    try {
+      var base64Url = token.split(".")[1];
+      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var jsonPayload = decodeURIComponent(
+        window
+          .atob(base64)
+          .split("")
+          .map(function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
+      return JSON.parse(jsonPayload);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const clearWishlist = () => {
+    const url = `${BASE_URL}/WishlistManagement/${userId}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    window.location.reload();
+    };
+
+  const clearVariant = async (variant) => {
     const url = `${BASE_URL}/WishlistManagement`;
     const requestData = {
-      userId: userId,
+      UserId: userId,
+      ProductId: variant.productVariantId,
     };
-    fetch(url, {
+    await fetch(url, {
       method: "DELETE",
       body: JSON.stringify(requestData),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    history.go(0);
+    window.location.reload();
   };
-  const clearVariant = (variant) => {
-    const url = `${BASE_URL}/WishlistManagement`;
-    const requestData = {
-      variant: variant,
-    };
-    fetch(url, {
-      method: "DELETE",
-      body: JSON.stringify(requestData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  };
+
   const taketoShoppingCart = (variant) => {
+    console.log(userId)
     const url = `${BASE_URL}/ShoppingCartManagement`;
     const requestData = {
-      variant: variant,
+      UserId: userId,
+      ProductId: variant.productVariantId,
     };
     fetch(url, {
       method: "POST",
@@ -62,15 +96,24 @@ const Wishlist = () => {
         "Content-Type": "application/json",
       },
     });
+    window.location.reload();
   };
 
   useEffect(() => {
     const fetchWishlist = async () => {
-      const data = await getVariantsInUserWishlist("goeiasngfsiondf");
-      setWishlist(data);
-    };
+      try{
+        const data = await getVariantsInUserWishlist(userId);
+        console.log(data);
+        const dataResult = data.Result.map(variant => variant.ProductVariantId);
+        const productVariants = await getProductVariants();
+        const filterProductVariants = productVariants.result.filter(variant => dataResult.includes(variant.productVariantId))
+        setWishlist(filterProductVariants);
+      }catch(error){
+console.error(error);
+      }
+  };
     fetchWishlist();
-  }, []);
+  }, [userId]);
 
   return (
     <div className="main-container">
@@ -78,21 +121,20 @@ const Wishlist = () => {
         <h2 className="wishlist-title">Wishlist</h2>
       </div>
       <div className="table-container">
+      {wishlist.length > 0 ? (
         <table>
           <tr>
             <th>ID</th>
             <th>Product</th>
-            <th>Store</th>
             <th>Price</th>
             <th>Actions</th>
           </tr>
 
-          {testwishlist.map((variant) => {
+          {wishlist.map((variant) => {
             return (
               <tr>
-                <td>{variant.id}</td>
-                <td>{variant.name}</td>
-                <td>{variant.store}</td>
+                <td>{variant.productVariantId}</td>
+                <td>{variant.productVariantName}</td>
                 <td>{variant.price}</td>
                 <td className="action-buttons">
                   <button
@@ -112,17 +154,20 @@ const Wishlist = () => {
             );
           })}
         </table>
+         ) : (
+          <h1 className="no-product">No products in the wishlist</h1>
+        )}
       </div>
 
-      <div className="deleteAll-button">
-        <button
-          className="delete-product-btn"
-          onClick={() => clearWishlist(userId)}
-        >
-          <RiDeleteBin5Line />
-          Delete All
-        </button>
-      </div>
+      {wishlist.length > 0 && (
+          <button
+            className="delete-product-btn"
+            onClick={() => clearWishlist(userId)}
+          >
+            <RiDeleteBin5Line />
+            Delete All
+          </button>
+        )}
     </div>
   );
 };

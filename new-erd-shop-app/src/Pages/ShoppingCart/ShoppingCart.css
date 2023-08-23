@@ -110,3 +110,13 @@ button.delete-product-shoppingcart:hover {
       background-position: 500%;
     }
   }
+  .td-special{
+    background-color: transparent;
+
+  }
+  .total-price-label{
+    border-bottom-left-radius: 30px;
+  }
+  .action-buttons{
+    background-color: white !important;
+  }

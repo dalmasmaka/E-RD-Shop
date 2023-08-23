@@ -4,62 +4,106 @@ import { MdShoppingCartCheckout } from 'react-icons/md';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { useNavigate } from 'react-router';
-import { BASE_URL } from '../../API/Api';
+import { BASE_URL, getVariantsInUserShoppingCart,getProductVariants } from '../../API/Api';
 import { getVariantsInShoppingCart } from '../../API/Api';
 import { getUser } from '../../API/Api';
+import { useParams } from 'react-router-dom';
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
-  const testwishlist = [];
+  const params = useParams();
 
     const [shoppingCart, setShoppingCart] = useState([]);
     const [userId, setUserId] = useState("");
 
-  useEffect(() => {
-    const fetchUserId = async () => {
-      const user = await getUser();
-      setUserId(user.userId);
+    useEffect(() => {
+      if (localStorage.getItem("access-token") != undefined) {
+        const userData = parseJwt(localStorage.getItem("access-token"));
+        setUserId(
+          userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+        );
+      }
+    }, []);
+    useEffect(() => {
+      if (localStorage.getItem("access-token") != undefined) {
+        const userData = parseJwt(localStorage.getItem("access-token"));
+        setUserId(
+          userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+        );
+      }
+    }, [params]);
+  
+    function parseJwt(token) {
+      try {
+        var base64Url = token.split(".")[1];
+        var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        var jsonPayload = decodeURIComponent(
+          window
+            .atob(base64)
+            .split("")
+            .map(function (c) {
+              return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+            })
+            .join("")
+        );
+        return JSON.parse(jsonPayload);
+      } catch (error) {
+        console.error(error);
+      }
     }
-    fetchUserId();
-  }, [])
 
-  const clearShoppingCart = (userId) => {
-    const url = `${BASE_URL}/ShoppingCartManagement`
-    const requestData = {
-      userId: userId
-    };
+
+  const clearShoppingCart = () => {
+   const url = `${BASE_URL}/ShoppingCartManagement/${userId}`;
     fetch(url, {
-      method:"DELETE",
-      body: JSON.stringify(requestData),
-      headers:{
-        'Content-Type': "application/json"
-      }
-    })
-    navigate.go(0)
-  }
-  const clearVariantfromShoppingCart = (variant) => {
-    const url = `${BASE_URL}/ShoppingCartManagement`
-    const requestData = {
-        variant: variant
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    window.location.reload();
     };
-    fetch(url, {
-      method:"DELETE",
+
+  const clearVariantfromShoppingCart = async (variant) => {
+    const url = `${BASE_URL}/ShoppingCartManagement`;
+    const requestData = {
+      UserId: userId,
+      ProductId: variant.productVariantId,
+    };
+    await fetch(url, {
+      method: "DELETE",
       body: JSON.stringify(requestData),
-      headers:{
-        'Content-Type': "application/json"
-      }
-    })
-  }
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    window.location.reload();
+  };
 
   const handleGoToClick = () => {
     navigate('/orderpage'); // Redirect to the product variants page
   };
 
 
+  useEffect(() => {
+    const fetchWishlist = async () => {
+      try{
+        const data = await getVariantsInUserShoppingCart(userId);
+        console.log(data);
+        const dataResult = data.Result.map(variant => variant.ProductVariantId);
+        const productVariants = await getProductVariants();
+        const filterProductVariants = productVariants.result.filter(variant => dataResult.includes(variant.productVariantId))
+        setShoppingCart(filterProductVariants);
+      }catch(error){
+console.error(error);
+      }
+  };
+    fetchWishlist();
+  }, [userId]);
 
   const calculateTotalPrice = () => {
     const totalPrice = shoppingCart.reduce((total, product) => {
-      return total + product.price * product.quantity;
+      return total + product.price;
     }, 0);
 
     return totalPrice;
@@ -76,22 +120,20 @@ const ShoppingCart = () => {
             <tr>
               <th>ID</th>
               <th>Product</th>
-              <th>Store</th>
               <th>Price</th>
-              <th>Quantity</th>
+              {/* <th>Quantity</th> */}
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
                     
-          {testwishlist.map((variant) => {
+          {shoppingCart.map((variant) => {
           return(
             <tr>
-              <td>{variant.id}</td>
-              <td>{variant.name}</td>
-              <td>{variant.store}</td>
+              <td>{variant.productVariantId}</td>
+              <td>{variant.productVariantName}</td>
               <td>{variant.price}</td>
-              <td>{variant.quantity}</td>
+              {/* <td>{variant.quantity}</td> */}
               <td className='action-buttons'>
                 <button className='delete-product-shoppingcart' onClick={() => clearVariantfromShoppingCart(variant)}>
                   <TiDeleteOutline />
@@ -104,9 +146,9 @@ const ShoppingCart = () => {
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan='3'></td>
+              <td className="td-special" colSpan='1'></td>
               <td className='total-price-label'>Total Price:</td>
-              <td colSpan='2' className='total-price-value'>
+              <td colSpan='1' className='total-price-value'>
                 {calculateTotalPrice()}$
               </td>
             </tr>

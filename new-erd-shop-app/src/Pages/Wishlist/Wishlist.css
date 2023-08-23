@@ -2,7 +2,9 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
-
+.no-product{
+text-align: center;
+}
 td,
 th {
     border: 1px solid #dddd;
