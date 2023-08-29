@@ -42,13 +42,11 @@ export default function ProductVariant() {
                 console.error('Error', error);
             })
     }, []);
-    console.log(productVariants)
     //retrieving the products
     useEffect(() => {
         getProducts()
             .then(data => {
                 setProducts(data.result);
-                setIsLoading(false);
             })
             .catch(error => {
                 console.error('Error', error);
