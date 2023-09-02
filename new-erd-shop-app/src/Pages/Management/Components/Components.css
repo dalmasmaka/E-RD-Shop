@@ -346,3 +346,39 @@ svg.file-upload-logo {
 
 }
 
+/* .admin-container{
+    display: none;
+} */
+.storekeeper-label{
+    display: contents !important;
+}
+.storekeeper-input{
+    margin-left: 10px;
+    width: 250px;
+}
+
+
+.information-container{
+    margin-top: 5%;
+    display: flex;
+    
+}
+
+
+.information-input label{
+    display: flex;
+    padding: 10px;
+    
+}
+.information-input input{
+    border-radius: 30px !important;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    padding: 10px;
+    width: 50%;
+}
+.leftside-information{
+    width: 50%;
+}
+.rightside-information{
+    right: 50%;
+}

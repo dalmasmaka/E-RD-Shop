@@ -51,6 +51,22 @@ namespace ERD_Shop.Store.Controllers
             }
             return _response;
         }
+        [HttpGet("Storekeeper/{userId}")]
+        public async Task<ResponseDto> GetStoreByStoreKeeper(string userId)
+        {
+            try
+            {
+                var result = await _storeRepository.GetStoreByStoreKeeper(userId);
+                _response.isSuccess = true;
+                _response.Result = result;
+            }
+            catch (Exception ex)
+            {
+                _response.isSuccess = false;
+                _response.ErrorMessage = new List<string> { ex.ToString() };
+            }
+            return _response;   
+        }
         [HttpPost]
         public async Task<ResponseDto> CreateAsync([FromBody]StoreDto store)
         {

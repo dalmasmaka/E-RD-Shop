@@ -9,10 +9,7 @@ import "datatables.net-buttons/js/buttons.html5"; // Import the HTML5 export but
 import "datatables.net-buttons/js/buttons.print"; // Import the Print button
 import "datatables.net-dt/css/jquery.dataTables.css"; // Import the DataTables core CSS
 import "datatables.net-buttons-dt/css/buttons.dataTables.css"; // Import the Buttons extension CSS
-import { getOrder, getOrders } from "../../../API/Api";
-import { AiOutlineCloudUpload, AiOutlineEdit } from "react-icons/ai";
-import { BsTrash } from "react-icons/bs";
-import { confirmAlert } from 'react-confirm-alert';
+import { getOrders } from "../../../API/Api";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 export default function Order() {
     const dataTableRef = useRef(null);
@@ -22,6 +19,7 @@ export default function Order() {
         getOrders()
             .then(data => {
                 setOrders(data.result);
+                setIsLoading(false);
             })
             .catch(error => {
                 console.error('Error: ', error);

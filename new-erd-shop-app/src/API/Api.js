@@ -26,6 +26,19 @@ export function getUser() {
       console.error("Error:", error);
     });
 }
+export function getStorekeepers(){
+  return fetch (`${BASE_URL}/User/Storekeepers`)
+  .then((response) => {
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  })
+}
+
 export async function getProductsByCategory(categoryId) {
   const response = await fetch(`${BASE_URL}/Category/${categoryId}`);
   if (!response.ok) {
@@ -82,9 +95,6 @@ export async function getCities() {
       console.error("Error:", error);
     });
 }
-
-
-
 
 export function getStores() {
   return fetch(`${BASE_URL}/Store`)
@@ -152,6 +162,42 @@ export async function getStore(id) {
     }
     return response.json();
   } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+}
+export async function getStoreByStoreKeeper(userId){
+  try{
+    const response = await fetch(`${BASE_URL}/Store/StoreKeeper/${userId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    if(!response.ok){
+      throw new Error('Netowrk response was not okay');
+    }
+    return response.json();
+  }
+  catch(error){
+    console.error('Error:', error);
+    throw error;
+  }
+}
+export async function getProductsByStore(storeId){
+  try{
+    const response = await fetch(`${BASE_URL}/Product/StoreProducts/${storeId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    if(!response.ok){
+      throw new Error('Network response was not okay');
+    }
+    return response.json();
+  }
+  catch(error){
     console.error('Error:', error);
     throw error;
   }
