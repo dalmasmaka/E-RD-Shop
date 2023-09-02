@@ -73,6 +73,14 @@ namespace ERD_Shop.Store.MongoRepositories
             return _mapper.Map<StoreDto>(stores);
         }
 
+        public async Task<StoreDto> GetStoreByStoreKeeper(string userId)
+        {
+            FilterDefinition<Stores> filter = filterBuilder.Eq(c => c.UserId, userId);
+            Stores store = await dbCollection.Find(filter).FirstOrDefaultAsync();
+            return _mapper.Map<StoreDto>(store);
+        }
+
+
         public async Task<StoreDto> UpdateAsync(StoreDto store)
         {
             if (store == null)

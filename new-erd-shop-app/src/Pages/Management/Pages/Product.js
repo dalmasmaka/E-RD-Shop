@@ -9,7 +9,7 @@ import "datatables.net-buttons/js/buttons.html5"; // Import the HTML5 export but
 import "datatables.net-buttons/js/buttons.print"; // Import the Print button
 import "datatables.net-dt/css/jquery.dataTables.css"; // Import the DataTables core CSS
 import "datatables.net-buttons-dt/css/buttons.dataTables.css"; // Import the Buttons extension CSS
-import { deleteProduct, editProduct, getProduct, getProducts, postProduct, getStores, getCategories } from "../../../API/Api";
+import { deleteProduct, editProduct, getProduct, getProducts, postProduct, getStores, getCategories, getProductsByStore, getStoreByStoreKeeper } from "../../../API/Api";
 import { AiOutlineCloudUpload, AiOutlineEdit } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { confirmAlert } from 'react-confirm-alert';
@@ -27,6 +27,76 @@ export default function Product() {
     const [isTransportable, setIsTransportable] = useState(false);
     const [storeId, setStoreId] = useState('');
     const [categoryId, setCategoryId] = useState('');
+    const [params, setParams] = useState('');
+    const [userRole, setUserRole] = useState('');
+    const [storeOfStoreKeeper, setStoreOfStoreKeeper] = useState('');
+    const [storeProducts, setStoreProducts] = useState([]);
+    const [loggedUserId, setLoggedUserId] = useState('');
+    const [storeName, setStoreName] = useState('');
+    function parseJwt(token) {
+        try {
+            var base64Url = token.split(".")[1];
+            var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+            var jsonPayload = decodeURIComponent(
+                window
+                    .atob(base64)
+                    .split("")
+                    .map(function (c) {
+                        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+                    })
+                    .join("")
+            );
+
+            return JSON.parse(jsonPayload);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    useEffect(() => {
+        if (localStorage.getItem("access-token") != undefined) {
+            const userData = parseJwt(localStorage.getItem("access-token"));
+            console.log(userData)
+            //we get the role og the logged in user
+            setUserRole(
+                userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+            );
+            //we get the id of the logged in user
+            setLoggedUserId(
+                userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+            );
+        }
+    }, [params]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getStoreByStoreKeeper(loggedUserId);
+                const storeData = data.result;
+                setStoreOfStoreKeeper(storeData);
+                setStoreId(storeData.storeId);
+                setStoreName(storeData.storeName);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        fetchData();
+    }, [loggedUserId]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getProductsByStore(storeId);
+                const productData = data.result;
+                setStoreProducts(productData);
+                if (userRole === "Store Keeper") {
+                    setIsLoading(false);
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+        fetchData();
+    }, [storeId]);
 
     //retrieving stores
     useEffect(() => {
@@ -53,12 +123,15 @@ export default function Product() {
         getProducts()
             .then(data => {
                 setProducts(data.result);
-                setIsLoading(false);
+                if (userRole === "Admin") {
+                    setIsLoading(false);
+                }
             })
             .catch(error => {
                 console.error('Error', error);
-            })
+            });
     }, []);
+
     // DATATABLE 
     useEffect(() => {
         if (!dataTableRef.current && !isLoading) {
@@ -246,18 +319,33 @@ export default function Product() {
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {products.map(product => (
-                            
-                                <tr key={product.productId}>
-                                    {/* <td>{product.productImg}</td> */}
-                                    <td>{product.productName}</td>
-                                    <td>{product.isTransportable ? "Available Transport" : "Non-Available Transport"}</td>
+                        {userRole === "Admin" ? (
+                            <tbody>
+                                {products.map(product => (
 
-                                    <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(product.productId)} /> <BsTrash onClick={() => handleDeleteButtonClick(product.productId)} /></td>
-                                </tr>
-                            ))}
-                        </tbody>
+                                    <tr key={product.productId}>
+                                        {/* <td>{product.productImg}</td> */}
+                                        <td>{product.productName}</td>
+                                        <td>{product.isTransportable ? "Available Transport" : "Non-Available Transport"}</td>
+
+                                        <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(product.productId)} /> <BsTrash onClick={() => handleDeleteButtonClick(product.productId)} /></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        ) : userRole === "Store Keeper" ? (
+                            <tbody>
+                                {storeProducts.map(product => (
+
+                                    <tr key={product.productId}>
+                                        {/* <td>{product.productImg}</td> */}
+                                        <td>{product.productName}</td>
+                                        <td>{product.isTransportable ? "Available Transport" : "Non-Available Transport"}</td>
+
+                                        <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(product.productId)} /> <BsTrash onClick={() => handleDeleteButtonClick(product.productId)} /></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        ) : (<p>Unauthorized</p>)}
                     </table>
                 )}
             </div>
@@ -276,18 +364,30 @@ export default function Product() {
 
                         </div>
                         <div className="flex-inputs">
-                            <div className="form-input other-form-inputs margin">
-                                <select value={storeId} onChange={(e) => setStoreId(e.target.value)} className="form-dropdown">
-                                    <option value="" disabled>Select Store</option> {/* Initial placeholder */}
-                                    {stores.map((store) => (
-                                        <option key={store.storeId} value={store.storeId}>
-                                            {store.storeName}
-                                        </option>
-                                    ))}
-                                </select>
+                            {userRole === "Store Keeper" ? (
+                                <div className="form-input other-form-inputs margin">
+                                    <label>Store name</label>
+                                    <input type="text" value={storeId} onChange={(e) => setStoreId(e.target.value)} style={{display:"none"}}/>
+                                    <input type="text" value={storeName} onChange={(e) => setStoreName(e.target.value)} disabled />
+                                    
 
-                            </div>
+                                </div>
+                            ) : (
+                                <div className="form-input other-form-inputs margin">
+
+                                    <select value={storeId} onChange={(e) => setStoreId(e.target.value)} className="form-dropdown">
+                                        <option value="" disabled>Select Store</option> {/* Initial placeholder */}
+                                        {stores.map((store) => (
+                                            <option key={store.storeId} value={store.storeId}>
+                                                {store.storeName}
+                                            </option>
+                                        ))}
+                                    </select>
+
+                                </div>
+                            )}
                             <div className="form-input other-form-inputs margin">
+                                <label>Category name</label>
                                 <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} className="form-dropdown">
                                     <option value="" disabled>Select Category</option>
                                     {categories.map((category) => (
@@ -300,9 +400,9 @@ export default function Product() {
                         </div>
                         <div className="flex-inputs">
                             <div className="form-input form-name-input margin">
-                                <p style={{padding: "15px"}}>Please make sure you tell us if your product is transportable for delivery reasons.</p>
+                                <p style={{ padding: "15px" }}>Please make sure you tell us if your product is transportable for delivery reasons.</p>
                                 <select value={isTransportable} onChange={(e) => setIsTransportable(e.target.value === 'true')} className="form-dropdown">
-                                    <option  disabled>Select Transportability</option>
+                                    <option disabled>Select Transportability</option>
                                     <option value={true}>Available Transport</option>
                                     <option value={false}>Non-Available Transport</option>
                                 </select>

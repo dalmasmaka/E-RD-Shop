@@ -68,6 +68,22 @@ namespace ERD_Shop.Store.Controllers
             }
             return _response;
         }
+        [HttpGet("StoreProducts/{storeId}")]
+        public async Task<ResponseDto> GetStoreProducts(int storeId)
+        {
+            try
+            {
+                var result = await _productRepository.GetProductsByStore(storeId);
+                _response.isSuccess = true;
+                _response.Result = result;
+            }
+            catch (Exception ex)
+            {
+                _response.isSuccess = false;
+                _response.ErrorMessage = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
         [HttpPost]
         public async Task<ResponseDto> CreateAsync([FromBody]ProductDto product)
         {

@@ -9,7 +9,7 @@ import "datatables.net-buttons/js/buttons.html5"; // Import the HTML5 export but
 import "datatables.net-buttons/js/buttons.print"; // Import the Print button
 import "datatables.net-dt/css/jquery.dataTables.css"; // Import the DataTables core CSS
 import "datatables.net-buttons-dt/css/buttons.dataTables.css"; // Import the Buttons extension CSS
-import { getProducts, deleteProductVariant, editProductVariant, getProductVariant, getProductVariants, postProductVariant, getStores, getCategories } from "../../../API/Api";
+import { getProducts, deleteProductVariant, editProductVariant, getProductVariant, getProductVariants, postProductVariant, getStores, getCategories, getProductsByStore, getStoreByStoreKeeper } from "../../../API/Api";
 import { AiOutlineCloudUpload, AiOutlineEdit } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { confirmAlert } from 'react-confirm-alert';
@@ -31,24 +31,106 @@ export default function ProductVariant() {
     const [totalSupplyPrice, setTotalSupplyPrice] = useState(0);
     const [price, setPrice] = useState('');
     const [shortDescription, setShortDescription] = useState(0);
+    const [params, setParams] = useState('');
+    const [userRole, setUserRole] = useState('');
+    const [storeOfStoreKeeper, setStoreOfStoreKeeper] = useState('');
+    const [storeProducts, setStoreProducts] = useState([]);
+    const [loggedUserId, setLoggedUserId] = useState('');
+    const [storeId, setStoreId] = useState('');
+    function parseJwt(token) {
+        try {
+            var base64Url = token.split(".")[1];
+            var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+            var jsonPayload = decodeURIComponent(
+                window
+                    .atob(base64)
+                    .split("")
+                    .map(function (c) {
+                        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+                    })
+                    .join("")
+            );
+
+            return JSON.parse(jsonPayload);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    useEffect(() => {
+        if (localStorage.getItem("access-token") != undefined) {
+            const userData = parseJwt(localStorage.getItem("access-token"));
+            console.log(userData)
+            //we get the role og the logged in user
+            setUserRole(
+                userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+            );
+            //we get the id of the logged in user
+            setLoggedUserId(
+                userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+            );
+        }
+    }, [params]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getStoreByStoreKeeper(loggedUserId);
+                const storeData = data.result;
+                setStoreOfStoreKeeper(storeData);
+                setStoreId(storeData.storeId);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        fetchData();
+    }, [loggedUserId]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getProductsByStore(storeId);
+                const productData = data.result;
+                setStoreProducts(productData);
+                if (userRole === "Store Keeper") {
+                    setIsLoading(false);
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+        fetchData();
+    }, [storeId]);
+    //variants of the specific store => function to filter the product variants based on storeProducts
+    const getVariantsForStore = () => {
+        // Create a set of product IDs from storeProducts for efficient filtering
+        const storeProductIds = new Set(storeProducts.map(product => product.productId));
+
+        // Filter the product variants to get those that match the store product IDs
+        const variantsForStore = productVariants.filter(variant => storeProductIds.has(variant.productId));
+
+        return variantsForStore;
+    };
+
+    // Call this function to get the variants for the current store
+    const variantsForCurrentStore = getVariantsForStore();
     //retrieving the product variants
     useEffect(() => {
         getProductVariants()
             .then(data => {
                 setProductVariants(data.result);
-                setIsLoading(false);
+                if (userRole === "Admin") {
+                    setIsLoading(false);
+                }
             })
             .catch(error => {
                 console.error('Error', error);
             })
     }, []);
-    console.log(productVariants)
     //retrieving the products
     useEffect(() => {
         getProducts()
             .then(data => {
                 setProducts(data.result);
-                setIsLoading(false);
             })
             .catch(error => {
                 console.error('Error', error);
@@ -121,7 +203,7 @@ export default function ProductVariant() {
             const calculatedTotalSupplyPrice = stockQuantity * supplyPrice;
             setTotalSupplyPrice(calculatedTotalSupplyPrice);
         } else {
-            setTotalSupplyPrice(''); 
+            setTotalSupplyPrice('');
         }
     }, [stockQuantity, supplyPrice]);
     const handleEditButtonClick = async (id) => {
@@ -263,7 +345,7 @@ export default function ProductVariant() {
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        {userRole === "Admin" ? (<tbody>
                             {productVariants.map(variant => (
 
                                 <tr key={variant.productVariantId}>
@@ -279,7 +361,26 @@ export default function ProductVariant() {
                                 </tr>
                             )
                             )}
-                        </tbody>
+                        </tbody>) :
+                            userRole === "Store Keeper" ? (
+                                <tbody>
+                                    {variantsForCurrentStore.map(variant => (
+
+                                        <tr key={variant.productVariantId}>
+                                            <td>{variant.productVariantName}</td>
+                                            <td>{variant.stockQuantity}</td>
+                                            <td>{variant.price}</td>
+
+                                            <td>{variant.shortDescription}</td>
+                                            <td className="actions-td">
+                                                <AiOutlineEdit onClick={() => handleEditButtonClick(variant.productVariantId)} />
+                                                <BsTrash onClick={() => handleDeleteButtonClick(variant.productVariantId)} />
+                                            </td>
+                                        </tr>
+                                    )
+                                    )}
+                                </tbody>
+                            ) : (<p>Unauthorized</p>)}
 
                     </table>
                 )}
@@ -320,7 +421,7 @@ export default function ProductVariant() {
                         <div className="flex-inputs">
                             <div className="form-input other-form-inputs margin">
                                 <label>Total Supply Price</label>
-                                <input type="number" value={totalSupplyPrice} onChange={(e) => setTotalSupplyPrice(e.target.value)} disabled/>
+                                <input type="number" value={totalSupplyPrice} onChange={(e) => setTotalSupplyPrice(e.target.value)} disabled />
 
                             </div>
                             <div className="form-input other-form-inputs margin">
@@ -341,23 +442,39 @@ export default function ProductVariant() {
                         </div>
                         <div className="flex-inputs">
                             <div className="form-input form-name-input margin">
-                            <label>Short Description</label>
+                                <label>Short Description</label>
                                 <input type="text" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
                             </div>
                         </div>
                         <div className="flex-inputs">
-                            <div className="form-input form-name-input margin">
-                                <p style={{ padding: "15px" }}>Please select the main Product for this Variant</p>
-                                <select value={productId} onChange={(e) => setProductId(e.target.value)} className="form-dropdown">
-                                    <option value="" disabled>Select Product</option>
-                                    {products.map(product => (
-                                        <option key={product.productId} value={product.productId}>
-                                            {product.productName}
-                                        </option>
-                                    ))}
-                                </select>
+                            {userRole === "Admin" ? (
+                                <div className="form-input form-name-input margin">
+                                    <p style={{ padding: "15px" }}>Please select the main Product for this Variant</p>
+                                    <select value={productId} onChange={(e) => setProductId(e.target.value)} className="form-dropdown">
+                                        <option value="" disabled>Select Product</option>
+                                        {products.map(product => (
+                                            <option key={product.productId} value={product.productId}>
+                                                {product.productName}
+                                            </option>
+                                        ))}
+                                    </select>
 
-                            </div>
+                                </div>
+                            ) : userRole === "Store Keeper" ? (
+                                <div className="form-input form-name-input margin">
+                                    <p style={{ padding: "15px" }}>Please select the main Product for this Variant</p>
+                                    <select value={productId} onChange={(e) => setProductId(e.target.value)} className="form-dropdown">
+                                        <option value="" disabled>Select Product</option>
+                                        {storeProducts.map(product => (
+                                            <option key={product.productId} value={product.productId}>
+                                                {product.productName}
+                                            </option>
+                                        ))}
+                                    </select>
+
+                                </div>
+                            )
+                                : (null)}
                         </div>
                         <div className="flex-inputs">
                             <div className="form-input form-name-input margin">

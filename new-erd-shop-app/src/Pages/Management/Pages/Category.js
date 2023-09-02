@@ -22,6 +22,38 @@ export default function Category() {
     const [showPopUpForm, setShowPopUpForm] = useState(false);
     const [categoryId, setCategoryId] = useState('');
     const [categoryName, setCategoryName] = useState('');
+    const [params, setParams] = useState('');
+    const [userRole, setUserRole] = useState('');
+
+    useEffect(() => {
+      if (localStorage.getItem("access-token") != undefined) {
+        const userData = parseJwt(localStorage.getItem("access-token"));
+        console.log(userData)
+        //we get the role og the logged in user
+        setUserRole(
+          userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+        );
+      }
+    }, [params]);
+    function parseJwt(token) {
+      try {
+        var base64Url = token.split(".")[1];
+        var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        var jsonPayload = decodeURIComponent(
+          window
+            .atob(base64)
+            .split("")
+            .map(function (c) {
+              return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+            })
+            .join("")
+        );
+  
+        return JSON.parse(jsonPayload);
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
     //Retrieving all the categories
     useEffect(() => {
@@ -205,7 +237,13 @@ export default function Category() {
                 {categories.map(category => (
                   <tr key={category.categoryId}>
                     <td>{category.categoryName}</td>
-                    <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(category.categoryId)} /> <BsTrash onClick={() => handleDeleteButtonClick(category.categoryId)} /></td>
+                    {userRole == "Admin" ? 
+                    (
+                      <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(category.categoryId)} /> <BsTrash onClick={() => handleDeleteButtonClick(category.categoryId)} /></td>
+                    ) :(
+                     <td>You don't have permission to make changes as a store keeper</td>
+                    )}
+                    
                   </tr>
                 ))}
               </tbody>
