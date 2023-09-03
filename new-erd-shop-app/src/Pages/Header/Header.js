@@ -73,11 +73,12 @@ export default function Header() {
               <Link className="nav-link" to="/category">
                 Category
               </Link>
-              {userRole === "Admin" ? (
+              {(userRole === "Admin" || userRole === "Store Keeper") ? (
                 <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
               ) : null}
+
               <div className="div-mobile">
                 <Link className="nav-link icon" to="/wishlist">
                   <AiOutlineHeart />
@@ -106,11 +107,12 @@ export default function Header() {
             <Link className="nav-link" to="/category">
               Category
             </Link>
-            {userRole === "Admin" ? (
+            {(userRole === "Admin" || userRole === "Store Keeper") ? (
               <Link className="nav-link" to="/dashboard">
                 Dashboard
               </Link>
             ) : null}
+
             <Link className="nav-link icon" to="/wishlist">
               <AiOutlineHeart />
             </Link>
