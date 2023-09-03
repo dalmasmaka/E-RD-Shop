@@ -53,7 +53,6 @@ export default function Store() {
   useEffect(() => {
     if (localStorage.getItem("access-token") != undefined) {
       const userData = parseJwt(localStorage.getItem("access-token"));
-      console.log(userData)
       //we get the role og the logged in user
       setUserRole(
         userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
@@ -397,6 +396,7 @@ export default function Store() {
         </div>
       ) : userRole === "Store Keeper" ? (
         <div className="storekeeper-container">
+          <ToastContainer/>
           <div className="page-header-container">
             <h1>Your Store Information</h1>
           </div>
