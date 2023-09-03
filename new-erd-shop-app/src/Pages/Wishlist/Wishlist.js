@@ -137,13 +137,13 @@ console.error(error);
                 <td>{variant.productVariantName}</td>
                 <td>{variant.price}</td>
                 <td className="action-buttons">
-                  <button
+                  <button title="Delete From Wishlist"
                     className="delete-product-shoppingcart"
                     onClick={() => clearVariant(variant)}
                   >
                     <TiDeleteOutline />
                   </button>
-                  <button
+                  <button title="Take To Shopping Cart"
                     className="addto-order-btn"
                     onClick={() => taketoShoppingCart(variant)}
                   >
