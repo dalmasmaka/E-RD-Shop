@@ -2,6 +2,7 @@
 using ERD_Shop.Store.Models;
 using ERD_Shop.Store.Models.DTOs;
 using ERD_Shop.Store.MongoRepositories.Interface;
+using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -102,7 +103,6 @@ namespace ERD_Shop.Store.MongoRepositories
             var result = await dbCollection.FindAsync(filter, options);
             return await result.ToListAsync();
         }
-
         public async Task<ProductVariantDto> UpdateAsync(ProductVariantDto productVariant)
         {
             if(productVariant == null)

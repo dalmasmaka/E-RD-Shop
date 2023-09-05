@@ -166,6 +166,11 @@ namespace ERD_Shop.Store.MongoRepositories
             return productDto;
         }
 
-        
+        public async Task<ICollection<ProductDto>> GetProductsByStore(int storeId)
+        {
+            var filter = Builders<Product>.Filter.Eq(p => p.StoreId, storeId);
+            var products = await dbCollection.Find(filter).ToListAsync();
+            return _mapper.Map<ICollection<ProductDto>>(products);
+        }
     }
 }

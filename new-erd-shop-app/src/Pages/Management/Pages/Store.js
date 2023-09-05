@@ -9,7 +9,7 @@ import "datatables.net-buttons/js/buttons.html5"; // Import the HTML5 export but
 import "datatables.net-buttons/js/buttons.print"; // Import the Print button
 import "datatables.net-dt/css/jquery.dataTables.css"; // Import the DataTables core CSS
 import "datatables.net-buttons-dt/css/buttons.dataTables.css"; // Import the Buttons extension CSS
-import { deleteStore, editStore, getStore, getStores, postStore } from "../../../API/Api";
+import { deleteStore, editStore, getStore, getStoreByStoreKeeper, getStorekeepers, getStores, postStore } from "../../../API/Api";
 import { AiOutlineCloudUpload, AiOutlineEdit } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { confirmAlert } from 'react-confirm-alert';
@@ -18,14 +18,51 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 export default function Store() {
   const dataTableRef = useRef(null);
   const [stores, setStores] = useState([]);
+  const [storeKeepers, setStoreKeepers] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Add a loading state
   const [imageURL, setImageURL] = useState(null); // Retrieves the uploaded image
   const [showPopUpForm, setShowPopUpForm] = useState(false);
   const [storeId, setStoreId] = useState('');
   const [storeName, setStoreName] = useState('');
-  const [storeOwner, setStoreOwner] = useState('');
   const [storeContact, setStoreContact] = useState('');
+  const [storeOwner, setStoreOwner] = useState('');
+  const [userId, setUserId] = useState('');
+  const [userRole, setUserRole] = useState();
+  const [loggedUserId, setLoggedUserId] = useState('');
+  const [params, setParams] = useState('');
+  const [storeOfStoreKeeper, setStoreOfStoreKeeper] = useState('');
+  function parseJwt(token) {
+    try {
+      var base64Url = token.split(".")[1];
+      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var jsonPayload = decodeURIComponent(
+        window
+          .atob(base64)
+          .split("")
+          .map(function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
 
+      return JSON.parse(jsonPayload);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    if (localStorage.getItem("access-token") != undefined) {
+      const userData = parseJwt(localStorage.getItem("access-token"));
+      //we get the role og the logged in user
+      setUserRole(
+        userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+      );
+      //we get the id of the logged in user
+      setLoggedUserId(
+        userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+      );
+    }
+  }, [params]);
   useEffect(() => {
     getStores()
       .then(data => {
@@ -37,6 +74,36 @@ export default function Store() {
         setIsLoading(false); // In case of an error, set isLoading to false
       });
   }, []);
+  useEffect(() => {
+    getStorekeepers()
+      .then(data => {
+        setStoreKeepers(data.result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      })
+  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getStoreByStoreKeeper(loggedUserId);
+        const storeData = data.result;
+        setStoreOfStoreKeeper(storeData);
+        setStoreId(storeData.storeId);
+        setStoreName(storeData.storeName);
+        setStoreOwner(storeData.storeOwner);
+        setStoreContact(storeData.storeContact);
+        setImageURL(storeData.storeImg);
+        localStorage.setItem('storeOfStoreKeeper', JSON.stringify(storeData));
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+  
+    fetchData();
+  }, [loggedUserId]);
+  
+
   // DATATABLE 
   useEffect(() => {
     if (!dataTableRef.current && !isLoading) {
@@ -75,6 +142,7 @@ export default function Store() {
     setStoreOwner('');
     setStoreContact('');
     setImageURL(null);
+    setUserId('');
 
   }
   // BUTTON HANDLERS
@@ -103,6 +171,7 @@ export default function Store() {
       setStoreOwner(storeData.result.storeOwner);
       setStoreContact(storeData.result.storeContact);
       setImageURL(storeData.result.storeImg);
+      setUserId(storeData.result.userId);
       setShowPopUpForm(true);
     }
 
@@ -144,6 +213,24 @@ export default function Store() {
       ]
     });
   };
+  const handleSelectChange = (e) => {
+    const selectedValue = e.target.value;
+    const selectedStoreKeeper = storeKeepers.find(storeKeeper => storeKeeper.firstName === selectedValue);
+    if (selectedStoreKeeper) {
+      // Set firstName in storeOwner and userId in user
+      setStoreOwner(selectedStoreKeeper.firstName);
+      setUserId(selectedStoreKeeper.userId);
+    } else {
+      // Handle the case where no matching storeKeeper is found
+      console.error(`StoreKeeper not found for firstName: ${selectedValue}`);
+      // You can choose to display an error message or handle it in another way
+      // For now, clear both values
+      setStoreOwner('');
+      setUserId('');
+    }
+  };
+
+
 
   // MAIN FORM SUBMIT HANDLER
   const handleSubmit = async (event) => {
@@ -156,6 +243,7 @@ export default function Store() {
           storeOwner,
           storeContact,
           storeImg: imageURL,
+          userId
         };
         const response = await editStore(editedStoreData);
         console.log(response);
@@ -174,6 +262,7 @@ export default function Store() {
           storeOwner,
           storeContact,
           storeImg: imageURL,
+          userId
         });
         console.log(response)
         toast.success('The store has been created!', {
@@ -202,63 +291,132 @@ export default function Store() {
 
   return (
     <div className="page-container">
-      {showPopUpForm && <div className="overlay" />}
-      <div className="page-header-container">
-        <h1>All Stores Information</h1>
-        <button className="create-new-button" id="createButton" onClick={handleCreateButtonClick}><p>Create new store</p></button>
-      </div>
-      <div className="datatable-container">
-        {isLoading ? (
-          <p>Loading...</p> // Show loading message when data is loading
-        ) : (
-          <table id="datatable" cellSpacing="0" width="100%">
-            <thead>
-              <tr>
-                <th>Store</th>
-                <th>Store Owner</th>
-                <th>Contact</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stores.map(store => (
-                <tr key={store.storeId}>
-                  <td>{store.storeName}</td>
-                  <td>{store.storeOwner}</td>
-                  <td>{store.storeContact}</td>
-                  <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(store.storeId)} /> <BsTrash onClick={() => handleDeleteButtonClick(store.storeId)} /></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
-      <div className="popup-form" style={{ display: showPopUpForm ? 'block' : 'none' }}>
-        <ToastContainer />
-        <div className="popup-header margin">
-          <h1>{storeId ? "Update store" : "Create store"}</h1>
-          <p>{storeId ? "by re-writing down store informations..." : "by writing down store informations..."}</p>
+      {userRole === "Admin" ? (
+        <div className="admin-container">
+          {showPopUpForm && <div className="overlay" />}
+          <div className="page-header-container">
+            <h1>All Stores Information</h1>
+            <button className="create-new-button" id="createButton" onClick={handleCreateButtonClick}><p>Create new store</p></button>
+          </div>
+          <div className="datatable-container">
+            {isLoading ? (
+              <p>Loading...</p> // Show loading message when data is loading
+            ) : (
+              <table id="datatable" cellSpacing="0" width="100%">
+                <thead>
+                  <tr>
+                    <th>Store</th>
+                    <th>Store Owner</th>
+                    <th>Contact</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {stores.map(store => (
+                    <tr key={store.storeId}>
+                      <td>{store.storeName}</td>
+                      <td>{store.storeOwner}</td>
+                      <td>{store.storeContact}</td>
+                      <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(store.storeId)} /> <BsTrash onClick={() => handleDeleteButtonClick(store.storeId)} /></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+          <div className="popup-form" style={{ display: showPopUpForm ? 'block' : 'none' }}>
+            <ToastContainer />
+            <div className="popup-header margin">
+              <h1>{storeId ? "Update store" : "Create store"}</h1>
+              <p>{storeId ? "by re-writing down store informations..." : "by writing down store informations..."}</p>
 
+            </div>
+            <div className="popup-body">
+              <form onSubmit={handleSubmit}>
+                <div className="form-input form-name-input margin">
+                  <label>Store name</label>
+                  <input type="text" value={storeName} onChange={(e) => setStoreName(e.target.value)} required minLength={5} />
+
+                </div>
+
+                <div className="form-input form-name-input margin">
+                  <label>Store Contact</label>
+                  <input type="text" value={storeContact} onChange={(e) => setStoreContact(e.target.value)} required />
+                </div>
+                <div className="form-input form-name-input margin">
+                  <p style={{ padding: "15px" }}>Store Owner</p>
+                  <select
+                    value={storeOwner}
+                    onChange={handleSelectChange}
+                    className="form-dropdown"
+                  >
+                    <option value="" disabled>Select Store Owner</option>
+                    {storeKeepers.map(storeKeeper => (
+                      <option key={storeKeeper.userId} value={storeKeeper.firstName}>
+                        {storeKeeper.firstName} {storeKeeper.lastName}
+                      </option>
+                    ))}
+                  </select>
+
+                </div>
+
+                <div className="flex-inputs">
+                  <div className="form-input form-name-input margin">
+                    <label htmlFor="fileInput">
+
+                      {imageURL ? (
+                        <div className="form-input form-name-input ">
+                          <p>Store Logo</p>
+                          <img src={imageURL} alt="Uploaded" style={{ maxWidth: '200px' }} />
+                        </div>) :
+                        (
+                          <div>
+                            <p>Store Logo</p> <AiOutlineCloudUpload className="file-upload-logo" />
+                          </div>
+                        )}
+
+                      <input
+                        type="file"
+                        accept="image/*"
+                        capture="environment"
+                        id="fileInput"
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }}
+                      />
+                    </label>
+                  </div>
+                </div>
+                <div className="form-buttons margin">
+                  <button className="cancel-button" id="cancelButton" type="button" onClick={handleCancelButtonClick}><p>Cancel</p></button>
+                  <button className="create-new-button" id="createButton" type="submit"><p>{storeId ? "Update store" : "Create new store"}</p></button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div className="popup-body">
+      ) : userRole === "Store Keeper" ? (
+        <div className="storekeeper-container">
+          <ToastContainer/>
+          <div className="page-header-container">
+            <h1>Your Store Information</h1>
+          </div>
           <form onSubmit={handleSubmit}>
-            <div className="form-input form-name-input margin">
-              <label>Store name</label>
-              <input type="text" value={storeName} onChange={(e) => setStoreName(e.target.value)} required minLength={5} />
-
-            </div>
-            <div className="flex-inputs">
-              <div className="form-input other-form-inputs margin">
-                <label>Store Owner</label>
-                <input type="text" value={storeOwner} onChange={(e) => setStoreOwner(e.target.value)} required minLength={1} />
+            <div className="information-container">
+              <div className="leftside-information">
+                <div className="information-input">
+                  <label>Store name</label>
+                  <input type="text" value={storeName} onChange={(e) => setStoreName(e.target.value)} minLength={5} disabled />
+                </div>
+                <div className="information-input margin">
+                  <label>Store Owner</label>
+                  <input type="text" value={storeOwner} onChange={(e) => setStoreOwner(e.target.value)} minLength={1} disabled />
+                </div>
+                <div className="information-input margin">
+                  <label>Store Contact</label>
+                  <input type="text" value={storeContact} onChange={(e) => setStoreContact(e.target.value)} required />
+                </div>
               </div>
-              <div className="form-input other-form-inputs margin">
-                <label>Store Contact</label>
-                <input type="text" value={storeContact} onChange={(e) => setStoreContact(e.target.value)} required />
-              </div>
-            </div>
-            <div className="flex-inputs">
-              <div className="form-input form-name-input margin">
+              <div className="rightside-information">
                 <label htmlFor="fileInput">
 
                   {imageURL ? (
@@ -284,13 +442,12 @@ export default function Store() {
               </div>
             </div>
             <div className="form-buttons margin">
-              <button className="cancel-button" id="cancelButton" type="button" onClick={handleCancelButtonClick}><p>Cancel</p></button>
-              <button className="create-new-button" id="createButton" type="submit"><p>{storeId ? "Update store" : "Create new store"}</p></button>
+              <button className="create-new-button" id="createButton" type="submit"><p>{storeId ? "Update store" : "Create Store"}</p></button>
             </div>
           </form>
-
         </div>
-      </div>
+      ) : (<p></p>)}
+
     </div>
   );
 }

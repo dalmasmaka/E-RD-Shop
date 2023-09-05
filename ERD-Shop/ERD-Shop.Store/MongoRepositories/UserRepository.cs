@@ -47,6 +47,17 @@ namespace ERD_Shop.Store.MongoRepositories
             return _mapper.Map<ICollection<UserDto>>(user);
         }
 
+        public Task<UserDto> LoggedStoreKeeper(UserDto user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<UserDto>> StoreKeepers()
+        {
+            var storekeepers = await dbCollection.Find(user => user.Role == "store keeper" || user.Role == "Store Keeper").ToListAsync();
+            return _mapper.Map<ICollection<UserDto>>(storekeepers);
+        }
+
         public async Task<UserDto> UpdateUser(UserDto user)
         {
             if (user == null)

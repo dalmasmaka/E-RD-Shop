@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./ProductVariantDetails.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   AiOutlineHeart,
   AiOutlineShopping,
@@ -16,7 +18,7 @@ import {
   getVariantsInUserWishlist,
   getVariantsInUserShoppingCart,
 } from "../../API/Api";
-
+import Swal from "sweetalert2";
 import { BASE_URL } from "../../API/Api";
 
 const ProductVariantDetails = () => {
@@ -122,30 +124,54 @@ const ProductVariantDetails = () => {
       UserId: userId,
       ProductId: variant.productVariantId,
     };
-    const result = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(requestData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    window.location.reload();
+    try {
+      await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(requestData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      // Show Swal alert when wishlist is successfully updated
+      toast.success("The store has been updated!", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      window.location.reload();
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
   };
-
   const handleDeleteFromWishlist = async (variant) => {
     const url = `${BASE_URL}/WishlistManagement`;
     const requestData = {
       UserId: userId,
       ProductId: variant.productVariantId,
     };
-    await fetch(url, {
-      method: "DELETE",
-      body: JSON.stringify(requestData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    window.location.reload();
+    try {
+      await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(requestData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      // Show Swal alert when wishlist is successfully updated
+      Swal.fire({
+        icon: "success",
+        title: "Added to Shopping Cart",
+        showConfirmButton: false,
+        timer: 4000,
+      });
+      window.location.reload();
+    } catch (error) {
+      console.error("Error adding to shopping cart:", error);
+    }
   };
 
   const handleAddToShoppingCart = (variant) => {
@@ -161,6 +187,7 @@ const ProductVariantDetails = () => {
         "Content-Type": "application/json",
       },
     });
+
     window.location.reload();
   };
 
@@ -180,17 +207,6 @@ const ProductVariantDetails = () => {
     window.location.reload();
   };
 
-  const incrementCount = () => {
-    if (count < variant.stockQuantity) {
-      setCount((prevCount) => prevCount + 1);
-    }
-  };
-
-  const decrementCount = () => {
-    if (count > 0) {
-      setCount((prevCount) => prevCount - 1);
-    }
-  };
   useEffect(() => {
     const fetchRelevantVariants = async () => {
       const data = await getProductVariants();
@@ -220,21 +236,6 @@ const ProductVariantDetails = () => {
             Description:
             <span className="category-type"> {variant.shortDescription}</span>
           </p>
-          <div className="quantity">
-            <button
-              className="quantity-btn decrease-btn"
-              onClick={decrementCount}
-            >
-              <FaChevronLeft />
-            </button>
-            <span> {count} </span>
-            <button
-              className="quantity-btn increase-btn"
-              onClick={incrementCount}
-            >
-              <FaChevronRight />
-            </button>
-          </div>
           <button
             className="btn-flex-details btn-wishlist-details"
             onClick={() =>
@@ -257,7 +258,9 @@ const ProductVariantDetails = () => {
           </button>
         </div>
       </div>
-      <h1 className="tekst-varianti">Similar Products</h1>
+      {relevantVariants.length > 0 && (
+        <h1 className="tekst-varianti">Similar Products</h1>
+      )}
       <div className="category-products variante">
         {relevantVariants.map((productVariant) => (
           <div

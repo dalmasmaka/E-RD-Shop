@@ -11,6 +11,7 @@ const OrderPage = () => {
   const [showImage, setShowImage] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
   const testwishlist = [];
+  
 
   useEffect(() => {
     if (selectPaymentMethod !== 'option5') {
