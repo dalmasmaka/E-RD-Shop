@@ -34,14 +34,12 @@ const ProductVariantDetails = () => {
   };
   let { id } = useParams();
 
-
   useEffect(() => {
     const fetchVariantDetails = async () => {
       const data = await getProductVariant(id);
       setVariant(data.result);
     };
     fetchVariantDetails();
-
   }, [id]);
   useEffect(() => {
     if (localStorage.getItem("access-token") != undefined) {
@@ -124,7 +122,7 @@ const ProductVariantDetails = () => {
       UserId: userId,
       ProductId: variant.productVariantId,
     };
-   const result = await fetch(url, {
+    const result = await fetch(url, {
       method: "POST",
       body: JSON.stringify(requestData),
       headers: {
