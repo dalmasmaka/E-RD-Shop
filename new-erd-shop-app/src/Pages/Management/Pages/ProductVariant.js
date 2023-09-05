@@ -59,7 +59,6 @@ export default function ProductVariant() {
     useEffect(() => {
         if (localStorage.getItem("access-token") != undefined) {
             const userData = parseJwt(localStorage.getItem("access-token"));
-            console.log(userData)
             //we get the role og the logged in user
             setUserRole(
                 userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
@@ -71,71 +70,61 @@ export default function ProductVariant() {
         }
     }, [params]);
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await getStoreByStoreKeeper(loggedUserId);
-                const storeData = data.result;
-                setStoreOfStoreKeeper(storeData);
-                setStoreId(storeData.storeId);
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        };
-
-        fetchData();
-    }, [loggedUserId]);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await getProductsByStore(storeId);
-                const productData = data.result;
-                setStoreProducts(productData);
-                if (userRole === "Store Keeper") {
+        if (userRole === "Admin") {
+            // Retrieve product variants for Admin
+            getProductVariants()
+                .then(data => {
+                    setProductVariants(data.result);
                     setIsLoading(false);
+                })
+                .catch(error => {
+                    console.error('Error', error);
+                });
+        } else if (userRole === "Store Keeper") {
+            // Retrieve store data for Store Keeper
+            const fetchData = async () => {
+                try {
+                    const data = await getStoreByStoreKeeper(loggedUserId);
+                    const storeData = data.result;
+                    setStoreOfStoreKeeper(storeData);
+                    setStoreId(storeData.storeId);
+    
+                    // Retrieve products for Store Keeper
+                    const productData = await getProductsByStore(storeData.storeId);
+                    setStoreProducts(productData);
+                    setIsLoading(false);
+                } catch (error) {
+                    console.error('Error:', error);
                 }
-
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        };
-        fetchData();
-    }, [storeId]);
-    //variants of the specific store => function to filter the product variants based on storeProducts
+            };
+            fetchData();
+        }
+    }, [userRole, loggedUserId]);
+    
+    // Variants for Store Keeper should be calculated within the component, not at the top level
     const getVariantsForStore = () => {
         // Create a set of product IDs from storeProducts for efficient filtering
         const storeProductIds = new Set(storeProducts.map(product => product.productId));
-
+    
         // Filter the product variants to get those that match the store product IDs
         const variantsForStore = productVariants.filter(variant => storeProductIds.has(variant.productId));
-
+    
         return variantsForStore;
     };
-
+    
     // Call this function to get the variants for the current store
     const variantsForCurrentStore = getVariantsForStore();
-    //retrieving the product variants
-    useEffect(() => {
-        getProductVariants()
-            .then(data => {
-                setProductVariants(data.result);
-                if (userRole === "Admin") {
-                    setIsLoading(false);
-                }
-            })
-            .catch(error => {
-                console.error('Error', error);
-            })
-    }, []);
-    //retrieving the products
-    useEffect(() => {
-        getProducts()
-            .then(data => {
-                setProducts(data.result);
-            })
-            .catch(error => {
-                console.error('Error', error);
-            })
-    }, []);
+    
+        //retrieving the products
+        useEffect(() => {
+            getProducts()
+                .then(data => {
+                    setProducts(data.result);
+                })
+                .catch(error => {
+                    console.error('Error', error);
+                })
+        }, []);
     // DATATABLE 
     useEffect(() => {
         if (!dataTableRef.current && !isLoading) {

@@ -55,7 +55,6 @@ export default function Product() {
     useEffect(() => {
         if (localStorage.getItem("access-token") != undefined) {
             const userData = parseJwt(localStorage.getItem("access-token"));
-            console.log(userData)
             //we get the role og the logged in user
             setUserRole(
                 userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
@@ -67,36 +66,35 @@ export default function Product() {
         }
     }, [params]);
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await getStoreByStoreKeeper(loggedUserId);
-                const storeData = data.result;
-                setStoreOfStoreKeeper(storeData);
-                setStoreId(storeData.storeId);
-                setStoreName(storeData.storeName);
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        };
-
-        fetchData();
-    }, [loggedUserId]);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await getProductsByStore(storeId);
-                const productData = data.result;
-                setStoreProducts(productData);
-                if (userRole === "Store Keeper") {
+        if (userRole === "Admin") {
+            getProducts()
+                .then(data => {
+                    setProducts(data.result);
                     setIsLoading(false);
-                }
+                })
+                .catch(error => {
+                    console.error('Error', error);
+                });
+        }else if (userRole === "Store Keeper") {
+            const fetchData = async () => {
+                try {
+                    const data = await getStoreByStoreKeeper(loggedUserId);
+                    const storeData = data.result;
+                    setStoreOfStoreKeeper(storeData);
+                    setStoreId(storeData.storeId);
+                    setStoreName(storeData.storeName);
 
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        };
-        fetchData();
-    }, [storeId]);
+                    const pData = await getProductsByStore(storeId);
+                    const productData = pData.result;
+                    setStoreProducts(productData);
+                    setIsLoading(false);
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            };
+            fetchData();
+        }
+    }, [userRole, loggedUserId]);
 
     //retrieving stores
     useEffect(() => {
@@ -119,18 +117,7 @@ export default function Product() {
             });
     }, []);
     //retrieving the products
-    useEffect(() => {
-        getProducts()
-            .then(data => {
-                setProducts(data.result);
-                if (userRole === "Admin") {
-                    setIsLoading(false);
-                }
-            })
-            .catch(error => {
-                console.error('Error', error);
-            });
-    }, []);
+
 
     // DATATABLE 
     useEffect(() => {
@@ -367,9 +354,9 @@ export default function Product() {
                             {userRole === "Store Keeper" ? (
                                 <div className="form-input other-form-inputs margin">
                                     <label>Store name</label>
-                                    <input type="text" value={storeId} onChange={(e) => setStoreId(e.target.value)} style={{display:"none"}}/>
+                                    <input type="text" value={storeId} onChange={(e) => setStoreId(e.target.value)} style={{ display: "none" }} />
                                     <input type="text" value={storeName} onChange={(e) => setStoreName(e.target.value)} disabled />
-                                    
+
 
                                 </div>
                             ) : (
