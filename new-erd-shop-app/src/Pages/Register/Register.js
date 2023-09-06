@@ -39,8 +39,10 @@ export default function Register() {
 
   //This function deals with the role handling (so whether you're registering as a user or a storekeeper)
   useEffect(() => {
-    if (params.role === "user" || params.role === "storekeeper") {
+    if (params.role === "user") {
       setRole(params.role);
+    } else if (params.role === "storekeeper") {
+      setRole("store%20keeper");
     } else {
       throw Error(
         "The role you're trying to register as is not provided by ERD-Shop, please check again for any mistakes made."
@@ -144,7 +146,7 @@ export default function Register() {
         draggable: true,
         progress: undefined,
       });
-      return
+      return;
     }
     window.location.href = "/login";
   }
