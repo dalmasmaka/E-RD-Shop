@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import "../Components/Components.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -80,24 +80,31 @@ export default function ProductVariant() {
                 .catch(error => {
                     console.error('Error', error);
                 });
-        } else if (userRole === "Store Keeper") {
+        } else if (userRole === "Store Keeper" ) {
             // Retrieve store data for Store Keeper
             const fetchData = async () => {
                 try {
-                    const data = await getStoreByStoreKeeper(loggedUserId);
-                    const storeData = data.result;
-                    setStoreOfStoreKeeper(storeData);
-                    setStoreId(storeData.storeId);
-    
-                    // Retrieve products for Store Keeper
-                    const productData = await getProductsByStore(storeData.storeId);
-                    setStoreProducts(productData);
-                    setIsLoading(false);
+                  const data = await getStoreByStoreKeeper(loggedUserId);
+                  const storeData = data.result;
+                  setStoreOfStoreKeeper(storeData);
+                  setStoreId(storeData.storeId);
+              
+                  // Retrieve products for Store Keeper
+                  const doesStoreHasProducts = storeId === products.some(product => product.storeId)
+                    if(doesStoreHasProducts){
+                        const pData = await getProductsByStore(storeId);
+                        const productData = pData.result;
+                        setStoreProducts(productData);
+                        setIsLoading(false);
+                    }
+                  setIsLoading(false);
                 } catch (error) {
-                    console.error('Error:', error);
+                  console.error('Error:', error);
                 }
-            };
-            fetchData();
+              };
+              
+              fetchData();
+              
         }
     }, [userRole, loggedUserId]);
     

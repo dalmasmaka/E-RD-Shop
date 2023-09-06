@@ -92,7 +92,6 @@ const ShoppingCart = () => {
     const fetchWishlist = async () => {
       try {
         const data = await getVariantsInUserShoppingCart(userId);
-        console.log(data);
         const dataResult = data.Result.map(
           (variant) => variant.ProductVariantId
         );

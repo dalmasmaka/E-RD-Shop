@@ -28,7 +28,7 @@ export default function Category() {
     useEffect(() => {
       if (localStorage.getItem("access-token") != undefined) {
         const userData = parseJwt(localStorage.getItem("access-token"));
-        console.log(userData)
+
         //we get the role og the logged in user
         setUserRole(
           userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
@@ -176,7 +176,7 @@ export default function Category() {
                     categoryImg: imageURL,
                 };
                 const response = await editCategory(editedCategoryData);
-                console.log(response);
+             
                 toast.success('The category has been updated!', {
                     position: toast.POSITION.TOP_RIGHT,
                     autoClose: 3000,
@@ -192,7 +192,7 @@ export default function Category() {
                     categoryImg: imageURL,
                 }
                 const response = await postCategory(postCategoryData);
-                console.log(response)
+               
                 toast.success('The category has been created!', {
                     position: toast.POSITION.TOP_RIGHT,
                     autoClose: 3000,

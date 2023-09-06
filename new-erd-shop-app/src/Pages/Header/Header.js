@@ -12,30 +12,16 @@ import {
   NavLink,
   Routes,
 } from "react-router-dom";
+import { getStores } from "../../API/Api";
 
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
-  const [userRole, setUserRole] = useState();
-  const params = useParams();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (localStorage.getItem("access-token") != undefined) {
-      const userData = parseJwt(localStorage.getItem("access-token"));
-      setUserRole(
-        userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-      );
-    }
-  }, []);
-  useEffect(() => {
-    if (localStorage.getItem("access-token") != undefined) {
-      const userData = parseJwt(localStorage.getItem("access-token"));
-      setUserRole(
-        userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-      );
-    }
-  }, [params]);
-
+  const [userId, setUserId] = useState('');
+  const [userRole, setUserRole] = useState(null);
+  const [loggedUserId, setLoggedUserId] = useState(null);
+  const [params, setParams] = useState('');
+  const [stores, setStores] = useState([]);
   function parseJwt(token) {
     try {
       var base64Url = token.split(".")[1];
@@ -55,36 +41,82 @@ export default function Header() {
       console.error(error);
     }
   }
+  useEffect(() => {
+    getStores()
+      .then((data) => {
+        setStores(data.result);
+      })
+      .catch((error) => {
+        console.error('Error: ', error);
+      });
+
+
+    if (localStorage.getItem("access-token") != undefined) {
+      const userData = parseJwt(localStorage.getItem("access-token"));
+      //we get the role og the logged in user
+      setUserRole(
+        userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+      );
+      //we get the id of the logged in user
+      setLoggedUserId(
+        userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+      );
+    }
+
+  }, [userRole, loggedUserId]); // Add userRole and loggedUserId to the dependency array
+
+
   const handleLogout = () => {
-    localStorage.removeItem("access-token");
-    navigate("/login");
+    localStorage.removeItem('access-token');
+    navigate('/login');
   };
 
+  const isStoreKeeperOrAdmin =
+    userRole === "Admin" || (userRole === 'Store Keeper' &&
+      stores.some((store) => store.userId === loggedUserId));
+  
   return (
     <div className="header">
       <div className="flex-between">
-        <div className="flex">
-          <img className="logo-img" src={logoPic} alt="" />
-          {isMobile ? (
-            <div className="nav-links-mobile">
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-              <Link className="nav-link" to="/category">
-                Category
-              </Link>
-              {(userRole === "Admin" || userRole === "Store Keeper") ? (
+        {isStoreKeeperOrAdmin ? (
+          <div className="flex">
+            <div className="flex">
+              <img className="logo-img" src={logoPic} alt="" />
+              {isMobile ? (
+                <div className="nav-links-mobile">
+                  <Link className="nav-link" to="/">
+                    Home
+                  </Link>
+                  <Link className="nav-link" to="/category">
+                    Category
+                  </Link>
+                    <Link className="nav-link" to="/dashboard/statistics">
+                      Dashboard
+                    </Link>
+                  <div className="div-mobile">
+                    {localStorage.getItem("access-token") != null ? (
+                      <button className="nav-link icon" onClick={handleLogout}>
+                        Logout
+                      </button>
+                    ) : (
+                      <Link to="/login" className="nav-link icon">
+                        <BsPersonCircle />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <></>
+              )}
+              <div className="nav-links-desktop">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+                <Link className="nav-link" to="/category">
+                  Category
+                </Link>
                 <Link className="nav-link" to="/dashboard/statistics">
                   Dashboard
-                </Link>
-              ) : null}
-
-              <div className="div-mobile">
-                <Link className="nav-link icon" to="/wishlist">
-                  <AiOutlineHeart />
-                </Link>
-                <Link className="nav-link icon" to="/shoppingcart">
-                  <AiOutlineShopping />
                 </Link>
                 {localStorage.getItem("access-token") != null ? (
                   <button className="nav-link icon" onClick={handleLogout}>
@@ -92,44 +124,71 @@ export default function Header() {
                   </button>
                 ) : (
                   <Link to="/login" className="nav-link icon">
-                    <BsPersonCircle />
+                    Login
                   </Link>
                 )}
               </div>
             </div>
-          ) : (
-            <></>
-          )}
-          <div className="nav-links-desktop">
-            <Link className="nav-link" to="/">
-              Home
-            </Link>
-            <Link className="nav-link" to="/category">
-              Category
-            </Link>
-            {(userRole === "Admin" || userRole === "Store Keeper") ? (
-              <Link className="nav-link" to="/dashboard/statistics">
-                Dashboard
-              </Link>
-            ) : null}
-
-            <Link className="nav-link icon" to="/wishlist">
-              <AiOutlineHeart />
-            </Link>
-            <Link className="nav-link icon" to="/shoppingcart">
-              <AiOutlineShopping />
-            </Link>
-            {localStorage.getItem("access-token") != null ? (
-              <button className="nav-link icon" onClick={handleLogout}>
-                Logout
-              </button>
-            ) : (
-              <Link to="/login" className="nav-link icon">
-                Login
-              </Link>
-            )}
           </div>
-        </div>
+        ) : (
+          <div className="flex">
+            <img className="logo-img" src={logoPic} alt="" />
+            {isMobile ? (
+              <div className="nav-links-mobile">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+                <Link className="nav-link" to="/category">
+                  Category
+                </Link>
+                <div className="div-mobile">
+                  <Link className="nav-link icon" to="/wishlist">
+                    <AiOutlineHeart />
+                  </Link>
+                  <Link className="nav-link icon" to="/shoppingcart">
+                    <AiOutlineShopping />
+                  </Link>
+                  {localStorage.getItem("access-token") != null ? (
+                    <button className="nav-link icon" onClick={handleLogout}>
+                      Logout
+                    </button>
+                  ) : (
+                    <Link to="/login" className="nav-link icon">
+                      <BsPersonCircle />
+                    </Link>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
+            <div className="nav-links-desktop">
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
+              <Link className="nav-link" to="/category">
+                Category
+              </Link>
+
+
+              <Link className="nav-link icon" to="/wishlist">
+                <AiOutlineHeart />
+              </Link>
+              <Link className="nav-link icon" to="/shoppingcart">
+                <AiOutlineShopping />
+              </Link>
+              {localStorage.getItem("access-token") != null ? (
+                <button className="nav-link icon" onClick={handleLogout}>
+                  Logout
+                </button>
+              ) : (
+                <Link to="/login" className="nav-link icon">
+                  Login
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
         <button
           className="mobile-menu-icon"
           onClick={() => setIsMobile(!isMobile)}
