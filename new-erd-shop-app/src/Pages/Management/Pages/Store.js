@@ -177,7 +177,6 @@ export default function Store() {
       setUserId(storeData.result.userId);
       setShowPopUpForm(true);
     }
-
     catch (error) {
       console.error('Error fetching store data:', error);
     }
@@ -246,10 +245,10 @@ export default function Store() {
           storeOwner,
           storeContact,
           storeImg: imageURL,
-          userId
+          userId,
         };
         const response = await editStore(editedStoreData);
-        console.log(response);
+
         toast.success('The store has been updated!', {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 3000,
@@ -265,9 +264,9 @@ export default function Store() {
           storeOwner,
           storeContact,
           storeImg: imageURL,
-          userId
+          userId,
         });
-        console.log(response)
+
         toast.success('The store has been created!', {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 3000, // Close the toast automatically after 3000 milliseconds (3 seconds)

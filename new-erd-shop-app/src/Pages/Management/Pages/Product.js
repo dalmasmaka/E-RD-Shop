@@ -28,7 +28,7 @@ export default function Product() {
     const [storeId, setStoreId] = useState('');
     const [categoryId, setCategoryId] = useState('');
     const [params, setParams] = useState('');
-    const [userRole, setUserRole] = useState('');
+    const [userRole, setUserRole] = useState(null);
     const [storeOfStoreKeeper, setStoreOfStoreKeeper] = useState('');
     const [storeProducts, setStoreProducts] = useState([]);
     const [loggedUserId, setLoggedUserId] = useState('');
@@ -52,6 +52,7 @@ export default function Product() {
             console.error(error);
         }
     }
+
     useEffect(() => {
         if (localStorage.getItem("access-token") != undefined) {
             const userData = parseJwt(localStorage.getItem("access-token"));
@@ -83,10 +84,12 @@ export default function Product() {
                     setStoreOfStoreKeeper(storeData);
                     setStoreId(storeData.storeId);
                     setStoreName(storeData.storeName);
-
-                    const pData = await getProductsByStore(storeId);
-                    const productData = pData.result;
-                    setStoreProducts(productData);
+                    const doesStoreHasProducts = storeId === products.some(product => product.storeId)
+                    if(doesStoreHasProducts){
+                        const pData = await getProductsByStore(storeId);
+                        const productData = pData.result;
+                        setStoreProducts(productData);
+                    }
                     setIsLoading(false);
                 } catch (error) {
                     console.error('Error:', error);
@@ -94,7 +97,7 @@ export default function Product() {
             };
             fetchData();
         }
-    }, [userRole, loggedUserId]);
+    }, [userRole, loggedUserId, storeId]);
 
     //retrieving stores
     useEffect(() => {

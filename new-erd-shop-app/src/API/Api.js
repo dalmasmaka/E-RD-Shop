@@ -198,24 +198,32 @@ export async function getStoreByStoreKeeper(userId){
     throw error;
   }
 }
-export async function getProductsByStore(storeId){
-  try{
+export async function getProductsByStore(storeId) {
+  try {
     const response = await fetch(`${BASE_URL}/Product/StoreProducts/${storeId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
     });
-    if(!response.ok){
+    
+    if (!response.ok) {
       throw new Error('Network response was not okay');
     }
-    return response.json();
-  }
-  catch(error){
+    
+    const data = await response.json();
+
+    if (!data.isSuccess) {
+      throw new Error(data.Result); 
+    }
+
+    return data.Result;
+  } catch (error) {
     console.error('Error:', error);
     throw error;
   }
 }
+
 export async function deleteStore(id) {
   try {
     const response = await fetch(`${BASE_URL}/Store/${id}`, {

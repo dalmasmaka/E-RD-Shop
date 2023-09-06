@@ -91,16 +91,29 @@ namespace ERD_Shop.Store.Controllers
             try
             {
                 var result = await _productRepository.GetProductsByStore(storeId);
-                _response.isSuccess = true;
-                _response.Result = result;
+
+                if (result.Count == 0)
+                {
+                    _response.isSuccess = false;
+                    _response.Result =  "No products found for the given storeId." ;
+                }
+                else
+                {
+
+                    _response.isSuccess = true;
+                    _response.Result = result;
+                }
             }
             catch (Exception ex)
             {
+                // Handle any other exceptions that may occur
                 _response.isSuccess = false;
                 _response.ErrorMessage = new List<string>() { ex.ToString() };
             }
+
             return _response;
         }
+
         [HttpPost]
         public async Task<ResponseDto> CreateAsync([FromBody]ProductDto product)
         {

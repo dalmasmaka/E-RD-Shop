@@ -83,7 +83,6 @@ const Wishlist = () => {
   };
 
   const taketoShoppingCart = (variant) => {
-    console.log(userId)
     const url = `${BASE_URL}/ShoppingCartManagement`;
     const requestData = {
       UserId: userId,
@@ -103,7 +102,6 @@ const Wishlist = () => {
     const fetchWishlist = async () => {
       try{
         const data = await getVariantsInUserWishlist(userId);
-        console.log(data);
         const dataResult = data.Result.map(variant => variant.ProductVariantId);
         const productVariants = await getProductVariants();
         const filterProductVariants = productVariants.result.filter(variant => dataResult.includes(variant.productVariantId))

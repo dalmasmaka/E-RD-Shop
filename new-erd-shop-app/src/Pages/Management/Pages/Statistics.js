@@ -71,7 +71,7 @@ export default function Statistics() {
           );
           const topTenProductsByCategoryData = await getProductsCountByCategory();
           setTopTenProductsByCategory(topTenProductsByCategoryData.result);
-          console.log(topTenProductsByCategory)
+        
         } catch (error) {
           console.error("Error fetching data:", error);
         }
