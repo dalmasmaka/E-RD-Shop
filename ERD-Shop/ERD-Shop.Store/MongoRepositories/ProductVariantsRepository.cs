@@ -72,24 +72,8 @@ namespace ERD_Shop.Store.MongoRepositories
             return _mapper.Map<ProductVariantDto>(productVariant);
         }
 
-        public async Task<Dictionary<string, int>> GetProducatVariantCount()
-        {
-            Dictionary<string, int> productCount = new Dictionary<string, int>();
-            var productVariants = await dbCollection.Find(filterBuilder.Empty).ToListAsync();
-            foreach( var productVariant in productVariants ) {
-                string product = productVariant.ProductName;
-                if(productCount.ContainsKey(product))
-                {
-                    productCount[product]++;
-                }
-                else
-                {
-                    productCount[product] =1;
-                }
+ 
 
-            }
-            return productCount;
-        }
         public async Task<List<ProductVariant>> GetTopTenMostExpensiveVariants()
         {
             var sort = Builders<ProductVariant>.Sort.Descending(x => x.Price);
@@ -125,6 +109,12 @@ namespace ERD_Shop.Store.MongoRepositories
                 .Set(existingProductVariant => existingProductVariant.ProductId, productVariant.ProductId);
             await dbCollection.UpdateOneAsync(filter, update);
             return productVariant;
+        }
+
+        public async Task<int> GetProductVariantCount()
+        {
+            var count = await dbCollection.CountDocumentsAsync(_ => true);
+            return (int)count;
         }
     }
 }

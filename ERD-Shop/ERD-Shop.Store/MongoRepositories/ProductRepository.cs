@@ -18,13 +18,14 @@ namespace ERD_Shop.Store.MongoRepositories
         private readonly IMapper _mapper;
         private readonly IMongoDatabase _database;
         private readonly IProductVariantRepository _productVariantRepository;
-        private readonly ICategoryRepository ICategoryRepository;
-        public ProductRepository(IMapper mapper, IMongoDatabase database, IProductVariantRepository productVariantRepository)
+        private readonly ICategoryRepository _categoryRepository;
+        public ProductRepository(IMapper mapper, IMongoDatabase database, IProductVariantRepository productVariantRepository, ICategoryRepository categoryRepository)
         {
             _database = database;
             _mapper = mapper;
             dbCollection = database.GetCollection<Product>(collectionName);
             _productVariantRepository = productVariantRepository;
+            _categoryRepository= categoryRepository;
         }
         private static int GetNextSequenceValue(IMongoDatabase database, string collectionName)
         {
@@ -40,73 +41,51 @@ namespace ERD_Shop.Store.MongoRepositories
             var result = countersCollection.FindOneAndUpdate(filter, update, options);
             return result["seq"].AsInt32;
         }
-        //public async Task<Dictionary<string, List<Product>>> Top10ProductsByCategory()
-        //{
-        //    Dictionary<string, List<Product>> topProductsByCategory = new Dictionary<string, List<Product>>();
-
-        //    // Retrieve all products from the database
-        //    var products = await dbCollection.Find(filterBuilder.Empty).ToListAsync();
-
-        //    // Group products by category
-        //    var groupedProducts = products.GroupBy(p => p.CategoryId.ToString());
-
-        //    // Iterate over each category
-        //    foreach (var group in groupedProducts)
-        //    {
-        //        string category = group.Key;
-
-        //        // Order products within the category by the number of occurrences
-        //        var sortedProducts = group.OrderByDescending(p => group.Count()).Take(10).ToList();
-
-        //        // Add the top 10 products to the dictionary
-        //        topProductsByCategory[category] = sortedProducts;
-        //    }
-
-        //    return topProductsByCategory;
-        //}
-
-        public async Task<Dictionary<string, CategoryInfo>> Top10ProductsByCategory()
+        public async Task<Dictionary<int, CategoryInfo>> Top10ProductsByCategory()
         {
-            Dictionary<string, CategoryInfo> topProductsByCategory = new Dictionary<string, CategoryInfo>();
+            Dictionary<int, CategoryInfo> topProductsByCategory = new Dictionary<int, CategoryInfo>();
 
             // Retrieve all products from the database
             var products = await dbCollection.Find(filterBuilder.Empty).ToListAsync();
 
             // Group products by category
-            var groupedProducts = products.GroupBy(p => p.CategoryId.ToString());
+            var groupedProducts = products.GroupBy(p => p.CategoryId);
 
             // Iterate over each category
             foreach (var group in groupedProducts)
             {
-                string categoryId = group.Key;
+                int? categoryIdNullable = group.Key; // Use nullable int
 
-                // Get the category name for the current category ID
-                var category = await GetCategoryName(categoryId);
-
-                // Order products within the category by the number of occurrences
-                var sortedProducts = group.OrderByDescending(p => group.Count()).Take(10).ToList();
-
-                // Create a CategoryInfo object to store the category ID, category name, and count
-                var categoryInfo = new CategoryInfo
+                if (categoryIdNullable.HasValue)
                 {
-                    CategoryId = int.Parse(categoryId),
-                    CategoryName = category.CategoryName,
-                    Count = sortedProducts.Count
-                };
+                    int categoryId = categoryIdNullable.Value; // Extract the value
 
-                // Add the top 10 products to the dictionary
-                topProductsByCategory[categoryId] = categoryInfo;
+                    //// Get the category name for the current category ID
+                    var category = await _categoryRepository.GetCategoryName(categoryId);
+
+                    // Order products within the category by the number of occurrences
+                    var sortedProducts = group.OrderByDescending(p => group.Count()).Take(10).ToList();
+
+                    // Create a CategoryInfo object to store the category ID, category name, and count
+                    var categoryInfo = new CategoryInfo
+                    {
+                        CategoryId = categoryId,
+                        CategoryName = category.CategoryName,
+                        Count = sortedProducts.Count
+                    };
+
+                    // Add the top 10 products to the dictionary
+                    topProductsByCategory[categoryId] = categoryInfo;
+                }
+                else
+                {
+                    // Handle the case where CategoryId is null (if needed)
+                }
             }
 
             return topProductsByCategory;
         }
 
-        private async Task<Category> GetCategoryName(string categoryId)
-        {
-            // Retrieve the category with the specified ID from the database
-            var category = await categorydbCollection.Find(c => c.CategoryId.ToString() == categoryId).FirstOrDefaultAsync();
-            return category;
-        }
 
 
         public async Task<ProductDto> CreateAsync([FromBody]ProductDto productDto)
@@ -171,6 +150,12 @@ namespace ERD_Shop.Store.MongoRepositories
             var filter = Builders<Product>.Filter.Eq(p => p.StoreId, storeId);
             var products = await dbCollection.Find(filter).ToListAsync();
             return _mapper.Map<ICollection<ProductDto>>(products);
+        }
+
+        public async Task<int> GetProductsCount()
+        {
+            var count = await dbCollection.CountDocumentsAsync(_ => true);
+            return (int)count;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ERD_Shop.Store.MongoRepositories.Interface
         Task<ProductVariantDto> CreateAsync(ProductVariantDto productVariant);
         Task<ProductVariantDto> UpdateAsync(ProductVariantDto productVariant);
         Task<ProductVariantDto> DeleteAsync(int id);
-        Task<Dictionary<string, int>> GetProducatVariantCount();
+        Task<int> GetProductVariantCount();
         Task<List<ProductVariant>> GetTopTenMostExpensiveVariants();
 
 

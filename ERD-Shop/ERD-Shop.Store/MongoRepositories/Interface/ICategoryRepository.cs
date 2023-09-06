@@ -9,6 +9,8 @@ namespace ERD_Shop.Store.MongoRepositories.Interface
     {
         Task<ICollection<CategoryDto>> GetAllAsync();
         Task<CategoryDto> GetAsync(int id);
+        Task<int> GetCategoriesCount();
+        Task<Category> GetCategoryName(int categoryId);
         Task<CategoryDto> CreateAsync(CategoryDto category);
         Task<CategoryDto> UpdateAsync(CategoryDto category);
         Task<CategoryDto> DeleteAsync(int id);

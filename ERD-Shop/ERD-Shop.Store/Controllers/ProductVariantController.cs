@@ -40,12 +40,12 @@ namespace ERD_Shop.Store.Controllers
             return _response;
         }
         [HttpGet]
-        [Route("GetProductVariantCount")]
-        public async Task<ResponseDto> GetProducatVariantCount()
+        [Route("ProductVariantCount")]
+        public async Task<ResponseDto> GetProductVariantCount()
         {
             try
             {
-                var result = await _productVariantRepository.GetProducatVariantCount();
+                var result = await _productVariantRepository.GetProductVariantCount();
                 _response.isSuccess = true;
                 _response.Result = result;
             }

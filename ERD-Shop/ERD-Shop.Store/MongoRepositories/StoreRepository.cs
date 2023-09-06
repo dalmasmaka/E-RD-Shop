@@ -80,6 +80,11 @@ namespace ERD_Shop.Store.MongoRepositories
             return _mapper.Map<StoreDto>(store);
         }
 
+        public async Task<int> GetStoresCount()
+        {
+            var count = await dbCollection.CountDocumentsAsync(_ => true);
+            return (int)count;
+        }
 
         public async Task<StoreDto> UpdateAsync(StoreDto store)
         {
