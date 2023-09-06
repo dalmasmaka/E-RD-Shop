@@ -388,3 +388,34 @@ svg.file-upload-logo {
 .rightside-information{
     right: 50%;
 }
+/* Statistics page */
+.header-statistics {
+    display: flex;
+    justify-content: space-around;
+}
+
+.inner-element{
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-transform: uppercase;
+    text-align: center;
+}
+p.counter {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 5%;
+   
+}
+.inner-element {
+    padding: 10px;
+    width: 20%;
+    border: 1px solid rgba(153, 82, 0, 0.245) !important;
+    border-radius: 30px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.body-statistics{
+    padding: 5%;
+}
+#chart2{
+    margin-top: 5%;
+}

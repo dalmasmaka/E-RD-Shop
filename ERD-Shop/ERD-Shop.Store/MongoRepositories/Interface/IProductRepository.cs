@@ -10,7 +10,7 @@ namespace ERD_Shop.Store.MongoRepositories.Interface
         Task<ProductDto> CreateAsync(ProductDto productDto);
         Task<ProductDto> UpdateAsync(ProductDto productDto);
         Task<ProductDto> DeleteAsync(int id);
-        Task<Dictionary<string, CategoryInfo>> Top10ProductsByCategory();
-        //Task<Category> GetCategoryName(string categoryId);
+        Task<Dictionary<int, CategoryInfo>> Top10ProductsByCategory();
+        Task<int> GetProductsCount();
     }
 }

@@ -7,6 +7,7 @@ import Category from "../Pages/Category";
 import Product from "../Pages/Product";
 import ProductVariant from "../Pages/ProductVariant";
 import Order from "../Pages/Order";
+import Statistics from "../Pages/Statistics";
 
 export default function Dashboard() {
   return (
@@ -16,6 +17,7 @@ export default function Dashboard() {
       </div>
       <div className="sidebar-pages-container">
         <Routes>
+          <Route path="statistics" element={<Statistics/>}/>
           <Route path="store" element={<Store />} />
           <Route path='category' element={<Category/>} />
           <Route path='product' element={<Product/>} />

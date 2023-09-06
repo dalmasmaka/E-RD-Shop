@@ -84,25 +84,28 @@ export default function Store() {
       })
   }, []);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getStoreByStoreKeeper(loggedUserId);
-        const storeData = data.result;
-        setStoreOfStoreKeeper(storeData);
-        setStoreId(storeData.storeId);
-        setStoreName(storeData.storeName);
-        setStoreOwner(storeData.storeOwner);
-        setStoreContact(storeData.storeContact);
-        setImageURL(storeData.storeImg);
-        localStorage.setItem('storeOfStoreKeeper', JSON.stringify(storeData));
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-  
-    fetchData();
+    if (userRole === "Store Keeper") {
+      const fetchData = async () => {
+        try {
+          const data = await getStoreByStoreKeeper(loggedUserId);
+          const storeData = data.result;
+          setStoreOfStoreKeeper(storeData);
+          setStoreId(storeData.storeId);
+          setStoreName(storeData.storeName);
+          setStoreOwner(storeData.storeOwner);
+          setStoreContact(storeData.storeContact);
+          setImageURL(storeData.storeImg);
+          localStorage.setItem('storeOfStoreKeeper', JSON.stringify(storeData));
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+
+      fetchData();
+    }
+
   }, [loggedUserId]);
-  
+
 
   // DATATABLE 
   useEffect(() => {
@@ -396,7 +399,7 @@ export default function Store() {
         </div>
       ) : userRole === "Store Keeper" ? (
         <div className="storekeeper-container">
-          <ToastContainer/>
+          <ToastContainer />
           <div className="page-header-container">
             <h1>Your Store Information</h1>
           </div>

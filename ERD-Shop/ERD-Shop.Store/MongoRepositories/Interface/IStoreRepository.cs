@@ -7,6 +7,7 @@ namespace ERD_Shop.Store.MongoRepositories.Interface
     {
         Task<ICollection<StoreDto>> GetAllAsync();
         Task<StoreDto> GetAsync(int id);
+        Task<int> GetStoresCount();
         Task<StoreDto> GetStoreByStoreKeeper(string userId);
         Task<StoreDto> CreateAsync(StoreDto store);
         Task<StoreDto> UpdateAsync(StoreDto store);

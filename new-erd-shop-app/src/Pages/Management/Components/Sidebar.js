@@ -7,7 +7,7 @@ export default function Sidebar(){
         <div className="sidebar-content">
             <div className="sidebar-inner-content">
                 <ul>
-                    <h2 className="shop-name">ERD Shop Management</h2>
+                    <Link to="statistics"><h2 className="shop-name">ERD Shop Management</h2></Link>
                     <li>
                         <Link to="store"> Store Configuration</Link>
                     </li>

@@ -74,7 +74,7 @@ export default function Header() {
                 Category
               </Link>
               {(userRole === "Admin" || userRole === "Store Keeper") ? (
-                <Link className="nav-link" to="/dashboard">
+                <Link className="nav-link" to="/dashboard/statistics">
                   Dashboard
                 </Link>
               ) : null}
@@ -108,7 +108,7 @@ export default function Header() {
               Category
             </Link>
             {(userRole === "Admin" || userRole === "Store Keeper") ? (
-              <Link className="nav-link" to="/dashboard">
+              <Link className="nav-link" to="/dashboard/statistics">
                 Dashboard
               </Link>
             ) : null}

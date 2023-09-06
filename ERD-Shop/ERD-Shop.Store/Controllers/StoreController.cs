@@ -115,6 +115,23 @@ namespace ERD_Shop.Store.Controllers
             }
             return _response;
         }
+        [HttpGet]
+        [Route("StoresCount")]
+        public async Task<ResponseDto> StoresCount()
+        {
+            try
+            {
+                var result = await _storeRepository.GetStoresCount();
+                _response.isSuccess = true;
+                _response.Result = result;
+
+            }catch(Exception ex)
+            {
+                _response.isSuccess = false;
+                _response.ErrorMessage = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
     }
 }
     

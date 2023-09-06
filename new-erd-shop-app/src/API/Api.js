@@ -1,3 +1,5 @@
+import { error } from "jquery";
+
 export const BASE_URL = "https://localhost:5000/api";
 
 
@@ -107,6 +109,18 @@ export function getStores() {
     .catch((error) => {
       console.error("Error:", error);
     });
+}
+export function getStoresCount(){
+  return fetch(`${BASE_URL}/Store/StoresCount`)
+  .then((response) => {
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  })
 }
 export async function postStore(storeData) {
   try {
@@ -257,6 +271,18 @@ export async function getCategories() {
       console.error("Error:", error);
     });
 }
+export async function getCategoriesCount(){
+  return fetch(`${BASE_URL}/Category/CategoriesCount`)
+  .then((response) => {
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    console.error("Error: ", error);
+  })
+}
 export async function postCategory(categoryData) {
   try {
     const response = await fetch(`${BASE_URL}/Category`, {
@@ -346,6 +372,30 @@ export async function getProducts() {
       console.error("Error:", error);
     });
 }
+export async function getProductsCount(){
+  return fetch(`${BASE_URL}/Product/ProductsCount`)
+  .then((response) => {
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+}
+export async function getProductsCountByCategory(){
+  return fetch(`${BASE_URL}/Product/Top10ProductsByCategory`)
+  .then((response) => {
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+}
 export async function postProduct(productData) {
   try {
     const response = await fetch(`${BASE_URL}/Product`, {
@@ -432,6 +482,31 @@ export function getProductVariants() {
       console.error("Error:", error);
     });
 }
+export function getVariantsCount(){
+  return fetch(`${BASE_URL}/ProductVariant/ProductVariantCount`)
+  .then((response) => {
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .catch((error)=> {
+    console.error("Error: ", error);
+  })
+}
+export function get10MostExpensiveVariants(){
+  return fetch(`${BASE_URL}/ProductVariant/GetTopTenMostExpensiveVariants`)
+  .then((response) => {
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .catch((error)=> {
+    console.error("Error: ", error);
+  })
+}
+
 export async function postProductVariant(productVariantData) {
   try {
     const response = await fetch(`${BASE_URL}/ProductVariant`, {

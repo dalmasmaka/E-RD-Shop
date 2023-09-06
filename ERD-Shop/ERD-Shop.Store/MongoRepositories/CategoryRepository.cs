@@ -81,5 +81,17 @@ namespace ERD_Shop.Store.MongoRepositories
             await dbCollection.DeleteOneAsync(filter);
             return _mapper.Map<CategoryDto>(category);
         }
+
+        public async Task<int> GetCategoriesCount()
+        {
+            var count = await dbCollection.CountDocumentsAsync(_ => true);
+            return (int)count;
+        }
+        public async Task<Category> GetCategoryName(int categoryId)
+        {
+            // Retrieve the category with the specified ID from the database
+            var category = await dbCollection.Find(c => c.CategoryId == categoryId).FirstOrDefaultAsync();
+            return category;
+        }
     }
 }
