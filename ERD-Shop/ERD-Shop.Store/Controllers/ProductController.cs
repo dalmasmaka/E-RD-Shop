@@ -36,12 +36,29 @@ namespace ERD_Shop.Store.Controllers
             return _response;
         }
         [HttpGet]
-        [Route("ProductsSUM")]
-        public async Task<ResponseDto> GetProductsCount()
+        [Route("Top10ProductsByCategory")]
+        public async Task<ResponseDto> Top10ProductsByCategory()
         {
             try
             {
                 var result = await _productRepository.Top10ProductsByCategory();
+                _response.isSuccess = true;
+                _response.Result = result;
+            }
+            catch (Exception ex)
+            {
+                _response.isSuccess = false;
+                _response.ErrorMessage = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+        [HttpGet]
+        [Route("ProductsCount")]
+        public async Task<ResponseDto> GetProductsCount()
+        {
+            try
+            {
+                var result = await _productRepository.GetProductsCount();
                 _response.isSuccess = true;
                 _response.Result = result;
             }

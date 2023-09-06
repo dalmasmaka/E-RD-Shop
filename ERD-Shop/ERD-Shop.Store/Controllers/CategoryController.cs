@@ -33,6 +33,23 @@ namespace ERD_Shop.Store.Controllers
             }
             return _response;
         }
+        [HttpGet]
+        [Route("CategoriesCount")]
+        public async Task<ResponseDto> GetCategoriesCount()
+        {
+            try
+            {
+                var result = await _categoryRepository.GetCategoriesCount();
+                _response.isSuccess = true;
+                _response.Result = result;
+            }
+            catch (Exception ex)
+            {
+                _response.isSuccess = false;
+                _response.ErrorMessage = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
         [HttpGet("{id}")]
         public async Task<ResponseDto> GetAsync(int id) {
             try
