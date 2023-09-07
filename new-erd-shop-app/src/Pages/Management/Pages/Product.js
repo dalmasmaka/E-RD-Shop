@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../Components/Components.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import $ from "jquery";
 import "datatables.net"; // Import only the main DataTables library
 import "datatables.net-buttons"; // Import the Buttons extension
@@ -9,432 +9,528 @@ import "datatables.net-buttons/js/buttons.html5"; // Import the HTML5 export but
 import "datatables.net-buttons/js/buttons.print"; // Import the Print button
 import "datatables.net-dt/css/jquery.dataTables.css"; // Import the DataTables core CSS
 import "datatables.net-buttons-dt/css/buttons.dataTables.css"; // Import the Buttons extension CSS
-import { deleteProduct, editProduct, getProduct, getProducts, postProduct, getStores, getCategories, getProductsByStore, getStoreByStoreKeeper } from "../../../API/Api";
+import {
+  deleteProduct,
+  editProduct,
+  getProduct,
+  getProducts,
+  postProduct,
+  getStores,
+  getCategories,
+  getProductsByStore,
+  getStoreByStoreKeeper,
+} from "../../../API/Api";
 import { AiOutlineCloudUpload, AiOutlineEdit } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 export default function Product() {
-    const dataTableRef = useRef(null);
-    const [stores, setStores] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true); // Add a loading state
-    const [imageURL, setImageURL] = useState(null); // Retrieves the uploaded image
-    const [showPopUpForm, setShowPopUpForm] = useState(false);
-    const [productId, setProductId] = useState('');
-    const [productName, setProductName] = useState('');
-    const [isTransportable, setIsTransportable] = useState(false);
-    const [storeId, setStoreId] = useState('');
-    const [categoryId, setCategoryId] = useState('');
-    const [params, setParams] = useState('');
-    const [userRole, setUserRole] = useState(null);
-    const [storeOfStoreKeeper, setStoreOfStoreKeeper] = useState('');
-    const [storeProducts, setStoreProducts] = useState([]);
-    const [loggedUserId, setLoggedUserId] = useState('');
-    const [storeName, setStoreName] = useState('');
-    function parseJwt(token) {
-        try {
-            var base64Url = token.split(".")[1];
-            var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-            var jsonPayload = decodeURIComponent(
-                window
-                    .atob(base64)
-                    .split("")
-                    .map(function (c) {
-                        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-                    })
-                    .join("")
-            );
+  const dataTableRef = useRef(null);
+  const [stores, setStores] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Add a loading state
+  const [imageURL, setImageURL] = useState(null); // Retrieves the uploaded image
+  const [showPopUpForm, setShowPopUpForm] = useState(false);
+  const [productId, setProductId] = useState("");
+  const [productName, setProductName] = useState("");
+  const [isTransportable, setIsTransportable] = useState(false);
+  const [storeId, setStoreId] = useState("");
+  const [categoryId, setCategoryId] = useState("");
+  const [params, setParams] = useState("");
+  const [userRole, setUserRole] = useState(null);
+  const [storeOfStoreKeeper, setStoreOfStoreKeeper] = useState("");
+  const [storeProducts, setStoreProducts] = useState([]);
+  const [loggedUserId, setLoggedUserId] = useState("");
+  const [storeName, setStoreName] = useState("");
+  function parseJwt(token) {
+    try {
+      var base64Url = token.split(".")[1];
+      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var jsonPayload = decodeURIComponent(
+        window
+          .atob(base64)
+          .split("")
+          .map(function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
 
-            return JSON.parse(jsonPayload);
-        } catch (error) {
-            console.error(error);
-        }
+      return JSON.parse(jsonPayload);
+    } catch (error) {
+      console.error(error);
     }
+  }
 
-    useEffect(() => {
-        if (localStorage.getItem("access-token") != undefined) {
-            const userData = parseJwt(localStorage.getItem("access-token"));
-            //we get the role og the logged in user
-            setUserRole(
-                userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-            );
-            //we get the id of the logged in user
-            setLoggedUserId(
-                userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
-            );
-        }
-    }, [params]);
-    useEffect(() => {
-        if (userRole === "Admin") {
-            getProducts()
-                .then(data => {
-                    setProducts(data.result);
-                    setIsLoading(false);
-                })
-                .catch(error => {
-                    console.error('Error', error);
-                });
-        }else if (userRole === "Store Keeper") {
-            const fetchData = async () => {
-                try {
-                    const data = await getStoreByStoreKeeper(loggedUserId);
-                    const storeData = data.result;
-                    setStoreOfStoreKeeper(storeData);
-                    setStoreId(storeData.storeId);
-                    setStoreName(storeData.storeName);
-                    const doesStoreHasProducts = storeId === products.some(product => product.storeId)
-                    if(doesStoreHasProducts){
-                        const pData = await getProductsByStore(storeId);
-                        const productData = pData.result;
-                        setStoreProducts(productData);
-                    }
-                    setIsLoading(false);
-                } catch (error) {
-                    console.error('Error:', error);
-                }
-            };
-            fetchData();
-        }
-    }, [userRole, loggedUserId, storeId]);
-
-    //retrieving stores
-    useEffect(() => {
-        getStores()
-            .then(data => {
-                setStores(data.result);
-            })
-            .catch(error => {
-                console.error('Error: ', error);
-            });
-    }, []);
-    //retrieving the categories 
-    useEffect(() => {
-        getCategories()
-            .then(data => {
-                setCategories(data.result);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }, []);
-    //retrieving the products
-
-
-    // DATATABLE 
-    useEffect(() => {
-        if (!dataTableRef.current && !isLoading) {
-            // DataTable initialization when the component mounts and data is available
-            dataTableRef.current = $('#datatable').DataTable({
-                dom: '<"dt-buttons"Bf><"clear">lirtp',
-                paging: true,
-                autoWidth: true,
-                buttons: [
-                    'colvis',
-                    'copyHtml5',
-                    'csvHtml5',
-                    'excelHtml5',
-                    'pdfHtml5',
-                    'print'
-                ],
-            });
-        }
-    }, [isLoading]);
-    // IMAGE HANDLER
-    const handleFileChange = (event) => { // this function reads the file and sets the imageURL state with the data URL
-        const selectedImage = event.target.files[0];
-        if (selectedImage) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setImageURL(reader.result);
-            };
-            reader.readAsDataURL(selectedImage);
-        }
-
+  useEffect(() => {
+    if (localStorage.getItem("access-token") != undefined) {
+      const userData = parseJwt(localStorage.getItem("access-token"));
+      //we get the role og the logged in user
+      setUserRole(
+        userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+      );
+      //we get the id of the logged in user
+      setLoggedUserId(
+        userData["http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor"]
+      );
     }
-    //form inputs handler
-    const resetForm = () => {
-        setStoreId('');
-        setCategoryId('');
-        setProductId('');
-        setProductName('');
-        setImageURL(null);
-        setIsTransportable(null);
-    }
-    //button handlers
-    const handleCreateButtonClick = () => {
-        setShowPopUpForm(true);
-    };
-    const handleCancelButtonClick = () => {
-        setShowPopUpForm(false);
-        getProducts()
-            .then(data => {
-                setProducts(data.result);
-                setIsLoading(false);
-            })
-            .catch(error => {
-                console.error('Error', error);
-                setIsLoading(false);
-            });
-        resetForm();
-    }
-    const handleEditButtonClick = async (id) => {
-        try {
-            const productData = await getProduct(id);
-            setCategoryId(productData.result.categoryId);
-            setStoreId(productData.result.storeId);
-            setProductId(productData.result.productId);
-            setProductName(productData.result.productName);
-            setImageURL(productData.result.productImg);
-            setIsTransportable(productData.result.isTransportable);
-            setShowPopUpForm(true);
-        } catch (error) {
-            console.error('Error', error);
-        }
-    };
-    // ...
-
-    const deleteProductById = async (id) => {
-        try {
-            const response = await deleteProduct(id);
-            if (response.isSuccess) {
-                getProducts()
-                    .then(data => {
-                        setProducts(data.result);
-                        setIsLoading(false);
-                    })
-                    .catch(error => {
-                        console.error('Error', error);
-                    });
-            } else {
-                // Handle the error message by displaying an alert
-                alert(response.errorMessage.join('\n'));
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
-
-    // ...
-
-    const handleDeleteButtonClick = (id) => {
-        confirmAlert({
-            title: 'Confirm Deletion',
-            message: 'Are you sure you want to delete this product?',
-            buttons: [
-                {
-                    label: 'Yes',
-                    onClick: () => deleteProductById(id),
-                },
-                {
-                    label: 'No',
-                    onClick: () => { } // Do nothing if "No" is clicked
-                }
-            ]
+  }, [params]);
+  useEffect(() => {
+    if (userRole === "Admin") {
+      getProducts()
+        .then((data) => {
+          setProducts(data.result);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error", error);
         });
-    }
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    } else if (userRole === "Store Keeper") {
+      const fetchData = async () => {
         try {
-            if (productId) {
-                const editedProductData = {
-                    productId,
-                    storeId,
-                    categoryId,
-                    productName,
-                    isTransportable,
-                    productImg: imageURL,
-                };
-                const response = await editProduct(editedProductData);
-                toast.success('The product has been updated!', {
-                    position: toast.POSITION.TOP_RIGHT,
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            }
-            else {
-                const postProductData = {
-                    storeId,
-                    categoryId,
-                    productName,
-                    isTransportable,
-                    productImg: imageURL,
-                };
-                const response = await postProduct(postProductData);
-                toast.success('The product has been created!', {
-                    position: toast.POSITION.TOP_RIGHT,
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            }
+          const data = await getStoreByStoreKeeper(loggedUserId);
+          const storeData = data.result;
+          setStoreOfStoreKeeper(storeData);
+          setStoreId(storeData.storeId);
+          setStoreName(storeData.storeName);
+          const doesStoreHasProducts =
+            storeId === products.some((product) => product.storeId);
+          if (doesStoreHasProducts) {
+            const pData = await getProductsByStore(storeId);
+            const productData = pData.result;
+            setStoreProducts(productData);
+          }
+          setIsLoading(false);
         } catch (error) {
-            toast.error('Error creating/updating the product', {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            })
+          console.error("Error:", error);
         }
+      };
+      fetchData();
     }
+  }, [userRole, loggedUserId, storeId]);
 
-    return (
-        <div className="page-container">
-            {showPopUpForm && <div className="overlay" />}
-            <div className="page-header-container">
-                <h1>All Products Information</h1>
-                <button className="create-new-button" id="createButton" onClick={handleCreateButtonClick}><p>Create new product</p></button>
-            </div>
-            <div className="datatable-container">
-                {isLoading ? (
-                    <p>Loading...</p> // Show loading message when data is loading
-                ) : (
-                    <table id="datatable" cellSpacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                {/* <th>Product Image</th> */}
-                                <th>Product Name</th>
-                                <th>Transportable</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        {userRole === "Admin" ? (
-                            <tbody>
-                                {products.map(product => (
+  //retrieving stores
+  useEffect(() => {
+    getStores()
+      .then((data) => {
+        setStores(data.result);
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
+  }, []);
+  //retrieving the categories
+  useEffect(() => {
+    getCategories()
+      .then((data) => {
+        setCategories(data.result);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
+  //retrieving the products
 
-                                    <tr key={product.productId}>
-                                        {/* <td>{product.productImg}</td> */}
-                                        <td>{product.productName}</td>
-                                        <td>{product.isTransportable ? "Available Transport" : "Non-Available Transport"}</td>
+  // DATATABLE
+  useEffect(() => {
+    if (!dataTableRef.current && !isLoading) {
+      // DataTable initialization when the component mounts and data is available
+      dataTableRef.current = $("#datatable").DataTable({
+        dom: '<"dt-buttons"Bf><"clear">lirtp',
+        paging: true,
+        autoWidth: true,
+        buttons: [
+          "colvis",
+          "copyHtml5",
+          "csvHtml5",
+          "excelHtml5",
+          "pdfHtml5",
+          "print",
+        ],
+      });
+    }
+  }, [isLoading]);
+  // IMAGE HANDLER
+  const handleFileChange = (event) => {
+    // this function reads the file and sets the imageURL state with the data URL
+    const selectedImage = event.target.files[0];
+    if (selectedImage) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageURL(reader.result);
+      };
+      reader.readAsDataURL(selectedImage);
+    }
+  };
+  //form inputs handler
+  const resetForm = () => {
+    setStoreId("");
+    setCategoryId("");
+    setProductId("");
+    setProductName("");
+    setImageURL(null);
+    setIsTransportable(null);
+  };
+  //button handlers
+  const handleCreateButtonClick = () => {
+    setShowPopUpForm(true);
+  };
+  const handleCancelButtonClick = () => {
+    setShowPopUpForm(false);
+    getProducts()
+      .then((data) => {
+        setProducts(data.result);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error", error);
+        setIsLoading(false);
+      });
+    resetForm();
+  };
+  const handleEditButtonClick = async (id) => {
+    try {
+      const productData = await getProduct(id);
+      setCategoryId(productData.result.categoryId);
+      setStoreId(productData.result.storeId);
+      setProductId(productData.result.productId);
+      setProductName(productData.result.productName);
+      setImageURL(productData.result.productImg);
+      setIsTransportable(productData.result.isTransportable);
+      setShowPopUpForm(true);
+    } catch (error) {
+      console.error("Error", error);
+    }
+  };
+  // ...
 
-                                        <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(product.productId)} /> <BsTrash onClick={() => handleDeleteButtonClick(product.productId)} /></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        ) : userRole === "Store Keeper" ? (
-                            <tbody>
-                                {storeProducts.map(product => (
+  const deleteProductById = async (id) => {
+    try {
+      const response = await deleteProduct(id);
+      if (response.isSuccess) {
+        getProducts()
+          .then((data) => {
+            setProducts(data.result);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error("Error", error);
+          });
+      } else {
+        // Handle the error message by displaying an alert
+        alert(response.errorMessage.join("\n"));
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
-                                    <tr key={product.productId}>
-                                        {/* <td>{product.productImg}</td> */}
-                                        <td>{product.productName}</td>
-                                        <td>{product.isTransportable ? "Available Transport" : "Non-Available Transport"}</td>
+  // ...
 
-                                        <td className="actions-td"><AiOutlineEdit onClick={() => handleEditButtonClick(product.productId)} /> <BsTrash onClick={() => handleDeleteButtonClick(product.productId)} /></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        ) : (<p>Unauthorized</p>)}
-                    </table>
-                )}
-            </div>
-            <div className="popup-form" style={{ display: showPopUpForm ? 'block' : 'none' }}>
-                <ToastContainer />
-                <div className="popup-header margin">
-                    <h1>{productId ? "Update product" : "Create product"}</h1>
-                    <p>{productId ? "by re-writing down product informations..." : "by writing down product informations..."}</p>
+  const handleDeleteButtonClick = (id) => {
+    confirmAlert({
+      title: "Confirm Deletion",
+      message: "Are you sure you want to delete this product?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => deleteProductById(id),
+        },
+        {
+          label: "No",
+          onClick: () => {}, // Do nothing if "No" is clicked
+        },
+      ],
+    });
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      if (productId) {
+        const editedProductData = {
+          productId,
+          storeId,
+          categoryId,
+          productName,
+          isTransportable,
+          productImg: imageURL,
+        };
+        const response = await editProduct(editedProductData);
+        toast.success("The product has been updated!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        const postProductData = {
+          storeId,
+          categoryId,
+          productName,
+          isTransportable,
+          productImg: imageURL,
+        };
+        const response = await postProduct(postProductData);
+        toast.success("The product has been created!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (error) {
+      toast.error("Error creating/updating the product", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
 
-                </div>
-                <div className="popup-body">
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-input form-name-input margin">
-                            <label>Product name</label>
-                            <input type="text" value={productName} onChange={(e) => setProductName(e.target.value)} required />
+  return (
+    <div className="page-container">
+      {showPopUpForm && <div className="overlay" />}
+      <div className="page-header-container">
+        <h1>All Products Information</h1>
+        <button
+          className="create-new-button"
+          id="createButton"
+          onClick={handleCreateButtonClick}
+        >
+          <p>Create new product</p>
+        </button>
+      </div>
+      <div className="datatable-container">
+        {isLoading ? (
+          <p>Loading...</p> // Show loading message when data is loading
+        ) : (
+          <table id="datatable" cellSpacing="0" width="100%">
+            <thead>
+              <tr>
+                {/* <th>Product Image</th> */}
+                <th>Product Name</th>
+                <th>Transportable</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            {userRole === "Admin" ? (
+              <tbody>
+                {products.map((product) => (
+                  <tr key={product.productId}>
+                    {/* <td>{product.productImg}</td> */}
+                    <td>{product.productName}</td>
+                    <td>
+                      {product.isTransportable
+                        ? "Available Transport"
+                        : "Non-Available Transport"}
+                    </td>
 
-                        </div>
-                        <div className="flex-inputs">
-                            {userRole === "Store Keeper" ? (
-                                <div className="form-input other-form-inputs margin">
-                                    <label>Store name</label>
-                                    <input type="text" value={storeId} onChange={(e) => setStoreId(e.target.value)} style={{ display: "none" }} />
-                                    <input type="text" value={storeName} onChange={(e) => setStoreName(e.target.value)} disabled />
+                    <td className="actions-td">
+                      <AiOutlineEdit
+                        onClick={() => handleEditButtonClick(product.productId)}
+                      />{" "}
+                      <BsTrash
+                        onClick={() =>
+                          handleDeleteButtonClick(product.productId)
+                        }
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            ) : userRole === "Store Keeper" ? (
+              <tbody>
+                {storeProducts.map((product) => (
+                  <tr key={product.productId}>
+                    {/* <td>{product.productImg}</td> */}
+                    <td>{product.productName}</td>
+                    <td>
+                      {product.isTransportable
+                        ? "Available Transport"
+                        : "Non-Available Transport"}
+                    </td>
 
-
-                                </div>
-                            ) : (
-                                <div className="form-input other-form-inputs margin">
-
-                                    <select value={storeId} onChange={(e) => setStoreId(e.target.value)} className="form-dropdown">
-                                        <option value="" disabled>Select Store</option> {/* Initial placeholder */}
-                                        {stores.map((store) => (
-                                            <option key={store.storeId} value={store.storeId}>
-                                                {store.storeName}
-                                            </option>
-                                        ))}
-                                    </select>
-
-                                </div>
-                            )}
-                            <div className="form-input other-form-inputs margin">
-                                <label>Category name</label>
-                                <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} className="form-dropdown">
-                                    <option value="" disabled>Select Category</option>
-                                    {categories.map((category) => (
-                                        <option key={category.categoryId} value={category.categoryId}>
-                                            {category.categoryName}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
-                        <div className="flex-inputs">
-                            <div className="form-input form-name-input margin">
-                                <p style={{ padding: "15px" }}>Please make sure you tell us if your product is transportable for delivery reasons.</p>
-                                <select value={isTransportable} onChange={(e) => setIsTransportable(e.target.value === 'true')} className="form-dropdown">
-                                    <option disabled>Select Transportability</option>
-                                    <option value={true}>Available Transport</option>
-                                    <option value={false}>Non-Available Transport</option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div className="flex-inputs">
-                            <div className="form-input form-name-input margin">
-                                <label htmlFor="fileInput">
-
-                                    {imageURL ? (
-                                        <div className="form-input form-name-input ">
-                                            <p>Product Image</p>
-                                            <img src={imageURL} alt="Uploaded" style={{ maxWidth: '200px' }} />
-                                        </div>) :
-                                        (
-                                            <div>
-                                                <p>Product Image</p> <AiOutlineCloudUpload className="file-upload-logo" />
-                                            </div>
-                                        )}
-
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        capture="environment"
-                                        id="fileInput"
-                                        onChange={handleFileChange}
-                                        style={{ display: 'none' }}
-                                    />
-                                </label>
-                            </div>
-
-                        </div>
-
-                        <div className="form-buttons margin">
-                            <button className="cancel-button" id="cancelButton" type="button" onClick={handleCancelButtonClick}><p>Cancel</p></button>
-                            <button className="create-new-button" id="createButton" type="submit"><p>{productId ? "Update product" : "Create new product"}</p></button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
+                    <td className="actions-td">
+                      <AiOutlineEdit
+                        onClick={() => handleEditButtonClick(product.productId)}
+                      />{" "}
+                      <BsTrash
+                        onClick={() =>
+                          handleDeleteButtonClick(product.productId)
+                        }
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            ) : (
+              <p>Unauthorized</p>
+            )}
+          </table>
+        )}
+      </div>
+      <div
+        className="popup-form"
+        style={{ display: showPopUpForm ? "block" : "none" }}
+      >
+        <ToastContainer />
+        <div className="popup-header margin">
+          <h1>{productId ? "Update product" : "Create product"}</h1>
+          <p>
+            {productId
+              ? "by re-writing down product informations..."
+              : "by writing down product informations..."}
+          </p>
         </div>
-    );
+        <div className="popup-body">
+          <form onSubmit={handleSubmit}>
+            <div className="form-input form-name-input margin">
+              <label>Product name</label>
+              <input
+                type="text"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex-inputs">
+              {userRole === "Store Keeper" ? (
+                <div className="form-input other-form-inputs margin">
+                  <label>Store name</label>
+                  <input
+                    type="text"
+                    value={storeId}
+                    onChange={(e) => setStoreId(e.target.value)}
+                    style={{ display: "none" }}
+                  />
+                  <input
+                    type="text"
+                    value={storeName}
+                    onChange={(e) => setStoreName(e.target.value)}
+                    disabled
+                  />
+                </div>
+              ) : (
+                <div className="form-input other-form-inputs margin">
+                  <select
+                    value={storeId}
+                    onChange={(e) => setStoreId(e.target.value)}
+                    className="form-dropdown"
+                  >
+                    <option value="" disabled>
+                      Select Store
+                    </option>{" "}
+                    {/* Initial placeholder */}
+                    {stores.map((store) => (
+                      <option key={store.storeId} value={store.storeId}>
+                        {store.storeName}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              <div className="form-input other-form-inputs margin">
+                <label>Category name</label>
+                <select
+                  value={categoryId}
+                  onChange={(e) => setCategoryId(e.target.value)}
+                  className="form-dropdown"
+                >
+                  <option value="" disabled>
+                    Select Category
+                  </option>
+                  {categories.map((category) => (
+                    <option
+                      key={category.categoryId}
+                      value={category.categoryId}
+                    >
+                      {category.categoryName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="flex-inputs">
+              <div className="form-input form-name-input margin">
+                <p style={{ padding: "15px" }}>
+                  Please make sure you tell us if your product is transportable
+                  for delivery reasons.
+                </p>
+                <select
+                  value={isTransportable}
+                  onChange={(e) =>
+                    setIsTransportable(e.target.value === "true")
+                  }
+                  className="form-dropdown"
+                >
+                  <option disabled>Select Transportability</option>
+                  <option value={true}>Available Transport</option>
+                  <option value={false}>Non-Available Transport</option>
+                </select>
+              </div>
+            </div>
+            <div className="flex-inputs">
+              <div className="form-input form-name-input margin">
+                <label htmlFor="fileInput">
+                  {imageURL ? (
+                    <div className="form-input form-name-input ">
+                      <p>Product Image</p>
+                      <img
+                        src={imageURL}
+                        alt="Uploaded"
+                        style={{ maxWidth: "200px" }}
+                      />
+                    </div>
+                  ) : (
+                    <div>
+                      <p>Product Image</p>{" "}
+                      <AiOutlineCloudUpload className="file-upload-logo" />
+                    </div>
+                  )}
+
+                  <input
+                    type="file"
+                    accept="image/*"
+                    capture="environment"
+                    id="fileInput"
+                    onChange={handleFileChange}
+                    style={{ display: "none" }}
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className="form-buttons margin">
+              <button
+                className="cancel-button"
+                id="cancelButton"
+                type="button"
+                onClick={handleCancelButtonClick}
+              >
+                <p>Cancel</p>
+              </button>
+              <button
+                className="create-new-button"
+                id="createButton"
+                type="submit"
+              >
+                <p>{productId ? "Update product" : "Create new product"}</p>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }
