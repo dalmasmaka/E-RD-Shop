@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Net;
+using System.Net.Mail;
 using System.Reflection;
 using System.Text;
 
@@ -31,6 +33,14 @@ builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 builder.Services.AddScoped<IProductVariantRepository, ProductVariantRepository>();
 builder.Services.AddScoped<IWishlistProductRepository, WishlistProductRepository>();
 builder.Services.AddScoped<IShoppingCartProductRepository, ShoppingCartProductRepository>();
+builder.Services.AddScoped<IMailRepository, MailRepository>();
+
+var client = new SmtpClient("sandbox.smtp.mailtrap.io", 587)
+{
+    Credentials = new NetworkCredential("d808e1fbc5b4ac", "a4cd3c350151fd"),
+    EnableSsl = true
+};
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 
 //Adding Token Service 
 builder.Services.AddScoped<TokenService>();

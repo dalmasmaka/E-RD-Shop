@@ -28,8 +28,9 @@ namespace ERD_Shop.User.Controllers
         private readonly IPublishEndpoint _publishEndpoint;
         private readonly TokenService _tokenService;
         private readonly IConfiguration _configuration;
+        private readonly IMailRepository _mailRepository;
 
-        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint, IWishlistRepository wishlistRepository, IShoppingCartRepository shoppingCartRepository, SignInManager<ApplicationUser> signInManager, TokenService tokenService, IConfiguration configuration)
+        public AuthenticationController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IPublishEndpoint publishEndpoint, IWishlistRepository wishlistRepository, IShoppingCartRepository shoppingCartRepository, SignInManager<ApplicationUser> signInManager, TokenService tokenService, IConfiguration configuration, IMailRepository mailRepository)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -39,6 +40,21 @@ namespace ERD_Shop.User.Controllers
             _signInManager = signInManager;
             _tokenService = tokenService;
             _configuration = configuration;
+            _mailRepository = mailRepository;
+        }
+        [AllowAnonymous]
+        [HttpPost("SendMail")]
+        public async Task<IActionResult> SendEmail([FromForm]Mails mailRequest)
+        {
+            try
+            {
+                await _mailRepository.SendMailAsync(mailRequest);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("GetUsers")]
@@ -93,6 +109,18 @@ namespace ERD_Shop.User.Controllers
                 ShoppingCartDto shoppingCart = new ShoppingCartDto { ApplicationUserId = applicationUser.Id };
                 await _wishlistRepository.CreateWishlist(wishlist);
                 await _shoppingCartRepository.CreateShoppingCart(shoppingCart);
+
+                // Send a welcome email to the new user
+                var mailRequest = new Mails
+                {
+                    ToEmail = applicationUser.Email,
+                    Subject = "Welcome to Our Website",
+                    Body = "Thank you for registering on our website. You can now start using our services.",
+                    Attachements = new List<IFormFile>() // You can attach files if needed
+                };
+                await _mailRepository.SendMailAsync(mailRequest);
+
+
                 await _publishEndpoint.Publish(new ApplicationOrderUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
                 if(role.ToUpper() == "STORE KEEPER")
                 {
@@ -107,6 +135,7 @@ namespace ERD_Shop.User.Controllers
                 List<string> errorDescriptions = result.Errors.Select(e => e.Description).ToList();
                 return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto { IsSuccess = false, 
                                                                                               Message = "User failed to be created!",
+
                                                                                               Errors = errorDescriptions});
             }
         }

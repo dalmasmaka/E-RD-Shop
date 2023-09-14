@@ -265,21 +265,21 @@ namespace ERD_Shop.User.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f40fa452-a897-407a-b5fb-05c35c0dba33",
+                            Id = "1fd9af79-b0c0-4ca0-ba95-f9fe241d5ba9",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "16e19d8b-2901-47a3-b142-a2f9fd347725",
+                            Id = "9c9d5f3b-6b47-4dd0-90c9-865d9e3dbb8f",
                             ConcurrencyStamp = "2",
                             Name = "User",
                             NormalizedName = "User"
                         },
                         new
                         {
-                            Id = "bfc7ff70-ee53-4113-a0cd-f9bf846ee9e6",
+                            Id = "495b3467-29e0-4f6f-8488-459aed113df9",
                             ConcurrencyStamp = "3",
                             Name = "Store Keeper",
                             NormalizedName = "Store Keeper"
