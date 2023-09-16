@@ -147,8 +147,18 @@ export default function Register() {
         progress: undefined,
       });
       return;
+    } else {
+      toast.success("Success! Happy Shopping", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      window.location.href = "/login";
     }
-    window.location.href = "/login";
   }
 
   return (

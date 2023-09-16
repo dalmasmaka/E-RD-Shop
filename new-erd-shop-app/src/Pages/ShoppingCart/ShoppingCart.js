@@ -13,6 +13,7 @@ import {
 import { getVariantsInShoppingCart } from "../../API/Api";
 import { getUser } from "../../API/Api";
 import { useParams } from "react-router-dom";
+import OrderPage from "../OrderPage/OrderPage";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -85,7 +86,7 @@ const ShoppingCart = () => {
   };
 
   const handleGoToClick = () => {
-    navigate("/orderpage"); // Redirect to the product variants page
+    navigate("./confirm-order");
   };
 
   useEffect(() => {
@@ -109,6 +110,9 @@ const ShoppingCart = () => {
 
   const calculateTotalPrice = () => {
     const totalPrice = shoppingCart.reduce((total, product) => {
+      if (product.quantity) {
+        return total + product.price * product.quantity;
+      }
       return total + product.price;
     }, 0);
 
@@ -116,15 +120,32 @@ const ShoppingCart = () => {
   };
 
   const incrementCount = (variant) => {
-    if (count < variant.stockQuantity) {
-      setCount((prevCount) => prevCount + 1);
-    }
+    const updatedVariants = shoppingCart.map((v) => {
+      if (v.productVariantId === variant.productVariantId) {
+        if (variant.quantity == undefined) {
+          return { ...v, quantity: 2 };
+        }
+        if (variant.quantity < variant.stockQuantity) {
+          return { ...v, quantity: v.quantity + 1 };
+        }
+      }
+      return v;
+    });
+
+    setShoppingCart(updatedVariants);
   };
 
-  const decrementCount = () => {
-    if (count > 0) {
-      setCount((prevCount) => prevCount - 1);
-    }
+  const decrementCount = (variant) => {
+    const updatedVariants = shoppingCart.map((v) => {
+      if (v.productVariantId === variant.productVariantId) {
+        if (variant.quantity && variant.quantity > 1) {
+          return { ...v, quantity: v.quantity - 1 };
+        }
+      }
+      return v;
+    });
+
+    setShoppingCart(updatedVariants);
   };
 
   return (
@@ -147,25 +168,28 @@ const ShoppingCart = () => {
             <tbody>
               {shoppingCart.map((variant) => {
                 return (
-                  <tr>
+                  <tr key={variant.productVariantId}>
                     <td>{variant.productVariantId}</td>
                     <td>{variant.productVariantName}</td>
                     <td>{variant.price}</td>
-                    <td>  <div className="quantity">
-            <button
-              className="quantity-btn decrease-btn"
-              onClick={decrementCount}
-            >
-              <FaChevronLeft />
-            </button>
-            <span> {count} </span>
-            <button
-              className="quantity-btn increase-btn"
-              onClick={()=>incrementCount(variant)}
-            >
-              <FaChevronRight />
-            </button>
-          </div></td>
+                    <td>
+                      {" "}
+                      <div className="quantity">
+                        <button
+                          className="quantity-btn decrease-btn"
+                          onClick={() => decrementCount(variant)}
+                        >
+                          <FaChevronLeft />
+                        </button>
+                        <span> {variant.quantity ? variant.quantity : 1} </span>
+                        <button
+                          className="quantity-btn increase-btn"
+                          onClick={() => incrementCount(variant)}
+                        >
+                          <FaChevronRight />
+                        </button>
+                      </div>
+                    </td>
                     {/* <td>{variant.quantity}</td> */}
                     <td className="action-buttons">
                       <button
@@ -214,6 +238,9 @@ const ShoppingCart = () => {
           </div>
         </div>
       )}
+      {params.action === "confirm-order" ? (
+        <OrderPage products={shoppingCart} />
+      ) : null}
     </div>
   );
 };
