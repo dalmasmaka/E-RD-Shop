@@ -31,7 +31,7 @@ function App() {
             element={<ProductVariantDetails />}
           />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/shoppingcart" element={<ShoppingCart />} />
+          <Route path="/shoppingcart/:action?" element={<ShoppingCart />} />
           <Route path="/orderpage" element={<OrderPage />} />
           <Route path="/paymentform" element={<PaymentForm />} />
           <Route path="/register/:role" element={<Register />} />
