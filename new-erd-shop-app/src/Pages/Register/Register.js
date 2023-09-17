@@ -1,5 +1,5 @@
 import style from "./Register.module.css";
-import { getCountries, getCities } from "../../API/Api";
+import EmailConfirmation, { getCountries, getCities } from "../../API/Api";
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";

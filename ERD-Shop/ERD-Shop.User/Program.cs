@@ -42,6 +42,11 @@ var client = new SmtpClient("sandbox.smtp.mailtrap.io", 587)
 };
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.SignIn.RequireConfirmedEmail = true;
+});
+
 //Adding Token Service 
 builder.Services.AddScoped<TokenService>();
 

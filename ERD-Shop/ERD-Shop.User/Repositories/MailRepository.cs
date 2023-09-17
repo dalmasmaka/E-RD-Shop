@@ -9,14 +9,21 @@ using Microsoft.Extensions.Options;
 using System.Net.Mail;
 using System.Net;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace ERD_Shop.User.Repositories
 {
     public class MailRepository : IMailRepository
     {
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly MailSettings  _mailSettings;
-        public MailRepository(IOptions<MailSettings> mailSettings) {
+        public MailRepository(UserManager<ApplicationUser> userManager, IOptions<MailSettings> mailSettings) {
+            _userManager = userManager;
             this._mailSettings = mailSettings.Value;
+        }
+        public async Task<IdentityResult>ConfirmEmailAsync(string uid, string token)
+        {
+            return await _userManager.ConfirmEmailAsync(await _userManager.FindByIdAsync(uid), token);
         }
         public async Task SendMailAsync(Mails mailRequest)
         {
@@ -25,18 +32,12 @@ namespace ERD_Shop.User.Repositories
                
                 Subject = mailRequest.Subject,
                 Body = mailRequest.Body,
-                From = new MailAddress(_mailSettings.SenderAddress, _mailSettings.DisplayName),
-                
-             
+                From = new MailAddress(_mailSettings.SenderAddress, _mailSettings.DisplayName),      
 
             };
             // Add recipient email address using the To.Add method
             mail.To.Add(mailRequest.ToEmail);
-            foreach (var attachment in mailRequest.Attachements)
-            {
-                Attachment fileAttachment = new Attachment(attachment.OpenReadStream(), attachment.FileName);
-                mail.Attachments.Add(fileAttachment);
-            }
+            mail.Body += Environment.NewLine + mailRequest.EmailConfirmationLink;
             NetworkCredential networkCredentials = new NetworkCredential(_mailSettings.UserName, _mailSettings.Password);
             System.Net.Mail.SmtpClient smtpClient = new System.Net.Mail.SmtpClient
             {

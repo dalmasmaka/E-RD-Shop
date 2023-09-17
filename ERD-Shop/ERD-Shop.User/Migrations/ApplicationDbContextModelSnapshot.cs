@@ -168,6 +168,77 @@ namespace ERD_Shop.User.Migrations
                     b.ToTable("ProductVariants");
                 });
 
+            modelBuilder.Entity("ERD_Shop.User.Models.Mails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmailConfirmationLink")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ToEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Mails");
+                });
+
+            modelBuilder.Entity("ERD_Shop.User.Models.MailSettings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EnableSSL")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Host")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Port")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SenderAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("UseDefaultCredentials")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MailSettings");
+                });
+
             modelBuilder.Entity("ERD_Shop.User.Models.ShoppingCart", b =>
                 {
                     b.Property<int>("ShoppingCartId")
@@ -265,21 +336,21 @@ namespace ERD_Shop.User.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1fd9af79-b0c0-4ca0-ba95-f9fe241d5ba9",
+                            Id = "2d2caed5-97a5-4850-8732-906f8de9c6c6",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "9c9d5f3b-6b47-4dd0-90c9-865d9e3dbb8f",
+                            Id = "9c4f06af-72c2-4219-83db-260d7ca11995",
                             ConcurrencyStamp = "2",
                             Name = "User",
                             NormalizedName = "User"
                         },
                         new
                         {
-                            Id = "495b3467-29e0-4f6f-8488-459aed113df9",
+                            Id = "98689a6f-27bb-4a69-9259-2c111bf8805e",
                             ConcurrencyStamp = "3",
                             Name = "Store Keeper",
                             NormalizedName = "Store Keeper"
