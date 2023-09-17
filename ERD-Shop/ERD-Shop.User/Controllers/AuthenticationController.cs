@@ -82,7 +82,9 @@ namespace ERD_Shop.User.Controllers
                 {
                     token = token.Replace(' ', '+');
                     await _mailRepository.ConfirmEmailAsync(uid, token);
-                    return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Message = "Email Confirmed" });
+                    var success = "Email Confirmed Successfully, you can go to the <a href='http://localhost:3000/login'>login page</a> and try logging in!";
+                    return Content(success, "text/html");
+
                 }
                 catch (Exception ex)
                 {
