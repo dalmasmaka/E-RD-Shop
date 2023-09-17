@@ -1,5 +1,6 @@
 import { error } from "jquery";
-
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 export const BASE_URL = "https://localhost:5000/api";
 
 export function getUsers() {
@@ -661,3 +662,69 @@ export async function deleteOrder(id) {
     throw error;
   }
 }
+export async function confirmEmail(userId, token) {
+  try {
+    const response = await fetch(`${BASE_URL}/Authentication/confirm-email?userId=${userId}&token=${token}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+}
+// Make an API call to your backend
+
+
+function EmailConfirmation() {
+  const { userId, token } = useParams();
+
+  useEffect(() => {
+    // Make the API call using userId and token
+    fetch(`${BASE_URL}/Authentication/confirm-email?userId=${userId}&token=${token}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Assuming the response is in JSON format
+      })
+      .then(data => {
+        // Handle the response data (e.g., show a success message)
+        console.log(data);
+      })
+      .catch(error => {
+        // Handle errors (e.g., show an error message)
+        console.error('Fetch error:', error);
+      });
+  }, [userId, token]); // Make sure to include userId and token in the dependency array
+
+  return (
+    <div>
+      {/* Render your confirmation component here */}
+    </div>
+  );
+}
+
+export default EmailConfirmation;
+
+
+
+// fetch(`${BASE_URL}/Authentication/confirm-email`, {
+//   params: {
+//     userId: userId,
+//     token: token
+//   }
+// })
+// .then(response => {
+//   // Handle the response (e.g., show a success message)
+// })
+// .catch(error => {
+//   // Handle errors (e.g., show an error message)
+// });
+

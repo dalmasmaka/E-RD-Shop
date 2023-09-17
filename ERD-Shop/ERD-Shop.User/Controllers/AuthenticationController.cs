@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Formats.Asn1;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Mail;
 using System.Text;
 using User.Contracts;
 
@@ -71,6 +73,30 @@ namespace ERD_Shop.User.Controllers
             return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Message = "OK", Result = users });
         }
         [AllowAnonymous]
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail(string uid, string token)
+        {
+            if (!string.IsNullOrEmpty(uid) && !string.IsNullOrEmpty(token))
+            {
+                try
+                {
+                    token = token.Replace(' ', '+');
+                    await _mailRepository.ConfirmEmailAsync(uid, token);
+                    return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Message = "Email Confirmed" });
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions if ConfirmEmailAsync throws any
+                    return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto { IsSuccess = false, Message = "Email confirmation failed: " + ex.Message });
+                }
+            }
+            else
+            {
+                // Handle invalid id or token
+                return StatusCode(StatusCodes.Status400BadRequest, new ResponseDto { IsSuccess = false, Message = "Invalid request parameters" });
+            }
+        }
+        [AllowAnonymous]
         [HttpPost("Register")]
         public async Task<IActionResult> Register(RegisterApplicationUserDto registrationUser, string role)
         {
@@ -104,22 +130,37 @@ namespace ERD_Shop.User.Controllers
             //Managing the result above
             if (result.Succeeded)
             {
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(applicationUser);
+                if(!string.IsNullOrEmpty(token))
+                {
+                    try
+                    {
+                        string appDomain = _configuration.GetSection("Application:AppDomain").Value;
+                        string confirmationLink = _configuration.GetSection("Application:EmailConfirmation").Value;
+                        // Send a welcome email to the new user
+                        var mailRequest = new Mails
+                        {
+                            ToEmail = applicationUser.Email,
+                            Subject = "Welcome to Our Website",
+                            Body = "Thank you for registering on our website. You can now start using our services but first you need to confirm your email by clicking the link down below.",
+                            EmailConfirmationLink = string.Format(appDomain + confirmationLink, applicationUser.Id, token),
+
+                        };
+                        await _mailRepository.SendMailAsync(mailRequest);
+                    }
+                    catch (Exception ex)
+                    {
+                        ///
+                    }
+
+                }
                 await _userManager.AddToRoleAsync(applicationUser, role);
                 WishlistDto wishlist = new WishlistDto { ApplicationUserId = applicationUser.Id };
                 ShoppingCartDto shoppingCart = new ShoppingCartDto { ApplicationUserId = applicationUser.Id };
                 await _wishlistRepository.CreateWishlist(wishlist);
                 await _shoppingCartRepository.CreateShoppingCart(shoppingCart);
 
-                // Send a welcome email to the new user
-                var mailRequest = new Mails
-                {
-                    ToEmail = applicationUser.Email,
-                    Subject = "Welcome to Our Website",
-                    Body = "Thank you for registering on our website. You can now start using our services.",
-                    Attachements = new List<IFormFile>() // You can attach files if needed
-                };
-                await _mailRepository.SendMailAsync(mailRequest);
-
+              
 
                 await _publishEndpoint.Publish(new ApplicationOrderUserCreated(applicationUser.Id, applicationUser.First_Name, applicationUser.Last_Name, applicationUser.BirthDate, (int)applicationUser.City_Id, applicationUser.Zip_Code, applicationUser.Address, applicationUser.Email, role));
                 if(role.ToUpper() == "STORE KEEPER")
@@ -150,6 +191,11 @@ namespace ERD_Shop.User.Controllers
                 loginUser.Token = await _tokenService.GenerateToken(user);
                 return StatusCode(StatusCodes.Status200OK, new ResponseDto { IsSuccess = true, Result = new {Token = loginUser.Token}, Message = "User has logged in" });
             }
+            else if (result.IsNotAllowed)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new ResponseDto { IsSuccess = false, Result = result, Message = "This account has not been confirmed by email!" });
+            }
+
             return StatusCode(StatusCodes.Status404NotFound, new ResponseDto { IsSuccess = false, Result = result, Message = "Email or Password is Invalid!"});
         }
 

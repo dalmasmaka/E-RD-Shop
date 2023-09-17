@@ -1,7 +1,11 @@
-﻿namespace ERD_Shop.User.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ERD_Shop.User.Models
 {
     public class MailSettings
     {
+        [Key]
+        public int Id { get; set; }
         public string SenderAddress { get; set; }
         public string UserName { get; set; }
         public string DisplayName { get; set; }
